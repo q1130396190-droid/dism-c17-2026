@@ -2379,6 +2379,10 @@ void CFrameWnd::RefreshThemeButton()
 
 void CFrameWnd::ShowThemePicker()
 {
+    // [WIN1607] Win10 上禁用主题切换：隐藏 btn_theme 按钮 + 这里兜底早 return。
+    //   Win11 上正常显示 3 种主题下拉。
+    if (!DuiLib::IsWindows11OrGreater()) return;
+
     CControlUI* pBtn = m_pm.FindControl(L"btn_theme");
     if (!pBtn || !m_hWnd) return;
 
@@ -2701,6 +2705,25 @@ void CFrameWnd::InitWindow()
     {
         const auto& cur = ThemeService::CurrentPreset();
         ThemeService::ApplyTheme(cur.name, false, true);
+    }
+
+    // [WIN1607] Win10 上：隐藏主题切换按钮 + 强制 classic 经典蓝
+    //   Win11 上主题功能完整可用（classic/light/dark 三种下拉）。
+    if (!DuiLib::IsWindows11OrGreater())
+    {
+        CControlUI* pThemeBtn = m_pm.FindControl(L"btn_theme");
+        if (pThemeBtn)
+        {
+            pThemeBtn->SetVisible(false);   // 视觉隐藏
+            pThemeBtn->SetFloat(false);     // 从布局流中彻底移除（不占位）
+        }
+        // 如果 config.ini 里保存了非 classic 主题，强制切回 classic
+        const auto& cur = ThemeService::CurrentPreset();
+        if (_wcsicmp(cur.name.c_str(), L"classic") != 0)
+        {
+            AppendLog(L"[theme] Win10 上强制切换到 classic 经典蓝主题");
+            ThemeService::ApplyTheme(L"classic", false, true);
+        }
     }
 
 

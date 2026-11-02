@@ -180,6 +180,9 @@ public:
     [[nodiscard]] bool OcmConfirmSwitch(CMarkupNode node, int nScope, bool bOn);
     void OcmFinishSwitch(CMarkupNode node, int g, int nScope, const CDuiString& sItemName,
                          CSwitchUI* pSw, bool bOn, int nUnsupported, bool bRestart);
+    // [PERF-SW] OcmFinishSwitch 的"回读 → 分组三态 → 核实缓存 → 筛选收敛"段。
+    //   独立成成员只为分段计时与单点维护；调用方仍只有 OcmFinishSwitch 一处。
+    void OcmFinishSwitchUiSync(CMarkupNode node, int g, int nScope, CSwitchUI* pSw);
 
     void OnScopeCombo(const wchar_t* pszName, int iSel);
     // [R152] OnScopeCombo 拆分（原 83 行 / CC17）

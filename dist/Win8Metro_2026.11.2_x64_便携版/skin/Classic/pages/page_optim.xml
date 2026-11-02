@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_optim" inset="7,6,12,8" childpadding="0">
+          <VerticalLayout name="cl_47" inset="12,0,6,0" childpadding="0">
+            <HorizontalLayout name="cl_48" height="26" bkcolor="#FFEFF6FC">
+              <!-- [SCOPE-2COL] 表头与 Page_Optim.h 的 optim_scope::kColumns 逐列对应：
+                   项目(弹性) / 当前用户 140 / 系统 140。
+                   原「新用户」列（HKU\.DEFAULT，scope 2）已移除——它只影响
+                   尚未创建的用户配置单元，用户在本页看不到、也无法验证生效，
+                   且 Data_Win11.xml 的 250 个条目中没有一条只覆盖该作用域。
+                   增删列时此表头与 kColumns 必须同步改，否则开关会落到错误表头下。 -->
+              <Text name="hdr_op_item" text="项目" font="6" textcolor="#FF333333" width="0" align="center"/>
+              <Text name="hdr_op_cur" text="当前用户" font="6" textcolor="#FF333333" width="140" align="center"/>
+              <Text name="hdr_op_sys" text="系统" font="6" textcolor="#FF333333" width="140" align="center"/>
+            </HorizontalLayout>
+            <VerticalLayout name="optim_tree" width="0" height="0" bkcolor="#FFFFFFFF" inset="0,0,0,0" childpadding="0" vscrollbar="true"/>
+          </VerticalLayout>
+          <Progress name="optim_progress" min="0" max="100" value="0" height="8" width="0" bkcolor="#FFE5E5E5" forecolor="#FF007ACC" showtext="false" visible="false"/>
+
+          <HorizontalLayout name="cl_49" height="40" childpadding="7" childvalign="vcenter">
+            <Button name="btn_find" text="查找" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="40" align="center" valign="center"/>
+            <Edit name="find_edit" width="150" height="28" textcolor="#FF1A1A1A" tipvaluecolor="#FF999999" tipvalue="输入关键字过滤" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,4,6,4" font="1" visible="false"/>
+            <Text name="lbl_optim_status" width="0" height="0" font="1" textcolor="#FF666666" align="right"/>
+            <Button name="btn_optim_bulk" text="全选/全不选" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="40" align="center" valign="center"/>
+            <Button name="btn_optim_state" text="状态:全部" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="80" height="40" align="center" valign="center"/>
+            <Button name="btn_apply_rules" text="提交规则" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="40" align="center" valign="center"/>
+            <Button name="btn_import_cfg" text="导入配置" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="40" align="center" valign="center"/>
+            <Button name="btn_export_cfg" text="导出配置" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="40" align="center" valign="center"/>
+            <Button name="btn_refresh" text="刷新" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" borderround="4,4" pushedbkcolor="#FF005A9E" width="84" height="40" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

@@ -55,6 +55,40 @@ inline constexpr int kOptimScopeSwitchOn = 1;
 // 传 -1 表示收集该作用域下全部 Warning（本段两处调用都是全量收集）。
 inline constexpr int kOptimAllActions = -1;
 
+// ============================================================
+// [PERF-SW] 分组三态同步的快速预检。
+//
+// 为什么需要：SyncOptimGroupGlyph(int g) 的执行顺序是
+//   ① GetOptimizationRoot() + 逐兄弟遍历到第 g 个 Group —— O(g)；
+//   ② 才在 SyncOptimGroupGlyph(g, gNode) 里查 optgrp_ck_<g>，查不到就 return。
+// 而「组头复选框已移除」是既定界面形态（见 Page_Optim.cpp 该重载注释），
+// 复选框必然不存在 ⇒ 第 ① 步的遍历 100% 白做；万一将来某版本复选框又存在，
+// 第 ② 步之后还会再做一轮全组开关统计（每项都要查注册表）。
+// 开关点击是全页最高频的交互，这层常量级浪费不该留在同步栈里。
+//
+// 做法：在调用前用 HostFindControl 探一次控件（IPageContext 虚函数，一次按名
+// 查找，无遍历）；不存在就完全不调用。存在时才走原路径，语义不变。
+//
+// 注意：这里**不能**改成"查得到就调双参重载自己算"——双参重载的统计口径
+// （OptimItemShown 的 bGroupMatch）与单参版本保持一致，但重载是私有成员，
+// 本 TU 的辅助函数无权调用；保持单参调用即保持既有行为。
+// ============================================================
+// [PERF-SW] 放在 optim_detail 命名空间内：调用点写的是
+//   optim_detail::OptimGroupGlyphNeeded(...)，而文件顶部的 using 只引入了
+//   FindOptimItem / CollectWarningTexts 两个名字，辅助函数留在全局命名空间
+//   会导致调用点找不到名字。放进子命名空间同时也避免与本文件后续可能新增的
+//   同名自由函数冲突。
+namespace optim_detail
+{
+[[nodiscard]] inline bool OptimGroupGlyphNeeded(IPageContext& ctx, int g)
+{
+    if (g < 0) return false;
+    CDuiString sCkName;
+    sCkName.Format(L"optgrp_ck_%d", g);
+    return ctx.HostFindControl(sCkName.GetData()) != nullptr;
+}
+}   // namespace optim_detail
+
 // [R152] OnSwitchToggle 拆为三段（原 87 行 / CC20）。
 // 确认段与收尾段各自独立成函数，主函数只保留「解析 → 确认 → 应用 → 收尾」编排。
 // 三段之间只通过显式参数传递状态，不依赖隐式顺序。
@@ -66,6 +100,15 @@ inline constexpr int kOptimAllActions = -1;
 // 返回 false 表示用户取消（调用方须把开关控件回滚到 bCurrent）。
 bool CPageOptim::OcmConfirmSwitch(CMarkupNode node, int nScope, bool bOn)
 {
+    // [PERF-SW] 三次探针 / Scope 子树遍历的短路说明（有意保持现状）：
+    //   · node 有效性与"该作用域是否有 True/False 分支"由调用方保证——
+    //     OnSwitchToggle 先 FindOptimItem 取 node，且只有 sw_<g>_<i>_<sc>
+    //     控件存在（即该作用域节点存在、行列已建）才会走到这里；
+    //   · CollectWarningTexts 内部已是"box 无效 / branch 无效即 return"的
+    //     深度 1~2 短路，没有 Warning 时只多两次 GetChild；
+    //   · 再在前面加一层"先探 branch 存在"的预检，只会在**有 Warning**时
+    //     重复一次同样的 GetChild，反而更慢。
+    //   正确性优先：这里不做结构改写，只保留原有的"无提示直接放行"。
     std::vector<CDuiString> warnings;
     CollectWarningTexts(m_ctx.DataEngine(), node, nScope, bOn, kOptimAllActions, warnings);
     // 无论有无 Warning，先把提权说明准备好（有则并入下方确认框）
@@ -85,46 +128,86 @@ bool CPageOptim::OcmConfirmSwitch(CMarkupNode node, int nScope, bool bOn)
                                 MB_YESNO, MB_ICONQUESTION) == IDYES;
 }
 
+// [PERF-SW] 从 OcmFinishSwitch 拆出（原第 121-127 行内联）。
+// 拆出的目的只是"能够分段时间"，顺序与判定逐字不变：
+//   ① 回读系统真实状态 → 回写开关控件（失败回滚也依赖其同步重绘）；
+//   ② 分组三态（加快速预检，见 OptimGroupGlyphNeeded）；
+//   ③ 让核实缓存失效；
+//   ④ 筛选收敛（仅在状态过滤生效时重排，依据见下方注释）。
+void CPageOptim::OcmFinishSwitchUiSync(CMarkupNode node, int g, int nScope, CSwitchUI* pSw)
+{
+    {
+        optim_detail::ScopedPerfTimer t("switch.readback");
+        // re-verify the real state so UI can never disagree with the system
+        const int nAfter = m_ctx.DataEngine().GetScopeState(node, nScope);
+        if (nAfter >= 0 && pSw) pSw->SetOn(nAfter == kOptimScopeSwitchOn, false);
+    }
+    {
+        // [PERF-SW] 分组三态：组头复选框不存在时 SyncOptimGroupGlyph(g) 只会做一次
+        // O(g) 的根→组定位然后空手而回（详见 OptimGroupGlyphNeeded 注释）。
+        optim_detail::ScopedPerfTimer t("switch.glyph");
+        if (g >= 0 && optim_detail::OptimGroupGlyphNeeded(m_ctx, g)) SyncOptimGroupGlyph(g);
+    }
+    InvalidateOptimVerifyCache();   // [VERIFY-TTL] 写入后让 5 秒核实缓存失效，否则下次强制核实被直接跳过
+    // [FILTER-STAY] 筛选/状态过滤生效时，本次开关可能已让该行不再满足条件
+    // （如"仅未启用"下把项打开）。重放一次过滤让列表立即收敛，否则该行会
+    // 停留在不符合当前筛选的位置，直到用户动一下搜索框才消失。
+    //
+    // [PERF-SW] 只保留"状态过滤"这一半：ApplyFindFilter 会遍历全部组、全部条目，
+    //   每条目多次 EvalConditions（OS/注册表探测）并对每组 RecalcBodyHeight，
+    //   而它现在跑在用户点开关的同步栈里 —— 这就是松手后"卡一下"的主因。
+    //   分析命中集合的三条判定（[FILTER-SSOT] OptimItemShown）：
+    //     · Applicable   —— 只依赖系统/OS，不依赖本页开关状态；本次开关不改其它项；
+    //     · 关键字       —— 只比对条目/组名，同样与开关值无关；
+    //     · 状态过滤     —— 读该项"是否已启用"。本次只改了当前这一行，
+    //                       其余行不受影响，只有这一行需要重新收敛。
+    //   所以纯关键字筛选（m_nOptimStateFilter == 0）下，本次开关**不可能**
+    //   改变任何一行的命中结果，重排纯属浪费，直接跳过；
+    //   只有状态过滤（仅启用/仅未启用）时命中集合才会变，必须重放。
+    //   这里刻意不引入延迟/异步重排：本轮交互结束后合并执行需要宿主消息钩子，
+    //   而"不必要的重排"本身被跳过已经消除了同步栈里的主要开销，
+    //   且跳过不会让界面停留在错误状态（见上）。
+    if (!m_bFiltering) return;
+    if (m_nOptimStateFilter == 0) return;   // 关键字筛选不受开关状态影响，无需收敛
+    optim_detail::ScopedPerfTimer t("switch.filter");
+    ApplyFindFilter(m_sOptimFindText);
+}
+
 // 收尾段：重启询问 + 回读核实 + 分组三态 + 让核实缓存失效 + 重放过滤。
 void CPageOptim::OcmFinishSwitch(CMarkupNode node, int g, int nScope,
                                  const CDuiString& sItemName, CSwitchUI* pSw,
                                  bool bOn, int nUnsupported, bool bRestart)
 {
-    CDuiString sLog;
-    sLog.Format(L"[optim] %s: [%s] %s%s",
-                bOn ? L"ON" : L"OFF",
-                m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData(),
-                nUnsupported > 0 ? L" (some actions unsupported)" : L"");
-    AppendLog(sLog.GetData());
-    // restart explorer prompt
-    if (bRestart)
     {
-        CDuiString sQ;
-        sQ.Format(StringMgr.Get("appx.s036a390a"),
-                  m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData());
-        if (ToolSql::HostConfirm(m_ctx.HostHwnd(), sQ.GetData(),
-                                 StringMgr.Get("toolbox.restart_expl"),
-                                 MB_YESNO, MB_ICONQUESTION) == IDYES)
+        optim_detail::ScopedPerfTimer t("switch.finish");
+        CDuiString sLog;
+        sLog.Format(L"[optim] %s: [%s] %s%s",
+                    bOn ? L"ON" : L"OFF",
+                    m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData(),
+                    nUnsupported > 0 ? L" (some actions unsupported)" : L"");
+        AppendLog(sLog.GetData());
+        // restart explorer prompt
+        if (bRestart)
         {
-            ::PostMessageW(m_ctx.HostHwnd(), WM_HOST_REQUEST_RESTART_EXPLORER, 0, 0);
+            CDuiString sQ;
+            sQ.Format(StringMgr.Get("appx.s036a390a"),
+                      m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData());
+            if (ToolSql::HostConfirm(m_ctx.HostHwnd(), sQ.GetData(),
+                                     StringMgr.Get("toolbox.restart_expl"),
+                                     MB_YESNO, MB_ICONQUESTION) == IDYES)
+            {
+                ::PostMessageW(m_ctx.HostHwnd(), WM_HOST_REQUEST_RESTART_EXPLORER, 0, 0);
+            }
         }
+        // [CRASHFIX] 任何 MessageBox 返回后，队列里残留的是弹层关闭/陈旧输入
+        //   消息；旧实现用全量 PumpUiMessages 在点击栈深处把它们派发出去，
+        //   半销毁的 DuiLib 弹层收到陈旧消息 → UAF/CFG 崩溃（任务2实证路径）。
+        //   改为 SettleAfterDialog：陈旧输入定向丢弃、只派发绘制/外观消息，
+        //   重启请求等业务消息留在队列由主循环栈外处理。
+        optim_detail::SettleAfterDialog();
     }
-    // [CRASHFIX] 任何 MessageBox 返回后，队列里残留的是弹层关闭/陈旧输入
-    //   消息；旧实现用全量 PumpUiMessages 在点击栈深处把它们派发出去，
-    //   半销毁的 DuiLib 弹层收到陈旧消息 → UAF/CFG 崩溃（任务2实证路径）。
-    //   改为 SettleAfterDialog：陈旧输入定向丢弃、只派发绘制/外观消息，
-    //   重启请求等业务消息留在队列由主循环栈外处理。
-    optim_detail::SettleAfterDialog();
-    // re-verify the real state so UI can never disagree with the system
-    const int nAfter = m_ctx.DataEngine().GetScopeState(node, nScope);
-    if (nAfter >= 0 && pSw) pSw->SetOn(nAfter == kOptimScopeSwitchOn, false);
-    // O-2: 开关变化后回算分组三态
-    if (g >= 0) SyncOptimGroupGlyph(g);
-    InvalidateOptimVerifyCache();   // [VERIFY-TTL] 写入后让 5 秒核实缓存失效，否则下次强制核实被直接跳过
-    // [FILTER-STAY] 筛选/状态过滤生效时，本次开关可能已让该行不再满足条件
-    // （如"仅未启用"下把项打开）。重放一次过滤让列表立即收敛，否则该行会
-    // 停留在不符合当前筛选的位置，直到用户动一下搜索框才消失。
-    if (m_bFiltering) ApplyFindFilter(m_sOptimFindText);
+    // [PERF-SW] 回读/三态/筛选收敛三段独立计时（见 OcmFinishSwitchUiSync）。
+    OcmFinishSwitchUiSync(node, g, nScope, pSw);
 }
 
 void CPageOptim::OnSwitchToggle(const wchar_t* pszName, bool bOn)
@@ -142,20 +225,37 @@ void CPageOptim::OnSwitchToggle(const wchar_t* pszName, bool bOn)
     const int nBefore = m_ctx.DataEngine().GetScopeState(node, nScope);
     const bool bCurrent = nBefore == kOptimScopeSwitchOn;
     if (bOn == bCurrent) return;
-    if (!OcmConfirmSwitch(node, nScope, bOn))
     {
-        // [CRASHFIX] 确认框返回后先稳定队列再回滚控件（同 OcmFinishSwitch）
-        optim_detail::SettleAfterDialog();
-        if (pSw) pSw->SetOn(bCurrent, false);
-        return;
+        // [PERF-SW] 确认段：CollectWarningTexts 的 Scope 子树遍历 + 提权判定；
+        //   若弹了确认框，这里的耗时主要来自"人"，超阈值只说明用户想了很久，
+        //   不影响性能结论 —— 但能据此区分「慢在确认」还是「慢在写入」。
+        optim_detail::ScopedPerfTimer t("switch.confirm");
+        if (!OcmConfirmSwitch(node, nScope, bOn))
+        {
+            // [CRASHFIX] 确认框返回后先稳定队列再回滚控件（同 OcmFinishSwitch）
+            optim_detail::SettleAfterDialog();
+            // [PERF-SW] 回滚视觉依赖 CSwitchUI::SetOn 的同步重绘，见 CustomControls.h [PERF-SW]：
+            //   开关指位已在松手时翻到 bOn，OcmConfirmSwitch 可能在此处发现
+            //   实际状态 == 目标状态而直接返回，此时用户看到的是"开关动了却
+            //   什么都没发生"。SetOn(bCurrent, false) 必须立刻把外观拨回去，
+            //   否则只能等下一次整树核实才纠正。
+            if (pSw) pSw->SetOn(bCurrent, false);
+            return;
+        }
     }
     // apply for real
     std::vector<CDuiString> vOut;
     int nUnsupported = 0;
     bool bRestart = false;
     PushOptimUndo(g, i, nScope, bCurrent);   // [R19] Ctrl+Z 撤销栈
-    const bool bOk = m_ctx.DataEngine().SetScopeState(node, nScope, bOn, vOut,
-                                                      nUnsupported, &bRestart);
+    bool bOk = false;
+    {
+        // [PERF-SW] 写入段：SetScopeState 同步写注册表并执行动作，
+        //   项上动作越多、Admin/System 作用域越重，这一段越接近"卡顿"本身。
+        optim_detail::ScopedPerfTimer t("switch.apply");
+        bOk = m_ctx.DataEngine().SetScopeState(node, nScope, bOn, vOut,
+                                               nUnsupported, &bRestart);
+    }
     if (!bOk)
     {
         // 应用失败：刚入栈的记录无实际变更，弹出避免撤销到无效步
@@ -166,9 +266,11 @@ void CPageOptim::OnSwitchToggle(const wchar_t* pszName, bool bOn)
                             StringMgr.Get("optim.settings"), MB_OK | MB_ICONWARNING);
         // [CRASHFIX] 失败提示框返回后先稳定队列再回滚控件
         optim_detail::SettleAfterDialog();
+        // [PERF-SW] 回滚视觉依赖 CSwitchUI::SetOn 的同步重绘，见 CustomControls.h [PERF-SW]。
         if (pSw) pSw->SetOn(bCurrent, false);
         return;
     }
+    // [PERF-SW] 收尾段（含读回/三态/筛选收敛的子计时）见 OcmFinishSwitch。
     OcmFinishSwitch(node, g, nScope, sItemName, pSw, bOn, nUnsupported, bRestart);
 }
 
@@ -296,31 +398,39 @@ bool CPageOptim::OcmConfirmCombo(CMarkupNode node, int nScope, int iSel)
 void CPageOptim::OcmFinishCombo(CMarkupNode node, int nScope, const CDuiString& sItemName,
                                 CComboUI* pCombo, int iSel, int nUnsupported, bool bRestart)
 {
-    CDuiString sLog;
-    sLog.Format(L"[optim] select %d: [%s] %s%s", iSel,
-                m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData(),
-                nUnsupported > 0 ? L" (some actions unsupported)" : L"");
-    AppendLog(sLog.GetData());
-    if (bRestart)
     {
-        CDuiString sQ;
-        sQ.Format(StringMgr.Get("appx.s036a390a"),
-                  m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData());
-        if (ToolSql::HostConfirm(m_ctx.HostHwnd(), sQ.GetData(),
-                                 StringMgr.Get("toolbox.restart_expl"),
-                                 MB_YESNO, MB_ICONQUESTION) == IDYES)
+        optim_detail::ScopedPerfTimer t("combo.finish");
+        CDuiString sLog;
+        sLog.Format(L"[optim] select %d: [%s] %s%s", iSel,
+                    m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData(),
+                    nUnsupported > 0 ? L" (some actions unsupported)" : L"");
+        AppendLog(sLog.GetData());
+        if (bRestart)
         {
-            ::PostMessageW(m_ctx.HostHwnd(), WM_HOST_REQUEST_RESTART_EXPLORER, 0, 0);
+            CDuiString sQ;
+            sQ.Format(StringMgr.Get("appx.s036a390a"),
+                      m_ctx.DataEngine().ScopeName(nScope), sItemName.GetData());
+            if (ToolSql::HostConfirm(m_ctx.HostHwnd(), sQ.GetData(),
+                                     StringMgr.Get("toolbox.restart_expl"),
+                                     MB_YESNO, MB_ICONQUESTION) == IDYES)
+            {
+                ::PostMessageW(m_ctx.HostHwnd(), WM_HOST_REQUEST_RESTART_EXPLORER, 0, 0);
+            }
         }
+        // [CRASHFIX] MessageBox 返回后稳定队列：陈旧输入丢弃、只派发绘制消息，
+        //   与 OcmFinishSwitch 同构（旧全量泵会在点击栈内派发陈旧消息致弹层 UAF）。
+        optim_detail::SettleAfterDialog();
     }
-    // [CRASHFIX] MessageBox 返回后稳定队列：陈旧输入丢弃、只派发绘制消息，
-    //   与 OcmFinishSwitch 同构（旧全量泵会在点击栈内派发陈旧消息致弹层 UAF）。
-    optim_detail::SettleAfterDialog();
-    // re-verify the real selection
-    const int nAfter = m_ctx.DataEngine().GetScopeDropdown(node, nScope);
-    // [R-EXTASYNC] 回读为"未配置"（-1）：保留用户刚选的值（写入已成功，
-    // 只是系统侧回读不匹配），不要把框清空。
-    OptimRollbackCombo(m_ctx, node, nScope, pCombo, nAfter);
+    {
+        // [PERF-SW] 回读段：GetScopeDropdown 会对每个候选档位做条件求值
+        //   （包含 <PowerPlan> 之类的探测），与随后的文字/选中态回写一起计时。
+        optim_detail::ScopedPerfTimer t("combo.readback");
+        // re-verify the real selection
+        const int nAfter = m_ctx.DataEngine().GetScopeDropdown(node, nScope);
+        // [R-EXTASYNC] 回读为"未配置"（-1）：保留用户刚选的值（写入已成功，
+        // 只是系统侧回读不匹配），不要把框清空。
+        OptimRollbackCombo(m_ctx, node, nScope, pCombo, nAfter);
+    }
 }
 
 void CPageOptim::OnScopeCombo(const wchar_t* pszName, int iSel)
@@ -346,19 +456,28 @@ void CPageOptim::OnScopeCombo(const wchar_t* pszName, int iSel)
         if (m_ctx.DataEngine().GetScopeDropdownName(node, nScope, iSel, sSel))
             pCombo->SetText(sSel.GetData());
     }
-    if (!OcmConfirmCombo(node, nScope, iSel))
     {
-        // [CRASHFIX] 确认框返回后先稳定队列再回滚下拉（同 OcmFinishCombo）
-        optim_detail::SettleAfterDialog();
-        OptimRollbackCombo(m_ctx, node, nScope, pCombo, nCurrentSel);
-        return;
+        // [PERF-SW] 确认段：Warning 收集命中下拉项子树（同开关路径的计时口径）。
+        optim_detail::ScopedPerfTimer t("combo.confirm");
+        if (!OcmConfirmCombo(node, nScope, iSel))
+        {
+            // [CRASHFIX] 确认框返回后先稳定队列再回滚下拉（同 OcmFinishCombo）
+            optim_detail::SettleAfterDialog();
+            OptimRollbackCombo(m_ctx, node, nScope, pCombo, nCurrentSel);
+            return;
+        }
     }
     // apply for real
     std::vector<CDuiString> vOut;
     int nUnsupported = 0;
     bool bRestart = false;
-    const bool bOk = m_ctx.DataEngine().SelectScopeDropdown(node, nScope, iSel, vOut,
-                                                            nUnsupported, &bRestart);
+    bool bOk = false;
+    {
+        // [PERF-SW] 写入段：SelectScopeDropdown 的注册表/命令写入与副作用。
+        optim_detail::ScopedPerfTimer t("combo.apply");
+        bOk = m_ctx.DataEngine().SelectScopeDropdown(node, nScope, iSel, vOut,
+                                                     nUnsupported, &bRestart);
+    }
     if (!bOk)
     {
         CDuiString sMsg;

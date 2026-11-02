@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_appx" inset="0,0,0,0" childpadding="0">
+
+          <!-- [UI-REF] 标题栏带：参考图线上实测 #9BC716，段高 87px@1729 → 62px@1280。 此处原注释写“green tab bar”却写 SurfaceAlt，注释与实现不符，已修正。 --><HorizontalLayout name="page_appx_L5" height="62" bkcolor="{tok:HeaderBand}" childvalign="vcenter" borderround="8,8">
+            <Control width="0"/>
+            <Option name="appxtab_0" group="appx_tab" text="用户应用" font="3" textcolor="{tok:OnHeaderBand}" selectedtextcolor="{tok:OnHeaderBand}" bkcolor="#00000000" width="300" height="62" align="center" selected="true"/>
+            <Option name="appxtab_1" group="appx_tab" text="预装应用" font="3" textcolor="{tok:OnHeaderBand}" selectedtextcolor="{tok:OnHeaderBand}" bkcolor="#00000000" width="300" height="62" align="center"/>
+            <Control width="0"/>
+          </HorizontalLayout>
+
+          <!-- A-2: 过滤框 -->
+          <HorizontalLayout name="page_appx_L13" height="40" bkcolor="{tok:Surface}" inset="12,4,12,4" childpadding="8" childvalign="vcenter" borderround="8,8">
+            <!-- [R200] 智能筛选分类：项由 AppxSmartFillCategoryCombo 填充，
+                 不写死 XML 文本（多语言 + Win11 分级都靠代码侧一份数据源）。 -->
+            <Combo name="appx_cat_combo" width="132" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" bordercolor="{tok:Border}" bordersize="1" itemtextcolor="{tok:Ink}" itembkcolor="{tok:SurfaceSunk}" itemselectedtextcolor="{tok:OnAccent}" itemselectedbkcolor="{tok:Accent}" itemhotbkcolor="{tok:SurfaceHover}" itemfont="1" itemalign="left" itemvalign="vcenter" itemendellipsis="true" itemtextpadding="8,3,8,3" borderround="4,4"/>
+            <Text name="lbl_ax_filter" text="过滤:" font="1" textcolor="{tok:Ink}" height="28"/>
+            <Edit name="appx_filter" width="0" height="32" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" tipvalue="按名称过滤（实时、不区分大小写）" tipvaluecolor="{tok:InkMuted}" bordersize="1" bordercolor="{tok:Border}" font="1" textpadding="6,4,6,4" borderround="4,4"/>
+            <Button name="btn_appx_clear" text="清除" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="72" height="32" align="center" valign="center" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <TabLayout name="appx_pages" width="0" height="0">
+            <!-- user apps -->
+            <VerticalLayout inset="0,0,0,0" childpadding="0">
+              <!-- [FIX-HDR-ALIGN] 表头必须与数据行的列结构一致，否则列头文字与
+                   行内容错位、看起来像被裁掉。数据行（AxBuildRow）实际结构为：
+                     勾选框 30px  +  信息列 width=0（吃剩余宽度）  +  尺寸列 150px
+                   原表头缺 30px 勾选列、且尺寸列写成 160px，导致：
+                     · 「项目」从 x=0 起算，比行内文字左移 30px；
+                     · 「大小」比行内尺寸右移 10px，两列都压不到同一竖线上。
+                   这里补 30px 占位 + 尺寸列改 150px，与行完全对齐。 -->
+              <HorizontalLayout name="page_appx_L32" height="32" bkcolor="{tok:SurfaceAlt}" inset="12,8,10,6" childpadding="10" borderround="8,8">
+                <Control width="30" height="1"/>
+                <Text name="appx_hdr_item_0" text="项目" font="6" textcolor="{tok:InkSecondary}" width="0" align="left" textpadding="2,0,0,0" valign="vcenter"/>
+                <Text name="hdr_ax_size" text="大小" font="6" textcolor="{tok:Ink}" width="150" align="right" textpadding="0,0,8,0" valign="vcenter"/>
+              </HorizontalLayout>
+              <VerticalLayout name="appx_list_0" width="0" height="0" bkcolor="{tok:Surface}" vscrollbar="true" childpadding="0" borderround="8,8"/>
+            </VerticalLayout>
+            <!-- provisioned apps -->
+            <VerticalLayout inset="0,0,0,0" childpadding="0">
+              <HorizontalLayout name="page_appx_L41" height="32" bkcolor="{tok:SurfaceAlt}" inset="12,8,10,6" childpadding="10" borderround="8,8">
+                <Control width="30" height="1"/>
+                <Text name="hdr_ax_item2" text="项目" font="6" textcolor="{tok:Ink}" width="0" align="left" textpadding="2,0,0,0" valign="vcenter"/>
+                <Text name="hdr_ax_size2" text="大小" font="6" textcolor="{tok:Ink}" width="150" align="right" textpadding="0,0,8,0" valign="vcenter"/>
+              </HorizontalLayout>
+              <VerticalLayout name="appx_list_1" width="0" height="0" bkcolor="{tok:Surface}" vscrollbar="true" childpadding="0" borderround="8,8"/>
+            </VerticalLayout>
+          </TabLayout>
+
+          <!-- [REMOVE-DETAIL] 底部详情面板已按需求整体删除（原 A-1 占位）。
+               列表（TabLayout appx_pages）现在直接占满到底部操作栏之间的全部高度，
+               不再为其预留任何竖向空间。C++ 侧 ShowDetail() 已同步置空，
+               不再查找 appx_detail / appx_d_* 控件。 -->
+
+          <!-- bottom action bar -->
+          <HorizontalLayout name="page_appx_L56" height="52" bkcolor="{tok:Surface}" inset="14,0,14,0" childpadding="10" childvalign="vcenter" borderround="8,8">
+            <Text name="lbl_appx_count" text="" font="1" textcolor="{tok:InkTertiary}" autocalcwidth="true" valign="vcenter"/>
+            <Control width="0"/>
+            <Button name="btn_appx_selall" text="全选" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_appx_delete" text="删除" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="32" align="center" valign="center"/>
+            <!-- [R67] App Installer 安装通道 -->
+            <Button name="btn_appx_install" text="安装" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [R81] 备份 / 恢复（评分报告 P2 缺口 #21/#22） -->
+            <Button name="btn_appx_backup" text="备份" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_appx_restore" text="恢复" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

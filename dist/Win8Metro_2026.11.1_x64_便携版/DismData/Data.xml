@@ -6999,6 +6999,51 @@
       </Item>
     </Group>
 
+    <!-- 2026-11-02: 从"设置默认英文WINDOWS10.bat"转换而来，Win10专属 -->
+    <Group Name="#Win10输入法设置">
+      <Applicable>
+        <OSVersion Compare="&gt;=">10.0</OSVersion>
+        <OSVersion Compare="&lt;">10.0.22000</OSVersion>
+      </Applicable>
+      <Item Type="CheckBox" Name="#将默认输入语言设置为英文（美国）">
+        <Description>#设置 HKCU\Keyboard Layout\Preload!1 为 00000409（English - United States），使英文键盘布局成为当前用户的默认输入语言。</Description>
+        <Current>
+          <State>
+            <Applicable>
+              <RegExist Key="HKEY_CURRENT_USER\Keyboard Layout\Preload" Value="1" Type="REG_SZ" Data="00000409" />
+            </Applicable>
+          </State>
+          <True>
+            <Activate>
+              <RegWrite Key="HKEY_CURRENT_USER\Keyboard Layout\Preload" Value="1" Type="REG_SZ" Data="00000409" SkipError="2" />
+            </Activate>
+          </True>
+          <False>
+            <Activate>
+              <RegDelete Key="HKEY_CURRENT_USER\Keyboard Layout\Preload" Value="1" />
+            </Activate>
+          </False>
+        </Current>
+        <Default>
+          <State>
+            <Applicable>
+              <RegExist Key="HKEY_USERS\.DEFAULT\Keyboard Layout\Preload" Value="1" Type="REG_SZ" Data="00000409" />
+            </Applicable>
+          </State>
+          <True>
+            <Activate>
+              <RegWrite Key="HKEY_USERS\.DEFAULT\Keyboard Layout\Preload" Value="1" Type="REG_SZ" Data="00000409" SkipError="2" />
+            </Activate>
+          </True>
+          <False>
+            <Activate>
+              <RegDelete Key="HKEY_USERS\.DEFAULT\Keyboard Layout\Preload" Value="1" />
+            </Activate>
+          </False>
+        </Default>
+      </Item>
+    </Group>
+
     <Group Name="#微软注音输入法">
       <Applicable>
         <RegExist Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\IME\15.0\IMETC" />

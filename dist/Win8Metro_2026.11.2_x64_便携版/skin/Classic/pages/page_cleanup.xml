@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_cleanup" inset="0,0,0,0" childpadding="0">
+          <HorizontalLayout name="cl_19" width="0" height="0" childpadding="0">
+            <!-- left: cleanup rule tree -->
+            <VerticalLayout name="cl_20" width="0" height="0" inset="14,12,10,0" childpadding="8">
+              <HorizontalLayout name="cl_21" height="30" childpadding="8" childvalign="vcenter">
+                <Edit name="clean_filter" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" width="0" height="28" tipvalue="输入关键字过滤（实时、不区分大小写）" tipvaluecolor="#FF999999" textpadding="6,4,6,4"/>
+                <BoxCheck name="clean_showzero" text="显示0字节项" font="1" textcolor="#FF1A1A1A" width="118" height="28"/>
+              </HorizontalLayout>
+              <VerticalLayout name="clean_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+            </VerticalLayout>
+            <!-- right: description panel -->
+            <VerticalLayout name="cl_22" width="330" height="0" bkcolor="#FFFFFFFF" inset="16,14,18,0" childpadding="6">
+              <Text name="lbl_cln_desc" text="描述" font="3" textcolor="#FF1A1A1A" height="30" valign="vcenter"/>
+              <Control height="120"/>
+              <Text name="lbl_cln_detail" text="详细信息" font="3" textcolor="#FF1A1A1A" height="30" valign="vcenter"/>
+              <Control width="1" height="16" bkcolor="#FFABABAB"/>
+              <RichEdit name="clean_desc" font="1" textcolor="#FF333333" width="0" height="0" vscrollbar="true" readonly="true" bkcolor="#FFFFFFFF" bordersize="1" bordercolor="#FFABABAB" textpadding="8,6,8,6"/>
+            </VerticalLayout>
+          </HorizontalLayout>
+
+          <!-- full-width bottom bar -->
+          <HorizontalLayout name="cl_23" height="58" inset="14,0,14,0" childpadding="8" childvalign="vcenter">
+            <Button name="btn_cln_none" text="全不选" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+            <Button name="btn_cln_default" text="恢复默认" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+            <Button name="btn_cln_refresh" text="刷新" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+            <Button name="btn_cln_export" text="导出明细" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+<!-- [R80] Clean 扩展：残留/撤销（大文件、空文件夹两个入口已按需求从皮肤移除） -->
+            <Button name="btn_cln_orphan" text="残留扫描" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+            <Button name="btn_cln_undo" text="撤销清理" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+
+            
+            <Control width="0"/>
+            <Button name="btn_scan" text="扫描" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="84" height="38" align="center" valign="center"/>
+            <Button name="btn_clean" text="清理" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" borderround="4,4" pushedbkcolor="#FF005A9E" width="84" height="38" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

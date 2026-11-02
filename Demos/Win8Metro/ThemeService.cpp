@@ -253,6 +253,18 @@ void Initialize(const wchar_t* pszExeDir, HWND hWnd)
                                szName, 64, (g_exeDir + L"config.ini").c_str());
     TS_LOG("Initialize config read");
 
+    // [WIN1607] Win10 全系强制 classic 经典蓝主题，忽略 config.ini 保存值。
+    //   Win11 上用户可自由选择 auto/light/dark/classic 并存档。
+    if (!DuiLib::IsWindows11OrGreater())
+    {
+        szName[0] = L'c'; szName[1] = L'l'; szName[2] = L'a';
+        szName[3] = L's'; szName[4] = L's'; szName[5] = L'i';
+        szName[6] = L'c'; szName[7] = L'\0';
+        // 顺手把 config.ini 纠正掉，下次启动就干净了
+        ::WritePrivateProfileStringW(L"theme", L"Mode", L"classic",
+                                     (g_exeDir + L"config.ini").c_str());
+    }
+
     // Resolve to preset pointer (case-insensitive)
     std::wstring saved = szName;
     for (auto& ch : saved) ch = static_cast<wchar_t>(::towlower(ch));
@@ -383,6 +395,21 @@ DWORD EffectiveAccent()
 bool ApplyTheme(const std::wstring& presetName, bool bPersist, bool bForce)
 {
     TS_LOG("ApplyTheme entry");
+
+    // [WIN1607] Win10 全系强制 classic 经典蓝主题，禁止切换到 auto/light/dark。
+    //   任何 ApplyTheme 调用（含 config.ini 读入 + Observer 广播回调）
+    //   都会在这里被拦截并收敛到 classic。
+    if (!DuiLib::IsWindows11OrGreater())
+    {
+        // 如果已经是 classic，直接返回成功但不持久化
+        if (_wcsicmp(presetName.c_str(), L"classic") != 0)
+        {
+            TS_LOG("ApplyTheme redirected to classic on Win10");
+            return ApplyTheme(L"classic", false, bForce);
+        }
+        bPersist = false;   // Win10 上不持久化任何主题值（config.ini 里永远保持 classic）
+    }
+
     // [2026] 锁只保护"状态切换"这一步 —— 查找 preset + 赋值 g_pCurrent。
     //   任何可能反调 ThemeService 的操作（ApplyMode 内部 fnSetAttr、
     //   Observer 广播里的 tokens::Refresh → ActivePaletteForTokens、

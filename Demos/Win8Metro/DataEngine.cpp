@@ -190,11 +190,15 @@ bool CDataEngine::Load(CDuiString& strFoundPath)
     // Data.xml：布局顺序优先于文件名，避免便携包被开发仓库抢先命中。
     // [FIX-P0] 规则文件选择也必须以目标镜像版本为准：离线镜像在 Win11 宿主上
     // 维护 Win10 时不能选 Data_Win11.xml。离线会话不可用时才回退宿主判定。
-    bool bIsWin11 = DismDataIsWindows11OrLater();
+    // [2026-11-02] 用户要求：只适配 Win10 脚本系统规则，Win11 规则全部屏蔽。
+    //  强制 bIsWin11 = false，让所有系统（Win10/Win11）统一加载 Data.xml，
+    //  Data_Win11.xml 中的 Win11 专属规则不再参与加载。
+    bool bIsWin11 = false;  // 原: DismDataIsWindows11OrLater()，按用户需求屏蔽
     if (COfflineSession::IsActive())
     {
         const unsigned int uBuild = COfflineSession::GetTargetBuild();
-        if (uBuild > 0) bIsWin11 = (uBuild >= 22000);
+        // 离线会话也跳过 Win11 规则，统一用 Data.xml
+        (void)uBuild;
     }
 
     // ----------------------------------------------------------------

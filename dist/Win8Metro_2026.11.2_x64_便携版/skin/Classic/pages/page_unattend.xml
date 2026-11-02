@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_unattend" bkcolor="#FFFFFFFF" inset="0,0,0,0" childpadding="0">
+          <VerticalLayout name="uc_groups" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+          <HorizontalLayout name="cl_71" height="56" bkcolor="#FFFFFFFF" inset="14,0,14,0" childpadding="10" childvalign="vcenter">
+            <Edit name="uc_edit" width="0" height="36" tipvalue="请在此输入需要添加的命令" font="1" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="8,5,8,5"/>
+            <Button name="btn_uc_add" text="添加" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <Button name="btn_uc_up" text="上移" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <Button name="btn_uc_del" text="删除" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <!-- [R71] Sysprep 流程 + IBSProvider + 应用预应答 -->
+            <Button name="btn_uc_apply" text="应用" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <Button name="btn_sysprep" text="Sysprep" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <Button name="btn_ibs" text="IBS报告" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+          </HorizontalLayout>
+          <HorizontalLayout name="cl_72" height="48" bkcolor="#FFFFFFFF" inset="14,0,14,0" childpadding="10" childvalign="vcenter">
+            <Text name="lbl_uc_status" width="0" height="0" font="1" textcolor="#FF666666" align="left"/>
+            <Control width="0"/>
+            <Button name="btn_uc_import" text="导入XML" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="108" height="38" align="center" valign="center"/>
+            <Button name="btn_uc_export" text="导出XML" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" borderround="4,4" pushedbkcolor="#FF005A9E" width="108" height="38" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_intl" inset="14,6,14,0" childpadding="10">
+          <HorizontalLayout name="page_intl_L4" height="30" bkcolor="{tok:SurfaceSunk}" childvalign="vcenter" borderround="8,8">
+            <Text name="lbl_intl_title" text="时区设置" font="6" textcolor="{tok:Ink}" width="120" align="center"/>
+            <Text name="lbl_intl_cur" text="" font="1" textcolor="{tok:InkTertiary}" width="0" align="left"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="选择时区" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_tzcombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Control width="0"/>
+            <Button name="btn_intl_apply" text="应用时区" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="100" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="用户区域" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_loccombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Control width="0"/>
+            <Button name="btn_intl_apply_loc" text="应用用户区域" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="104" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="系统区域" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_sysloccombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Control width="0"/>
+            <Button name="btn_intl_apply_sysloc" text="应用系统区域" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="104" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="UI 语言" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_uilangcombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Control width="0"/>
+            <Button name="btn_intl_apply_uilang" text="应用 UI 语言" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="104" borderround="4,4"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="已安装语言" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_instlangcombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_remove_lang" text="删除语言" font="1" textcolor="{tok:AccentText}" bkcolor="{tok:AccentSoft}" hotbkcolor="{tok:SurfaceHover}" bordercolor="{tok:AccentBorder}" bordersize="1" height="32" width="100" borderround="4,4"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="可安装语言" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_addlangcombo" width="420" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_add_lang" text="安装语言" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="100" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <!-- [R120-1] 系统区域格式：短日期 / 短时间 / 十进制 / 货币 -->
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="短日期格式" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_shortdatecombo" width="300" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_apply_shortdate" text="应用" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="60" borderround="4,4"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="短时间格式" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_shorttimecombo" width="300" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_apply_shorttime" text="应用" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="60" borderround="4,4"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="十进制符号" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_decimalcombo" width="300" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_apply_decimal" text="应用" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="60" borderround="4,4"/>
+          </HorizontalLayout>
+          <HorizontalLayout height="32" childpadding="8" childvalign="vcenter">
+            <Text text="货币符号" font="1" textcolor="{tok:Ink}" width="80" align="left"/>
+            <Combo name="intl_currencycombo" width="300" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+            <Control width="8"/>
+            <Button name="btn_intl_apply_currency" text="应用" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="60" borderround="4,4"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

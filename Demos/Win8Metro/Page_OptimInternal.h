@@ -19,9 +19,11 @@
 #include "StringManager.h"      // i18n::CStringManager
 #include "HostInterfaces.h"    // IPageContext（OptimItemShown / OptimGroupMatch 的入参）
 #include "SafeThread.h"        // [R3] SafeDispatchMessage：共享消息泵
+#include "FormatW.h"           // [PERF-SW] wfmt::FormatW：区块计时日志
 #include <chrono>               // [R3] 分片计时
 
 #include <vector>
+#include <string>
 
 namespace optim_detail
 {
@@ -319,6 +321,89 @@ inline void SettleAfterDialog()
         SafeDispatchMessage(&msg);
     }
 }
+
+// ============================================================
+// [PERF-SW] 优化页交互（开关/下拉）区块计时器。
+//
+// 背景：用户反馈「点开关卡一下、松手后迟迟不生效」。交互同步栈里串着
+//   确认框 → 注册表写入 → 回读核实/撤权 → 分组三态 → 全树重排，究竟哪一段
+//   吃掉了帧预算，只能靠实测定位；凭源码推断容易优化错地方。
+//
+// 设计约束：
+//   ① 开关关闭时零成本：InlineOptimPerfTraceEnabled() 是一次静态 bool 读取，
+//      关闭时计时器 m_bOn=false，构造/析构都只是读一个 bool，不取时钟、
+//      不分配内存、不格式化。
+//   ② 只在超过阈值时输出：交互频率高（用户连点开关），无条件打印会刷屏
+//      并本身变成卡顿源；kThresholdMs=30 对应「一帧以上」的可见卡顿。
+//   ③ 不引入链接依赖：开关直接读环境变量 DUIOPTIM_PERF，
+//      与 DismApiBridge::PerfTraceEnabled()（DISMTOOL_PERF_TRACE）是并行的
+//      诊断开关；本头不 include DismApiBridge.h，避免为一行埋点把整个
+//      DISM 桥接拉进包含本头的翻译单元的链接面。
+//      用法：set DUIOPTIM_PERF=1 后用 DebugView 抓 "[optim-perf]" 行。
+//   ④ 全部 inline 定义：本头被多个 TU 包含，非 inline 会 ODR 冲突。
+// ============================================================
+[[nodiscard]] inline bool InlineOptimPerfTraceEnabled()
+{
+    static const bool s_bTrace = []() -> bool
+    {
+        // 语义与 GetEnvironmentVariableW 的「是否存在」判定一致：返回 0 表示未设置。
+        return ::GetEnvironmentVariableW(L"DUIOPTIM_PERF", nullptr, 0) > 0;
+    }();
+    return s_bTrace;
+}
+
+// 作用域计时器：析构时若耗时 >= kThresholdMs 就输出一行
+//   "[optim-perf] <tag> = <N> ms\r\n"
+// 标签用 ASCII 字面量（窄串），输出时按 ASCII 直接扩宽，不做 ANSI 代码页转换。
+struct ScopedPerfTimer
+{
+    static constexpr double kThresholdMs = 30.0;
+
+    const char* m_pszTag;
+    std::chrono::steady_clock::time_point m_t0;
+    bool m_bOn;
+
+    explicit ScopedPerfTimer(const char* pszTag) noexcept
+        : m_pszTag(pszTag), m_t0(), m_bOn(InlineOptimPerfTraceEnabled())
+    {
+        if (m_bOn) m_t0 = std::chrono::steady_clock::now();
+    }
+
+    // 禁止拷贝：计时器是作用域占位对象，拷贝会产生两次析构/两次输出。
+    ScopedPerfTimer(const ScopedPerfTimer&) = delete;
+    ScopedPerfTimer& operator=(const ScopedPerfTimer&) = delete;
+
+    ~ScopedPerfTimer()
+    {
+        if (!m_bOn) return;
+        Stop();
+    }
+
+    // 返回自构造以来的毫秒数（m_bOn=false 时恒 0，调用方可据此放置条件日志）。
+    [[nodiscard]] double ElapsedMs() const noexcept
+    {
+        if (!m_bOn) return 0.0;
+        return std::chrono::duration<double, std::milli>(
+            std::chrono::steady_clock::now() - m_t0).count();
+    }
+
+    // 输出。
+    void Stop() const
+    {
+        if (!m_bOn) return;
+        const double dMs = ElapsedMs();
+        if (dMs < kThresholdMs) return;   // 未达阈值：静默，避免刷屏
+        wchar_t wszTag[64] = { 0 };
+        size_t n = 0;
+        const char* p = m_pszTag ? m_pszTag : "";
+        for (; *p && n + 1 < _countof(wszTag); ++p, ++n)
+            wszTag[n] = static_cast<wchar_t>(static_cast<unsigned char>(*p));
+        wszTag[n] = L'\0';
+        const std::wstring sMsg =
+            wfmt::FormatW(L"[optim-perf] %s = %lld ms\r\n", wszTag, (long long)dMs);
+        ::OutputDebugStringW(sMsg.c_str());
+    }
+};
 
 } // namespace optim_detail
 

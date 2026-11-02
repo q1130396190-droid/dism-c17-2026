@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_cleanup" inset="0,0,0,0" childpadding="0">
+          <HorizontalLayout width="0" height="0" childpadding="0">
+            <!-- left: cleanup rule tree -->
+            <VerticalLayout width="0" height="0" inset="14,12,10,0" childpadding="8">
+              <HorizontalLayout height="30" childpadding="8" childvalign="vcenter">
+                <Edit name="clean_filter" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" width="0" height="32" tipvalue="输入关键字过滤（实时、不区分大小写）" tipvaluecolor="{tok:InkMuted}" textpadding="6,4,6,4" borderround="4,4"/>
+                <BoxCheck name="clean_showzero" text="显示0字节项" font="1" textcolor="{tok:Ink}" width="118" height="28" borderround="4,4"/>
+              </HorizontalLayout>
+              <VerticalLayout name="clean_list" width="0" height="0" bkcolor="{tok:Surface}" childpadding="0" vscrollbar="true" borderround="8,8"/>
+            </VerticalLayout>
+            <!-- right: description panel -->
+            <VerticalLayout name="cln_desc_panel" width="330" height="0" bkcolor="{tok:Surface}" inset="16,14,18,0" childpadding="6" borderround="8,8">
+              <Text name="lbl_cln_desc" text="描述" font="3" textcolor="{tok:Ink}" height="30" valign="vcenter"/>
+              <Control height="120"/>
+              <Text name="lbl_cln_detail" text="详细信息" font="3" textcolor="{tok:Ink}" height="30" valign="vcenter"/>
+              <Control width="1" height="16" bkcolor="{tok:InkMuted}"/>
+              <RichEdit name="clean_desc" font="1" textcolor="{tok:InkSecondary}" width="0" height="0" vscrollbar="true" readonly="true" bkcolor="{tok:SurfaceSunk}" bordersize="1" bordercolor="{tok:BorderSoft}" textpadding="8,6,8,6"/>
+            </VerticalLayout>
+          </HorizontalLayout>
+
+          <!-- full-width bottom bar -->
+          <HorizontalLayout height="58" inset="14,0,14,0" childpadding="8" childvalign="vcenter">
+            <Button name="btn_cln_default" text="恢复默认" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_cln_refresh" text="刷新" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_cln_export" text="导出明细" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+<!-- [R80] Clean 扩展：残留扫描/撤销清理（大文件、空文件夹入口已移除） -->
+            <Button name="btn_cln_orphan" text="残留扫描" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_cln_undo" text="撤销清理" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+
+            
+            <Control width="0"/>
+            <Button name="btn_scan" text="扫描" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_clean" text="清理" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="32" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>
