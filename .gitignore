@@ -48,6 +48,8 @@ _build/
 
 # ===== 说明文档 =====
 *.md
+!README.md
+!README_EN.md
 Help/
 docs/
 

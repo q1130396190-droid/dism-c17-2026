@@ -1,0 +1,291 @@
+# DuiLib_Ultimate · Win8Metro C++17 版
+
+> [English / 英文说明](README_EN.md)
+
+轻量化、高性能、易扩展的 Windows 桌面 UI 库与工具箱，面向 Windows 10/11 x64 平台，基于 C++17 重构，支持 C++23 现代轨道。仓库同时包含核心库源码与 Win8Metro 桌面工具的发布成品。
+
+---
+
+## 目录
+
+- [项目简介](#项目简介)
+- [仓库内容](#仓库内容)
+- [编译环境要求](#编译环境要求)
+- [编译步骤](#编译步骤)
+  - [方式一：Visual Studio 直接编译](#方式一visual-studio-直接编译)
+  - [方式二：CMake 构建 DuiLib 库](#方式二cmake-构建-duilib-库)
+  - [方式三：Rust dismcore 子模块（可选）](#方式三rust-dismcore-子模块可选)
+- [使用环境（运行时依赖）](#使用环境运行时依赖)
+- [已知问题](#已知问题)
+- [目录结构](#目录结构)
+- [许可协议](#许可协议)
+
+---
+
+## 项目简介
+
+**DuiLib_Ultimate** 是深耕 Windows 软件 UI 开发的开源利器，以**轻量化、高性能、易扩展**为核心设计理念，专为 Windows 平台打造极致桌面应用体验。
+
+本仓库特色：
+
+- **纯 x64 架构**：所有构建配置移除 Win32 / ARM / ARM64，专注单一目标平台
+- **C++17 最低标准**：支持 C++23 现代轨道（`DUI_TRACK=modern`）
+- **Windows 10+**：`_WIN32_WINNT=0x0A00`，不再兼容 Win7/8
+- **WebView2 集成**：现代轨道默认启用 Edge WebView2 渲染控件
+- **Rust 子模块**：`dismcore` 计算模块以 Rust 编写，内存安全
+- **Win8Metro 成品**：包含一套完整的 Windows 桌面部署维护工具箱发布包
+
+核心优势：
+
+1. 兼容官方 DuiLib API
+2. 内置资源管理器、样式表（Style）、多语言框架
+3. 高 DPI 自适应
+4. 丰富的控件扩展（DateTime、IPAddress、ColorPicker、List 网格线/多选等）
+5. Debug/Release、静态/动态库多种编译选项
+
+---
+
+## 仓库内容
+
+| 内容 | 路径 | 说明 |
+|------|------|------|
+| 核心库源码 | `DuiLib/` | DuiLib 核心（UI 控件、布局、样式、资源管理） |
+| 第三方依赖 | `3rd/` | CxImage 图像处理、WebView2、wimgapi |
+| Win8Metro 应用 | `Demos/Win8Metro/` | 主程序，约 200 个 .cpp 源文件 |
+| 附属 DLL | `Demos/ActivationKit/`、`CBSHost/`、`NCleaner/`、`SkinThemeDll/`、`ThemeManager/` | 五个独立模块 |
+| Rust 计算模块 | `rust/dismcore/` | `duilibcalc` — 内存安全的哈希/编码/校验库 |
+| 翻译模板 | `templates/translations/` | 术语表 JSON/YAML |
+| 解决方案 | `DuiLib.sln` | VS 2026 解决方案文件 |
+| 发布成品 | `dist/Win8Metro_*/` | 便携版发布包（含 Skin、DismData、多语言包） |
+| 预编译库 | `bin64/`、`lib/` | x64 DLL / LIB 产物 |
+
+---
+
+## 编译环境要求
+
+### 必须项
+
+| 组件 | 最低版本 | 说明 |
+|------|----------|------|
+| **Windows** | Windows 10 22H2 / Windows 11 | x64 架构（拒绝 Win32 / ARM） |
+| **Visual Studio** | VS 2026（Preview 及以上） | 需安装「使用 C++ 的桌面开发」工作负载 |
+| **PlatformToolset** | v145（MSVC 14.51） | 项目已全部迁移到 v145 |
+| **Windows SDK** | 10.0.26100.0 或更新 | 编译脚本会自动探测 `10.0.28000.0` → `10.0.26100.0` |
+| **Git** | 任意 | 拉取源码 |
+| **C++ 标准** | C++17 | `compat` 轨道 = C++17，`modern` 轨道 = C++23 |
+
+### 可选项
+
+| 组件 | 用途 |
+|------|------|
+| **CMake** | ≥ 3.20，用于仅构建 DuiLib 库本身 |
+| **Rust 工具链** | stable 1.74+，构建 `duilibcalc` 计算模块 |
+| **WebView2 Runtime** | 运行时安装，现代轨道的 WebView2 控件需要 |
+
+### 安装 VS 时的工作负载勾选
+
+打开 Visual Studio Installer → 修改 → 勾选：
+
+- ✅ **使用 C++ 的桌面开发**（Desktop development with C++）
+  - MSVC v145 - VS 2026 C++ x64/x86 生成工具
+  - Windows 10/11 SDK
+  - C++ CMake 工具（可选）
+
+---
+
+## 编译步骤
+
+### 方式一：Visual Studio 直接编译
+
+1. 克隆仓库：
+   ```bash
+   git clone https://github.com/q1130396190-droid/dism-c17-2026.git
+   cd dism-c17-2026
+   ```
+
+2. 用 VS 2026 打开 `DuiLib.sln`
+
+3. 选择配置（全部 x64）：
+
+   | 配置 | 说明 |
+   |------|------|
+   | `Debug x64` | C++17 调试版 |
+   | `Release x64` | C++17 发布版 |
+   | `Debug23 x64` | C++23 调试版（现代轨道） |
+   | `Release23 x64` | C++23 发布版（现代轨道，含 WebView2） |
+   | `SDebug / SRelease` | 静态库变体 |
+
+4. 右键 `Win8Metro` 项目 → **设为启动项目**（Set as Startup Project）
+
+5. 生成解决方案（Build Solution）
+
+6. 编译产物输出到 `bin64/` 目录，主程序为 `bin64/Win8Metro.exe`
+
+### 方式二：CMake 构建 DuiLib 库
+
+CMake 仅构建 DuiLib 核心库。Demo 程序需用 `DuiLib.sln` 编译：
+
+```bash
+# Visual Studio 2026 生成器（推荐）
+cmake -G "Visual Studio 18 2026" -A x64 -DDUI_TRACK=modern -B build
+cmake --build build --config Release
+
+# 或 Ninja（需先进入 vcvars64 环境）
+cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DDUI_TRACK=modern -B build
+cmake --build build
+```
+
+关键约束（CMake 会强制门禁）：
+
+- 架构必须 x64，否则 `FATAL_ERROR`
+- C++ 标准最低 17
+- Windows 版本最低 Win10（`_WIN32_WINNT=0x0A00`）
+
+### 方式三：Rust dismcore 子模块（可选）
+
+`duilibcalc` 是一个 25 函数的 FFI 导出 DLL，C++ 侧通过 `duilibcalc.dll.lib` 链接。如果你重新编译 Rust 源码：
+
+```bash
+cd rust/dismcore
+cargo build --release
+# 产物：rust/dismcore/target/release/duilibcalc.dll
+# 拷贝到：bin64/amd64/
+```
+
+> **注意**：**不要**把 DLL 命名为 `DismCore.dll`——Windows 文件名大小写不敏感，会与系统 DISM 组件冲突，导致 DISM 会话加载到本库而报 `0x8007007E`。本仓库已命名为 `duilibcalc.dll`，请保持一致。
+
+### 一键完整构建（项目自带脚本）
+
+```bash
+# 先进入 VS Developer Command Prompt（或执行 vcvars64.bat）
+msbuild DuiLib.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64 /m
+```
+
+或使用 Win8Metro 自带的编译脚本：
+
+```bash
+cd Demos\Win8Metro
+build_x64.bat
+```
+
+---
+
+## 使用环境（运行时依赖）
+
+### 运行时前置
+
+| 依赖 | 说明 |
+|------|------|
+| **操作系统** | Windows 10 22H2+ 或 Windows 11 全版本（x64） |
+| **VC++ 运行时** | Microsoft Visual C++ 2026 Redistributable (x64) — 安装 VS 或单独安装 |
+| **WebView2 Runtime** | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) — 安装 Win8Metro.exe 便携版时，`amd64/WebView2Loader.dll` 会按需加载 |
+| **WinPE**（可选） | Win8Metro 工具支持在 WinPE 中运行，需集成 `amd64/` 目录下的 DLL |
+
+### 便携版部署
+
+`dist/Win8Metro_2026.11.1_x64_便携版/` 目录下的内容是完整发布包：
+
+```
+Win8Metro.exe              主程序
+ThemeManager.dll           主题管理
+amd64/                     核心 DLL 群
+  ├── DuiLib.dll           UI 库
+  ├── duilibcalc.dll       Rust 计算模块
+  ├── SkinThemeDll.dll     皮肤引擎
+  ├── ActivationKit.dll    激活辅助
+  ├── CBSHost.dll          DISM 托管
+  ├── NCleaner.dll         清理引擎
+  ├── WebView2Loader.dll   Edge WebView2 桥接
+  ├── wimgapi.dll          WIM API
+  ├── bcdboot.exe          BCD 引导
+  ├── efisys.bin           EFI 系统
+  ├── etfsboot.com         ETFS 引导
+  └── wofadk.sys           WOF 驱动
+skin/                      UI 皮肤（Classic / Win8Metro）
+lang/                      多语言包（cs、de、en-US、fr、hu、it、ja-JP、ko-KR、pl-PL、ru、zh-CN）
+DismData/                  DISM 数据配置
+Config/                    默认配置
+```
+
+**启动**：直接双击 `Win8Metro.exe`，无需安装。
+
+### 开发时运行
+
+编译完成后，把 `bin64/amd64/` 下的 DLL 与 `bin64/Win8Metro.exe` 放在同一目录即可运行。开发时建议同时拷贝 `skin/`、`lang/`、`DismData/`、`Config/` 目录，否则 UI 会缺少皮肤和本地化字符串。
+
+---
+
+## 已知问题
+
+| # | 问题 | 影响 | 解决 / 绕过 |
+|---|------|------|------------|
+| 1 | **Demos 无 CMakeLists.txt** | CMake 构建会跳过所有 Demo 项目，只产出 DuiLib 库 | Demo 必须用 `DuiLib.sln` 编译；CMake 仅适合构建核心库 |
+| 2 | **源码编码不统一** | 仓库同时存在 UTF-8 / UTF-8-BOM / GBK / UTF-16LE 四种编码（约 49 个 GBK 文件） | 修改前请先用编辑器确认编码；推荐统一转 UTF-8 |
+| 3 | **源码改写中转义字符被展开** | `tools/patch_*.py` 系列脚本会静默损坏源码中的转义字符（路径吃掉一个字符等） | 改代码后务必 diff 检查；建议先备份 |
+| 4 | **x64-only 强制** | 在 x86 / ARM / ARM64 机器上编译会被拒绝 | 必须 x64 CPU + x64 Windows |
+| 5 | **VS 生成器找不到** | `cmake -G "Visual Studio 18 2026"` 报 `could not find any instance of Visual Studio` | 改用 Ninja（先 `vcvars64.bat`），或在 VS Installer 里修复安装 |
+| 6 | **duilibcalc 链接** | 手动 link Win8Metro 时，如果 Rust 模块尚未编译，会报 `duilibcalc.dll.lib not found` | 先 `cargo build --release` 并把 `duilibcalc.dll.lib` 拷到 `bin64/amd64/` |
+| 7 | **Windows 7 / 8 不支持** | `_WIN32_WINNT=0x0A00` 硬编码 | 必须 Windows 10 或更新 |
+| 8 | **便携版缺失运行时** | 目标机器没有 VC++ 运行时或 WebView2 Runtime 会报缺少 DLL | 安装 VC++ 2026 Redistributable 和 WebView2 Runtime |
+| 9 | **WebView2 Loader** | Win10 21H2 及更早版本未预装 WebView2 Runtime | 首次启动时 `WebView2Loader.dll` 会尝试自动下载，如失败请手动安装 |
+| 10 | **多语言缺失** | 未复制 `lang/` 目录时 UI 显示 `[zh-CN:xxx]` 占位符 | 部署时确保完整拷贝 `lang/` 目录 |
+
+---
+
+## 目录结构
+
+```
+dism-c17-2026/
+├── .gitignore
+├── CMakeLists.txt              # CMake 根（仅构建 DuiLib 库）
+├── DuiLib.sln                  # VS 2026 解决方案（全量）
+├── Directory.Build.props       # 全局 /MP 多核编译加速
+├── build.cmd                   # 一键构建
+├── README.md                   # 中文说明
+├── README_EN.md                # 英文说明
+├── LICENSE
+│
+├── DuiLib/                     # 核心 UI 库源码
+│   ├── Core/ Control/ Layout/ Utils/ Style/
+│   ├── DuiLib.vcxproj
+│   └── WebView2.h              # WebView2 集成接口
+│
+├── 3rd/                        # 第三方依赖
+│   ├── CxImage/                # 图像解码
+│   ├── WebView2/               # Edge WebView2 SDK
+│   └── wimgapi/                # WIM 处理
+│
+├── Demos/                      # 应用源码
+│   ├── Win8Metro/              # 主程序（~200 .cpp）
+│   ├── ActivationKit/          # 激活辅助 DLL
+│   ├── CBSHost/                # DISM 托管 DLL
+│   ├── NCleaner/               # 清理引擎 DLL
+│   ├── SkinThemeDll/           # 皮肤引擎 DLL
+│   └── ThemeManager/           # 主题管理 DLL
+│
+├── rust/
+│   └── dismcore/               # Rust 计算模块 (duilibcalc)
+│       ├── Cargo.toml
+│       └── src/
+│
+├── templates/translations/     # 翻译术语表
+│
+├── bin64/                      # 编译输出
+│   ├── Win8Metro.exe           # 主程序
+│   ├── ThemeManager.dll        # 主题管理
+│   ├── amd64/                  # 核心 DLL/LIB
+│   └── lang/                   # 多语言包 DLL
+│
+├── lib/                        # 静态库输出
+│
+└── dist/
+    └── Win8Metro_2026.11.1_x64_便携版/   # 完整便携版发布包
+```
+
+---
+
+## 许可协议
+
+本项目源代码基于 **MIT License** 发布，详见 `LICENSE` 文件。
+
+Win8Metro 便携版发布包中可能包含的第三方组件（WebView2 Runtime、WOFADK.SYS、bcdboot.exe、efisys.bin 等）保持其各自的许可协议。
