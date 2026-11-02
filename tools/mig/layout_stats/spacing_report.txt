@@ -1,0 +1,692 @@
+==============================================================================
+间距 / 内边距 / 对齐 机械统计  (bin64/skin)
+==============================================================================
+XML 文件数          : 19
+元素标签总数        : 573
+Button/Text 固定尺寸项(排除 width=0): 185
+
+属性出现次数（该属性在多少标签上显式出现）:
+  inset             55 次     24 种取值
+  childpadding     108 次     11 种取值
+  textpadding       42 次     11 种取值
+  align            169 次      3 种取值
+  valign           128 次      2 种取值
+  childvalign       56 次      1 种取值
+  height           129 次     15 种取值
+  width            150 次     28 种取值
+
+每文件元素数:
+  Main                    135 元素
+  ToolDialog                7 元素
+  inc_task_panel           28 元素
+  page_appx                33 元素
+  page_assoc               30 元素
+  page_cleanup             27 元素
+  page_control             12 元素
+  page_driver              19 元素
+  page_feature             18 元素
+  page_intl                65 元素
+  page_optim               19 元素
+  page_program             55 元素
+  page_regclean            16 元素
+  page_startup             29 元素
+  page_tasks                3 元素
+  page_tools               16 元素
+  page_unattend            16 元素
+  page_update              42 元素
+  page_welcome              3 元素
+
+==============================================================================
+1. 取值分布（值 -> 次数 -> 涉及页面，括号内为该页出现次数）
+==============================================================================
+
+--- inset  (取值 24 种, 出现 55 次) ---
+  0,0,0,0                  x12  [9 页] inc_task_panel(1), page_appx(3), page_cleanup(1), page_optim(1), page_program(2), page_startup(1), page_tasks(1), page_unattend(1), page_update(1)
+  14,0,14,0                x10  [9 页] Main(1), inc_task_panel(1), page_appx(1), page_cleanup(1), page_program(1), page_regclean(1), page_startup(1), page_unattend(2), page_update(1)
+  14,6,14,0                x7   [6 页] inc_task_panel(1), page_control(1), page_intl(1), page_regclean(1), page_startup(2), page_welcome(1)
+  12,4,12,4                x2   [2 页] page_appx(1), page_program(1)
+  16,0,0,0                 x2   [2 页] inc_task_panel(1), page_startup(1)
+  16,4,16,4                x2   [2 页] inc_task_panel(1), page_startup(1)
+  20,16,18,14              x2   [1 页] page_assoc(2)
+  6,4,6,4                  x2   [2 页] page_driver(1), page_update(1)
+  10,0,0,0                 x1   [1 页] page_program(1)
+  10,2,10,2                x1   [1 页] page_program(1)
+  12,0,0,0                 x1   [1 页] Main(1)
+  12,0,6,0                 x1   [1 页] page_optim(1)
+  12,10,12,10              x1   [1 页] page_program(1)
+  14,12,10,0               x1   [1 页] page_cleanup(1)
+  14,14,14,14              x1   [1 页] page_assoc(1)
+  16,14,18,0               x1   [1 页] page_cleanup(1)
+  20,12,16,12              x1   [1 页] page_driver(1)
+  20,14,12,12              x1   [1 页] Main(1)
+  22,8,18,0                x1   [1 页] page_feature(1)
+  24,22,24,8               x1   [1 页] page_tools(1)
+  380,0,0,0                x1   [1 页] page_update(1)
+  6,0,3,0                  x1   [1 页] Main(1)
+  6,2,6,2                  x1   [1 页] page_assoc(1)
+  7,6,12,8                 x1   [1 页] page_optim(1)
+
+--- childpadding  (取值 11 种, 出现 108 次) ---
+  0                        x42  [16 页] Main(2), inc_task_panel(3), page_appx(5), page_assoc(2), page_cleanup(3), page_control(1), page_driver(1), page_feature(2), page_optim(3), page_program(5), page_regclean(1), page_startup(5), page_tasks(1), page_tools(1), page_unattend(2), page_update(5)
+  8                        x33  [13 页] Main(1), inc_task_panel(1), page_appx(1), page_assoc(3), page_cleanup(3), page_driver(1), page_feature(2), page_intl(14), page_program(2), page_regclean(1), page_startup(1), page_tools(1), page_update(2)
+  10                       x15  [11 页] inc_task_panel(1), page_appx(1), page_assoc(2), page_control(1), page_driver(3), page_intl(1), page_program(1), page_regclean(1), page_startup(1), page_unattend(2), page_welcome(1)
+  4                        x5   [2 页] page_feature(1), page_program(4)
+  6                        x5   [4 页] page_cleanup(1), page_driver(1), page_program(2), page_welcome(1)
+  12                       x2   [2 页] page_assoc(1), page_program(1)
+  24                       x2   [2 页] inc_task_panel(1), page_startup(1)
+  14                       x1   [1 页] page_assoc(1)
+  16                       x1   [1 页] page_program(1)
+  5                        x1   [1 页] Main(1)
+  7                        x1   [1 页] page_optim(1)
+
+--- textpadding  (取值 11 种, 出现 42 次) ---
+  6,4,6,4                  x16  [13 页] Main(3), inc_task_panel(1), page_appx(1), page_assoc(1), page_cleanup(1), page_control(1), page_driver(1), page_feature(2), page_optim(1), page_program(1), page_startup(1), page_tools(1), page_update(1)
+  34,8,8,8                 x11  [1 页] Main(11)
+  8,12,0,6                 x3   [1 页] Main(3)
+  0,0,8,0                  x2   [1 页] page_appx(2)
+  10,0,0,0                 x2   [1 页] page_update(2)
+  16,4,8,4                 x2   [2 页] inc_task_panel(1), page_startup(1)
+  2,0,0,0                  x2   [1 页] page_appx(2)
+  10,4,6,4                 x1   [1 页] Main(1)
+  6,3,6,3                  x1   [1 页] page_startup(1)
+  8,5,8,5                  x1   [1 页] page_unattend(1)
+  8,6,8,6                  x1   [1 页] page_cleanup(1)
+
+--- align  (取值 3 种, 出现 169 次) ---
+  center                   x115 [17 页] Main(4), inc_task_panel(10), page_appx(8), page_assoc(6), page_cleanup(11), page_control(1), page_driver(6), page_feature(1), page_intl(1), page_optim(10), page_program(17), page_regclean(8), page_startup(5), page_tasks(1), page_tools(1), page_unattend(8), page_update(17)
+  left                     x50  [10 页] Main(19), inc_task_panel(4), page_appx(2), page_intl(11), page_program(1), page_regclean(1), page_startup(4), page_tools(2), page_unattend(1), page_update(5)
+  right                    x4   [3 页] Main(1), page_appx(2), page_optim(1)
+
+--- valign  (取值 2 种, 出现 128 次) ---
+  center                   x79  [14 页] Main(4), inc_task_panel(5), page_appx(6), page_assoc(6), page_cleanup(11), page_driver(6), page_feature(1), page_optim(7), page_program(4), page_regclean(7), page_startup(1), page_tasks(1), page_unattend(8), page_update(12)
+  vcenter                  x49  [12 页] Main(2), inc_task_panel(3), page_appx(5), page_assoc(4), page_cleanup(2), page_driver(2), page_feature(4), page_program(11), page_regclean(1), page_startup(3), page_tools(2), page_update(10)
+
+--- childvalign  (取值 1 种, 出现 56 次) ---
+  vcenter                  x56  [16 页] Main(2), inc_task_panel(4), page_appx(3), page_assoc(3), page_cleanup(2), page_control(1), page_driver(2), page_feature(3), page_intl(15), page_optim(1), page_program(8), page_regclean(2), page_startup(4), page_tools(1), page_unattend(2), page_update(3)
+
+--- height（仅 Button/Text 且 width!=0）  (取值 15 种, 出现 129 次) ---
+  38                       x44  [5 页] page_cleanup(11), page_driver(6), page_regclean(7), page_unattend(8), page_update(12)
+  40                       x16  [3 页] Main(3), page_assoc(6), page_optim(7)
+  32                       x13  [3 页] page_appx(1), page_feature(2), page_intl(10)
+  24                       x10  [2 页] Main(4), page_program(6)
+  26                       x9   [5 页] inc_task_panel(1), page_assoc(4), page_control(2), page_startup(1), page_tools(1)
+  36                       x9   [2 页] page_appx(5), page_program(4)
+  34                       x7   [3 页] inc_task_panel(5), page_program(1), page_startup(1)
+  30                       x6   [4 页] page_assoc(2), page_cleanup(2), page_startup(1), page_update(1)
+  20                       x4   [2 页] Main(3), page_program(1)
+  37                       x4   [1 页] Main(4)
+  22                       x2   [2 页] Main(1), page_driver(1)
+  28                       x2   [2 页] page_appx(1), page_program(1)
+  0                        x1   [1 页] Main(1)
+  18                       x1   [1 页] page_program(1)
+  60                       x1   [1 页] page_program(1)
+
+--- width（仅 Button/Text 且 width!=0）  (取值 28 种, 出现 150 次) ---
+  104                      x59  [10 页] page_appx(5), page_assoc(6), page_cleanup(10), page_driver(6), page_intl(3), page_optim(6), page_program(4), page_regclean(7), page_unattend(8), page_update(4)
+  80                       x20  [6 页] inc_task_panel(3), page_assoc(1), page_intl(10), page_optim(1), page_program(2), page_update(3)
+  100                      x10  [5 页] inc_task_panel(2), page_intl(3), page_program(2), page_startup(1), page_update(2)
+  120                      x5   [5 页] inc_task_panel(1), page_control(1), page_intl(1), page_regclean(1), page_tools(1)
+  46                       x5   [2 页] Main(4), page_feature(1)
+  48                       x5   [5 页] inc_task_panel(1), page_assoc(1), page_driver(1), page_startup(1), page_update(1)
+  150                      x4   [2 页] page_appx(2), page_update(2)
+  19                       x4   [1 页] page_program(4)
+  56                       x4   [3 页] page_control(2), page_program(1), page_tools(1)
+  60                       x4   [1 页] page_intl(4)
+  90                       x4   [4 页] inc_task_panel(1), page_assoc(1), page_startup(1), page_update(1)
+  240                      x3   [2 页] page_startup(1), page_update(2)
+  72                       x3   [3 页] page_appx(1), page_feature(1), page_program(1)
+  110                      x2   [2 页] page_startup(1), page_update(1)
+  140                      x2   [1 页] page_optim(2)
+  180                      x2   [2 页] inc_task_panel(1), page_program(1)
+  70                       x2   [1 页] page_update(2)
+  82                       x2   [1 页] Main(2)
+  115                      x1   [1 页] page_update(1)
+  118                      x1   [1 页] page_startup(1)
+  300                      x1   [1 页] inc_task_panel(1)
+  430                      x1   [1 页] Main(1)
+  52                       x1   [1 页] page_feature(1)
+  74                       x1   [1 页] Main(1)
+  76                       x1   [1 页] page_feature(1)
+  88                       x1   [1 页] page_feature(1)
+  96                       x1   [1 页] page_cleanup(1)
+  98                       x1   [1 页] Main(1)
+
+==============================================================================
+2. 每页取值分布（同一属性在一页内部的多样性）
+==============================================================================
+
+# Main
+  inset         12,0,0,0x1  14,0,14,0x1  20,14,12,12x1  6,0,3,0x1
+  childpadding  0x2  5x1  8x1
+  textpadding   10,4,6,4x1  34,8,8,8x11  6,4,6,4x3  8,12,0,6x3
+  align         centerx4  leftx19  rightx1
+  valign        centerx4  vcenterx2
+  childvalign   vcenterx2
+
+# ToolDialog
+
+# inc_task_panel
+  inset         0,0,0,0x1  14,0,14,0x1  14,6,14,0x1  16,0,0,0x1  16,4,16,4x1
+  childpadding  0x3  10x1  24x1  8x1
+  textpadding   16,4,8,4x1  6,4,6,4x1
+  align         centerx10  leftx4
+  valign        centerx5  vcenterx3
+  childvalign   vcenterx4
+
+# page_appx
+  inset         0,0,0,0x3  12,4,12,4x1  14,0,14,0x1
+  childpadding  0x5  10x1  8x1
+  textpadding   0,0,8,0x2  2,0,0,0x2  6,4,6,4x1
+  align         centerx8  leftx2  rightx2
+  valign        centerx6  vcenterx5
+  childvalign   vcenterx3
+
+# page_assoc
+  inset         14,14,14,14x1  20,16,18,14x2  6,2,6,2x1
+  childpadding  0x2  10x2  12x1  14x1  8x3
+  textpadding   6,4,6,4x1
+  align         centerx6
+  valign        centerx6  vcenterx4
+  childvalign   vcenterx3
+
+# page_cleanup
+  inset         0,0,0,0x1  14,0,14,0x1  14,12,10,0x1  16,14,18,0x1
+  childpadding  0x3  6x1  8x3
+  textpadding   6,4,6,4x1  8,6,8,6x1
+  align         centerx11
+  valign        centerx11  vcenterx2
+  childvalign   vcenterx2
+
+# page_control
+  inset         14,6,14,0x1
+  childpadding  0x1  10x1
+  textpadding   6,4,6,4x1
+  align         centerx1
+  childvalign   vcenterx1
+
+# page_driver
+  inset         20,12,16,12x1  6,4,6,4x1
+  childpadding  0x1  10x3  6x1  8x1
+  textpadding   6,4,6,4x1
+  align         centerx6
+  valign        centerx6  vcenterx2
+  childvalign   vcenterx2
+
+# page_feature
+  inset         22,8,18,0x1
+  childpadding  0x2  4x1  8x2
+  textpadding   6,4,6,4x2
+  align         centerx1
+  valign        centerx1  vcenterx4
+  childvalign   vcenterx3
+
+# page_intl
+  inset         14,6,14,0x1
+  childpadding  10x1  8x14
+  align         centerx1  leftx11
+  childvalign   vcenterx15
+
+# page_optim
+  inset         0,0,0,0x1  12,0,6,0x1  7,6,12,8x1
+  childpadding  0x3  7x1
+  textpadding   6,4,6,4x1
+  align         centerx10  rightx1
+  valign        centerx7
+  childvalign   vcenterx1
+
+# page_program
+  inset         0,0,0,0x2  10,0,0,0x1  10,2,10,2x1  12,10,12,10x1  12,4,12,4x1  14,0,14,0x1
+  childpadding  0x5  10x1  12x1  16x1  4x4  6x2  8x2
+  textpadding   6,4,6,4x1
+  align         centerx17  leftx1
+  valign        centerx4  vcenterx11
+  childvalign   vcenterx8
+
+# page_regclean
+  inset         14,0,14,0x1  14,6,14,0x1
+  childpadding  0x1  10x1  8x1
+  align         centerx8  leftx1
+  valign        centerx7  vcenterx1
+  childvalign   vcenterx2
+
+# page_startup
+  inset         0,0,0,0x1  14,0,14,0x1  14,6,14,0x2  16,0,0,0x1  16,4,16,4x1
+  childpadding  0x5  10x1  24x1  8x1
+  textpadding   16,4,8,4x1  6,3,6,3x1  6,4,6,4x1
+  align         centerx5  leftx4
+  valign        centerx1  vcenterx3
+  childvalign   vcenterx4
+
+# page_tasks
+  inset         0,0,0,0x1
+  childpadding  0x1
+  align         centerx1
+  valign        centerx1
+
+# page_tools
+  inset         24,22,24,8x1
+  childpadding  0x1  8x1
+  textpadding   6,4,6,4x1
+  align         centerx1  leftx2
+  valign        vcenterx2
+  childvalign   vcenterx1
+
+# page_unattend
+  inset         0,0,0,0x1  14,0,14,0x2
+  childpadding  0x2  10x2
+  textpadding   8,5,8,5x1
+  align         centerx8  leftx1
+  valign        centerx8
+  childvalign   vcenterx2
+
+# page_update
+  inset         0,0,0,0x1  14,0,14,0x1  380,0,0,0x1  6,4,6,4x1
+  childpadding  0x5  8x2
+  textpadding   10,0,0,0x2  6,4,6,4x1
+  align         centerx17  leftx5
+  valign        centerx12  vcenterx10
+  childvalign   vcenterx3
+
+# page_welcome
+  inset         14,6,14,0x1
+  childpadding  10x1  6x1
+
+==============================================================================
+3. 语义角色推断（启发式，规则见各条注释）
+==============================================================================
+
+## page_root  (11 种签名, 共 36 个节点)
+   tag | inset | childpadding | height | align | valign
+   Font | - | - | - | - | -   x15  [Main, ToolDialog]
+   VerticalLayout | 0,0,0,0 | 0 | - | - | -   x8  [inc_task_panel, page_appx, page_cleanup, page_program, page_startup, page_tasks, page_unattend, page_update]
+   VerticalLayout | 14,6,14,0 | 10 | - | - | -   x4  [page_control, page_intl, page_regclean, page_welcome]
+   VerticalLayout | - | - | - | - | -   x2  [Main, ToolDialog]
+   Default | - | - | - | - | -   x1  [Main]
+   HorizontalLayout | 14,0,14,0 | 8 | 58 | - | -   x1  [page_regclean]
+   VerticalLayout | 14,14,14,14 | 14 | - | - | -   x1  [page_assoc]
+   VerticalLayout | 20,12,16,12 | 10 | - | - | -   x1  [page_driver]
+   VerticalLayout | 22,8,18,0 | 0 | - | - | -   x1  [page_feature]
+   VerticalLayout | 24,22,24,8 | 0 | - | - | -   x1  [page_tools]
+   VerticalLayout | 7,6,12,8 | 0 | - | - | -   x1  [page_optim]
+
+## header_band  (7 种签名, 共 10 个节点)
+   tag | inset | childpadding | height | align | valign
+   HorizontalLayout | - | - | 28 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | - | - | 32 | - | -   x2  [page_appx]
+   HorizontalLayout | - | - | 34 | - | -   x2  [page_update]
+   HorizontalLayout | - | - | 26 | - | -   x1  [page_optim]
+   HorizontalLayout | - | - | 62 | - | -   x1  [page_appx]
+   HorizontalLayout | 10,0,0,0 | - | 26 | - | -   x1  [page_program]
+   VerticalLayout | - | - | - | - | -   x1  [Main]
+
+## action_bar  (19 种签名, 共 26 个节点)
+   tag | inset | childpadding | height | align | valign
+   HorizontalLayout | - | 10 | 46 | - | -   x3  [page_assoc, page_driver]
+   HorizontalLayout | - | - | 30 | - | -   x2  [page_control, page_tools]
+   HorizontalLayout | 14,0,14,0 | 10 | 50 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | 14,0,14,0 | 10 | 52 | - | -   x2  [page_appx, page_program]
+   HorizontalLayout | 14,0,14,0 | 8 | 58 | - | -   x2  [page_cleanup, page_regclean]
+   HorizontalLayout | 16,0,0,0 | 24 | 40 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | - | - | 48 | - | -   x1  [page_program]
+   HorizontalLayout | - | - | 62 | - | -   x1  [page_appx]
+   HorizontalLayout | - | 0 | 24 | - | -   x1  [Main]
+   HorizontalLayout | - | 4 | 36 | - | -   x1  [page_feature]
+   HorizontalLayout | - | 7 | 40 | - | -   x1  [page_optim]
+   HorizontalLayout | - | 8 | 34 | - | -   x1  [page_program]
+   HorizontalLayout | 12,0,0,0 | 8 | 37 | - | -   x1  [Main]
+   HorizontalLayout | 12,4,12,4 | 8 | 40 | - | -   x1  [page_appx]
+   HorizontalLayout | 14,0,14,0 | 10 | 48 | - | -   x1  [page_unattend]
+   HorizontalLayout | 14,0,14,0 | 10 | 56 | - | -   x1  [page_unattend]
+   HorizontalLayout | 14,0,14,0 | 8 | 54 | - | -   x1  [page_update]
+   HorizontalLayout | 380,0,0,0 | - | 58 | - | -   x1  [page_update]
+   HorizontalLayout | 6,2,6,2 | 8 | 34 | - | -   x1  [page_assoc]
+
+## list_body  (3 种签名, 共 19 个节点)
+   tag | inset | childpadding | height | align | valign
+   VerticalLayout | - | 0 | 0 | - | -   x17  [inc_task_panel, page_appx, page_assoc, page_cleanup, page_control, page_driver, page_feature, page_program, page_regclean, page_startup, page_unattend, page_update]
+   RichEdit | - | - | 0 | - | -   x1  [page_cleanup]
+   VerticalLayout | 0,0,0,0 | 0 | 0 | - | -   x1  [page_optim]
+
+## card  (20 种签名, 共 27 个节点)
+   tag | inset | childpadding | height | align | valign
+   HorizontalLayout | 12,4,12,4 | 8 | 40 | - | -   x2  [page_appx, page_program]
+   HorizontalLayout | 14,0,14,0 | 10 | 50 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | 14,0,14,0 | 10 | 52 | - | -   x2  [page_appx, page_program]
+   HorizontalLayout | 16,0,0,0 | 24 | 40 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | 16,4,16,4 | 8 | 34 | - | -   x2  [inc_task_panel, page_startup]
+   HorizontalLayout | 6,4,6,4 | 8 | 32 | - | -   x2  [page_driver, page_update]
+   VerticalLayout | 20,16,18,14 | 8 | 0 | - | -   x2  [page_assoc]
+   HorizontalLayout | 10,0,0,0 | - | 26 | - | -   x1  [page_program]
+   HorizontalLayout | 12,0,0,0 | 8 | 37 | - | -   x1  [Main]
+   HorizontalLayout | 14,0,14,0 | - | 38 | - | -   x1  [Main]
+   HorizontalLayout | 14,0,14,0 | 10 | 48 | - | -   x1  [page_unattend]
+   HorizontalLayout | 14,0,14,0 | 10 | 56 | - | -   x1  [page_unattend]
+   HorizontalLayout | 14,0,14,0 | 8 | 54 | - | -   x1  [page_update]
+   HorizontalLayout | 380,0,0,0 | - | 58 | - | -   x1  [page_update]
+   HorizontalLayout | 6,2,6,2 | 8 | 34 | - | -   x1  [page_assoc]
+   VerticalLayout | 0,0,0,0 | 0 | 0 | - | -   x1  [page_optim]
+   VerticalLayout | 12,10,12,10 | 6 | 0 | - | -   x1  [page_program]
+   VerticalLayout | 16,14,18,0 | 6 | 0 | - | -   x1  [page_cleanup]
+   VerticalLayout | 20,14,12,12 | 5 | - | - | -   x1  [Main]
+   VerticalLayout | 6,0,3,0 | 0 | - | - | -   x1  [Main]
+
+==============================================================================
+4. 结构骨架（每页 depth 0..2，列出影响间距的属性）
+==============================================================================
+
+# Main
+<Window>   ::L2
+  <Font name="Microsoft YaHei">   ::L3
+  <Font name="Microsoft YaHei">   ::L4
+  <Font name="Microsoft YaHei">   ::L5
+  <Font name="Microsoft YaHei">   ::L6
+  <Font name="Microsoft YaHei">   ::L7
+  <Font name="Microsoft YaHei">   ::L8
+  <Font name="Consolas">   ::L9
+  <Font name="Marlett">   ::L10
+  <Font name="Segoe UI Symbol">   ::L11
+  <Font name="Segoe UI Symbol">   ::L15
+  <Default name="VScrollBar">   ::L17
+  <VerticalLayout name="root" borderround="8,8">   ::L19
+    <Text name="glyph_ck0" height="0" width="0">   ::L22
+    <Text name="glyph_ck1" height="0" width="0">   ::L23
+    <Text name="glyph_ck2" height="0" width="0">   ::L24
+    <Text name="glyph_ar" height="0" width="0">   ::L25
+    <Text name="glyph_ad" height="0" width="0">   ::L26
+    <Text name="glyph_dash" height="0" width="0">   ::L27
+    <Text name="glyph_gear" height="0" width="0">   ::L28
+    <Text name="mit_opendir" height="0" width="0">   ::L31
+    <Text name="mit_exit" height="0" width="0">   ::L32
+    <Text name="mit_restore" height="0" width="0">   ::L33
+    <Text name="mit_import" height="0" width="0">   ::L34
+    <Text name="mit_about" height="0" width="0">   ::L35
+    <Text name="tl_0" height="0" width="0">   ::L38
+    <Text name="tl_1" height="0" width="0">   ::L39
+    <Text name="tl_2" height="0" width="0">   ::L40
+    <Text name="tl_3" height="0" width="0">   ::L41
+    <Text name="tl_4" height="0" width="0">   ::L42
+    <Text name="tl_5" height="0" width="0">   ::L43
+    <Text name="tl_6" height="0" width="0">   ::L44
+    <Text name="tl_7" height="0" width="0">   ::L45
+    <Text name="tl_8" height="0" width="0">   ::L46
+    <Text name="tl_9" height="0" width="0">   ::L47
+    <Text name="tl_10" height="0" width="0">   ::L48
+    <Text name="tl_11" height="0" width="0">   ::L49
+    <Text name="tl_12" height="0" width="0">   ::L52
+    <Text name="dcat_0" height="0" width="0">   ::L55
+    <Text name="dcat_1" height="0" width="0">   ::L56
+    <Text name="dcat_2" height="0" width="0">   ::L57
+    <Text name="dcat_3" height="0" width="0">   ::L58
+    <Text name="dcat_4" height="0" width="0">   ::L59
+    <Text name="dcat_5" height="0" width="0">   ::L60
+    <Text name="dcat_6" height="0" width="0">   ::L61
+    <Text name="dcat_7" height="0" width="0">   ::L62
+    <Text name="dcat_8" height="0" width="0">   ::L63
+    <Text name="dcat_9" height="0" width="0">   ::L64
+    <Text name="dcat_10" height="0" width="0">   ::L65
+    <Text name="dcat_11" height="0" width="0">   ::L66
+    <Text name="dcat_12" height="0" width="0">   ::L67
+    <Text name="dcat_13" height="0" width="0">   ::L68
+    <Text name="dcat_14" height="0" width="0">   ::L69
+    <Text name="dcat_15" height="0" width="0">   ::L70
+    <Text name="lbl_drv_warn" height="0" width="0">   ::L73
+    <Text name="lbl_show_builtin" height="0" width="0">   ::L74
+    <Text name="lbl_select_all" height="0" width="0">   ::L75
+    <Text name="lbl_export_driver" height="0" width="0">   ::L76
+    <Text name="lbl_add_driver" height="0" width="0">   ::L77
+    <Text name="lbl_apps" height="0" width="0">   ::L78
+    <Text name="lbl_win_features" height="0" width="0">   ::L79
+    <Text name="lbl_user_app" height="0" width="0">   ::L80
+    <Text name="lbl_pre_app" height="0" width="0">   ::L81
+    <Text name="hdr_item" height="0" width="0">   ::L82
+    <Text name="hdr_install_date" height="0" width="0">   ::L83
+    <Text name="hdr_size" height="0" width="0">   ::L84
+    <Text name="lbl_refresh2" height="0" width="0">   ::L85
+    <Text name="lbl_delete" height="0" width="0">   ::L86
+    <Text name="lbl_appx_loading" height="0" width="0">   ::L87
+    <Text name="lbl_feat_empty" height="0" width="0">   ::L88
+    <Text name="lbl_cap_loading" height="0" width="0">   ::L91
+    <Text name="lbl_uninstall" height="0" width="0">   ::L92
+    <Text name="lbl_byte" height="0" width="0">   ::L93
+    <Text name="lbl_installed" height="0" width="0">   ::L94
+    <Text name="lbl_wu_hint" height="0" width="0">   ::L95
+    <HorizontalLayout name="titlebar" inset="12,0,0,0" childpadding="8" childvalign="vcenter" height="37" borderround="8,8">   ::L113
+    <HorizontalLayout name="menubar" childpadding="0" height="24" borderround="8,8">   ::L124
+    <HorizontalLayout name="session" height="127">   ::L133
+    <Control height="3">   ::L142
+    <HorizontalLayout name="main_body" height="0" width="0">   ::L145
+    <HorizontalLayout name="bottombar" inset="14,0,14,0" childvalign="vcenter" height="38" borderround="8,8">   ::L225
+
+# ToolDialog
+<Window>   ::L2
+  <Font name="Microsoft YaHei">   ::L3
+  <Font name="Microsoft YaHei">   ::L4
+  <Font name="Microsoft YaHei">   ::L5
+  <Font name="Microsoft YaHei">   ::L6
+  <Font name="Microsoft YaHei">   ::L7
+  <VerticalLayout name="dlg_root">   ::L9
+
+# inc_task_panel
+<Window>   ::L2
+  <VerticalLayout name="task_panel" inset="0,0,0,0" childpadding="0">   ::L3
+    <HorizontalLayout inset="16,0,0,0" childpadding="24" childvalign="vcenter" height="40" borderround="8,8">   ::L5
+    <Control height="1">   ::L15
+    <HorizontalLayout inset="16,4,16,4" childpadding="8" childvalign="vcenter" height="34" borderround="8,8">   ::L17
+    <Text name="task_infobar" textpadding="16,4,8,4" align="left" valign="vcenter" height="26">   ::L27
+    <TabLayout name="task_pages" height="0" width="0">   ::L29
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="50" borderround="8,8">   ::L53
+
+# page_appx
+<Window>   ::L2
+  <VerticalLayout name="page_appx" inset="0,0,0,0" childpadding="0">   ::L3
+    <HorizontalLayout childvalign="vcenter" height="62" borderround="8,8">   ::L5
+    <HorizontalLayout inset="12,4,12,4" childpadding="8" childvalign="vcenter" height="40" borderround="8,8">   ::L13
+    <TabLayout name="appx_pages" height="0" width="0">   ::L22
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="52" borderround="8,8">   ::L56
+
+# page_assoc
+<Window>   ::L2
+  <VerticalLayout name="page_assoc" inset="14,14,14,14" childpadding="14" borderround="8,8">   ::L3
+    <HorizontalLayout inset="6,2,6,2" childpadding="8" childvalign="vcenter" height="34" borderround="8,8">   ::L5
+    <VerticalLayout name="assoc_group_img" inset="20,16,18,14" childpadding="8" height="0" borderround="8,8">   ::L14
+    <VerticalLayout name="assoc_group_live" inset="20,16,18,14" childpadding="8" height="0" borderround="8,8">   ::L27
+
+# page_cleanup
+<Window>   ::L2
+  <VerticalLayout name="page_cleanup" inset="0,0,0,0" childpadding="0">   ::L3
+    <HorizontalLayout childpadding="0" height="0" width="0">   ::L4
+    <HorizontalLayout inset="14,0,14,0" childpadding="8" childvalign="vcenter" height="58">   ::L24
+
+# page_control
+<Window>   ::L2
+  <VerticalLayout name="page_control" inset="14,6,14,0" childpadding="10">   ::L3
+    <HorizontalLayout childvalign="vcenter" height="30" borderround="8,8">   ::L4
+    <Control height="1">   ::L13
+    <VerticalLayout name="ctrl_list" childpadding="0" height="0" width="0" borderround="8,8" vscrollbar>   ::L14
+
+# page_driver
+<Window>   ::L2
+  <VerticalLayout name="page_driver" inset="20,12,16,12" childpadding="10">   ::L3
+    <Text name="drv_warn" height="22">   ::L4
+    <HorizontalLayout inset="6,4,6,4" childpadding="8" childvalign="vcenter" height="32" borderround="8,8">   ::L7
+    <HorizontalLayout childpadding="10" height="0" width="0">   ::L23
+    <HorizontalLayout childpadding="10" childvalign="vcenter" height="46">   ::L28
+
+# page_feature
+<Window>   ::L2
+  <VerticalLayout name="page_feature" inset="22,8,18,0" childpadding="0" borderround="8,8">   ::L3
+    <HorizontalLayout childpadding="4" childvalign="vcenter" height="36" borderround="8,8">   ::L7
+    <VerticalLayout name="cap_list" childpadding="0" height="0" width="0" borderround="8,8" vscrollbar>   ::L15
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="40" borderround="8,8">   ::L17
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="42">   ::L22
+
+# page_intl
+<Window>   ::L2
+  <VerticalLayout name="page_intl" inset="14,6,14,0" childpadding="10">   ::L3
+    <HorizontalLayout childvalign="vcenter" height="30" borderround="8,8">   ::L4
+    <Control height="1">   ::L8
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L9
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L13
+    <Control height="1">   ::L18
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L19
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L23
+    <Control height="1">   ::L28
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L29
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L33
+    <Control height="1">   ::L38
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L39
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L43
+    <Control height="1">   ::L47
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L48
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L54
+    <Control height="1">   ::L62
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L63
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L69
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L75
+    <HorizontalLayout childpadding="8" childvalign="vcenter" height="34">   ::L81
+
+# page_optim
+<Window>   ::L2
+  <VerticalLayout name="page_optim" inset="7,6,12,8" childpadding="0">   ::L3
+    <VerticalLayout inset="12,0,6,0" childpadding="0">   ::L4
+    <Progress name="optim_progress" height="8" width="0" borderround="4,4">   ::L18
+    <HorizontalLayout childpadding="7" childvalign="vcenter" height="40">   ::L20
+
+# page_program
+<Window>   ::L2
+  <VerticalLayout name="page_program" inset="0,0,0,0" childpadding="0">   ::L3
+    <HorizontalLayout childvalign="vcenter" height="48">   ::L6
+    <HorizontalLayout inset="12,4,12,4" childpadding="8" childvalign="vcenter" height="40" borderround="8,8">   ::L14
+    <TabLayout name="prog_pages" height="0" width="0">   ::L19
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="52" borderround="8,8">   ::L72
+
+# page_regclean
+<Window>   ::L2
+  <VerticalLayout name="page_regclean" inset="14,6,14,0" childpadding="10">   ::L3
+    <HorizontalLayout childvalign="vcenter" height="30" borderround="8,8">   ::L4
+    <Control height="1">   ::L12
+    <VerticalLayout name="regclean_list" childpadding="0" height="0" width="0" borderround="8,8" vscrollbar>   ::L13
+  <HorizontalLayout inset="14,0,14,0" childpadding="8" childvalign="vcenter" height="58">   ::L15
+    <Button name="btn_regclean_selectall" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L16
+    <Button name="btn_regclean_selectnone" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L17
+    <Button name="btn_regclean_backup" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L18
+    <Button name="btn_regclean_restore" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L19
+    <Button name="btn_regclean_restorepoint" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L20
+    <Control width="0">   ::L21
+    <Button name="btn_regclean_scan" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L22
+    <Button name="btn_regclean_clean" align="center" valign="center" height="38" width="104" borderround="4,4">   ::L23
+
+# page_startup
+<Window>   ::L2
+  <VerticalLayout name="page_startup" inset="0,0,0,0" childpadding="0">   ::L3
+    <HorizontalLayout inset="16,0,0,0" childpadding="24" childvalign="vcenter" height="40" borderround="8,8">   ::L6
+    <Control height="1">   ::L11
+    <HorizontalLayout inset="16,4,16,4" childpadding="8" childvalign="vcenter" height="34" borderround="8,8">   ::L14
+    <Text name="startup_infobar" textpadding="16,4,8,4" align="left" valign="vcenter" height="26">   ::L21
+    <TabLayout name="startup_pages" height="0" width="0">   ::L23
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="50" borderround="8,8">   ::L49
+
+# page_tasks
+<Window>   ::L2
+  <VerticalLayout name="page_tasks" inset="0,0,0,0" childpadding="0">   ::L3
+    <Text name="tasks_relocated" align="center" valign="center">   ::L4
+
+# page_tools
+<Window>   ::L2
+  <VerticalLayout name="page_tools" inset="24,22,24,8" childpadding="0">   ::L3
+    <HorizontalLayout name="tools_progress_row" height="28">   ::L6
+    <HorizontalLayout childvalign="vcenter" height="30" borderround="8,8">   ::L12
+    <TileLayout name="tools_grid" childpadding="8" height="0" width="0">   ::L26
+
+# page_unattend
+<Window>   ::L2
+  <VerticalLayout name="page_unattend" inset="0,0,0,0" childpadding="0" borderround="8,8">   ::L3
+    <VerticalLayout name="uc_groups" childpadding="0" height="0" width="0" borderround="8,8" vscrollbar>   ::L4
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="56" borderround="8,8">   ::L5
+    <HorizontalLayout inset="14,0,14,0" childpadding="10" childvalign="vcenter" height="48" borderround="8,8">   ::L15
+
+# page_update
+<Window>   ::L2
+  <VerticalLayout name="page_update" inset="0,0,0,0" childpadding="0" borderround="8,8">   ::L3
+    <HorizontalLayout inset="380,0,0,0" childvalign="vcenter" height="58" borderround="8,8">   ::L5
+    <HorizontalLayout inset="6,4,6,4" childpadding="8" childvalign="vcenter" height="32" borderround="8,8">   ::L12
+    <TabLayout name="upd_pages" height="0" width="0">   ::L20
+    <HorizontalLayout inset="14,0,14,0" childpadding="8" childvalign="vcenter" height="54" borderround="8,8">   ::L45
+
+# page_welcome
+<Window>   ::L2
+  <VerticalLayout name="page_welcome" inset="14,6,14,0" childpadding="10">   ::L3
+    <VerticalLayout name="welcome_box" childpadding="6" height="0" width="0">   ::L4
+
+==============================================================================
+5. 离群值（取值出现次数 <=2 且与同属性主流值不同）
+==============================================================================
+
+--- inset: 主流值 '0,0,0,0' (12/55 = 22%) ---
+    离群 '10,0,0,0' x1  页面: page_program
+    离群 '10,2,10,2' x1  页面: page_program
+    离群 '12,0,0,0' x1  页面: Main
+    离群 '12,0,6,0' x1  页面: page_optim
+    离群 '12,10,12,10' x1  页面: page_program
+    离群 '14,12,10,0' x1  页面: page_cleanup
+    离群 '14,14,14,14' x1  页面: page_assoc
+    离群 '16,14,18,0' x1  页面: page_cleanup
+    离群 '20,12,16,12' x1  页面: page_driver
+    离群 '20,14,12,12' x1  页面: Main
+    离群 '22,8,18,0' x1  页面: page_feature
+    离群 '24,22,24,8' x1  页面: page_tools
+    离群 '380,0,0,0' x1  页面: page_update
+    离群 '6,0,3,0' x1  页面: Main
+    离群 '6,2,6,2' x1  页面: page_assoc
+    离群 '7,6,12,8' x1  页面: page_optim
+    离群 '12,4,12,4' x2  页面: page_appx, page_program
+    离群 '16,0,0,0' x2  页面: inc_task_panel, page_startup
+    离群 '16,4,16,4' x2  页面: inc_task_panel, page_startup
+    离群 '20,16,18,14' x2  页面: page_assoc
+    离群 '6,4,6,4' x2  页面: page_driver, page_update
+
+--- childpadding: 主流值 '0' (42/108 = 39%) ---
+    离群 '14' x1  页面: page_assoc
+    离群 '16' x1  页面: page_program
+    离群 '5' x1  页面: Main
+    离群 '7' x1  页面: page_optim
+    离群 '12' x2  页面: page_assoc, page_program
+    离群 '24' x2  页面: inc_task_panel, page_startup
+
+--- textpadding: 主流值 '6,4,6,4' (16/42 = 38%) ---
+    离群 '10,4,6,4' x1  页面: Main
+    离群 '6,3,6,3' x1  页面: page_startup
+    离群 '8,5,8,5' x1  页面: page_unattend
+    离群 '8,6,8,6' x1  页面: page_cleanup
+    离群 '0,0,8,0' x2  页面: page_appx
+    离群 '10,0,0,0' x2  页面: page_update
+    离群 '16,4,8,4' x2  页面: inc_task_panel, page_startup
+    离群 '2,0,0,0' x2  页面: page_appx
+
+--- height: 主流值 '38' (44/129 = 34%) ---
+    离群 '0' x1  页面: Main
+    离群 '18' x1  页面: page_program
+    离群 '60' x1  页面: page_program
+    离群 '22' x2  页面: Main, page_driver
+    离群 '28' x2  页面: page_appx, page_program
+
+--- width: 主流值 '104' (59/150 = 39%) ---
+    离群 '115' x1  页面: page_update
+    离群 '118' x1  页面: page_startup
+    离群 '300' x1  页面: inc_task_panel
+    离群 '430' x1  页面: Main
+    离群 '52' x1  页面: page_feature
+    离群 '74' x1  页面: Main
+    离群 '76' x1  页面: page_feature
+    离群 '88' x1  页面: page_feature
+    离群 '96' x1  页面: page_cleanup
+    离群 '98' x1  页面: Main
+    离群 '110' x2  页面: page_startup, page_update
+    离群 '140' x2  页面: page_optim
+    离群 '180' x2  页面: inc_task_panel, page_program
+    离群 '70' x2  页面: page_update
+    离群 '82' x2  页面: Main
+
+--- align: 主流值 'center' (115/169 = 68%) ---
+
+--- valign: 主流值 'center' (79/128 = 62%) ---

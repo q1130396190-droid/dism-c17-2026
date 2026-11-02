@@ -1,0 +1,5 @@
+# Ratchet for audit_coverage_matrix.py: how many subsystems had at least one gated
+# probe. Coverage may not go down; raise this when a subsystem gains a gate.
+# 32 of 46 as of the migration wrap-up round (11 genuinely uncovered, 3 excluded by
+# design as non-gate probes).
+covered=32

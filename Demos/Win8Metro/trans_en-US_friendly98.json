@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "System components appear to be corrupted. Run System Cleanup first, then try again."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "The component operation has already completed. No need to repeat it."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "The component store is inconsistent. Restart your PC, then try again."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Unable to locate component information. You can try System Restore."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "The service is not running. Make sure the Windows Update service is enabled."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "The Windows Update service is unavailable. Try again later."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Update session conflict. Close other update programs, then try again."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "The update session is busy. Please try again later."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Windows Update components are missing. Enable the related features to continue."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Another Windows Update process is currently running. Please try again later."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "The operation succeeded, but a system restart is required to complete the changes."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Components are corrupted. A repair is being prepared; please wait."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "A restart is required to apply the component repair."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Insufficient permissions. Right-click and choose \"Run as administrator\"."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "The file is in use. Close the related programs, then try again."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "A driver or service failed to load correctly."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Driver signature verification failed. The driver was skipped."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "The driver has not passed Windows certification and was skipped."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "The path exceeds the maximum length. Shorten the target file name."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Path not found. Check that the directory exists."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "The directory does not exist. Please verify the path."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "The specified device does not exist."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Unable to relocate the directory entry. It may be in use."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Not enough disk space. Free up space, then try again."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer is not installed."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "The file already exists and cannot be created."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "The update component store is corrupted. Run sfc, then try again."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "The network request failed. Check your network, then try again."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA returned a generic error. See the error details."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "The component store is inconsistent. Restart your PC, then run sfc /scannow."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "The component store is inconsistent. Restart your PC, then try again."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Unable to locate component information."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "No matching component found. Skipped."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "The component store is corrupted. Run sfc /scannow."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "The component store is corrupted (version mismatch)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "The component store needs to be rebuilt. Run sfc /scannow."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "The component store needs to be rebuilt. Run sfc /scannow."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "The component store is corrupted and inconsistent."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "The component store is inconsistent (rebuild required)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "The component store is inconsistent (rebuild required)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "Windows requires repair. Run sfc /scannow."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "Windows requires repair. Run sfc /scannow."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "Windows requires repair."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "pnputil cannot recognize this driver package."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "The pnputil driver package is corrupt."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "The pnputil driver package is in use; retry later."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "The pnputil driver package is not installed."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "The service is not running."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "The service has not started; start Windows Update first."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Service startup timed out."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "The Appx package is not installed."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "The Appx package is corrupt; consider re-registering it."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Generic error; see clean_errors.log for details."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "The specified file was not found."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Access denied; right-click and select \"Run as administrator\"."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Network request failed; check your network and try again."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Insufficient system resources."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Unable to load the specified module; the component may not be installed."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "The operation could not be completed; please try again."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Target drive detected: "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nContinue?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Apply Image - Target Drive Mount Detection"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "WIMBoot / WindowsToGo / Compact compression mode is selected.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "Driver injection capability is limited in these modes after startup; consider providing an additional driver directory (with .inf) here as well.\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Do you want to inject an additional driver directory?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Apply Image - Driver Injection Suggestion"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Select driver directory (with .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Batch mode"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "When checked, the links below run in batch according to the list"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Selected index: "
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "You cannot delete all image indexes (%d total); at least one must remain."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "Batch-delete %d indexes:\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "The following indexes are also set as bootable: %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Directory/file name too long (>31 characters): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "No valid 8.3 short name (contains spaces/Chinese characters): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "A \\efi subdirectory was detected in the source directory, and both etfsboot.com and efisys.bin are available.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Automatically generated BIOS + UEFI dual-boot parameters; the generated ISO works in both boot modes.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "If you do not need UEFI, cancel.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "ISO Generation - Dual-Boot Detection"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "Source path length is %d characters, exceeding the ISO9660 record limit (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "The following directory/file names may violate ISO9660 naming constraints:\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... and %d other items\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nSome media or tools may fail to read the generated ISO.\\r\\nContinue?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "ISO9660 Naming Constraint Warning"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Error"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Data.xml is missing the SystemOptimization / CleanCollection4 nodes; it may be the upstream original rather than this project's customized version:"
+ }
+]

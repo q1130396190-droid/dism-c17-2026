@@ -1,0 +1,7 @@
+# Ratchet for audit_assertion_strength.py. Values are assertion counts, not shares:
+# shares shift when probes are added, counts only move when a probe is rewritten.
+# strong = effect + value + count (assertions that verify an actual result).
+# effect = the strongest class (observes a real side effect).
+# Measured 2026-10-30: 460 assertions parsed, 20 effect, 79 value, 44 count.
+strong=143
+effect=20

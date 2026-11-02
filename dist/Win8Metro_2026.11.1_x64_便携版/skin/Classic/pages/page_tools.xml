@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_tools" inset="24,22,24,8" childpadding="0">
+          
+          <!-- [R107] 工具箱统一进度条：轮询 progress.txt 显示工具运行状态 -->
+          <HorizontalLayout name="tools_progress_row" height="28" visible="false">
+            <Progress name="tools_progress" min="0" max="100" value="0" height="8" width="180" bkcolor="#FFE5E5E5" forecolor="#FF007ACC" showtext="false" visible="false"/>
+            <Text name="tools_progress_label" width="0" height="0" font="1" textcolor="#FF007ACC" align="left" valign="vcenter" visible="false"/>
+          </HorizontalLayout>
+
+          <!-- [R110] 工具筛选 + 刷新 + 计数：D1 核心操作"过滤/刷新"补齐 -->
+          <HorizontalLayout name="cl_70" height="30" bkcolor="#FFEFF6FC" childvalign="vcenter">
+            <Text name="lbl_tools_title" text="工具箱" font="6" textcolor="#FF1A1A1A" width="120" align="center"/>
+            <Control width="8" height="1"/>
+            <!-- [R119-1] 分类筛选：全部 / 系统 / 磁盘镜像 / 系统工具 -->
+            <Combo name="tools_cat_filter" width="120" height="26" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" itemtextcolor="#FF1A1A1A" itembkcolor="#FFFFFFFF" itemselectedtextcolor="#FFFFFFFF" itemselectedbkcolor="#FF007ACC" itemhotbkcolor="#FFE5F1FB" itemfont="1" itemalign="left" itemvalign="vcenter" itemendellipsis="true" itemtextpadding="8,3,8,3"/>
+            <Control width="8" height="1"/>
+            <Edit name="tools_filter" width="0" height="28" textcolor="#FF1A1A1A" tipvalue="输入名称过滤工具（如 备份 / 还原 / ESD）" tipvaluecolor="#FF999999" font="1" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,4,6,4"/>
+            <Control width="8" height="1"/>
+            <Button name="btn_tools_refresh" text="刷新" font="1" textcolor="#FF007ACC" bkcolor="#FFEEF4FB" hotbkcolor="#FFDCE9F7" pushedbkcolor="#FFCCE4F7" bordercolor="#FFB8D0F0" bordersize="1" width="56" height="26"/>
+            <Control width="8" height="1"/>
+            <Text name="tools_count" text="11 个工具" width="0" height="0" font="1" textcolor="#FF1A1A1A" align="left" valign="vcenter"/>
+          </HorizontalLayout>
+
+          <!-- [U-3] itemsize 高 200→178：风险徽章已移除，与 BpBuildCard nItemH 同步 -->
+          <TileLayout name="tools_grid" width="0" height="0" childpadding="8" itemsize="160,178"/>
+        </VerticalLayout>
+</Window>

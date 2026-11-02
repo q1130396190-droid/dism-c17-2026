@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "Le magasin de composants est endommagé. Exécutez « Nettoyage système » puis réessayez."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "L'opération sur le composant est déjà terminée, il n'est pas nécessaire de la répéter."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "Le magasin de composants est incohérent. Redémarrez l'ordinateur puis réessayez."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Impossible de localiser les informations du composant. Essayez « Restaurer le système »."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "Le service n'est pas démarré. Vérifiez que le service Windows Update est activé."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Le service Windows Update est indisponible. Réessayez plus tard."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Conflit de session de mise à jour. Fermez les autres programmes de mise à jour puis réessayez."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "La session de mise à jour est occupée. Réessayez plus tard."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Le composant Windows Update est manquant. Activez la fonctionnalité correspondante."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Un autre processus de mise à jour Windows est en cours d'exécution. Réessayez plus tard."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "Opération réussie. Un redémarrage du système est nécessaire pour appliquer les modifications."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Un composant est endommagé. Préparation de la réparation en cours, veuillez patienter."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "Un redémarrage est nécessaire pour appliquer la réparation du composant."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Permissions insuffisantes. Cliquez avec le bouton droit puis choisissez « Exécuter en tant qu'administrateur »."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "Le fichier est utilisé par un autre programme. Fermez-le puis réessayez."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Le pilote ou le service n'a pas pu être chargé correctement."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Échec de la vérification de signature du pilote. Ce pilote a été ignoré."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Le pilote n'a pas été certifié par Windows. Il a été ignoré."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Le chemin dépasse la longueur maximale autorisée. Raccourcissez le nom du fichier cible."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Chemin introuvable. Vérifiez que le répertoire existe."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "Le répertoire n'existe pas. Vérifiez le chemin."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "Le périphérique spécifié est introuvable."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Impossible de relocaliser l'entrée de répertoire. Elle est peut-être utilisée."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Espace disque insuffisant. Libérez de l'espace puis réessayez."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer n'est pas installé."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "Le fichier existe déjà. Impossible de le créer."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "Le magasin de composants de mise à jour est endommagé. Exécutez sfc puis réessayez."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "Échec de la requête réseau. Vérifiez la connexion réseau puis réessayez."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA a renvoyé une erreur générique. Consultez les détails de l'erreur."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "Le magasin de composants est incohérent. Redémarrez puis exécutez sfc /scannow."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "Le magasin de composants est incohérent. Redémarrez l'ordinateur puis réessayez."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Impossible de localiser les informations du composant."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Aucun composant correspondant trouvé. Élément ignoré."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "Le magasin de composants est endommagé. Exécutez sfc /scannow."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "Le magasin de composants est endommagé (version incompatible)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "Le magasin de composants doit être reconstruit. Exécutez sfc /scannow."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "Le magasin de composants doit être reconstruit. Exécutez sfc /scannow."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "Le magasin de composants est endommagé et incohérent."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "Le magasin de composants est incohérent (reconstruction nécessaire)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "Le magasin de composants est incohérent (reconstruction nécessaire)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "Windows doit être réparé. Exécutez sfc /scannow."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "Windows doit être réparé. Exécutez sfc /scannow."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "Windows doit être réparé."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "pnputil ne peut pas identifier ce package de pilote."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "Le package de pilote pnputil est endommagé."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "Le package de pilote pnputil est actuellement utilisé. Réessayez plus tard."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "Le package de pilote pnputil n'est pas installé."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "Le service n'est pas en cours d'exécution."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "Le service n'est pas démarré. Démarrez d'abord Windows Update."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Délai d'attente du démarrage du service dépassé."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Le package Appx n'est pas installé."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Le package Appx est endommagé. Réenregistrez-le."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Erreur générique. Consultez les détails dans clean_errors.log."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "Le fichier spécifié est introuvable."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Accès refusé. Cliquez avec le bouton droit puis choisissez « Exécuter en tant qu'administrateur »."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Échec de la requête réseau. Vérifiez la connexion réseau puis réessayez."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Ressources système insuffisantes."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Impossible de charger le module spécifié. Le composant est peut-être absent."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "L'opération n'a pas pu être effectuée. Réessayez."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Disque cible détecté "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nContinuer ?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Libération de l'image - Détection du montage du disque cible"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "Le mode de compression WIMBoot / WindowsToGo / Compact est activé.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "Dans ces modes, l'injection de pilotes est limitée après le démarrage. Il est recommandé de fournir ici un répertoire de pilotes supplémentaires (contenant les .inf).\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Voulez-vous injecter un répertoire de pilotes supplémentaires ?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Libération de l'image - Recommandation d'injection de pilotes"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Sélectionner le répertoire de pilotes (contenant les .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Mode lot"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Une fois coché, les liens ci-dessous seront exécutés en lot selon la liste"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Index sélectionné : "
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Impossible de supprimer tous les index d'image (%d index au total). Au moins un index doit être conservé."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "Suppression en lot de %d index :\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "Les index suivants sont définis comme démarrables : %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Nom de répertoire/fichier trop long (> 31 caractères) : "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Aucun nom court 8.3 valide (espaces/caractères chinois présents) : "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "Un sous-répertoire \\efi a été détecté dans le répertoire source, et etfsboot.com ainsi que efisys.bin sont disponibles sur ce système.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Les paramètres de double démarrage « BIOS + UEFI » ont été générés automatiquement. L'image ISO générée est compatible avec les deux modes de démarrage.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Si vous n'avez pas besoin de l'UEFI, décochez cette option.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "Génération de l'ISO - Détection du double démarrage"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "La longueur du chemin source est de %d caractères, ce qui dépasse la limite ISO9660 (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "Les noms de répertoires/fichiers suivants peuvent enfreindre les contraintes de nommage ISO9660 :\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... ainsi que %d autres éléments\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nCertains supports ou outils ne pourront peut-être pas lire l'ISO généré.\\r\\nContinuer ?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "Avertissement sur les contraintes de nommage ISO9660"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Erreur"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Data.xml ne contient pas les nœuds SystemOptimization / CleanCollection4. Il s'agit peut-être de la version amont d'origine plutôt que de la version personnalisée de ce projet :"
+ }
+]

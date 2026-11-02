@@ -1,0 +1,50 @@
+err.s340ca71c	Součásti systému jsou poškozené. Doporučujeme nejprve spustit nástroj Vyčištění systému a poté to zkusit znovu.
+err.sffc664ba	Operace s komponentami je již dokončena, není nutné ji opakovat.
+err.s59824f81	Úložiště komponent není konzistentní. Doporučujeme restartovat a zkusit to znovu.
+err.s5e8495f7	Informace o komponentách nelze nalézt. Můžete zkusit Obnovení systému.
+err.s7ea654ef	Služba není spuštěna. Ověřte, zda je služba Windows Update povolena.
+err.s87aae048	Služba Windows Update není dostupná, zkuste to prosím později.
+err.s90bd8562	Konflikt relace aktualizace. Ukončete ostatní programy pro aktualizace a zkuste to znovu.
+err.s91bd86f5	Relace aktualizace je zaneprázdněná, zkuste to prosím později.
+err.s3d9f3cff	Chybí součásti služby Windows Update. Doporučujeme povolit příslušné funkce.
+err.sc27d201f	Probíhá jiný proces aktualizace systému Windows, zkuste to prosím později.
+err.sa4db77af	Operace byla úspěšná. K dokončení změn je nutné restartovat systém.
+err.s2147cf80	Komponenty jsou poškozené, připravuje se jejich oprava. Čekejte prosím.
+err.s2247d113	K aplikování opravy komponent je nutné restartovat systém.
+err.s300ca0d0	Nedostatečná oprávnění. Klepněte pravým tlačítkem myši a zvolte možnost Spustit jako správce.
+err.s85f04e50	Soubor je používán jiným procesem. Ukončete příslušné programy a zkuste to znovu.
+err.s909267c0	Ovladač nebo služba nebyla načtena správně.
+err.s7485f186	Ověření podpisu ovladače selhalo. Ovladač byl přeskočen.
+err.se5561e45	Ovladač neprošel certifikací systému Windows, proto byl přeskočen.
+err.s19eb271e	Cesta překračuje maximální povolenou délku. Zkraťte prosím název cílového souboru.
+err.s8ef29b12	Cesta nebyla nalezena. Ověřte, zda příslušný adresář existuje.
+err.s8ae14ba5	Adresář neexistuje. Ověřte prosím cestu.
+err.s1ae8ea1a	Zadané zařízení neexistuje.
+err.s8be5ca66	Položku adresáře nelze přesunout, pravděpodobně je právě používaná.
+err.s0cfe9a5f	Nedostatek místa na disku. Uvolněte prosím místo a zkuste to znovu.
+err.s7e2cbb3f	Služba Windows Installer není nainstalována.
+err.s851ffa51	Soubor již existuje, nelze jej vytvořit.
+err.sd12c606d	Úložiště aktualizovaných komponent je poškozené. Spusťte příkaz sfc a zkuste to znovu.
+err.s13d5736f	Síťový požadavek selhal. Zkontrolujte připojení k síti a zkuste to znovu.
+err.s5c0c2074	Služba WUA vrátila obecnou chybu. Zobrazte prosím podrobnosti o chybě.
+err.seb83b485	Úložiště komponent není konzistentní. Po restartu doporučujeme spustit sfc /scannow.
+err.s8cec80ba	Úložiště komponent není konzistentní. Doporučujeme restartovat a zkusit to znovu.
+err.s8aeebc2b	Informace o komponentách nelze nalézt.
+err.s11f1cf47	Nebyla nalezena odpovídající komponenta, proto se přeskakuje.
+err.s3725e88e	Úložiště komponent je poškozené. Doporučujeme spustit sfc /scannow.
+err.s3525e568	Úložiště komponent je poškozené (nesoulad verzí).
+err.s3425e3d5	Úložiště komponent vyžaduje obnovu. Doporučujeme spustit sfc /scannow.
+err.s3325e242	Úložiště komponent vyžaduje obnovu. Doporučujeme spustit sfc /scannow.
+err.sb622dee4	Úložiště komponent je poškozené a nekonzistentní.
+err.sb722e077	Úložiště komponent není konzistentní (vyžaduje obnovu).
+err.sb822e20a	Úložiště komponent není konzistentní (vyžaduje obnovu).
+err.sb422dbbe	Systém Windows vyžaduje opravu. Doporučujeme spustit sfc /scannow.
+err.sb522dd51	Systém Windows vyžaduje opravu.
+err.sae22d24c	Systém Windows vyžaduje opravu. Doporučujeme spustit sfc /scannow.
+err.saf22d3df	Systém Windows vyžaduje opravu.
+err.s282a4e1f	Systém Windows vyžaduje opravu.
+err.s272a4c8c	Systém Windows vyžaduje opravu.
+err.s2a2a5145	Systém Windows vyžaduje opravu.
+err.s292a4fb2	Systém Windows vyžaduje opravu.
+err.s242a47d3	Systém Windows vyžaduje opravu.
+err.s232a4640	Systém Windows vyžaduje opravu.

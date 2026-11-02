@@ -1,0 +1,32 @@
+<Project>
+
+  <!-- ========================================================================
+       [PERF 2026-11-01] 多核编译加速
+       ========================================================================
+       背景：DuiLib.vcxproj 的 8 个配置里都写了 MultiProcessorCompilation=true，
+       但 4 个 Demo 工程（Win8Metro / CBSHost / NCleaner / ActivationKit）一个
+       都没写，等于只有库在并行、大头（Win8Metro 约 200 个 cpp）还是单文件串行。
+
+       MSBuild 的 /m 只让「项目之间」并行；单个项目内部要 /MP 才能多进程编译。
+       两者叠加才是完整的多核加速：
+           msbuild /m   让多项目并行
+           cl /MP       让单项目内多翻译单元并行
+
+       注意：MultiProcessorCompilation 是 ClCompile 的「项元数据」，不是项目属性，
+       写成 <PropertyGroup> 里的一行不会产生任何效果（试过，cl 命令行里没有 /MP）。
+       必须用 ItemDefinitionGroup 注入默认值。
+
+       Directory.Build.props 在工程自身的 ItemDefinitionGroup 之前求值，因此这里
+       只是「兜底默认值」：工程内若显式写了该元数据，以工程为准（DuiLib 就是这种
+       情况，行为不变）；Demos 没写，于是继承 true。
+
+       前提：/MP 与 /Gm（最小重新生成）互斥。已确认本仓库 5 个 vcxproj 均为
+       /Gm-（无 MinimalRebuild=true），因此可安全开启。
+       ======================================================================== -->
+  <ItemDefinitionGroup Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
+    <ClCompile>
+      <MultiProcessorCompilation Condition="'%(MultiProcessorCompilation)' == ''">true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="800,600" sizebox="4,4,4,4" caption="0,0,0,50">
+  <Font name="Microsoft YaHei" size="12" default="true" shared="true" id="1"/>
+  <Font name="Microsoft YaHei" size="12" bold="true" shared="true" id="2"/>
+  <Font name="Microsoft YaHei" size="15" bold="true" shared="true" id="3"/>
+  <Font name="Microsoft YaHei" size="13" shared="true" id="5"/>
+  <Font name="Microsoft YaHei" size="13" underline="true" shared="true" id="10"/>
+
+  <VerticalLayout name="dlg_root" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1">
+  </VerticalLayout>
+</Window>

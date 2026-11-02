@@ -1,0 +1,42 @@
+﻿// ============================================================================
+//  CBSHost.rc -- 版本资源
+//  字段依据知识库《18_CBSHost_100%深度解析与复刻蓝图》1.2 节。
+//  本文件以 UTF-8 BOM 保存 + code_page(65001)，使中文/版权符正确编译。
+// ============================================================================
+
+#include <windows.h>
+
+#pragma code_page(65001)
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION    10,1,1002,1
+ PRODUCTVERSION 10,1,1002,1
+ FILEFLAGSMASK  0x3fL
+#ifdef _DEBUG
+ FILEFLAGS      0x1L
+#else
+ FILEFLAGS      0x0L
+#endif
+ FILEOS         0x40004L     // VOS_NT_WINDOWS32
+ FILETYPE       0x2L         // VFT_DLL
+ FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"     // 简体中文 / Unicode
+        BEGIN
+            VALUE "CompanyName",      "系统管理与优化项目组"
+            VALUE "FileDescription",  "系统管理与优化 配套模块"
+            VALUE "FileVersion",      "10.1.1002.1"
+            VALUE "InternalName",     "CBSHost.dll"
+            VALUE "LegalCopyright",   "© 2026 系统管理与优化项目组。保留所有权利。"
+            VALUE "OriginalFilename", "CBSHost.dll"
+            VALUE "ProductName",      "系统管理与优化"
+            VALUE "ProductVersion",   "10.1.1002.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

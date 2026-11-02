@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+  <Default name="Button" value="bordercolor=&quot;#FF000000&quot; bkc0lor=&quot;#FF000000&quot;" />
+  <Default name="Button" value="inset=&quot;1,2,3,4&quot; textpadding=&quot;4,4,4,4&quot;" />
+  <Default name="VScrollBar" value="width=&quot;10&quot; railbkcolor=&quot;#00000000&quot;" />
+  <Default name="VerticalLayout" value="inset=&quot;1,2,3,4&quot; childpadding=&quot;4&quot;" />
+</Window>

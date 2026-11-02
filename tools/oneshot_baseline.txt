@@ -1,0 +1,69 @@
+# [R73] One-shot patch scripts already in the tree, tolerated by baseline.
+#
+# Why a baseline instead of deletion: this repository has no version control,
+# so removing 56 files cannot be undone. They are dead code and already carry
+# CORRECT double escapes (\n), so they are not a live hazard -- the hazard is
+# writing a NEW one. This file therefore records what exists today and lets the
+# gate fail only on additions. Rebuild with:
+#     python tools/check_oneshot_scripts.py --write-baseline
+#
+# Format: <name>  <date-recorded>  <reason>
+2026-10-28 snapshot
+_add_acc.py                                    2026-10-28  unreferenced one-shot patch script
+_add_hc_apply_decl.py                          2026-10-28  unreferenced one-shot patch script
+_add_hc_apply_impl.py                          2026-10-28  unreferenced one-shot patch script
+_add_hc_header.py                              2026-10-28  unreferenced one-shot patch script
+_add_hc_impl.py                                2026-10-28  unreferenced one-shot patch script
+_add_hc_toggle.py                              2026-10-28  unreferenced one-shot patch script
+_add_node.py                                   2026-10-28  unreferenced one-shot patch script
+_clean2.py                                     2026-10-28  unreferenced one-shot patch script
+_clean3.py                                     2026-10-28  unreferenced one-shot patch script
+_clean4.py                                     2026-10-28  unreferenced one-shot patch script
+_clean_debug.py                                2026-10-28  unreferenced one-shot patch script
+_fix_acc.py                                    2026-10-28  unreferenced one-shot patch script
+_fix_arch_abi.py                               2026-10-28  unreferenced one-shot patch script
+_fix_arch_btnrefresh.py                        2026-10-28  unreferenced one-shot patch script
+_fix_hc_runtime.py                             2026-10-28  unreferenced one-shot patch script
+_fix_hc_runtime2.py                            2026-10-28  unreferenced one-shot patch script
+_fix_hc_text.py                                2026-10-28  unreferenced one-shot patch script
+_instr_arch.py                                 2026-10-28  unreferenced one-shot patch script
+_instr_find.py                                 2026-10-28  unreferenced one-shot patch script
+_instr_nameerr.py                              2026-10-28  unreferenced one-shot patch script
+_instr_noname.py                               2026-10-28  unreferenced one-shot patch script
+_patch_arch_runall.py                          2026-10-28  unreferenced one-shot patch script
+_port_names_arch.py                            2026-10-28  unreferenced one-shot patch script
+_warncmp.py                                    2026-10-28  unreferenced one-shot patch script
+_wire_hc_startup.py                            2026-10-28  unreferenced one-shot patch script
+add_uia_invoke_probe.py                        2026-10-28  unreferenced one-shot patch script
+add_uia_pattern_trace.py                       2026-10-28  unreferenced one-shot patch script
+add_uia_patterns.py                            2026-10-28  unreferenced one-shot patch script
+add_wm_getobject_diag.py                       2026-10-28  unreferenced one-shot patch script
+fix_inject_chk_signature.py                    2026-10-28  unreferenced one-shot patch script
+fix_skin11_argparse.py                         2026-10-28  unreferenced one-shot patch script
+fix_skin11_argparse2.py                        2026-10-28  unreferenced one-shot patch script
+fix_skin11_debug.py                            2026-10-28  unreferenced one-shot patch script
+fix_skin11_debug2.py                           2026-10-28  unreferenced one-shot patch script
+fix_ta_block.py                                2026-10-28  unreferenced one-shot patch script
+fix_uia_inject_usage.py                        2026-10-28  unreferenced one-shot patch script
+inject_selftest_all_probes.py                  2026-10-28  unreferenced one-shot patch script
+patch_perf15_split.py                          2026-10-28  unreferenced one-shot patch script
+patch_perf17_initwindow.py                     2026-10-28  unreferenced one-shot patch script
+patch_perf18_initwindow_split.py               2026-10-28  unreferenced one-shot patch script
+patch_perf19_asc_split.py                      2026-10-28  unreferenced one-shot patch script
+patch_perf20_d2d_shared.py                     2026-10-28  unreferenced one-shot patch script
+patch_perf29_keymiss_report.py                 2026-10-28  unreferenced one-shot patch script
+patch_perf29_langkeys.py                       2026-10-28  unreferenced one-shot patch script
+patch_probe_inject_a11y.py                     2026-10-28  unreferenced one-shot patch script
+patch_probe_inject_perf.py                     2026-10-28  unreferenced one-shot patch script
+patch_probe_inject_skin11.py                   2026-10-28  unreferenced one-shot patch script
+patch_probe_inject_theme.py                    2026-10-28  unreferenced one-shot patch script
+patch_uia_root_hook.py                         2026-10-28  unreferenced one-shot patch script
+patch_uia_root_hook2.py                        2026-10-28  unreferenced one-shot patch script
+patch_vcxproj_parallel_sources.py              2026-10-28  unreferenced one-shot patch script
+patch_vcxproj_uia.py                           2026-10-28  unreferenced one-shot patch script
+revert_perf26_parallel_enum.py                 2026-10-28  unreferenced one-shot patch script
+rewrite_skin11_block.py                        2026-10-28  unreferenced one-shot patch script
+rewrite_uia_diag.py                            2026-10-28  unreferenced one-shot patch script
+win11_d2d_cache.py                             2026-10-28  unreferenced one-shot patch script
+guard_override_setters.py                      2026-10-28  round-36 batch setter rewriter; found by the prose-blind-spot fix in R74
+probe_heredoc_coverage.py                      2026-10-28  RETIRED (R84): conclusion encoded in check_control_bytes + the escape doc

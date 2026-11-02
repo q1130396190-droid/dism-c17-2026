@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1280,900" sizebox="4,4,4,4" caption="0,0,0,61" roundcorner="0,0" mininfo="1100,660">
+  <Font name="Microsoft YaHei" size="12" default="true" shared="true" id="1"/>
+  <Font name="Microsoft YaHei" size="13" shared="true" id="2"/>
+  <Font name="Microsoft YaHei" size="12" bold="true" shared="true" id="6"/>
+  <Font name="Microsoft YaHei" size="14" bold="true" shared="true" id="3"/>
+  <Font name="Microsoft YaHei" size="17" bold="true" shared="true" id="4"/>
+  <Font name="Microsoft YaHei" size="16" shared="true" id="5"/>
+  <Font name="Consolas" size="11" shared="true" id="7"/>
+  <Font name="Marlett" size="10" shared="true" id="8"/>
+  <Font name="Segoe UI Symbol" size="20" shared="true" id="9"/>
+  <!-- [FIX-LEGEND] 图例/勾选字形专用字号：原图例沿用 id=9(20px)，符号比旁边
+       12px 正文高出一截、上下溢出 30px 图例行，视觉上"字体不齐"。
+       这里单独给 16px，与 12px 正文搭配协调，且不改编 id=9（其它页仍在用）。 -->
+  <Font name="Segoe UI Symbol" size="16" shared="true" id="11"/>
+
+  <!-- [R219] Win11 keyboard focus ring. Every tab-stop class needs its own rule:
+       <Default> is indexed by XML tag name, so Option/CheckBox do NOT inherit the
+       Button rule even though COptionUI derives from CButtonUI in C++. Without
+       these five lines the framework falls back to the system highlight colour
+       (UIControl.cpp:1664-1668), which is neither themed nor 2px. -->
+  <Default name="Button" value="focusbordercolor=&quot;{tok:AccentBorder}&quot;" />
+  <Default name="Edit" value="focusbordercolor=&quot;{tok:AccentBorder}&quot;" />
+  <Default name="Combo" value="focusbordercolor=&quot;{tok:AccentBorder}&quot;" />
+  <Default name="Option" value="focusbordercolor=&quot;{tok:AccentBorder}&quot;" />
+  <Default name="CheckBox" value="focusbordercolor=&quot;{tok:AccentBorder}&quot;" />
+  <Default name="VScrollBar" value="width=&quot;12&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbbkcolor=&quot;{tok:Border}&quot; railbkcolor=&quot;#00000000&quot; thumbhotbkcolor=&quot;{tok:InkMuted}&quot; thumbpushedbkcolor=&quot;{tok:Border}&quot;" />
+
+  <VerticalLayout name="root" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" borderround="8,8">
+
+    <!-- glyphs consumed by generated controls (skin owns non-ASCII text) -->
+    <Text name="glyph_ck0" text="☐" visible="false" width="0" height="0"/>
+    <Text name="glyph_ck1" text="☑" visible="false" width="0" height="0"/>
+    <Text name="glyph_ck2" text="▣" visible="false" width="0" height="0"/>
+    <Text name="glyph_ar"  text="⏵" visible="false" width="0" height="0"/>
+    <Text name="glyph_ad"  text="▾" visible="false" width="0" height="0"/>
+    <Text name="glyph_dash" text="—" visible="false" width="0" height="0"/>
+    <Text name="glyph_gear" text="⚙" visible="false" width="0" height="0"/>
+
+    <!-- popup menu item texts (skin owns non-ASCII text) -->
+    <Text name="mit_opendir"  text="打开规则所在目录(&amp;O)" visible="false" width="0" height="0"/>
+    <Text name="mit_exit"     text="退出(&amp;X)" visible="false" width="0" height="0"/>
+    <Text name="mit_restore"  text="系统还原(&amp;R)" visible="false" width="0" height="0"/>
+    <Text name="mit_import"   text="导入配置(&amp;I)" visible="false" width="0" height="0"/>
+    <Text name="mit_about"    text="关于(&amp;A)" visible="false" width="0" height="0"/>
+
+    <!-- toolbox labels (12) -->
+    <Text name="tl_0"  text="系统备份"     visible="false" width="0" height="0"/>
+    <Text name="tl_1"  text="系统还原"     visible="false" width="0" height="0"/>
+    <Text name="tl_2"  text="账户管理"     visible="false" width="0" height="0"/>
+    <Text name="tl_3"  text="引导修复"     visible="false" width="0" height="0"/>
+    <Text name="tl_4"  text="春哥附体"     visible="false" width="0" height="0"/>
+    <Text name="tl_5"  text="ESD转ISO"     visible="false" width="0" height="0"/>
+    <Text name="tl_6"  text="WIM、ESD互转" visible="false" width="0" height="0"/>
+    <Text name="tl_7"  text="Imagex"       visible="false" width="0" height="0"/>
+    <Text name="tl_8"  text="文件浏览器"   visible="false" width="0" height="0"/>
+    <Text name="tl_9"  text="ISO生成器"    visible="false" width="0" height="0"/>
+    <Text name="tl_10" text="hosts编辑器"  visible="false" width="0" height="0"/>
+    <Text name="tl_11" text="激活备份"     visible="false" width="0" height="0"/>
+    <!-- [FIX-TL12] kToolCat 已扩到 13 项（0..12，kind=12 为 Windows 11 镜像处理），
+         此处此前只到 tl_11，导致第 13 张卡片的标题取到空串、卡片文字缺失。 -->
+    <Text name="tl_12" text="Win11镜像处理" visible="false" width="0" height="0"/>
+
+    <!-- driver categories (16) -->
+    <Text name="dcat_0"  text="打印机"                 visible="false" width="0" height="0"/>
+    <Text name="dcat_1"  text="系统设备"               visible="false" width="0" height="0"/>
+    <Text name="dcat_2"  text="声音、视频和游戏控制器" visible="false" width="0" height="0"/>
+    <Text name="dcat_3"  text="存储控制器"             visible="false" width="0" height="0"/>
+    <Text name="dcat_4"  text="扩展"                   visible="false" width="0" height="0"/>
+    <Text name="dcat_5"  text="网络适配器"             visible="false" width="0" height="0"/>
+    <Text name="dcat_6"  text="软件组件"               visible="false" width="0" height="0"/>
+    <Text name="dcat_7"  text="软件设备"               visible="false" width="0" height="0"/>
+    <Text name="dcat_8"  text="通用串行总线设备"       visible="false" width="0" height="0"/>
+    <Text name="dcat_9"  text="端口 (COM 和 LPT)"      visible="false" width="0" height="0"/>
+    <Text name="dcat_10" text="音频处理对象(APO)"      visible="false" width="0" height="0"/>
+    <Text name="dcat_11" text="显示适配器"             visible="false" width="0" height="0"/>
+    <Text name="dcat_12" text="处理器"                 visible="false" width="0" height="0"/>
+    <Text name="dcat_13" text="键盘"                   visible="false" width="0" height="0"/>
+    <Text name="dcat_14" text="鼠标和其他指针设备"     visible="false" width="0" height="0"/>
+    <Text name="dcat_15" text="生物识别设备"           visible="false" width="0" height="0"/>
+
+    <!-- shared labels -->
+    <Text name="lbl_drv_warn"      text="温馨提示：删除关键驱动可能导致计算机无法启动" visible="false" width="0" height="0"/>
+    <Text name="lbl_show_builtin"  text="显示内置驱动"     visible="false" width="0" height="0"/>
+    <Text name="lbl_select_all"    text="全选"             visible="false" width="0" height="0"/>
+    <Text name="lbl_export_driver" text="导出驱动"         visible="false" width="0" height="0"/>
+    <Text name="lbl_add_driver"    text="添加驱动"         visible="false" width="0" height="0"/>
+    <Text name="lbl_apps"          text="应用程序"         visible="false" width="0" height="0"/>
+    <Text name="lbl_win_features"  text="Windows功能"      visible="false" width="0" height="0"/>
+    <Text name="lbl_user_app"      text="用户应用"         visible="false" width="0" height="0"/>
+    <Text name="lbl_pre_app"       text="预装应用"         visible="false" width="0" height="0"/>
+    <Text name="hdr_item"          text="项目"             visible="false" width="0" height="0"/>
+    <Text name="hdr_install_date"  text="安装日期"         visible="false" width="0" height="0"/>
+    <Text name="hdr_size"          text="大小"             visible="false" width="0" height="0"/>
+    <Text name="lbl_refresh2"      text="刷新"             visible="false" width="0" height="0"/>
+    <Text name="lbl_delete"        text="删除"             visible="false" width="0" height="0"/>
+    <Text name="lbl_appx_loading"  text="正在加载应用列表..." visible="false" width="0" height="0"/>
+    <Text name="lbl_feat_empty"    text="Windows 功能列表暂未加载" visible="false" width="0" height="0"/>
+
+    <!-- code-generated text for capabilities / update pages -->
+    <Text name="lbl_cap_loading"   text="正在枚举可选功能..." visible="false" width="0" height="0"/>
+    <Text name="lbl_uninstall"     text="卸载" visible="false" width="0" height="0"/>
+    <Text name="lbl_byte"          text="字节" visible="false" width="0" height="0"/>
+    <Text name="lbl_installed"      text="已安装" visible="false" width="0" height="0"/>
+    <Text name="lbl_wu_hint"        text="点击下方“查找”检查 Windows 更新" visible="false" width="0" height="0"/>
+
+
+    <!-- ==================== 标题栏 (原生风格白底) ==================== -->
+    <!-- [FIX-TITLEBAR] 按主流标题栏规范重排（Win11 / VS Code / Chrome 同构）：
+           左：图标 + 标题     右：最小化 / 最大化 / 关闭（贴窗口右缘）
+         原版把窗口按钮停在逻辑 x≈868，而窗口宽 1280 —— 右侧空了约 300px，
+         按钮既不贴右也不居中，这正是"顶部按钮位置不对"。
+         成因：右侧按钮组是一段未指定宽度的嵌套 HorizontalLayout，
+         DuiLib 只把 EstimateSize 返回 cx==0 的子项计入可伸缩项，
+         嵌套容器固定宽恒为 0，于是它与左侧品牌区**同时**被当成可伸缩项、
+         把整行一分为二 → 按钮组白拿约 300px 富余宽度。
+         修法（主流标题栏的标准结构）：整行平铺，中间只保留一个弹性
+         Control 吃掉全部剩余宽度，按钮作为普通固定宽子项自然被推到最右。
+         注意三个已验证的坑：① 不要给按钮组外层嵌套容器写死宽度，
+         会被外层二次分配、整组被推到可视区外；② 不要用 float，
+         SetPos 阶段拿不到最终父矩形；③ app_title 不要同时用 width=0，
+         否则它会和弹性 Control 一起争抢，标题被压成 0 宽而按钮错位。 -->
+    <HorizontalLayout name="titlebar" height="37" bkcolor="{tok:SurfaceAlt}" inset="12,0,0,0" childpadding="8" childvalign="vcenter" borderround="8,8">
+      <Control name="app_icon_brand" width="22" height="22" bkimage="app_32.png" valign="vcenter"/>
+      <Text name="app_title" text="系统管理与优化 2026.11.1 UEFI Firmware" font="1" textcolor="{tok:Ink}" width="430" endellipsis="true" valign="vcenter"/>
+      <Control name="titlebar_spacer"/>
+      <!-- [R236] 主题入口：点击弹出带配色预览的下拉。放在最小化左边，
+           与"窗口控制"按钮组保持间距 —— 它是内容级操作，不是窗口级操作。 -->
+      <Button name="btn_theme" width="46" height="37" text="◐" font="1" textcolor="{tok:Ink}" hottextcolor="{tok:Accent}" bkcolor="#00000000" disabledtextcolor="{tok:InkMuted}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceSunk}" borderround="8,8" align="center" valign="center"/>
+      <Button name="minbtn" width="46" height="32" text="─" font="1" textcolor="{tok:Ink}" hottextcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" align="center" valign="center"/>
+      <Button name="maxbtn" width="46" height="32" text="□" font="1" textcolor="{tok:Ink}" hottextcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" align="center" valign="center"/>
+      <Button name="restorebtn" width="46" height="32" text="❐" font="1" textcolor="{tok:Ink}" hottextcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" visible="false" align="center" valign="center"/>
+      <Button name="closebtn" width="46" height="32" text="✕" font="1" textcolor="{tok:Ink}" hottextcolor="{tok:OnDanger}" bkcolor="#00000000" hotbkcolor="{tok:Danger}" pushedbkcolor="{tok:DangerPushed}" align="center" valign="center"/>
+    </HorizontalLayout>
+
+    <!-- ==================== 菜单条 ==================== -->
+    <HorizontalLayout name="menubar" height="24" bkcolor="{tok:Surface}" bordercolor="{tok:BorderSoft}" bordersize="0,0,0,1" childpadding="0" borderround="8,8">
+      <Button name="menu_file"    text="文件(F)"    width="74" height="24" font="1" textcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" align="left" textpadding="10,4,6,4"/>
+      <Button name="menu_recover" text="恢复功能(R)" width="98" height="24" font="1" textcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" align="left" textpadding="6,4,6,4"/>
+      <Button name="menu_option"  text="选项(O)"    width="82" height="24" font="1" textcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" align="left" textpadding="6,4,6,4"/>
+      <Button name="menu_help"    text="帮助(H)"    width="82" height="24" font="1" textcolor="{tok:Ink}" bkcolor="#00000000" disabledtextcolor="{tok:Ink}" hotbkcolor="{tok:SurfaceHover}" align="left" textpadding="6,4,6,4"/>
+      <Control width="0"/>
+    </HorizontalLayout>
+
+    <!-- ==================== 会话信息条 ==================== -->
+    <HorizontalLayout name="session" height="127">
+      <VerticalLayout name="sess_card" width="325" bkcolor="{tok:SurfaceAlt}" inset="20,14,12,12" childpadding="5" borderround="8,8">
+        <Text name="sess_os"     text="-" font="2" textcolor="{tok:Ink}" height="22"/>
+        <Text name="sess_drive"  text="-" font="1" textcolor="{tok:InkSecondary}" height="20"/>
+        <Text name="sess_type"   text="本地硬盘" font="1" textcolor="{tok:InkSecondary}" height="20"/>
+        <Text name="sess_status" text="准备就绪" font="1" textcolor="{tok:InkTertiary}" height="20"/>
+      </VerticalLayout>
+      <VerticalLayout name="sess_fill" width="0" bkcolor="{tok:SurfaceAlt}" borderround="8,8"/>
+    </HorizontalLayout>
+    <Control name="Main_L155" height="3" bkcolor="{tok:AccentBorder}"/>
+
+    <!-- ==================== 主体 ==================== -->
+    <HorizontalLayout name="main_body" width="0" height="0">
+
+      <!-- 左侧导航栏 -->
+      <VerticalLayout name="sidenav" width="234" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="0,0,1,0" inset="6,0,3,0" childpadding="0" vscrollbar="true" borderround="8,8">
+
+        <Text name="grp_common" text="常用工具" font="1" textcolor="{tok:Ink}" height="40" align="left" textpadding="8,12,0,6"/>
+        <NavOption name="nav_0" navicon="0" group="nav_main" text="空间回收"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36" selected="true"/>
+        <NavOption name="nav_1" navicon="1" group="nav_main" text="启动项管理" font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_2" navicon="2" group="nav_main" text="Appx管理"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_3" navicon="3" group="nav_main" text="工具箱"     font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+
+        <Text name="grp_control" text="控制面板" font="1" textcolor="{tok:Ink}" height="40" align="left" textpadding="8,12,0,6"/>
+        <NavOption name="nav_4" navicon="4" group="nav_main" text="系统优化"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_5" navicon="5" group="nav_main" text="驱动管理"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_6" navicon="6" group="nav_main" text="程序和功能" font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_7" navicon="7" group="nav_main" text="可选功能"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_8" navicon="8" group="nav_main" text="更新管理"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+
+        <Text name="grp_deploy" text="部署功能" font="1" textcolor="{tok:Ink}" height="40" align="left" textpadding="8,12,0,6"/>
+        <NavOption name="nav_9" navicon="9" group="nav_main" text="文件关联" font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <NavOption name="nav_10" navicon="10" group="nav_main" text="预应答"   font="1" textcolor="{tok:Ink}" selectedtextcolor="{tok:OnAccent}" disabledtextcolor="{tok:InkMuted}" align="left" textpadding="34,8,8,8" height="36"/>
+        <Control width="0" height="0"/>
+      </VerticalLayout>
+
+      <!-- 主内容: TabLayout 切换 -->
+      <TabLayout name="content_area" width="0" height="0">
+
+        <!-- ==================== 0 空间回收 ==================== -->
+        <Include source="pages/page_cleanup.xml"/>
+
+        <!-- ==================== 1 启动项管理 ==================== -->
+        <Include source="pages/page_startup.xml"/>
+
+        <!-- ==================== 2 Appx管理 ==================== -->
+        <Include source="pages/page_appx.xml"/>
+
+        <!-- ==================== 3 工具箱 ==================== -->
+        <Include source="pages/page_tools.xml"/>
+
+        <!-- ==================== 4 系统优化 ==================== -->
+        <Include source="pages/page_optim.xml"/>
+
+        <!-- ==================== 5 驱动管理 ==================== -->
+        <Include source="pages/page_driver.xml"/>
+
+        <!-- ==================== 6 程序和功能 ==================== -->
+        <Include source="pages/page_program.xml"/>
+
+        <!-- ==================== 7 可选功能 ==================== -->
+        <Include source="pages/page_feature.xml"/>
+
+        <!-- ==================== 8 更新管理 ==================== -->
+        <Include source="pages/page_update.xml"/>
+
+        <!-- ==================== 9 文件关联 ==================== -->
+        <Include source="pages/page_assoc.xml"/>
+
+        <!-- ==================== 10 预应答 ==================== -->
+        <Include source="pages/page_unattend.xml"/>
+
+
+        <!-- ==================== 11 计划任务 (R78) ==================== -->
+        <Include source="pages/page_tasks.xml"/>
+
+        <!-- ==================== 12 控制面板 [Q11] ==================== -->
+        <Include source="pages/page_control.xml"/>
+
+        <!-- ==================== 13 区域/国际化 [Q4] ==================== -->
+        <Include source="pages/page_intl.xml"/>
+
+        <!-- ==================== 14 注册表清理 [Q5] ==================== -->
+        <Include source="pages/page_regclean.xml"/>
+
+        <!-- ==================== 15 欢迎页 [Q15] ==================== -->
+        <Include source="pages/page_welcome.xml"/>
+
+</TabLayout>
+    </HorizontalLayout>
+
+    <!-- ==================== 底部状态条 ==================== -->
+    <HorizontalLayout name="bottombar" height="38" bkcolor="{tok:SurfaceAlt}" inset="14,0,14,0" childvalign="vcenter" borderround="8,8">
+      <Text name="app_status" text="就绪" font="1" textcolor="{tok:Ink}" width="0" height="0" align="left"/>
+      <Control width="0" height="0"/>
+      <Text name="app_status_right" text="" font="1" textcolor="{tok:InkSecondary}" height="0" align="right"/>
+    </HorizontalLayout>
+
+  </VerticalLayout>
+</Window>

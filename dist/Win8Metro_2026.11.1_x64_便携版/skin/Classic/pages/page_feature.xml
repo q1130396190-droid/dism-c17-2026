@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_feature" bkcolor="#FFFFFFFF" inset="22,8,18,0" childpadding="0">
+          <!-- [R30] 顶部工具条：搜索 + /Source 输入 + 浏览 -->
+          <HorizontalLayout name="cl_28" height="36" childpadding="4" childvalign="vcenter" bkcolor="#FFFFFFFF">
+            <!-- [R200] 分类下拉框：项由 AxInitSmartCombo 填充。
+                 Classic 皮肤原本缺这个控件，Page_Capability.cpp:649 找不到它，
+                 分类筛选失效。配色对齐 Classic Palette。 -->
+            <Combo name="cap_cat_combo" width="124" height="28" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" itemtextcolor="#FF1A1A1A" itembkcolor="#FFFFFFFF" itemselectedtextcolor="#FFFFFFFF" itemselectedbkcolor="#FF007ACC" itemhotbkcolor="#FFE5F1FB" itemfont="1" itemalign="left" itemvalign="vcenter" itemendellipsis="true" itemtextpadding="8,3,8,3"/>
+            <Text text="搜索" font="1" textcolor="#FF1A1A1A" width="46" valign="vcenter"/>
+            <Edit name="cap_filter_edit" width="0" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" tipvalue="输入关键字过滤" tipvaluecolor="#FF999999" bordersize="1" bordercolor="#FFABABAB" height="28" textpadding="6,4,6,4"/>
+            <Text text="本地源" font="1" textcolor="#FF1A1A1A" width="52" valign="vcenter"/>
+            <Edit name="cap_source_edit" width="0" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" tipvalue="可选：ISO/SxS 本地源路径" tipvaluecolor="#FF999999" bordersize="1" bordercolor="#FFABABAB" height="28" textpadding="6,4,6,4"/>
+            <Button name="btn_cap_browse" text="浏览" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordersize="1" bordercolor="#FFABABAB" width="76" height="28"/>
+          </HorizontalLayout>
+<VerticalLayout name="cap_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+          <!-- [R73] FOD 状态可视化：安装进度 + 依赖统计（独立状态行，避免与底栏挤压重叠） -->
+          <HorizontalLayout name="cl_29" height="40" bkcolor="#FFFFFFFF" childpadding="8" childvalign="vcenter">
+            <Text text="状态概览" font="1" textcolor="#FF1A1A1A" width="72" valign="vcenter"/>
+            <Text name="lbl_cap_visual" text="" font="1" textcolor="#FF1A1A1A" width="0" valign="vcenter" endellipsis="true"/>
+            <Progress name="cap_visual_progress" min="0" max="100" value="0" width="180" height="14" bkcolor="#FFE5E5E5" forecolor="#FF007ACC" showtext="false"/>
+          </HorizontalLayout>
+          <HorizontalLayout name="cl_30" height="42" childvalign="vcenter" childpadding="8">
+            <BoxCheck name="cap_showall" text="显示所有功能" font="1" textcolor="#FF1A1A1A"/>
+            <Control width="0"/>
+            <Button name="btn_cap_refresh" text="刷新" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordersize="1" bordercolor="#FFABABAB" width="88" height="32" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

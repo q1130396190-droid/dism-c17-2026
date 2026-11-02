@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_driver" inset="20,12,16,12" childpadding="10">
+          <Text name="drv_warn" text="温馨提示：删除关键驱动可能导致计算机无法启动" font="2" textcolor="{tok:Danger}" height="22"/>
+
+          <!-- R36: 顶部搜索工具条 -->
+          <HorizontalLayout name="page_driver_L7" height="32" bkcolor="{tok:SurfaceAlt}" inset="6,4,6,4" childpadding="8" childvalign="vcenter" borderround="8,8">
+            <Text text="搜索" font="1" textcolor="{tok:InkSecondary}" width="48" valign="vcenter"/>
+            <Edit name="drv_filter" width="0" height="32" tipvalue="输入驱动名称或 INF 路径过滤" tipvaluecolor="{tok:InkMuted}" textcolor="{tok:Ink}" font="1" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" textpadding="6,4,6,4" borderround="4,4"/>
+            <Text name="lbl_drv_count" text="" font="1" textcolor="{tok:InkTertiary}" autocalcwidth="true" valign="vcenter"/>
+          </HorizontalLayout>
+
+          <!-- [FIX-SPLIT-55] 左「驱动列表」与右「详情信息」严格 5:5。
+               原写法：drv_tree 固定 width="390"，drv_detail 用 width="0" 吃剩余。
+               实测内容区约 1046px（窗口 1280 − 导航 234），于是列表 390、
+               详情 646 —— 详情占 62%，明显比列表宽一半多，这就是
+               "详情信息区显示过大、左右失衡"。
+               改为两边都写死宽度并按 5:5 分配：
+                 可用宽 = 1046 − childpadding(10) = 1036 → 每栏 518。
+               这里不用 width="0" 双弹性，是因为实测该行两个 width=0 的
+               子项并没有被均分（仍按 30:70 排），改用显式像素最可靠。
+               若将来窗口最小宽度变化，只需同步调这两个数字。 -->
+          <HorizontalLayout width="0" height="0" childpadding="10">
+            <VerticalLayout name="drv_tree" width="508" height="0" bkcolor="{tok:Surface}" bordercolor="{tok:InkMuted}" bordersize="1" childpadding="0" vscrollbar="true" borderround="8,8"/>
+            <VerticalLayout name="drv_detail" width="508" height="0" bkcolor="{tok:Surface}" childpadding="6" borderround="8,8"/>
+          </HorizontalLayout>
+
+          <HorizontalLayout height="46" childpadding="10" childvalign="vcenter">
+            <BoxCheck name="drv_showbuiltin" text="显示内置驱动" font="1" textcolor="{tok:Ink}" borderround="4,4"/>
+            <Control width="0"/>
+            <Button name="btn_drv_selall" text="全选" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_drv_export" text="导出驱动" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_drv_add" text="添加驱动" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_drv_delete" text="删除驱动" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_drv_scanoffline" text="离线扫描" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [R83] P1-15 设备树重扫（pnputil /scan-devices） -->
+            <Button name="btn_drv_scandev" text="扫描设备" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

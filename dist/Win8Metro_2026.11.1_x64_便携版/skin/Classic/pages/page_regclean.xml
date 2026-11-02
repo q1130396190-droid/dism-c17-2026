@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_regclean" inset="14,6,14,0" childpadding="10">
+          <HorizontalLayout name="cl_63" height="30" bkcolor="#FFEFF6FC" childvalign="vcenter">
+            <Text name="lbl_regclean_title" text="注册表清理" font="6" textcolor="#FF333333" width="120" align="center"/>
+            <!-- [R216] 扫描计数标签：Page_RegClean.cpp:126 会把 regclean.s_count
+                 写进这个控件，Classic 皮肤原本没有它，计数永远不显示。 -->
+            <Text name="regclean_count" text="" font="1" textcolor="#FF333333" width="0" height="30" align="left" valign="vcenter" endellipsis="true"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="#FFE5E5E5"/>
+          <VerticalLayout name="regclean_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+          <!-- [R216] 操作按钮组：Classic 皮肤原本整条底栏缺失，
+               Page_RegClean.cpp 找不到这些控件 → 扫描/清理/备份等全部无法触发。
+               配色与 Classic Palette 对齐：主按钮 Accent 三兄弟、危险按钮 Danger 三兄弟。
+               注意：这一行必须留在 page_regclean 根节点**内部**。页面 XML 被
+               ExpandSkinFile 展开后是 TabLayout(content_area) 的直接子节点，
+               根节点外的兄弟节点会多出一个 Tab 页，把后面所有页的索引整体顶偏
+               （欢迎页被挤到 index 16，EPageId 15 反而指向这条按钮行）。 -->
+          <HorizontalLayout height="58" childpadding="8" childvalign="vcenter">
+            <Button name="btn_regclean_selectall" text="全选" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_selectnone" text="全不选" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_backup" text="备份" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_restore" text="还原" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_restorepoint" text="创建还原点" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="104" height="32" align="center" valign="center"/>
+            <Control width="0"/>
+            <Button name="btn_regclean_scan" text="扫描" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" pushedbkcolor="#FF005A9E" borderround="4,4" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_clean" text="清理" font="1" textcolor="#FFFFFFFF" bkcolor="#FFE23A3E" hotbkcolor="#FFE74C3C" pushedbkcolor="#FF96281B" borderround="4,4" width="104" height="32" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

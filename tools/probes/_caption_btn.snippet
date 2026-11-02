@@ -1,0 +1,164 @@
+// ============================================================
+// Win11 风格标题栏按钮（GDI+ 自绘）
+// ------------------------------------------------------------
+// 为什么不用皮肤里的 <Button text="&#xE921;">：
+//   1) 依赖 Segoe Fluent Icons 字体，缺字体时字形整块消失
+//   2) 字形大小由字号决定，10pt 的最小化横线只有 1px 高 ——
+//      实测整窗渲染里三个按钮合计仅约 100 个非背景像素，肉眼近乎不可见
+//   3) 悬停态做不出 Win11 的"整块浅色底 + 图标不变色"（受 textcolor 约束）
+// 自绘后线宽、颜色、热区全部可控，且与系统字体无关。
+// ============================================================
+class CCaptionBtnUI : public CButtonUI
+{
+    DECLARE_DUICONTROL(CCaptionBtnUI)
+
+public:
+    CCaptionBtnUI() : m_nKind(0), m_bHot(false), m_bPushed(false) {}
+
+    virtual void SetAttribute(const wchar_t* pstrName, const wchar_t* pstrValue)
+    {
+        if (lstrcmpiW(pstrName, L"capkind") == 0)
+            m_nKind = _ttoi(pstrValue);
+        else
+            CButtonUI::SetAttribute(pstrName, pstrValue);
+    }
+
+    virtual void DoEvent(TEventUI& event)
+    {
+        if (event.Type == UIEVENT_MOUSEENTER)
+        {
+            if (!m_bHot) { m_bHot = true; Invalidate(); }
+        }
+        else if (event.Type == UIEVENT_MOUSELEAVE)
+        {
+            if (m_bHot) { m_bHot = false; m_bPushed = false; Invalidate(); }
+        }
+        else if (event.Type == UIEVENT_BUTTONDOWN)
+        {
+            m_bPushed = true; Invalidate();
+        }
+        else if (event.Type == UIEVENT_BUTTONUP)
+        {
+            m_bPushed = false; Invalidate();
+        }
+        CButtonUI::DoEvent(event);
+    }
+
+    virtual bool DoPaint(HDC hDC, const RECT& rcPaint, CControlUI* pStopControl)
+    {
+        PaintCaptionBg(hDC);
+        PaintGlyph(hDC);
+        return true;
+    }
+
+private:
+    int  m_nKind;      // 0=min 1=max 2=restore 3=close
+    bool m_bHot;
+    bool m_bPushed;
+
+    int Dp(int v) const
+    {
+        return (m_pManager != nullptr) ? m_pManager->GetDPIObj()->Scale(v) : v;
+    }
+
+    bool IsDarkMode() const
+    {
+        return theme::SystemMode() == theme::EMode::Dark;
+    }
+
+    static void FillRectColor(Gdiplus::Graphics& g, const RECT& rc, DWORD argb)
+    {
+        Gdiplus::SolidBrush br(Gdiplus::Color(
+            static_cast<BYTE>((argb >> 24) & 0xFF),
+            static_cast<BYTE>((argb >> 16) & 0xFF),
+            static_cast<BYTE>((argb >> 8) & 0xFF),
+            static_cast<BYTE>(argb & 0xFF)));
+        g.FillRectangle(&br, Gdiplus::Rect(rc.left, rc.top,
+                                           rc.right - rc.left,
+                                           rc.bottom - rc.top));
+    }
+
+    void PaintCaptionBg(HDC hDC)
+    {
+        const bool bDark = IsDarkMode();
+        const bool bClose = (m_nKind == 3);
+
+        DWORD bk = 0;
+        if (!IsEnabled())
+            bk = 0;                                        // 禁用：无底色
+        else if (bClose && m_bPushed)
+            bk = 0xFFC50F1F;                               // Win11 关闭按下
+        else if (bClose && m_bHot)
+            bk = 0xFFE81123;                               // Win11 关闭悬停
+        else if (m_bPushed)
+            bk = bDark ? 0xFF2A2A2A : 0xFFE0E0E0;
+        else if (m_bHot)
+            bk = bDark ? 0xFF333333 : 0xFFEDEDED;          // Fluent subtle hover
+        if (bk == 0) return;
+
+        Gdiplus::Graphics g(hDC);
+        FillRectColor(g, m_rcItem, bk);
+    }
+
+    void PaintGlyph(HDC hDC)
+    {
+        const bool bDark = IsDarkMode();
+        const bool bCloseHot = (m_nKind == 3) && m_bHot;
+
+        DWORD fg = 0;
+        if (bCloseHot)             fg = 0xFFFFFFFF;                       // 红底白字
+        else if (!IsEnabled())     fg = bDark ? 0xFF6B6B6B : 0xFF9A9A9A;
+        else                       fg = bDark ? 0xFFF0F0F0 : 0xFF1B1B1B;
+
+        Gdiplus::Graphics g(hDC);
+        g.SetSmoothingMode(Gdiplus::SmoothingModeAntiAlias);
+        g.SetPixelOffsetMode(Gdiplus::PixelOffsetModeHalf);
+
+        Gdiplus::Pen pen(Gdiplus::Color(
+            static_cast<BYTE>((fg >> 24) & 0xFF),
+            static_cast<BYTE>((fg >> 16) & 0xFF),
+            static_cast<BYTE>((fg >> 8) & 0xFF),
+            static_cast<BYTE>(fg & 0xFF)), 1.0f);
+        pen.SetLineCap(Gdiplus::LineCapFlat, Gdiplus::LineCapFlat,
+                       Gdiplus::DashCapFlat);
+
+        // Fluent 标题栏字形在 10x10 网格内，按钮中心对齐
+        const Gdiplus::REAL S  = static_cast<Gdiplus::REAL>(Dp(10));
+        const Gdiplus::REAL cx = static_cast<Gdiplus::REAL>(
+            (m_rcItem.left + m_rcItem.right) / 2);
+        const Gdiplus::REAL cy = static_cast<Gdiplus::REAL>(
+            (m_rcItem.top + m_rcItem.bottom) / 2);
+        const Gdiplus::REAL x0 = cx - S / 2.0f;
+        const Gdiplus::REAL y0 = cy - S / 2.0f;
+        const Gdiplus::REAL x1 = x0 + S;
+        const Gdiplus::REAL y1 = y0 + S;
+
+        switch (m_nKind)
+        {
+        case 0:   // 最小化：单横线
+            g.DrawLine(&pen, x0, cy, x1, cy);
+            break;
+
+        case 1:   // 最大化：方框
+            g.DrawRectangle(&pen, x0, y0, S - 1.0f, S - 1.0f);
+            break;
+
+        case 2:   // 还原：两个错位方框（Fluent ChromeRestore）
+        {
+            const Gdiplus::REAL o = 2.0f;
+            g.DrawRectangle(&pen, x0 + o, y0, S - 1.0f - o, S - 1.0f - o);
+            g.DrawLine(&pen, x0, y0 + o, x0, y1 - 1.0f);
+            g.DrawLine(&pen, x0, y1 - 1.0f, x1 - o, y1 - 1.0f);
+            break;
+        }
+
+        default:  // 关闭：X
+            g.DrawLine(&pen, x0, y0, x1, y1);
+            g.DrawLine(&pen, x1, y0, x0, y1);
+            break;
+        }
+    }
+};
+
+IMPLEMENT_DUICONTROL(CCaptionBtnUI)
+

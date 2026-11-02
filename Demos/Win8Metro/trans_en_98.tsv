@@ -1,0 +1,50 @@
+err.s340ca71c	System components appear to be corrupted. Run System Cleanup first, then try again.
+err.sffc664ba	The component operation has already completed. No need to repeat it.
+err.s59824f81	The component store is inconsistent. Restart your PC, then try again.
+err.s5e8495f7	Unable to locate component information. You can try System Restore.
+err.s7ea654ef	The service is not running. Make sure the Windows Update service is enabled.
+err.s87aae048	The Windows Update service is unavailable. Try again later.
+err.s90bd8562	Update session conflict. Close other update programs, then try again.
+err.s91bd86f5	The update session is busy. Please try again later.
+err.s3d9f3cff	Windows Update components are missing. Enable the related features to continue.
+err.sc27d201f	Another Windows Update process is currently running. Please try again later.
+err.sa4db77af	The operation succeeded, but a system restart is required to complete the changes.
+err.s2147cf80	Components are corrupted. A repair is being prepared; please wait.
+err.s2247d113	A restart is required to apply the component repair.
+err.s300ca0d0	Insufficient permissions. Right-click and choose "Run as administrator".
+err.s85f04e50	The file is in use. Close the related programs, then try again.
+err.s909267c0	A driver or service failed to load correctly.
+err.s7485f186	Driver signature verification failed. The driver was skipped.
+err.se5561e45	The driver has not passed Windows certification and was skipped.
+err.s19eb271e	The path exceeds the maximum length. Shorten the target file name.
+err.s8ef29b12	Path not found. Check that the directory exists.
+err.s8ae14ba5	The directory does not exist. Please verify the path.
+err.s1ae8ea1a	The specified device does not exist.
+err.s8be5ca66	Unable to relocate the directory entry. It may be in use.
+err.s0cfe9a5f	Not enough disk space. Free up space, then try again.
+err.s7e2cbb3f	Windows Installer is not installed.
+err.s851ffa51	The file already exists and cannot be created.
+err.sd12c606d	The update component store is corrupted. Run sfc, then try again.
+err.s13d5736f	The network request failed. Check your network, then try again.
+err.s5c0c2074	WUA returned a generic error. See the error details.
+err.seb83b485	The component store is inconsistent. Restart your PC, then run sfc /scannow.
+err.s8cec80ba	The component store is inconsistent. Restart your PC, then try again.
+err.s8aeebc2b	Unable to locate component information.
+err.s11f1cf47	No matching component found. Skipped.
+err.s3725e88e	The component store is corrupted. Run sfc /scannow.
+err.s3525e568	The component store is corrupted (version mismatch).
+err.s3425e3d5	The component store needs to be rebuilt. Run sfc /scannow.
+err.s3325e242	The component store needs to be rebuilt. Run sfc /scannow.
+err.sb622dee4	The component store is corrupted and inconsistent.
+err.sb722e077	The component store is inconsistent (rebuild required).
+err.sb822e20a	The component store is inconsistent (rebuild required).
+err.sb422dbbe	Windows requires repair. Run sfc /scannow.
+err.sb522dd51	Windows requires repair.
+err.sae22d24c	Windows requires repair. Run sfc /scannow.
+err.saf22d3df	Windows requires repair.
+err.s282a4e1f	Windows requires repair.
+err.s272a4c8c	Windows requires repair.
+err.s2a2a5145	Windows requires repair.
+err.s292a4fb2	Windows requires repair.
+err.s242a47d3	Windows requires repair.
+err.s232a4640	Windows requires repair.

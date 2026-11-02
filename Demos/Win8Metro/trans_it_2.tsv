@@ -1,0 +1,2 @@
+misc.se9e0e35c	Su questo disco esistono già directory di sistema come Windows/EFI/Sources, che potrebbero essere state montate da dism/imagex o contenere residui di un vecchio sistema.\r\n\r\n
+misc.sf00266a2	Se non è selezionata l'opzione "Formatta il disco di destinazione", Apply-Image potrebbe non riuscire o generare file in conflitto.\r\n\r\n

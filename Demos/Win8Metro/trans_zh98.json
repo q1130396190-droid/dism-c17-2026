@@ -1,0 +1,678 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "系统组件已损坏，建议先运行「系统清理」再重试。"
+ },
+ {
+  "key": "err.s340ca71c_t",
+  "t": "dism exited 1: component store corruption"
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "当前组件操作已完成，无需重复执行。"
+ },
+ {
+  "key": "err.sffc664ba_t",
+  "t": "DISM_S_ALREADY_INSTALLED / clean state"
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "组件存储不一致，建议重启后重试。"
+ },
+ {
+  "key": "err.s59824f81_t",
+  "t": "HRESULT 0x800F0906: component store inconsistent"
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "无法定位组件信息，可尝试「还原系统」。"
+ },
+ {
+  "key": "err.s5e8495f7_t",
+  "t": "HRESULT 0x800F0912: no component info"
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "服务未启动，请确认 Windows Update 服务已启用。"
+ },
+ {
+  "key": "err.s7ea654ef_t",
+  "t": "ERROR_SERVICE_NOT_INSTALLED"
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Windows Update 服务不可用，稍后重试。"
+ },
+ {
+  "key": "err.s87aae048_t",
+  "t": "ERROR_NO_SUCH_LOGON_SESSION / WU unavailable"
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "更新会话冲突，请关闭其它更新程序后重试。"
+ },
+ {
+  "key": "err.s90bd8562_t",
+  "t": "ERROR_IP_ADDRESS_CONFLICT / session conflict"
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "更新会话忙，请稍后重试。"
+ },
+ {
+  "key": "err.s91bd86f5_t",
+  "t": "session busy"
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Windows Update 组件缺失，建议启用相关功能。"
+ },
+ {
+  "key": "err.s3d9f3cff_t",
+  "t": "WU API missing"
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "另一个 Windows 更新进程正在运行，请稍后再试。"
+ },
+ {
+  "key": "err.sc27d201f_t",
+  "t": "ERROR_NO_WINDOWS_UPDATE_SERVER 1618"
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "操作已成功，需要重启系统以完成更改。"
+ },
+ {
+  "key": "err.sa4db77af_t",
+  "t": "ERROR_SUCCESS_REBOOT_REQUIRED"
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "组件已损坏，正在准备修复，请保持耐心。"
+ },
+ {
+  "key": "err.s2147cf80_t",
+  "t": "COMPACT_SFC_REPAIR_REQUIRED"
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "需要重启以应用组件修复。"
+ },
+ {
+  "key": "err.s2247d113_t",
+  "t": "COMPACT_REBOOT_REQUIRED"
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "权限不足，请右键「以管理员身份运行」。"
+ },
+ {
+  "key": "err.s300ca0d0_t",
+  "t": "ERROR_ACCESS_DENIED"
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "文件被占用，请关闭相关程序后重试。"
+ },
+ {
+  "key": "err.s85f04e50_t",
+  "t": "ERROR_SHARING_VIOLATION"
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "驱动或服务未正确加载。"
+ },
+ {
+  "key": "err.s909267c0_t",
+  "t": "ERROR_FAILED_SERVICE_START"
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "驱动签名校验失败，已跳过该驱动。"
+ },
+ {
+  "key": "err.s7485f186_t",
+  "t": "WINERROR 692: signature invalid"
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "驱动未通过 Windows 认证，已跳过。"
+ },
+ {
+  "key": "err.se5561e45_t",
+  "t": "WINERROR 1379: not authenticated"
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "路径超出最大长度，请缩短目标文件名。"
+ },
+ {
+  "key": "err.s19eb271e_t",
+  "t": "ERROR_FILENAME_EXCESIVELY_LONG"
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "路径未找到，请检查目录是否存在。"
+ },
+ {
+  "key": "err.s8ef29b12_t",
+  "t": "ERROR_FILE_NOT_FOUND"
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "目录不存在，请确认路径。"
+ },
+ {
+  "key": "err.s8ae14ba5_t",
+  "t": "ERROR_BAD_NETPATH"
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "指定的设备不存在。"
+ },
+ {
+  "key": "err.s1ae8ea1a_t",
+  "t": "ERROR_BAD_NET_NAME"
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "无法重定位目录条目，可能被占用。"
+ },
+ {
+  "key": "err.s8be5ca66_t",
+  "t": "ERROR_DIR_NOT_EMPTY"
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "磁盘空间不足，请清理后重试。"
+ },
+ {
+  "key": "err.s0cfe9a5f_t",
+  "t": "ERROR_NOT_ENOUGH_MEMORY"
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer 未安装。"
+ },
+ {
+  "key": "err.s7e2cbb3f_t",
+  "t": "ERROR_NO_MORE_ITEMS"
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "文件已存在，无法创建。"
+ },
+ {
+  "key": "err.s851ffa51_t",
+  "t": "ERROR_CANNOT_OPEN_FILE"
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "更新组件存储已损坏，运行 sfc 后重试。"
+ },
+ {
+  "key": "err.sd12c606d_t",
+  "t": "0x80070000: component store inconsistent (2015)"
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "网络请求失败，请检查网络后重试。"
+ },
+ {
+  "key": "err.s13d5736f_t",
+  "t": "network error 0x800"
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA 返回通用错误，请查看错误详情。"
+ },
+ {
+  "key": "err.s5c0c2074_t",
+  "t": "WUA generic error 0x1000"
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "组件存储不一致，建议重启后运行 sfc /scannow。"
+ },
+ {
+  "key": "err.seb83b485_t",
+  "t": "HRESULT 0x800F0806: component store inconsistent"
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "组件存储不一致，建议重启后重试。"
+ },
+ {
+  "key": "err.s8cec80ba_t",
+  "t": "HRESULT 0x800F0906: corrupted"
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "无法定位组件信息。"
+ },
+ {
+  "key": "err.s8aeebc2b_t",
+  "t": "HRESULT 0x800F0912"
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "无匹配组件，跳过。"
+ },
+ {
+  "key": "err.s11f1cf47_t",
+  "t": "HRESULT 0x800F0923"
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "组件存储已损坏，建议 sfc /scannow。"
+ },
+ {
+  "key": "err.s3725e88e_t",
+  "t": "HRESULT 0x800F0F05"
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "组件存储已损坏（版本不匹配）。"
+ },
+ {
+  "key": "err.s3525e568_t",
+  "t": "HRESULT 0x800F0F07"
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "组件存储需要重建，建议 sfc /scannow。"
+ },
+ {
+  "key": "err.s3425e3d5_t",
+  "t": "HRESULT 0x800F0F08"
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "组件存储需要重建，建议 sfc /scannow。"
+ },
+ {
+  "key": "err.s3325e242_t",
+  "t": "HRESULT 0x800F0F09"
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "组件存储损坏且不一致。"
+ },
+ {
+  "key": "err.sb622dee4_t",
+  "t": "HRESULT 0x800F0F10"
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "组件存储不一致（需重建）。"
+ },
+ {
+  "key": "err.sb722e077_t",
+  "t": "HRESULT 0x800F0F11"
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "组件存储不一致（需重建）。"
+ },
+ {
+  "key": "err.sb822e20a_t",
+  "t": "HRESULT 0x800F0F12"
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "Windows 需要修复，建议 sfc /scannow。"
+ },
+ {
+  "key": "err.sb422dbbe_t",
+  "t": "HRESULT 0x800F0F16"
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.sb522dd51_t",
+  "t": "HRESULT 0x800F0F17"
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "Windows 需要修复，建议 sfc /scannow。"
+ },
+ {
+  "key": "err.sae22d24c_t",
+  "t": "HRESULT 0x800F0F18"
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.saf22d3df_t",
+  "t": "HRESULT 0x800F0F19"
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s282a4e1f_t",
+  "t": "HRESULT 0x800F0F20"
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s272a4c8c_t",
+  "t": "HRESULT 0x800F0F21"
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s2a2a5145_t",
+  "t": "HRESULT 0x800F0F22"
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s292a4fb2_t",
+  "t": "HRESULT 0x800F0F23"
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s242a47d3_t",
+  "t": "HRESULT 0x800F0F24"
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s232a4640_t",
+  "t": "HRESULT 0x800F0F25"
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s262a4af9_t",
+  "t": "HRESULT 0x800F0F26"
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s252a4966_t",
+  "t": "HRESULT 0x800F0F27"
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s302a5ab7_t",
+  "t": "HRESULT 0x800F0F28"
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s2f2a5924_t",
+  "t": "HRESULT 0x800F0F29"
+ },
+ {
+  "key": "err.s22280616",
+  "t": "Windows 需要修复。"
+ },
+ {
+  "key": "err.s22280616_t",
+  "t": "HRESULT 0x800F0F30"
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "pnputil 无法识别该驱动包。"
+ },
+ {
+  "key": "err.s3a734fab_t",
+  "t": "ERROR_PNP_NO_DRIVER"
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "pnputil 驱动包已损坏。"
+ },
+ {
+  "key": "err.s39734e18_t",
+  "t": "ERROR_PNP_DRIVER_CORRUPT"
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "pnputil 驱动包正在被使用，稍后重试。"
+ },
+ {
+  "key": "err.sc06bd3d8_t",
+  "t": "ERROR_PNP_DRIVER_IN_USE"
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "pnputil 驱动包未安装。"
+ },
+ {
+  "key": "err.sc16bd56b_t",
+  "t": "ERROR_PNP_NOT_INSTALLED"
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "服务未运行。"
+ },
+ {
+  "key": "err.s8a8de120_t",
+  "t": "ERROR_SERVICE_NOT_ACTIVE"
+ },
+ {
+  "key": "err.s96927132",
+  "t": "服务未启动，请先启动 Windows Update。"
+ },
+ {
+  "key": "err.s96927132_t",
+  "t": "ERROR_DEPENDENT_SERVICES_RUNNING"
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "服务启动超时。"
+ },
+ {
+  "key": "err.s92926ae6_t",
+  "t": "ERROR_TIMEOUT"
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Appx 包未安装。"
+ },
+ {
+  "key": "err.s1c9582bb_t",
+  "t": "ERROR_APPX_NOT_INSTALLED"
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Appx 包已损坏，建议重新注册。"
+ },
+ {
+  "key": "err.s1b958128_t",
+  "t": "ERROR_APPX_CORRUPT"
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "通用错误，请查看 clean_errors.log 详情。"
+ },
+ {
+  "key": "err.sc853be9b_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_GENERIC)"
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "找不到指定的文件。"
+ },
+ {
+  "key": "err.sc953c02e_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)"
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "访问被拒绝，请右键「以管理员身份运行」。"
+ },
+ {
+  "key": "err.scc53c4e7_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_ACCESS_DENIED)"
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "网络请求失败，请检查网络后重试。"
+ },
+ {
+  "key": "err.sbf55ef07_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS)"
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "系统资源不足。"
+ },
+ {
+  "key": "err.sbe607ad0_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_BAD_NETPATH)"
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "无法加载指定模块，组件可能未安装。"
+ },
+ {
+  "key": "err.s9c64c278_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_MOD_NOT_FOUND)"
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "操作无法完成，请重试。"
+ },
+ {
+  "key": "err.s5c4d8ea4_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_CANT_ACCESS_FILE)"
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "检测到目标盘 "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\r\n是否继续？"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "释放映像 - 目标盘挂载检测"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "已勾选 WIMBoot / WindowsToGo / Compact 压缩模式。\r\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "这类模式启动后驱动注入能力受限，建议在此一并提供额外驱动目录（含 .inf）。\r\n\r\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "是否需要注入额外驱动目录？\r\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "释放映像 - 驱动注入建议"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "选择驱动目录（含 .inf）"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "批量模式"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "勾选后下方链接按列表批量执行"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "选中索引："
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "不能删除全部映像索引（共 %d 个索引），至少需要保留一个。"
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "批量删除 %d 个索引：\r\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "以下索引同时设为可启动：%s\r\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "目录/文件名过长(>31 字符): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "无合法 8.3 短名(含空格/中文): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "检测到源目录存在 \\efi 子目录，且本机同时提供 etfsboot.com 与 efisys.bin。\r\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "已自动生成【BIOS + UEFI 双引导】参数，生成的 ISO 两种启动模式均可用。\r\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "如不需要 UEFI，请取消。\r\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "ISO 生成 - 双引导检测"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "源路径长度 %d 字符，超过 ISO9660 记录限制(65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "以下目录/文件名可能违反 ISO9660 命名约束：\r\n\r\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... 及其他 %d 项\r\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\r\n生成的 ISO 部分媒体或工具可能读取失败。\r\n是否继续？"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "ISO9660 命名约束警告"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "错误"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Data.xml 缺少 SystemOptimization / CleanCollection4 节点，可能是上游原版而非本项目定制版："
+ }
+]

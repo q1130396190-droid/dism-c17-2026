@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "Součásti systému jsou poškozené. Doporučujeme nejprve spustit nástroj Vyčištění systému a poté to zkusit znovu."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "Operace s komponentami je již dokončena, není nutné ji opakovat."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "Úložiště komponent není konzistentní. Doporučujeme restartovat a zkusit to znovu."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Informace o komponentách nelze nalézt. Můžete zkusit Obnovení systému."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "Služba není spuštěna. Ověřte, zda je služba Windows Update povolena."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Služba Windows Update není dostupná, zkuste to prosím později."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Konflikt relace aktualizace. Ukončete ostatní programy pro aktualizace a zkuste to znovu."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "Relace aktualizace je zaneprázdněná, zkuste to prosím později."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Chybí součásti služby Windows Update. Doporučujeme povolit příslušné funkce."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Probíhá jiný proces aktualizace systému Windows, zkuste to prosím později."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "Operace byla úspěšná. K dokončení změn je nutné restartovat systém."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Komponenty jsou poškozené, připravuje se jejich oprava. Čekejte prosím."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "K aplikování opravy komponent je nutné restartovat systém."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Nedostatečná oprávnění. Klepněte pravým tlačítkem myši a zvolte možnost Spustit jako správce."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "Soubor je používán jiným procesem. Ukončete příslušné programy a zkuste to znovu."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Ovladač nebo služba nebyla načtena správně."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Ověření podpisu ovladače selhalo. Ovladač byl přeskočen."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Ovladač neprošel certifikací systému Windows, proto byl přeskočen."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Cesta překračuje maximální povolenou délku. Zkraťte prosím název cílového souboru."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Cesta nebyla nalezena. Ověřte, zda příslušný adresář existuje."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "Adresář neexistuje. Ověřte prosím cestu."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "Zadané zařízení neexistuje."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Položku adresáře nelze přesunout, pravděpodobně je právě používaná."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Nedostatek místa na disku. Uvolněte prosím místo a zkuste to znovu."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Služba Windows Installer není nainstalována."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "Soubor již existuje, nelze jej vytvořit."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "Úložiště aktualizovaných komponent je poškozené. Spusťte příkaz sfc a zkuste to znovu."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "Síťový požadavek selhal. Zkontrolujte připojení k síti a zkuste to znovu."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "Služba WUA vrátila obecnou chybu. Zobrazte prosím podrobnosti o chybě."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "Úložiště komponent není konzistentní. Po restartu doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "Úložiště komponent není konzistentní. Doporučujeme restartovat a zkusit to znovu."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Informace o komponentách nelze nalézt."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Nebyla nalezena odpovídající komponenta, proto se přeskakuje."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "Úložiště komponent je poškozené. Doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "Úložiště komponent je poškozené (nesoulad verzí)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "Úložiště komponent vyžaduje obnovu. Doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "Úložiště komponent vyžaduje obnovu. Doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "Úložiště komponent je poškozené a nekonzistentní."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "Úložiště komponent není konzistentní (vyžaduje obnovu)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "Úložiště komponent není konzistentní (vyžaduje obnovu)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "Systém Windows vyžaduje opravu. Doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "Systém Windows vyžaduje opravu. Doporučujeme spustit sfc /scannow."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "Systém Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "Windows vyžaduje opravu."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "Společnost pnputil nedokáže rozpoznat tento balíček ovladačů."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "Balíček ovladačů pnputil je poškozen."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "Balíček ovladačů pnputil je právě používán, zkuste to později."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "Balíček ovladačů pnputil není nainstalován."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "Služba není spuštěna."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "Služba není spuštěna, nejprve spusťte Windows Update."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Vypršel časový limit pro spuštění služby."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Balíček Appx není nainstalován."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Balíček Appx je poškozen, doporučujeme jej znovu zaregistrovat."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Obecná chyba, podrobnosti najdete v souboru clean_errors.log."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "Zadaný soubor nebyl nalezen."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Přístup byl odepřen, klepněte pravým tlačítkem na Spustit jako správce."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Požadavek na síť selhal, zkontrolujte síť a zkuste to znovu."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Nedostatek systémových prostředků."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Zadaný modul nelze načíst, komponenta nemusí být nainstalována."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "Operaci nelze dokončit, zkuste to znovu."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Byl zjištěn cílový disk "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nChcete pokračovat?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Použít bitovou kopii – kontrola připojení cílového disku"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "Je zaškrtnuto kompresní schéma WIMBoot / WindowsToGo / Compact."
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "V těchto režimech je po spuštění omezena schopnost vkládání ovladačů, doporučujeme zde současně poskytnout adresář s dodatečnými ovladači (včetně souborů .inf)."
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Chcete vložit adresář s dodatečnými ovladači?"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Použít bitovou kopii – doporučení vložení ovladačů"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Vyberte adresář ovladačů (včetně souborů .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Dávkový režim"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Po zaškrtnutí jsou níže uvedené odkazy spouštěny hromadně podle seznamu"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Vybraný index: "
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Nelze odstranit všechny indexy bitové kopie (celkem %d indexů), musí zůstat alespoň jeden."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "Hromadné odstranění %d indexů:"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "Následující indexy budou zároveň nastaveny jako spustitelné: %s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Příliš dlouhá cesta nebo název souboru (>31 znaků): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Žádný platný krátký název 8.3 (obsahuje mezery/čínské znaky): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "Ve zdrojovém adresáři byl zjištěn podadresář \\efi a na tomto počítači jsou zároveň k dispozici soubory etfsboot.com a efisys.bin."
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Parametry pro duální spouštění systému BIOS + UEFI byly vygenerovány automaticky, vygenerované ISO bude spustitelné v obou režimech spouštění."
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Pokud UEFI nepotřebujete, zrušte jej."
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "Generování ISO – detekce duálního spouštění"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "Délka zdrojové cesty je %d znaků, což překračuje limit záznamu ISO9660 (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "Následující názvy adresářů/souborů mohou porušovat pravidla pojmenování ISO9660:"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... a dalších %d položek"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nČást médií nebo nástrojů na vygenerovaném ISO nemusí být čitelná.\\r\\nChcete pokračovat?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "Varování ohledně pravidel pojmenování ISO9660"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Chyba"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Souboru Data.xml chybí uzly SystemOptimization / CleanCollection4, pravděpodobně se jedná o původní verzi od výrobce a nikoli o tuto upravenou verzi:"
+ }
+]

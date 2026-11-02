@@ -1,0 +1,42 @@
+[package]
+name = "duilibcalc"
+version = "0.1.0"
+edition = "2021"
+description = "内存安全的纯计算模块（Demos 迁移示范）：哈希 / 编码转换 / 校验。库名避开系统组件 DismCore.dll（Windows 文件名大小写不敏感，同名会导致 DISM 会话加载到本库而报 0x8007007E）"
+
+[lib]
+name = "duilibcalc"
+# cdylib：C++ 侧真正需要的产物（duilibcalc.dll + duilibcalc.dll.lib 导入库）。
+# rlib：保留给 #[cfg(test)] 单元测试，cargo test 需要。
+# 不产出 staticlib：全仓库没有任何工程链接 duilibcalc.lib（13MB 纯冗余）。
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+md-5 = "0.10"
+sha1 = "0.10"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 2
+lto = true
+# [2026-11-01] 显式声明 panic 策略为 abort。
+#   本 crate 导出 25 个 #[no_mangle] pub extern "C" 函数，均未包 catch_unwind，
+#   一旦 panic 穿过 FFI 边界，unwind 的结局是不可恢复的进程终止，且细节依赖
+#   rustc 版本（新版是 abort，旧版是 UB）。声明 abort 后行为确定、体积更小。
+#   注意：abort 会禁用 unwind 型 panic 捕获，因此 cargo test 默认走 test 档
+#   （继承 dev，未设 panic），不受影响；但 cargo test --release 不适用本档。
+panic = "abort"
+# [2026-10-25] release 保持 incremental=false（Cargo 默认）。
+#   原因：release 产物是交付物，增量编译会牺牲跨模块优化与 LTO 效果。
+# 日常开发用档：继承 release 的优化等级，但开启增量编译。
+#   实测改一行：release 2.76s → dev-incr 0.36s（约 7.6 倍）。
+#   用法：cargo build --profile dev-incr
+#   注意：产物路径变为 target/dev-incr/，拷贝脚本需吐对应目录。
+[profile.dev-incr]
+inherits = "release"
+incremental = true
+#   建议同时关闭 LTO：LTO 是 release 构建里最贵的一段，
+#   开着它增量收益会被重新链接吃掉一部。
+lto = false
+#   本档不再重复写 panic = "abort"：inherits = "release" 已自动继承。
+#   若将来要在本档跑 cargo test，需在本档显式写 panic = "unwind"。

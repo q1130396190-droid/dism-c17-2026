@@ -1,0 +1,10 @@
+[
+ {
+  "key": "misc.se9e0e35c",
+  "t": "Windows/EFI/Sources and other system directories already exist on the drive; they may have been mounted by dism/imagex or left over from an old system install.\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sf00266a2",
+  "t": "If \"Format target drive\" is not checked, Apply-Image may fail or produce conflicting files.\\r\\n\\r\\n"
+ }
+]

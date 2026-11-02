@@ -1,0 +1,111 @@
+# ===== AI/工具缓存目录 =====
+.trae/
+.workbuddy-ai/
+.screenshots/
+__pycache__/
+*.pyc
+
+# ===== 编译中间文件 =====
+*.obj
+*.pdb
+*.map
+*.ilk
+*.bsc
+*.sdf
+*.ipch
+*.pch
+*.tlog
+*.idb
+*.aps
+*.iobj
+*.recipe
+*.libsh
+*.sbr
+*.exp
+*.cache
+*.VC.db
+*.opensdf
+*.suo
+*.user
+*.userprefs
+*.psess
+*.opendb
+*.opt
+*.plg
+*.ncb
+*.sln.docstates
+*.unsuccessfulbuild
+*.lastbuildstate
+
+# ===== VS/IDE 目录 =====
+.vs/
+.idea/
+.vscode/
+
+# ===== 构建脚本和输出 =====
+_build/
+!build.cmd
+
+# ===== 说明文档 =====
+*.md
+Help/
+docs/
+
+# ===== 日志与崩溃转储 =====
+bin64/logs/
+dist/*/logs/
+tools/probes/logs/
+*.dmp
+
+# ===== 截图/测试输出 =====
+bin64/shots_*/
+bin64/shot_*.png
+tools/probes/*.exe.WebView2/
+
+# ===== 编译中间脚本 =====
+*.ps1
+enumhelper.cs
+native.cs
+native2.cs
+_nul
+
+# ===== 编译输出的 objdir =====
+Temp/
+Demos/*/temp/
+Demos/*/Temp/
+rust/dismcore/target/
+3rd/libcef_dll_wrapper/Lib/
+
+# ===== 编译产物（中间件），仅排除特定目录 =====
+# 保留 dist/、bin64/amd64/、bin64/lang/ 下的成品
+bin64/*.exe
+bin64/*_d.dll
+bin64/*_d.lib
+Demos/*/*.exe
+Demos/*/*.dll
+Demos/*/*.lib
+Demos/*/*.ilk
+Demos/*/*.pdb
+Demos/*/*.obj
+Demos/*/*.iobj
+Demos/*/*.ipdb
+Demos/*/*.tlog
+Demos/*/*.lastbuildstate
+Demos/*/*.bak
+Demos/*/*.part
+tools/probes/*.exe
+tools/probes/*.dll
+tools/probes/*.manifest
+
+# ===== bin64 里的工具运行缓存 =====
+bin64/seed/
+bin64/attrcheck.txt
+bin64/perf_probe.txt
+bin64/config.ini
+bin64/external_cmd_ledger.csv
+bin64/DismData/任务栏合并与标签显示_规则说明.md
+
+# ===== dist 里的日志和文档 =====
+dist/*/*.dmp
+dist/*/便携版说明.txt
+dist/*/DismData/*.md

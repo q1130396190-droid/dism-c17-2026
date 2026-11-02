@@ -1,0 +1,43 @@
+// ============================================================================
+//  ActivationKit.rc -- 版本资源
+//
+//  R01 FrogPlugins 重构新增的独立激活备份组件。
+//  UTF-8 BOM + code_page(65001)，使中文/版权符正确编译。
+// ============================================================================
+
+#include <windows.h>
+
+#pragma code_page(65001)
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION    1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK  0x3fL
+#ifdef _DEBUG
+ FILEFLAGS      0x1L
+#else
+ FILEFLAGS      0x0L
+#endif
+ FILEOS         0x40004L     // VOS_NT_WINDOWS32
+ FILETYPE       0x2L         // VFT_DLL
+ FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"     // 简体中文 / Unicode
+        BEGIN
+            VALUE "CompanyName",      "系统管理与优化项目组"
+            VALUE "FileDescription",  "系统管理与优化 配套模块"
+            VALUE "FileVersion",      "1.0.0.1"
+            VALUE "InternalName",     "ActivationKit.dll"
+            VALUE "LegalCopyright",   "© 2026 系统管理与优化项目组。保留所有权利。"
+            VALUE "OriginalFilename", "ActivationKit.dll"
+            VALUE "ProductName",      "系统管理与优化"
+            VALUE "ProductVersion",   "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

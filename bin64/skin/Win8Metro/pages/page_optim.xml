@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_optim" inset="7,6,12,8" childpadding="0">
+          <VerticalLayout inset="12,0,6,0" childpadding="0">
+            <HorizontalLayout name="page_optim_L5" height="28" bkcolor="{tok:HeaderBand}" borderround="8,8">
+              <!-- [SCOPE-2COL] 表头与 Page_Optim.h 的 optim_scope::kColumns 逐列对应：
+                   项目(弹性) / 当前用户 140 / 系统 140。
+                   原「新用户」列（HKU\.DEFAULT，scope 2）已移除——它只影响
+                   尚未创建的用户配置单元，用户在本页看不到、也无法验证生效，
+                   且 Data_Win11.xml 的 250 个条目中没有一条只覆盖该作用域。
+                   增删列时此表头与 kColumns 必须同步改，否则开关会落到错误表头下。 -->
+              <Text name="hdr_op_item" text="项目" font="6" textcolor="{tok:OnHeaderBand}" width="0" align="center"/>
+              <Text name="hdr_op_cur" text="当前用户" font="6" textcolor="{tok:OnHeaderBand}" width="140" align="center"/>
+              <Text name="hdr_op_sys" text="系统" font="6" textcolor="{tok:OnHeaderBand}" width="140" align="center"/>
+            </HorizontalLayout>
+            <VerticalLayout name="optim_tree" width="0" height="0" bkcolor="{tok:Surface}" inset="0,0,0,0" childpadding="0" vscrollbar="true" borderround="8,8"/>
+          </VerticalLayout>
+          <Progress name="optim_progress" min="0" max="100" value="0" height="8" width="0" bkcolor="{tok:SurfaceSunk}" forecolor="{tok:Accent}" showtext="false" visible="false" borderround="4,4"/>
+
+          <HorizontalLayout height="40" childpadding="7" childvalign="vcenter">
+            <Button name="btn_find" text="查找" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="40" align="center" valign="center" borderround="4,4"/>
+            <Edit name="find_edit" width="150" height="28" textcolor="{tok:Ink}" tipvaluecolor="{tok:InkMuted}" tipvalue="输入关键字过滤" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" textpadding="6,4,6,4" font="1" visible="false" borderround="4,4"/>
+            <Text name="lbl_optim_status" width="0" height="0" font="1" textcolor="{tok:InkTertiary}" align="right"/>
+            <Button name="btn_optim_bulk" text="全选/全不选" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="40" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_optim_state" text="状态:全部" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="80" height="40" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_apply_rules" text="提交规则" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="40" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_import_cfg" text="导入配置" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="40" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_export_cfg" text="导出配置" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="40" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_refresh" text="刷新" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="40" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

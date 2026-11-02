@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_startup" inset="0,0,0,0" childpadding="0">
+
+          <!-- tab row -->
+          <HorizontalLayout name="cl_64" height="40" bkcolor="#FFFFFFFF" inset="16,0,0,0" childpadding="24" childvalign="vcenter">
+            <Option name="sttab_0" group="st_tab" text="开机启动项" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left" selected="true"/>
+            <Option name="sttab_1" group="st_tab" text="服务项" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left"/>
+                <Option name="sttab_2" group="st_tab" text="计划任务" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="#FFE5E5E5"/>
+
+          <!-- R35: 顶部搜索工具条 -->
+          <HorizontalLayout name="cl_65" height="34" bkcolor="#FFEFF6FC" inset="16,4,16,4" childpadding="8" childvalign="vcenter">
+            <Text text="搜索" font="1" textcolor="#FF333333" width="48" valign="vcenter"/>
+            <Edit name="startup_filter" width="0" height="28" tipvalue="输入名称或路径过滤（不区分大小写）" tipvaluecolor="#FF999999" textcolor="#FF1A1A1A" font="1" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,4,6,4"/>
+            <Text name="lbl_startup_count" text="" font="1" textcolor="#FF666666" autocalcwidth="true" valign="vcenter"/>
+          </HorizontalLayout>
+
+          <!-- [D1] 启动项/服务统计信息条（切 tab 时由代码刷新文案） -->
+          <Text name="startup_infobar" text="" font="1" textcolor="#FF007ACC" bkcolor="#FFEFF6FC" height="26" align="left" valign="vcenter" textpadding="16,4,8,4" endellipsis="true"/>
+
+          <TabLayout name="startup_pages" width="0" height="0">
+
+            <!-- boot-start items -->
+            <VerticalLayout name="cl_66" inset="14,6,14,0" childpadding="0">
+              <VerticalLayout name="startup_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+            </VerticalLayout>
+
+            <!-- services -->
+            <VerticalLayout name="cl_67" inset="14,6,14,0" childpadding="0">
+              <HorizontalLayout name="cl_68" height="28" bkcolor="#FFEFF6FC" childvalign="vcenter">
+                <Text name="hdr_su_service" text="服务" font="6" textcolor="#FF333333" width="240" align="center"/>
+                <Text name="hdr_su_name" text="显示名称" font="6" textcolor="#FF333333" width="0" align="center"/>
+                <Text name="hdr_su_status" text="状态" font="6" textcolor="#FF333333" width="90" align="center"/>
+                <Text name="hdr_su_type" text="启动类型" font="6" textcolor="#FF333333" width="118" align="center"/>
+                <!-- [R105] 服务搜索过滤 -->
+                <Edit name="svc_filter" width="110" height="24" tipvalue="搜索服务" tipvaluecolor="#FF999999" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,3,6,3" font="1"/>
+              </HorizontalLayout>
+              <VerticalLayout name="svc_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+            </VerticalLayout>
+
+
+            <Include source="pages/inc_task_panel.xml"/>
+
+          </TabLayout>
+
+          <!-- bottom bar -->
+          <HorizontalLayout name="cl_69" height="50" bkcolor="#FFFFFFFF" inset="14,0,14,0" childpadding="10" childvalign="vcenter">
+            <BoxCheck name="startup_hide_disabled" text="隐藏禁用项" font="1" textcolor="#FF1A1A1A"/>
+            <Control width="0"/>
+            <Button name="btn_startup_add" text="添加启动项" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" height="30" width="110"/> <Button name="btn_startup_refresh" text="刷新" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" borderround="4,4" pushedbkcolor="#FF005A9E" width="100" height="34" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

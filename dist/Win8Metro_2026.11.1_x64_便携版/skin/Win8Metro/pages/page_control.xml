@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_control" inset="14,6,14,0" childpadding="10">
+          <HorizontalLayout name="page_control_L4" height="30" bkcolor="{tok:SurfaceSunk}" childvalign="vcenter" borderround="8,8">
+            <Text name="lbl_ctrl_title" text="控制面板" font="6" textcolor="{tok:Ink}" width="120" align="center"/>
+            <Control width="8" height="1"/>
+            <Edit name="ctrl_filter" width="0" height="32" tipvalue="输入名称过滤（如 设备 / 网络 / 电源）" tipvaluecolor="{tok:InkMuted}" textcolor="{tok:Ink}" font="1" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" textpadding="6,4,6,4" borderround="4,4"/>
+          <Control width="8" height="1"/>
+          <Button name="btn_ctrl_refresh" text="刷新" font="1" textcolor="{tok:AccentText}" bkcolor="{tok:AccentSoft}" bordercolor="{tok:AccentBorder}" bordersize="1" width="56" height="32" borderround="4,4"/>
+          <Control width="4" height="1"/>
+          <Button name="btn_ctrl_open" text="打开" font="1" textcolor="{tok:AccentText}" bkcolor="{tok:AccentSoft}" bordercolor="{tok:AccentBorder}" bordersize="1" width="56" height="32" borderround="4,4"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <VerticalLayout name="ctrl_list" width="0" height="0" bkcolor="{tok:Surface}" childpadding="0" vscrollbar="true" borderround="8,8"/>
+        </VerticalLayout>
+</Window>

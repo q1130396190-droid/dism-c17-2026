@@ -1,0 +1,98 @@
+﻿#pragma once
+
+// ============================================================
+// ThemeTokens.h —— 颜色令牌（唯一取色入口）
+//
+// 为什么需要：
+//   报告实测：全项目硬编码色值 1124 处（XML 817 + 代码 307），去重后仅 90 种。
+//   其中强调色 #007ACC 出现 74 处 —— 用户改了 Windows 主题色，界面不变，
+//   这就是"观感陈旧"的直接来源。
+//
+// 本模块只做一件事：**把"强调色"从常量变成运行时查表**。
+//   不追求一次性替换 1124 处（那是 P2 的全量令牌化），而是先让
+//   "用户可见的蓝色"全部可跟随系统 —— 收益最大、风险最小。
+//
+// 与 P2 的关系：
+//   P2 会把下面这些令牌扩展到背景/文字/边框，并加浅色/深色两套值；
+//   届时调用方不需要改 —— 仍然只调 Token(EAccent)，只是内部多了主题分支。
+//
+// Win10 兼容：
+//   强调色读的是 HKCU\Software\Microsoft\Windows\DWM\AccentColor，
+//   Win10 1607+ 与 Win11 同样存在该键，无需版本分支。
+// ============================================================
+
+#include <windows.h>
+
+namespace tokens
+{
+
+// [R201] 当前使用中的令牌种类。
+//   命名按"用途"而非"颜色"：以后换成深色主题时，调用点语义不变。
+enum class EToken : int
+{
+    Accent        = 0,   // 强调色：按钮底、选中行底、进度条前景
+    AccentHot     = 1,   // 悬停：强调色提亮约 12%
+    AccentPushed  = 2,   // 按下：强调色压暗约 18%
+    AccentText    = 3,   // 强调色作为**文字**压在白底上（保证 4.5:1）
+    AccentSoft    = 4,   // 强调色淡底：选中行浅背景、信息条
+    AccentBorder  = 5,   // 强调色描边
+
+    // [R202] 背景/文字/边框三组中性色：深色模式的全部差异都收敛在这里。
+    //   浅色值取自现有皮肤的实测色值（#FFFFFFFF / #FF1A1A1A / #FFABABAB），
+    //   因此浅色模式下的观感与改造前**完全一致** —— 这是敢全量替换的前提。
+    Surface       = 6,   // 窗口/列表底色（原 #FFFFFFFF）
+    SurfaceAlt    = 7,   // 次级底色：表头、状态条（原 #FFEFF6FC / #FFFAFAFA）
+    SurfaceHover  = 8,   // 悬停底色（原 #FFE5F1FB）
+    SurfaceSunk   = 9,   // 凹陷区：输入框、进度槽（原 #FFE8E8E8）
+    Border        = 10,  // 常规边框（原 #FFABABAB）
+    BorderSoft    = 11,  // 淡分割线（原 #FFE5E5E5）
+    Ink           = 12,  // 主文字（原 #FF1A1A1A）
+    InkSecondary  = 13,  // 次文字（原 #FF333333）
+    InkTertiary   = 14,  // 三文字/提示（原 #FF666666）
+    InkMuted      = 15,  // 占位/禁用（原 #FF999999）
+
+    // [R203] 语义色。浅色沿用既有值（观感不变），深色换成提亮版 ——
+    //   原因是深底上原色偏暗：实测 #7A5C00 在 #1F1F1F 上只有 2.64:1。
+    Danger        = 16,  // 风险/错误（原 #FFD32F2F / #FFCC0000）
+    Success       = 17,  // 成功/已启用（原 #FF2DA44E）
+    Warn          = 18,  // 警告文字（原 #FF7A5C00）
+    WarnBg        = 19,  // 警告底色（原 #FFFFE082）
+
+    // [R204] 压在强调色上的文字色。原来皮肤里用 {tok:Surface} 充当，
+    //   浅色下恰好是白色所以"看起来对"，深色下 Surface=#1F1F1F 就成了
+    //   深字压深底 —— 选中项文字直接消失。必须单独成令牌。
+    OnAccent      = 20,
+
+    // [UI-REF] 表头/页签带底色。#9BC716 取自界面参考图的实测像素值
+    //   （4 个页面出现：Appx 页签带、系统优化列头、程序功能列头）。
+    //   这是原版的**局部控件特征**，不是全局主题色，所以单独成令牌而不是改 SurfaceAlt。
+    //   深色主题下原色在深窗上过于刺眼，换成同色相的压暗版。
+    HeaderBand    = 21,
+    // 压在 HeaderBand 上的文字。浅色下绿底必须用深字（白字仅 1.99:1，不可读）。
+    OnHeaderBand  = 22,
+
+    Count         = 23
+};
+
+// 取色（0xAARRGGBB，可直接喂给 DuiLib 的 SetBkColor / SetTextColor）。
+//   首次调用时按当前系统强调色解析一次并缓存；系统主题变更时需调
+//   Refresh() 让它重算（CFrameWnd::ApplySystemTheme 已负责）。
+[[nodiscard]] DWORD Token(EToken e);
+
+// 丢弃缓存并按当前系统设置重算。幂等，可重复调用。
+void Refresh();
+
+// 把令牌转成 "#AARRGGBB" 字符串（供 XML 动态属性或日志使用）。
+[[nodiscard]] const wchar_t* TokenHex(EToken e);
+// [WIN11-FLUENT] Control corner radius, in DIPs, applied through the same attribute the
+// skin XML uses. Centralised here because buttons built in code were the last place
+// with no radius at all: measured 125 square buttons against 70 rounded ones, and the
+// square set was exactly the ones created by Page_*.cpp instead of loaded from XML.
+// Small controls take 4 (WinUI 3 default); cards/large surfaces take 8.
+inline constexpr int kRadiusControl = 4;
+inline constexpr int kRadiusSurface = 8;
+
+
+
+
+}   // namespace tokens

@@ -1,0 +1,42 @@
+# Known unguarded writes in one-off migration scripts.
+# These predate tools/patch_write.safe_write.py: historical debt, not new defects.
+# The gate tolerates exactly these occurrences and fails on anything else.
+# Key is `file:shape`; a shape repeated N times is listed N times, so adding a
+# new occurrence inside an already-listed file still fails.
+# Delete a line once fixed/archived; unmatched lines are reported as [STALE].
+
+fix_all_missing_exitcode.py:Path.write_text
+fix_inject_chk_signature.py:Path.write_text
+fix_roundrect_exit_code.py:Path.write_text
+fix_skin11_argparse.py:Path.write_text
+fix_skin11_argparse2.py:Path.write_text
+fix_skin11_debug.py:Path.write_text
+fix_skin11_debug2.py:Path.write_text
+fix_skin11_exitcode.py:Path.write_text
+fix_ta_block.py:Path.write_text
+fix_uia_inject_usage.py:Path.write_text
+patch_a11y_wrapper.py:Path.write_text
+patch_perf15_split.py:Path.write_bytes
+patch_perf15_split.py:Path.write_bytes
+patch_perf17_initwindow.py:Path.write_bytes
+patch_perf17_initwindow.py:Path.write_bytes
+patch_perf18_initwindow_split.py:Path.write_bytes
+patch_perf18_initwindow_split.py:Path.write_bytes
+patch_perf19_asc_split.py:Path.write_bytes
+patch_perf19_asc_split.py:Path.write_bytes
+patch_perf20_d2d_shared.py:Path.write_bytes
+patch_perf20_d2d_shared.py:Path.write_bytes
+patch_perf29_keymiss_report.py:Path.write_bytes
+patch_perf29_langkeys.py:Path.write_text
+patch_probe_inject_a11y.py:Path.write_text
+patch_probe_inject_perf.py:Path.write_text
+patch_probe_inject_skin11.py:Path.write_text
+patch_probe_inject_theme.py:Path.write_text
+patch_skin11_wrapper.py:Path.write_text
+patch_theme_wrapper.py:Path.write_text
+patch_uia_root_hook.py:Path.write_bytes
+patch_uia_root_hook2.py:Path.write_bytes
+patch_vcxproj_parallel_sources.py:Path.write_bytes
+patch_vcxproj_uia.py:Path.write_bytes
+rewrite_skin11_block.py:Path.write_text
+rewrite_uia_diag.py:Path.write_bytes

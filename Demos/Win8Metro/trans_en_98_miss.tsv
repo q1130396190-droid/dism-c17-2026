@@ -1,0 +1,48 @@
+err.s262a4af9	Windows requires repair.
+err.s252a4966	Windows requires repair.
+err.s302a5ab7	Windows requires repair.
+err.s2f2a5924	Windows requires repair.
+err.s22280616	Windows requires repair.
+err.s3a734fab	pnputil cannot recognize this driver package.
+err.s39734e18	The pnputil driver package is corrupt.
+err.sc06bd3d8	The pnputil driver package is in use; retry later.
+err.sc16bd56b	The pnputil driver package is not installed.
+err.s8a8de120	The service is not running.
+err.s96927132	The service has not started; start Windows Update first.
+err.s92926ae6	Service startup timed out.
+err.s1c9582bb	The Appx package is not installed.
+err.s1b958128	The Appx package is corrupt; consider re-registering it.
+err.sc853be9b	Generic error; see clean_errors.log for details.
+err.sc953c02e	The specified file was not found.
+err.scc53c4e7	Access denied; right-click and select "Run as administrator".
+err.sbf55ef07	Network request failed; check your network and try again.
+err.sbe607ad0	Insufficient system resources.
+err.s9c64c278	Unable to load the specified module; the component may not be installed.
+err.s5c4d8ea4	The operation could not be completed; please try again.
+misc.sb8594256	Target drive detected: 
+misc.s8478a7da	\r\nContinue?
+misc.s5d87ae03	Apply Image - Target Drive Mount Detection
+misc.se4a927da	WIMBoot / WindowsToGo / Compact compression mode is selected.\r\n
+misc.s01a2ddb2	Driver injection capability is limited in these modes after startup; consider providing an additional driver directory (with .inf) here as well.\r\n\r\n
+misc.sa5fa8682	Do you want to inject an additional driver directory?\r\n
+misc.s7cd02573	Apply Image - Driver Injection Suggestion
+misc.s3475cdac	Select driver directory (with .inf)
+misc.se8b0a64d	Batch mode
+misc.s67572047	When checked, the links below run in batch according to the list
+misc.s648e8fa2	Selected index: 
+misc.sc66e5d00	You cannot delete all image indexes (%d total); at least one must remain.
+misc.sa94eaf75	Batch-delete %d indexes:\r\n
+misc.s46e3ae77	The following indexes are also set as bootable: %s\r\n%s
+misc.s017f1701	Directory/file name too long (>31 characters): 
+misc.sd82b6f0d	No valid 8.3 short name (contains spaces/Chinese characters): 
+misc.s95f4e82c	A \efi subdirectory was detected in the source directory, and both etfsboot.com and efisys.bin are available.\r\n
+misc.s664bc807	Automatically generated BIOS + UEFI dual-boot parameters; the generated ISO works in both boot modes.\r\n
+misc.s3c4e2da7	If you do not need UEFI, cancel.\r\n
+misc.sc33ebf22	ISO Generation - Dual-Boot Detection
+misc.s74b29a96	Source path length is %d characters, exceeding the ISO9660 record limit (65535)
+misc.s37bd0391	The following directory/file names may violate ISO9660 naming constraints:\r\n\r\n
+misc.se841b7fd	... and %d other items\r\n
+misc.s50b9bd18	\r\nSome media or tools may fail to read the generated ISO.\r\nContinue?
+misc.s5d3ee152	ISO9660 Naming Constraint Warning
+misc.seb9a44d7	Error
+misc.s1adeb99e	Data.xml is missing the SystemOptimization / CleanCollection4 nodes; it may be the upstream original rather than this project's customized version:

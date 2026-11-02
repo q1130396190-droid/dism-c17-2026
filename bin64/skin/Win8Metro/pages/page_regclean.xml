@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_regclean" inset="14,6,14,0" childpadding="10">
+          <HorizontalLayout name="page_regclean_L4" height="30" bkcolor="{tok:SurfaceSunk}" childvalign="vcenter" borderround="8,8">
+            <Text name="lbl_regclean_title" text="注册表清理" font="6" textcolor="{tok:Ink}" width="120" align="center"/>
+            <!-- [R216] Scan-count label. Page_RegClean.cpp:126 already formats and sets
+                 "regclean.s_count" into this name, but the control was missing from the
+                 skin so the "N items can be cleaned" indicator never appeared. -->
+            <Text name="regclean_count" text="" font="1" textcolor="{tok:InkSecondary}"
+                  width="0" height="30" align="left" valign="vcenter" endellipsis="true"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="{tok:BorderSoft}"/>
+          <VerticalLayout name="regclean_list" width="0" height="0" bkcolor="{tok:Surface}" childpadding="0" vscrollbar="true" borderround="8,8"/>
+          <!-- [R216-fix] 这一行原本是 page_regclean 根节点的**兄弟**节点。
+               页面文件被 ExpandSkinFile 展开后，根节点外的兄弟节点会变成
+               content_area 这个 TabLayout 的直接子节点 —— 于是 16 个页面变成
+               17 个 Tab 项：EPageId 15（欢迎页）被顶到 index 16，
+               欢迎页永远选不中。这一行必须留在 page_regclean 根节点内部。
+               注意：这里只挪容器，一个颜色都没改。 -->
+          <HorizontalLayout height="58" childpadding="8" childvalign="vcenter">
+            <Button name="btn_regclean_selectall" text="全选" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_regclean_selectnone" text="全不选" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_regclean_backup" text="备份" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_regclean_restore" text="还原" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_regclean_restorepoint" text="创建还原点" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Control width="0"/>
+            <Button name="btn_regclean_scan" text="扫描" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="32" align="center" valign="center"/>
+            <Button name="btn_regclean_clean" text="清理" font="1" textcolor="{tok:OnDanger}" bkcolor="{tok:Danger}" hotbkcolor="{tok:DangerHot}" borderround="4,4" pushedbkcolor="{tok:DangerPushed}" width="104" height="32" align="center" valign="center"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

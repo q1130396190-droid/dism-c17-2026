@@ -1,0 +1,28 @@
+; ============================================================================
+;  NCleaner.def -- 7 个官方导出，序号与逆向基线完全一致
+;
+;  来源：Dism++10.1.1002.1B\Config\amd64\NCleaner.dll 导出表实测
+;        （Base=1，7 个导出，无 name-undecorated 额外符号）
+;
+;  Ord  Name                              RVA(基线)
+;  1    NCCorruptedAppXOnlineCleanup      0x4568
+;  2    NCDOCacheOnlineCleanup            0x3180
+;  3    NCInstallerFolderCleanup          0x1000
+;  4    NCPackageCacheFolderCleanup       0x3944
+;  5    NCSRPointOnlineCleanup            0x4350
+;  6    NCVSPackageCacheCleanup           0x49E4
+;  7    NCWinEventLogOnlineCleanup        0x4BC0
+;
+;  知识库《21_核心DLL职责与接口》2.2 / 《08_多模块协作与交互专题》3.3
+; ============================================================================
+
+LIBRARY "NCleaner.dll"
+
+EXPORTS
+    NCCorruptedAppXOnlineCleanup    @1
+    NCDOCacheOnlineCleanup          @2
+    NCInstallerFolderCleanup        @3
+    NCPackageCacheFolderCleanup     @4
+    NCSRPointOnlineCleanup          @5
+    NCVSPackageCacheCleanup         @6
+    NCWinEventLogOnlineCleanup      @7

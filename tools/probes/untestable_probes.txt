@@ -1,0 +1,44 @@
+# [GATE-COV] Subsystems deliberately NOT covered by a runtime gate.
+#
+# Why a file instead of prose in a report: a "we decided not to test this"
+# paragraph rots. Nobody re-reads chapter 45 before adding a probe, so the same
+# service gets re-evaluated from scratch every few rounds. This file is the
+# mechanical record, and run_all.ps1 checks both directions:
+#   * every entry must still exist as a service (a stale entry is a FAIL)
+#   * every gate that is deliberately excluded must be listed here with a reason
+#
+# Format: <ServiceOrProbe>|<class>|<reason>
+#   class = modal | elevated | needs-input | dependent-chain | not-a-gate
+#
+# modal        : opens a modal dialog; automated runs hang forever
+# elevated     : requires administrator; SKIPs instead of asserting on this host
+# needs-input  : requires an artifact this machine does not have
+# dependent-chain : linking it standalone drags in a chain another gate owns
+# not-a-gate   : diagnostics with no invariant to assert
+
+Win32DialogService|modal|DlgOpenFile/DlgSaveFile/DlgBrowseFolder all call GetOpenFileName/GetSaveFileName/SHBrowseForFolder, which pump a modal message loop. A headless suite that calls any of them never returns.
+DriverService|elevated|DISM OpenOnlineSession fails on a non-elevated host, so the read path can only report SKIP. build_driver_service.ps1 exists but stays out of the gate list.
+VssNativeService|elevated|Starting the VSS service needs elevation; with it Stopped every query returns empty, so an assertion would only prove the service is off.
+OfflineCbsService|needs-input|Needs a real offline image path for the ready branch; there is none on this host. The rejection path IS covered -- see build_offline_cbs_session.ps1.
+ExternalToolService|dependent-chain|Relies on shellapi/shlwapi/shlobj arriving via the Demo PCH. The read surface is three path lookups; reproducing the PCH chain is not worth it. build_exttool.ps1 stays a diagnostic.
+AssocService|dependent-chain|AssocService.cpp needs SHELLEXECUTEINFOW from the Demo PCH chain. QueryProgIdAndCommand alone does not justify re-creating that chain.
+DependencyGraphService|dependent-chain|Compose is a pure function, but the TU also defines Query*/Build*, which link against StartupService::EnumerateDependentServices (a service-manager walk owned by another gate).
+FeatureService|not-a-gate|Pure metadata table with no external calls and no failure mode to assert; covering it would test the compiler, not the product.
+
+# --- partial coverage: a gate exists, but only for part of the surface ---
+# These are NOT duplicates of the entries above. They record that the subsystem
+# has a gate, yet some facet is still unexercised, so a future round does not
+# either re-litigate the whole decision or assume full coverage.
+#
+# WelcomeService   : covered by build_welcome_service.ps1 (labels + overview).
+#                    Not covered: the CPU diff sampler and the live notification
+#                    query -- both need a session whose state actually changes.
+# OfflineCbsService / OfflineCbsSessionService : covered by
+#                    build_offline_cbs_session.ps1 for the rejection path only.
+#                    The ready branch stops TrustedInstaller and mounts hives.
+
+# UpdateMetaService : covered by build_update_maxthread.ps1 for the thread-cap
+#                    read/write pair only. Not covered: ParseUpdateInfoZip,
+#                    EnsureOfflineCabs, RangeDownloadFile, InstallLocalPackage,
+#                    PostReportEvent -- all need network, DISM or a real image.
+

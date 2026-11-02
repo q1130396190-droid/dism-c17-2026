@@ -1,0 +1,206 @@
+# -*- coding: utf-8 -*-
+"""从皮肤 XML 机械提取"控件名 + {tok:*} 属性"清单，生成 C++ 重放表。
+
+为什么必须机械提取
+----------------
+手动切换主题残留深色的根因：ExpandSkinFile 在建树时就把 {tok:X} 换成了
+字面 "#FF202020"，之后不再展开。切主题时令牌表变了，控件里仍是旧字面值。
+
+实测对比（主窗口客户区暗像素占比，同一次运行内切换）：
+    默认启动浅色          dark =  1.0%
+    手动切换到浅色        dark = 36.2%   <- 残留 36 个百分点
+
+手写重放表只覆盖骨架（8 个控件），残留必然还在。这里把皮肤里**所有**
+带 name 且带 {tok:*} 的属性全部抽出来，一个不漏。
+
+无名控件的 {tok:*} 无法按名定位，单独统计并报数，由 kLegacy 按值兜底
+（两者叠加，不是替换）。
+"""
+import glob
+import io
+import os
+import re
+
+SKIN = r"D:\DuiLib_Ultimate-master\bin64\skin\Win8Metro"
+TOKENS_H = r"D:\DuiLib_Ultimate-master\Demos\Win8Metro\ThemeTokens.h"
+OUT_H = r"D:\DuiLib_Ultimate-master\Demos\Win8Metro\SkinTokenReplayTable.h"
+
+COLOR_ATTRS = {
+    "bkcolor", "bordercolor", "forecolor",
+    "textcolor", "hottextcolor", "pushedtextcolor",
+    "disabledtextcolor", "selectedtextcolor", "linktextcolor",
+    "hotbkcolor", "pushedbkcolor", "selectedbkcolor", "disabledbkcolor",
+    "itembkcolor", "itemhotbkcolor", "itemselectedbkcolor",
+    "itemtextcolor", "itemselectedtextcolor", "itemhottextcolor",
+    "tipvaluecolor",
+}
+
+TOK_VAL = re.compile(r"^\{tok:([A-Za-z]+)\}$")
+
+
+def parse_enum_members(path):
+    """返回 EToken 的全部成员名。
+
+    不能用 (.*?)\\} 去匹配枚举体：注释里出现花括号会让它提前截断，
+    实测只解析到前 20 个成员，于是 OnAccent / OnHeaderBand 这些真实
+    令牌被判成"未知"而被跳过 —— 恰恰是深色残留最严重的那几处。
+    这里按 "enum class EToken" 到 "Count" 之间的文本取，再逐行取
+    第一个标识符，同时剥掉行内注释（注释里的英文词会被误收）。
+    """
+    text = io.open(path, encoding="utf-8-sig", errors="replace").read()
+    i = text.find("enum class EToken")
+    if i < 0:
+        return set()
+    j = text.find("Count", i)
+    if j < 0:
+        j = text.find("}", i)
+    body = text[i:j]
+
+    out = []
+    for line in body.splitlines():
+        k = line.find(chr(47) * 2)
+        if k >= 0:
+            line = line[:k]
+        out.append(line)
+
+    members = set()
+    for line in out:
+        s = line.strip()
+        if not s:
+            continue
+        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", s)
+        if not m:
+            continue
+        name = m.group(0)
+        # 跳过 enum 声明本身与说明性标识符
+        if name in ("enum", "class", "EToken"):
+            continue
+        members.add(name)
+    members.discard("Count")
+    return members
+
+
+def scan_skin():
+    """返回 ([(name, attr, token)], unnamed_count, total_count)。"""
+    rows = []
+    unnamed = 0
+    total = 0
+
+    files = sorted(glob.glob(os.path.join(SKIN, "**", "*.xml"), recursive=True))
+    for f in files:
+        text = io.open(f, encoding="utf-8", errors="replace").read()
+        for m in re.finditer(r"<(\w+)((?:\s+\w+=\"[^\"]*\")*)\s*/?>", text):
+            body = m.group(2)
+            if "{tok:" not in body:
+                continue
+            name_m = re.search(r'\bname="([^"]+)"', body)
+            pairs = re.findall(r'(\w+)="([^"]*)"', body)
+            hits = []
+            for attr, val in pairs:
+                if attr not in COLOR_ATTRS:
+                    continue
+                tm = TOK_VAL.match(val.strip())
+                if tm:
+                    hits.append((attr, tm.group(1)))
+            if not hits:
+                continue
+            total += len(hits)
+            if not name_m:
+                unnamed += len(hits)
+                continue
+            for attr, tok in hits:
+                rows.append((name_m.group(1), attr, tok))
+    return rows, unnamed, total
+
+
+def build_table():
+    known = parse_enum_members(TOKENS_H)
+    if not known:
+        print("[FAIL] no EToken members parsed from ThemeTokens.h")
+        return 1
+    print("[INFO] EToken members parsed = %d" % len(known))
+
+    rows, unnamed, total = scan_skin()
+    print("[INFO] {tok:*} attributes total = %d" % total)
+    print("[INFO] named = %d ; unnamed = %d (kLegacy fallback)"
+          % (total - unnamed, unnamed))
+
+    seen = {}
+    conflicts = []
+    for name, attr, tok in rows:
+        key = (name, attr)
+        if key in seen and seen[key] != tok:
+            conflicts.append((name, attr, seen[key], tok))
+            continue
+        seen[key] = tok
+
+    lines = []
+    skipped = []
+    for (name, attr), tok in sorted(seen.items()):
+        if tok not in known:
+            skipped.append((name, attr, tok))
+            continue
+        lit = '"' + name.replace(chr(92), chr(92) * 2).replace('"', chr(92) + '"') + '"'
+        lines.append('    { L%s, L"%s", tokens::EToken::%s },' % (lit, attr, tok))
+
+    print("[INFO] unique (control,attr) = %d ; emitted = %d"
+          % (len(seen), len(lines)))
+    if conflicts:
+        print("[WARN] %d same-name conflicts (first wins):" % len(conflicts))
+        for c in conflicts[:6]:
+            print("       %s.%s : %s vs %s" % c)
+    if skipped:
+        print("[WARN] %d entries use tokens not in EToken, skipped:" % len(skipped))
+        for s in skipped[:6]:
+            print("       %s.%s -> %s" % s)
+
+    header = '''// SkinTokenReplayTable.h -- generated by tools/mig/gen_skin_token_table.py
+// Do not edit by hand; re-run the generator after changing any {tok:*} in the skin.
+//
+// Why this table exists
+// ---------------------
+// ExpandSkinFile substitutes {tok:Surface} with a literal "#FF202020" while the
+// control tree is being built, and that build happens exactly once. Launching in
+// a theme therefore looks right, but switching themes leaves every control holding
+// the literals from the previous build.
+//
+// Measured in one process (dark-pixel share of the main client area):
+//     launched light          dark =  1.0%
+//     switched to light       dark = 36.2%   <- 36 points of leftover dark
+//
+// The older kLegacy table matches colours *by value* and knows only 18 of them,
+// so the other several hundred skin colours were never updated. This table does
+// not guess: control name and token both come straight from the skin XML.
+//
+// Regenerate:  python tools/mig/gen_skin_token_table.py
+#pragma once
+
+#include "ThemeTokens.h"
+
+namespace skin_replay
+{
+
+struct Entry
+{
+    const wchar_t* pszControl;
+    const wchar_t* pszAttr;
+    tokens::EToken  eTok;
+};
+
+inline constexpr Entry kEntries[] = {
+'''
+    footer = '''};
+
+inline constexpr int kEntryCount =
+    static_cast<int>(sizeof(kEntries) / sizeof(kEntries[0]));
+
+}   // namespace skin_replay
+'''
+    io.open(OUT_H, "w", encoding="utf-8", newline="\n").write(
+        header + "\n".join(lines) + "\n" + footer)
+    print("[OK] wrote %s (%d entries)" % (os.path.basename(OUT_H), len(lines)))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(build_table())

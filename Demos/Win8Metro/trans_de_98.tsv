@@ -1,0 +1,98 @@
+err.s340ca71c	Systemkomponenten sind beschädigt. Führen Sie zunächst die „Systembereinigung" aus und versuchen Sie es erneut.
+err.sffc664ba	Der aktuelle Komponentenvorgang ist bereits abgeschlossen, eine erneute Ausführung ist nicht erforderlich.
+err.s59824f81	Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und versuchen Sie es erneut.
+err.s5e8495f7	Die Komponenteninformationen konnten nicht ermittelt werden. Versuchen Sie eine „Systemwiederherstellung".
+err.s7ea654ef	Der Dienst wurde nicht gestartet. Stellen Sie sicher, dass der Windows Update-Dienst aktiviert ist.
+err.s87aae048	Der Windows Update-Dienst ist nicht verfügbar. Versuchen Sie es später erneut.
+err.s90bd8562	Die Updatesitzung steht in Konflikt. Schließen Sie andere Updateprogramme und versuchen Sie es erneut.
+err.s91bd86f5	Die Updatesitzung ist ausgelastet. Versuchen Sie es später erneut.
+err.s3d9f3cff	Windows Update-Komponenten fehlen. Aktivieren Sie die zugehörigen Funktionen.
+err.sc27d201f	Ein anderer Windows Update-Prozess wird gerade ausgeführt. Versuchen Sie es später erneut.
+err.sa4db77af	Der Vorgang war erfolgreich, ein Neustart des Systems ist zum Abschließen der Änderungen erforderlich.
+err.s2147cf80	Komponenten sind beschädigt, die Reparatur wird vorbereitet. Bitte haben Sie Geduld.
+err.s2247d113	Ein Neustart ist erforderlich, um die Komponentenreparatur anzuwenden.
+err.s300ca0d0	Unzureichende Berechtigungen. Klicken Sie mit der rechten Maustaste auf „Als Administrator ausführen".
+err.s85f04e50	Die Datei ist belegt. Schließen Sie die zugehörigen Programme und versuchen Sie es erneut.
+err.s909267c0	Der Treiber oder Dienst wurde nicht korrekt geladen.
+err.s7485f186	Die Treibersignaturprüfung ist fehlgeschlagen, der Treiber wurde übersprungen.
+err.se5561e45	Der Treiber ist nicht von Windows zertifiziert und wurde übersprungen.
+err.s19eb271e	Der Pfad überschreitet die maximale Länge. Kürzen Sie den Zieldateinamen.
+err.s8ef29b12	Der Pfad wurde nicht gefunden. Prüfen Sie, ob das Verzeichnis vorhanden ist.
+err.s8ae14ba5	Das Verzeichnis existiert nicht. Überprüfen Sie den Pfad.
+err.s1ae8ea1a	Das angegebene Gerät ist nicht vorhanden.
+err.s8be5ca66	Der Verzeichniseintrag kann nicht verschoben werden, er ist möglicherweise belegt.
+err.s0cfe9a5f	Der Speicherplatz ist nicht ausreichend. Geben Sie Speicherplatz frei und versuchen Sie es erneut.
+err.s7e2cbb3f	Windows Installer ist nicht installiert.
+err.s851ffa51	Die Datei ist bereits vorhanden und kann nicht erstellt werden.
+err.sd12c606d	Der Update-Komponentenspeicher ist beschädigt. Führen Sie sfc aus und versuchen Sie es erneut.
+err.s13d5736f	Die Netzwerkanforderung ist fehlgeschlagen. Prüfen Sie die Netzwerkverbindung und versuchen Sie es erneut.
+err.s5c0c2074	WUA hat einen allgemeinen Fehler zurückgegeben. Weitere Informationen finden Sie in den Fehlerdetails.
+err.seb83b485	Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und führen Sie anschließend sfc /scannow aus.
+err.s8cec80ba	Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und versuchen Sie es erneut.
+err.s8aeebc2b	Die Komponenteninformationen konnten nicht ermittelt werden.
+err.s11f1cf47	Keine passenden Komponenten gefunden, übersprungen.
+err.s3725e88e	Der Komponentenspeicher ist beschädigt. Führen Sie sfc /scannow aus.
+err.s3525e568	Der Komponentenspeicher ist beschädigt (Versionskonflikt).
+err.s3425e3d5	Der Komponentenspeicher muss neu aufgebaut werden. Führen Sie sfc /scannow aus.
+err.s3325e242	Der Komponentenspeicher muss neu aufgebaut werden. Führen Sie sfc /scannow aus.
+err.sb622dee4	Der Komponentenspeicher ist beschädigt und inkonsistent.
+err.sb722e077	Der Komponentenspeicher ist inkonsistent (Neuerstellung erforderlich).
+err.sb822e20a	Der Komponentenspeicher ist inkonsistent (Neuerstellung erforderlich).
+err.sb422dbbe	Windows muss repariert werden. Führen Sie sfc /scannow aus.
+err.sb522dd51	Windows muss repariert werden.
+err.sae22d24c	Windows muss repariert werden. Führen Sie sfc /scannow aus.
+err.saf22d3df	Windows muss repariert werden.
+err.s282a4e1f	Windows muss repariert werden.
+err.s272a4c8c	Windows muss repariert werden.
+err.s2a2a5145	Windows muss repariert werden.
+err.s292a4fb2	Windows muss repariert werden.
+err.s242a47d3	Windows muss repariert werden.
+err.s232a4640	Windows muss repariert werden.
+err.s262a4af9	Windows muss repariert werden.
+err.s252a4966	Windows muss repariert werden.
+err.s302a5ab7	Windows muss repariert werden.
+err.s2f2a5924	Windows muss repariert werden.
+err.s22280616	Windows muss repariert werden.
+err.s3a734fab	pnputil kann dieses Treiberpaket nicht erkennen.
+err.s39734e18	Das pnputil-Treiberpaket ist beschädigt.
+err.sc06bd3d8	Das pnputil-Treiberpaket wird gerade verwendet. Versuchen Sie es später erneut.
+err.sc16bd56b	Das pnputil-Treiberpaket ist nicht installiert.
+err.s8a8de120	Der Dienst wird nicht ausgeführt.
+err.s96927132	Der Dienst wurde nicht gestartet. Starten Sie zunächst Windows Update.
+err.s92926ae6	Der Dienststart hat ein Timeout ausgelöst.
+err.s1c9582bb	Das Appx-Paket ist nicht installiert.
+err.s1b958128	Das Appx-Paket ist beschädigt. Registrieren Sie es erneut.
+err.sc853be9b	Allgemeiner Fehler. Details finden Sie in der Datei clean_errors.log.
+err.sc953c02e	Die angegebene Datei wurde nicht gefunden.
+err.scc53c4e7	Zugriff verweigert. Klicken Sie mit der rechten Maustaste auf „Als Administrator ausführen".
+err.sbf55ef07	Die Netzwerkanforderung ist fehlgeschlagen. Prüfen Sie die Netzwerkverbindung und versuchen Sie es erneut.
+err.sbe607ad0	Die Systemressourcen sind nicht ausreichend.
+err.s9c64c278	Das angegebene Modul kann nicht geladen werden. Die Komponente ist möglicherweise nicht installiert.
+err.s5c4d8ea4	Der Vorgang kann nicht abgeschlossen werden. Versuchen Sie es erneut.
+misc.sb8594256	Zieldatenträger erkannt:
+misc.s8478a7da	\r\nFortfahren?
+misc.s5d87ae03	Image freigeben – Erkennung des Ziel-Laufwerks
+misc.se4a927da	Der Komprimierungsmodus WIMBoot / WindowsToGo / Compact ist aktiviert.\r\n
+misc.s01a2ddb2	In diesen Modi ist die Treiberinjektion nach dem Start eingeschränkt. Es wird empfohlen, hier zusätzliche Treiberverzeichnisse (mit .inf) anzugeben.\r\n\r\n
+misc.sa5fa8682	Sollen zusätzliche Treiberverzeichnisse injiziert werden?\r\n
+misc.s7cd02573	Image freigeben – Empfehlung zur Treiberinjektion
+misc.s3475cdac	Treiberverzeichnis auswählen (mit .inf)
+misc.se8b0a64d	Batchmodus
+misc.s67572047	Bei Aktivierung werden die folgenden Links als Liste im Batch ausgeführt
+misc.s648e8fa2	Ausgewählter Index:
+misc.sc66e5d00	Es können nicht alle Imageindizes (insgesamt %d) gelöscht werden, mindestens einer muss erhalten bleiben.
+misc.sa94eaf75	%d Indizes werden im Batch gelöscht:\r\n
+misc.s46e3ae77	Die folgenden Indizes werden gleichzeitig als startbar festgelegt: %s\r\n%s
+misc.s017f1701	Verzeichnis-/Dateiname zu lang (>31 Zeichen):
+misc.sd82b6f0d	Kein gültiger 8.3-Kurzname (enthält Leerzeichen/Chinesisch):
+misc.s95f4e82c	Im Quellverzeichnis wurde ein Unterverzeichnis \efi erkannt, und etfsboot.com sowie efisys.bin sind auf diesem System vorhanden.\r\n
+misc.s664bc807	Die Parameter für den Dual-Boot-Modus [BIOS + UEFI] wurden automatisch generiert, die erzeugte ISO ist in beiden Startmodi nutzbar.\r\n
+misc.s3c4e2da7	Falls UEFI nicht benötigt wird, deaktivieren Sie diese Option.\r\n
+misc.sc33ebf22	ISO-Erstellung – Dual-Boot-Erkennung
+misc.s74b29a96	Der Quellpfad umfasst %d Zeichen und überschreitet die ISO9660-Limitierung (65535)
+misc.s37bd0391	Die folgenden Verzeichnis-/Dateinamen verstoßen möglicherweise gegen die ISO9660-Namenskonventionen:\r\n\r\n
+misc.se841b7fd	... und %d weitere\r\n
+misc.s50b9bd18	\r\nBei der erzeugten ISO können einige Medien oder Tools nicht gelesen werden.\r\nFortfahren?
+misc.s5d3ee152	Warnung zu ISO9660-Namenskonventionen
+misc.seb9a44d7	Fehler
+misc.s1adeb99e	Die Data.xml enthält keine Knoten SystemOptimization / CleanCollection4 und stammt möglicherweise aus dem Original-Upload statt aus dieser angepassten Version:

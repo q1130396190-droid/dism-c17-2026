@@ -1,0 +1,98 @@
+err.s340ca71c	Le magasin de composants est endommagé. Exécutez « Nettoyage système » puis réessayez.
+err.sffc664ba	L'opération sur le composant est déjà terminée, il n'est pas nécessaire de la répéter.
+err.s59824f81	Le magasin de composants est incohérent. Redémarrez l'ordinateur puis réessayez.
+err.s5e8495f7	Impossible de localiser les informations du composant. Essayez « Restaurer le système ».
+err.s7ea654ef	Le service n'est pas démarré. Vérifiez que le service Windows Update est activé.
+err.s87aae048	Le service Windows Update est indisponible. Réessayez plus tard.
+err.s90bd8562	Conflit de session de mise à jour. Fermez les autres programmes de mise à jour puis réessayez.
+err.s91bd86f5	La session de mise à jour est occupée. Réessayez plus tard.
+err.s3d9f3cff	Le composant Windows Update est manquant. Activez la fonctionnalité correspondante.
+err.sc27d201f	Un autre processus de mise à jour Windows est en cours d'exécution. Réessayez plus tard.
+err.sa4db77af	Opération réussie. Un redémarrage du système est nécessaire pour appliquer les modifications.
+err.s2147cf80	Un composant est endommagé. Préparation de la réparation en cours, veuillez patienter.
+err.s2247d113	Un redémarrage est nécessaire pour appliquer la réparation du composant.
+err.s300ca0d0	Permissions insuffisantes. Cliquez avec le bouton droit puis choisissez « Exécuter en tant qu'administrateur ».
+err.s85f04e50	Le fichier est utilisé par un autre programme. Fermez-le puis réessayez.
+err.s909267c0	Le pilote ou le service n'a pas pu être chargé correctement.
+err.s7485f186	Échec de la vérification de signature du pilote. Ce pilote a été ignoré.
+err.se5561e45	Le pilote n'a pas été certifié par Windows. Il a été ignoré.
+err.s19eb271e	Le chemin dépasse la longueur maximale autorisée. Raccourcissez le nom du fichier cible.
+err.s8ef29b12	Chemin introuvable. Vérifiez que le répertoire existe.
+err.s8ae14ba5	Le répertoire n'existe pas. Vérifiez le chemin.
+err.s1ae8ea1a	Le périphérique spécifié est introuvable.
+err.s8be5ca66	Impossible de relocaliser l'entrée de répertoire. Elle est peut-être utilisée.
+err.s0cfe9a5f	Espace disque insuffisant. Libérez de l'espace puis réessayez.
+err.s7e2cbb3f	Windows Installer n'est pas installé.
+err.s851ffa51	Le fichier existe déjà. Impossible de le créer.
+err.sd12c606d	Le magasin de composants de mise à jour est endommagé. Exécutez sfc puis réessayez.
+err.s13d5736f	Échec de la requête réseau. Vérifiez la connexion réseau puis réessayez.
+err.s5c0c2074	WUA a renvoyé une erreur générique. Consultez les détails de l'erreur.
+err.seb83b485	Le magasin de composants est incohérent. Redémarrez puis exécutez sfc /scannow.
+err.s8cec80ba	Le magasin de composants est incohérent. Redémarrez l'ordinateur puis réessayez.
+err.s8aeebc2b	Impossible de localiser les informations du composant.
+err.s11f1cf47	Aucun composant correspondant trouvé. Élément ignoré.
+err.s3725e88e	Le magasin de composants est endommagé. Exécutez sfc /scannow.
+err.s3525e568	Le magasin de composants est endommagé (version incompatible).
+err.s3425e3d5	Le magasin de composants doit être reconstruit. Exécutez sfc /scannow.
+err.s3325e242	Le magasin de composants doit être reconstruit. Exécutez sfc /scannow.
+err.sb622dee4	Le magasin de composants est endommagé et incohérent.
+err.sb722e077	Le magasin de composants est incohérent (reconstruction nécessaire).
+err.sb822e20a	Le magasin de composants est incohérent (reconstruction nécessaire).
+err.sb422dbbe	Windows doit être réparé. Exécutez sfc /scannow.
+err.sb522dd51	Windows doit être réparé.
+err.sae22d24c	Windows doit être réparé. Exécutez sfc /scannow.
+err.saf22d3df	Windows doit être réparé.
+err.s282a4e1f	Windows doit être réparé.
+err.s272a4c8c	Windows doit être réparé.
+err.s2a2a5145	Windows doit être réparé.
+err.s292a4fb2	Windows doit être réparé.
+err.s242a47d3	Windows doit être réparé.
+err.s232a4640	Windows doit être réparé.
+err.s262a4af9	Windows doit être réparé.
+err.s252a4966	Windows doit être réparé.
+err.s302a5ab7	Windows doit être réparé.
+err.s2f2a5924	Windows doit être réparé.
+err.s22280616	Windows doit être réparé.
+err.s3a734fab	pnputil ne peut pas identifier ce package de pilote.
+err.s39734e18	Le package de pilote pnputil est endommagé.
+err.sc06bd3d8	Le package de pilote pnputil est actuellement utilisé. Réessayez plus tard.
+err.sc16bd56b	Le package de pilote pnputil n'est pas installé.
+err.s8a8de120	Le service n'est pas en cours d'exécution.
+err.s96927132	Le service n'est pas démarré. Démarrez d'abord Windows Update.
+err.s92926ae6	Délai d'attente du démarrage du service dépassé.
+err.s1c9582bb	Le package Appx n'est pas installé.
+err.s1b958128	Le package Appx est endommagé. Réenregistrez-le.
+err.sc853be9b	Erreur générique. Consultez les détails dans clean_errors.log.
+err.sc953c02e	Le fichier spécifié est introuvable.
+err.scc53c4e7	Accès refusé. Cliquez avec le bouton droit puis choisissez « Exécuter en tant qu'administrateur ».
+err.sbf55ef07	Échec de la requête réseau. Vérifiez la connexion réseau puis réessayez.
+err.sbe607ad0	Ressources système insuffisantes.
+err.s9c64c278	Impossible de charger le module spécifié. Le composant est peut-être absent.
+err.s5c4d8ea4	L'opération n'a pas pu être effectuée. Réessayez.
+misc.sb8594256	Disque cible détecté 
+misc.s8478a7da	\r\nContinuer ?
+misc.s5d87ae03	Libération de l'image - Détection du montage du disque cible
+misc.se4a927da	Le mode de compression WIMBoot / WindowsToGo / Compact est activé.\r\n
+misc.s01a2ddb2	Dans ces modes, l'injection de pilotes est limitée après le démarrage. Il est recommandé de fournir ici un répertoire de pilotes supplémentaires (contenant les .inf).\r\n\r\n
+misc.sa5fa8682	Voulez-vous injecter un répertoire de pilotes supplémentaires ?\r\n
+misc.s7cd02573	Libération de l'image - Recommandation d'injection de pilotes
+misc.s3475cdac	Sélectionner le répertoire de pilotes (contenant les .inf)
+misc.se8b0a64d	Mode lot
+misc.s67572047	Une fois coché, les liens ci-dessous seront exécutés en lot selon la liste
+misc.s648e8fa2	Index sélectionné : 
+misc.sc66e5d00	Impossible de supprimer tous les index d'image (%d index au total). Au moins un index doit être conservé.
+misc.sa94eaf75	Suppression en lot de %d index :\r\n
+misc.s46e3ae77	Les index suivants sont définis comme démarrables : %s\r\n%s
+misc.s017f1701	Nom de répertoire/fichier trop long (> 31 caractères) : 
+misc.sd82b6f0d	Aucun nom court 8.3 valide (espaces/caractères chinois présents) : 
+misc.s95f4e82c	Un sous-répertoire \efi a été détecté dans le répertoire source, et etfsboot.com ainsi que efisys.bin sont disponibles sur ce système.\r\n
+misc.s664bc807	Les paramètres de double démarrage « BIOS + UEFI » ont été générés automatiquement. L'image ISO générée est compatible avec les deux modes de démarrage.\r\n
+misc.s3c4e2da7	Si vous n'avez pas besoin de l'UEFI, décochez cette option.\r\n
+misc.sc33ebf22	Génération de l'ISO - Détection du double démarrage
+misc.s74b29a96	La longueur du chemin source est de %d caractères, ce qui dépasse la limite ISO9660 (65535)
+misc.s37bd0391	Les noms de répertoires/fichiers suivants peuvent enfreindre les contraintes de nommage ISO9660 :\r\n\r\n
+misc.se841b7fd	... ainsi que %d autres éléments\r\n
+misc.s50b9bd18	\r\nCertains supports ou outils ne pourront peut-être pas lire l'ISO généré.\r\nContinuer ?
+misc.s5d3ee152	Avertissement sur les contraintes de nommage ISO9660
+misc.seb9a44d7	Erreur
+misc.s1adeb99e	Data.xml ne contient pas les nœuds SystemOptimization / CleanCollection4. Il s'agit peut-être de la version amont d'origine plutôt que de la version personnalisée de ce projet :

@@ -1,0 +1,98 @@
+err.s340ca71c	Składniki systemu są uszkodzone. Zalecamy najpierw uruchomić „Czyszczenie systemu" i ponowić próbę.
+err.sffc664ba	Operacja na składnikach została już zakończona, nie ma potrzeby powtarzania.
+err.s59824f81	Magazyn składników jest niespójny. Zalecamy ponowić próbę po restarcie.
+err.s5e8495f7	Nie można zlokalizować informacji o składnikach. Można spróbować „Przywrócenie systemu".
+err.s7ea654ef	Usługa nie jest uruchomiona. Upewnij się, że usługa Windows Update jest włączona.
+err.s87aae048	Usługa Windows Update jest niedostępna. Spróbuj ponownie później.
+err.s90bd8562	Konflikt sesji aktualizacji. Zamknij inne programy aktualizujące i ponów próbę.
+err.s91bd86f5	Sesja aktualizacji jest zajęta. Spróbuj ponownie później.
+err.s3d9f3cff	Brakuje składników Windows Update. Zalecamy włączenie odpowiednich funkcji.
+err.sc27d201f	Działa inny proces aktualizacji systemu Windows. Spróbuj ponownie później.
+err.sa4db77af	Operacja zakończona pomyślnie. Aby zastosować zmiany, wymagane jest ponowne uruchomienie systemu.
+err.s2147cf80	Składniki są uszkodzone. Trwa przygotowanie naprawy, zachowaj cierpliwość.
+err.s2247d113	Aby zastosować naprawę składników, wymagane jest ponowne uruchomienie systemu.
+err.s300ca0d0	Brak uprawnień. Kliknij prawym przyciskiem myszy i wybierz „Uruchom jako administrator".
+err.s85f04e50	Plik jest używany. Zamknij odpowiednie programy i ponów próbę.
+err.s909267c0	Sterownik lub usługa nie została poprawnie załadowana.
+err.s7485f186	Weryfikacja podpisu sterownika nie powiodła się — sterownik został pominięty.
+err.se5561e45	Sterownik nie przeszedł certyfikacji systemu Windows i został pominięty.
+err.s19eb271e	Ścieżka przekracza maksymalną długość. Skróć nazwę pliku docelowego.
+err.s8ef29b12	Ścieżka nie została znaleziona. Sprawdź, czy katalog istnieje.
+err.s8ae14ba5	Katalog nie istnieje. Upewnij się co do ścieżki.
+err.s1ae8ea1a	Wskazane urządzenie nie istnieje.
+err.s8be5ca66	Nie można przenieść wpisu katalogu — może być on używany.
+err.s0cfe9a5f	Za mało miejsca na dysku. Uporządkuj dysk i ponów próbę.
+err.s7e2cbb3f	Windows Installer nie jest zainstalowany.
+err.s851ffa51	Plik już istnieje, nie można go utworzyć.
+err.sd12c606d	Magazyn składników aktualizacji jest uszkodzony. Uruchom sfc i ponów próbę.
+err.s13d5736f	Żądanie sieciowe nie powiodło się. Sprawdź połączenie sieciowe i ponów próbę.
+err.s5c0c2074	WUA zwrócił błąd ogólny. Sprawdź szczegóły błędu.
+err.seb83b485	Magazyn składników jest niespójny. Zalecamy po restarcie uruchomić sfc /scannow.
+err.s8cec80ba	Magazyn składników jest niespójny. Zalecamy ponowić próbę po restarcie.
+err.s8aeebc2b	Nie można zlokalizować informacji o składnikach.
+err.s11f1cf47	Brak pasującego składnika — pominięto.
+err.s3725e88e	Magazyn składników jest uszkodzony. Zalecamy sfc /scannow.
+err.s3525e568	Magazyn składników jest uszkodzony (niezgodność wersji).
+err.s3425e3d5	Magazyn składników wymaga przebudowy. Zalecamy sfc /scannow.
+err.s3325e242	Magazyn składników wymaga przebudowy. Zalecamy sfc /scannow.
+err.sb622dee4	Magazyn składników jest uszkodzony i niespójny.
+err.sb722e077	Magazyn składników jest niespójny (wymaga przebudowy).
+err.sb822e20a	Magazyn składników jest niespójny (wymaga przebudowy).
+err.sb422dbbe	System Windows wymaga naprawy. Zalecamy sfc /scannow.
+err.sb522dd51	System Windows wymaga naprawy.
+err.sae22d24c	System Windows wymaga naprawy. Zalecamy sfc /scannow.
+err.saf22d3df	System Windows wymaga naprawy.
+err.s282a4e1f	System Windows wymaga naprawy.
+err.s272a4c8c	System Windows wymaga naprawy.
+err.s2a2a5145	System Windows wymaga naprawy.
+err.s292a4fb2	System Windows wymaga naprawy.
+err.s242a47d3	System Windows wymaga naprawy.
+err.s232a4640	System Windows wymaga naprawy.
+err.s262a4af9	System Windows wymaga naprawy.
+err.s252a4966	System Windows wymaga naprawy.
+err.s302a5ab7	System Windows wymaga naprawy.
+err.s2f2a5924	System Windows wymaga naprawy.
+err.s22280616	System Windows wymaga naprawy.
+err.s3a734fab	Narzędzie pnputil nie może rozpoznać tego pakietu sterowników.
+err.s39734e18	Pakiet sterowników pnputil jest uszkodzony.
+err.sc06bd3d8	Pakiet sterowników pnputil jest aktualnie używany. Spróbuj ponownie później.
+err.sc16bd56b	Pakiet sterowników pnputil nie jest zainstalowany.
+err.s8a8de120	Usługa nie działa.
+err.s96927132	Usługa nie jest uruchomiona. Najpierw uruchom Windows Update.
+err.s92926ae6	Przekroczono czas uruchamiania usługi.
+err.s1c9582bb	Pakiet Appx nie jest zainstalowany.
+err.s1b958128	Pakiet Appx jest uszkodzony. Zalecamy ponowną rejestrację.
+err.sc853be9b	Błąd ogólny. Sprawdź szczegóły w clean_errors.log.
+err.sc953c02e	Nie można znaleźć wskazanego pliku.
+err.scc53c4e7	Odmowa dostępu. Kliknij prawym przyciskiem myszy i wybierz „Uruchom jako administrator".
+err.sbf55ef07	Żądanie sieciowe nie powiodło się. Sprawdź połączenie sieciowe i ponów próbę.
+err.sbe607ad0	Niewystarczające zasoby systemowe.
+err.s9c64c278	Nie można załadować wskazanego modułu — składnik może nie być zainstalowany.
+err.s5c4d8ea4	Nie można wykonać operacji. Spróbuj ponownie.
+misc.sb8594256	Wykryto dysk docelowy 
+misc.s8478a7da	\r\nCzy kontynuować?
+misc.s5d87ae03	Zastosuj obraz — wykrywanie zamontowania dysku docelowego
+misc.se4a927da	Zaznaczono tryb kompresji WIMBoot / WindowsToGo / Compact.\r\n
+misc.s01a2ddb2	W tych trybach po uruchomieniu możliwości wstrzykiwania sterowników są ograniczone. Zaleca się podanie tutaj dodatkowego katalogu ze sterownikami (zawierającego pliki .inf).\r\n\r\n
+misc.sa5fa8682	Czy chcesz wstrzyknąć dodatkowy katalog ze sterownikami?\r\n
+misc.s7cd02573	Zastosuj obraz — zalecenie dotyczące wstrzykiwania sterowników
+misc.s3475cdac	Wybierz katalog ze sterownikami (zawierający pliki .inf)
+misc.se8b0a64d	Tryb zbiorczy
+misc.s67572047	Po zaznaczeniu poniższe łącza będą wykonywane zbiorczo wg listy
+misc.s648e8fa2	Wybrany indeks: 
+misc.sc66e5d00	Nie można usunąć wszystkich indeksów obrazu (łącznie %d indeksów). Należy zachować co najmniej jeden.
+misc.sa94eaf75	Zbiorcze usunięcie %d indeksów:\r\n
+misc.s46e3ae77	Następujące indeksy są jednocześnie ustawione jako rozruchowe: %s\r\n%s
+misc.s017f1701	Katalog/nazwa pliku są zbyt długie (>31 znaków): 
+misc.sd82b6f0d	Brak prawidłowej krótkiej nazwy 8.3 (zawiera spacje/chińskie znaki): 
+misc.s95f4e82c	Wykryto podkatalog \\efi w katalogu źródłowym, a na tym komputerze dostępne są jednocześnie pliki etfsboot.com i efisys.bin.\r\n
+misc.s664bc807	Automatycznie wygenerowano parametry 【podwójnego rozruchu BIOS + UEFI】. Wygenerowany obraz ISO jest dostępny w obu trybach uruchamiania.\r\n
+misc.s3c4e2da7	Jeśli UEFI nie jest potrzebny, anuluj.\r\n
+misc.sc33ebf22	Generowanie ISO — wykrywanie podwójnego rozruchu
+misc.s74b29a96	Długość ścieżki źródłowej wynosi %d znaków, co przekracza limit zapisu ISO9660 (65535)
+misc.s37bd0391	Poniższe katalogi/nazwy plików mogą naruszać ograniczenia nazewnictwa ISO9660:\r\n\r\n
+misc.se841b7fd	... oraz %d innych pozycji\r\n
+misc.s50b9bd18	\r\nNiektóre nośniki lub narzędzia mogą nie odczytać wygenerowanego obrazu ISO.\r\nCzy kontynuować?
+misc.s5d3ee152	Ostrzeżenie o ograniczeniach nazewnictwa ISO9660
+misc.seb9a44d7	Błąd
+misc.s1adeb99e	W pliku Data.xml brakuje węzłów SystemOptimization / CleanCollection4 — może to być oryginalna wersja nadrzędna, a nie wersja dostosowana w tym projekcie:

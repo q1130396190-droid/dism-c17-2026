@@ -1,0 +1,986 @@
+[
+{
+"key": "misc.s794fda41",
+"t": "[clean] Takarítás megkezdve: C:\\ %llu MB maradt szabadon"
+},
+{
+"key": "misc.sc9baee09",
+"t": " - Az utolsó rendszerindítási esemény rögzítve (6005/12)"
+},
+{
+"key": "misc.s5a23c608",
+"t": " - Rendszerindítási idő becslése: nincs adat (nézze meg a Rendszer naplót az eventvwr.msc-ben)"
+},
+{
+"key": "misc.s80af2be3",
+"t": "Végrehajtható fájlok (*.exe)\\0*.exe\\0Minden fájl (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.se93c7bec",
+"t": "Válasszon funkcióoldalt a bal oldalon; a hely felszabadítása előtt végezzen vizsgálatot; a rendszeroptimalizálási elemeket egyenként hagyja jóvá."
+},
+{
+"key": "misc.s758ec357",
+"t": "── Szabály tulajdonságai ──\r\n"
+},
+{
+"key": "misc.s6000de8e",
+"t": "── Leírás ──\r\n"
+},
+{
+"key": "misc.sa8c26203",
+"t": "\r\n── Figyelmeztetés ──\r\n"
+},
+{
+"key": "misc.s9d4db836",
+"t": "Az „Automatikus bejelentkezés + UAC kikapcsolása” kombináció gyakorlatilag védelem nélkül hagyja a beépített Administrator fiókot.\r\n"
+},
+{
+"key": "misc.sd09fb8d4",
+"t": "Bárki beléphet a rendszerbe, aki fizikailag hozzáfér a géphez.\r\n\r\n"
+},
+{
+"key": "misc.s27fb951d",
+"t": "A boot.wim / boot.esd nem található az ESD-vel azonos mappában.\r\n\r\n"
+},
+{
+"key": "misc.sc5acb47d",
+"t": "A létrehozott ISO nem fog tartalmazni Windows PE rendszerindító lemezképet:\r\n"
+},
+{
+"key": "misc.se604a9a8",
+"t": "  - A csatolt telepítés (USB optikai meghajtó mód) továbbra is működik\r\n"
+},
+{
+"key": "misc.s4a226f88",
+"t": "  - USB / CD / optikai meghajtóról nem lehet rendszert indítani / telepíteni\r\n\r\n"
+},
+{
+"key": "misc.s3902b468",
+"t": "Nincs elegendő szabad hely a célmeghajtón: %s\r\n"
+},
+{
+"key": "misc.s2404d4fa",
+"t": "  Becsült igény: kb. %lld MB\r\n"
+},
+{
+"key": "misc.s7056d3aa",
+"t": "  Jelenleg rendelkezésre áll: %lld MB\r\n"
+},
+{
+"key": "misc.s5f1d6a72",
+"t": "\r\nFolytatja? (hibát okozhat)"
+},
+{
+"key": "misc.s78c4c51d",
+"t": "Tömörítési stratégia (folytatás):\r\n  „Igen” — Compress:fast (a leggyorsabb)\r\n  „Nem” — válasszon none / WIMBoot lehetőséget az almenüben"
+},
+{
+"key": "misc.s4bf7313c",
+"t": "A WIMBoot csak az ESD→WIM irányra érvényes, automatikusan visszaváltottam Compress:recovery értékre."
+},
+{
+"key": "misc.se28109f4",
+"t": "Nincs elegendő szabad hely a célmeghajtón: %s\r\n  Becsült igény: kb. %lld MB\r\n  Jelenleg rendelkezésre áll: %lld MB\r\nFolytatja?"
+},
+{
+"key": "misc.s8028c1bb",
+"t": "msg.exe /W /Q /Y \"Az átalakítás befejeződött, megnyissa a célmappát?\" N Open No C Close Y\r\n"
+},
+{
+"key": "misc.sd7762eca",
+"t": "hosts szerkesztő\n\n"
+},
+{
+"key": "misc.s41c54ee7",
+"t": "Igen: a hosts szerkesztő megnyitása (Notepad, rendszergazdai jogok szükségesek)\n"
+},
+{
+"key": "misc.s6b09afbd",
+"t": "Nem: a legutóbbi biztonsági mentés visszaállítása\n"
+},
+{
+"key": "misc.s7a92cd0f",
+"t": "Mégse: a DNS gyorsítótár kiürítése (semmilyen módosítás nélkül)\n"
+},
+{
+"key": "misc.s4a533876",
+"t": "Nem található biztonsági mentési fájl:\r\n%s\r\n\r\nA hosts szerkesztése előtt automatikusan készül erről a fájlról biztonsági mentés."
+},
+{
+"key": "misc.sa412f09e",
+"t": "Hamarosan visszaállítom a hosts fájlt a legutóbbi biztonsági mentésből:\r\n%s\r\n\r\nA jelenlegi hosts fájl szinkronban biztonsági mentésre kerül, majd felülíródik. Folytatja?"
+},
+{
+"key": "misc.s64513cc7",
+"t": "Először jelölje ki a tömegesen eltávolítani kívánt programokat."
+},
+{
+"key": "misc.se24b6a39",
+"t": "Biztosan tömegesen eltávolítja a kijelölt %d programot?\n\nA művelet egyenként elindítja az egyes programok eltávolítóját, és nem vonható vissza."
+},
+{
+"key": "misc.s6e26250f",
+"t": "[batch-uninstall] Eltávolítás megkezdve: %s"
+},
+{
+"key": "misc.sf4f17c78",
+"t": "[batch-uninstall] Indítási hiba: %s err=%lu"
+},
+{
+"key": "misc.s4a787ee6",
+"t": "[batch-uninstall] Befejezve: %d sikeres / %d sikertelen / összesen %d"
+},
+{
+"key": "misc.sbaa793d4",
+"t": "Tömeges eltávolítás befejezve: %d sikeres, %d sikertelen"
+},
+{
+"key": "misc.s6da661b2",
+"t": "Telepített programok tömeges eltávolítása"
+},
+{
+"key": "misc.s86d5c25a",
+"t": "[appx] Erőforrás-csomag szétválasztása: fő csomag %d, nyelvi erőforrás-csomag %d"
+},
+{
+"key": "misc.sffdd7fa5",
+"t": "Típus: nyelvi erőforrás-csomag"
+},
+{
+"key": "misc.s647b719f",
+"t": "Típus: fő csomag"
+},
+{
+"key": "misc.s1207edb3",
+"t": "Appx/MSIX csomagok (*.appx;*.msix;*.appxbundle;*.msixbundle)\\0*.appx;*.msix;*.appxbundle;*.msixbundle\\0Minden fájl\\0*.*\\0\\0"
+},
+{
+"key": "misc.sc8059969",
+"t": "Válassza ki a telepíteni kívánt alkalmazáscsomagot"
+},
+{
+"key": "misc.s22dfbca7",
+"t": "Alkalmazáscsomag telepítése"
+},
+{
+"key": "misc.s587c8055",
+"t": "Megadja a függőségi csomagok mappáját (Dependencies)?\n\nIgen → válasszon mappát\nNem → csak a fő csomag telepítése"
+},
+{
+"key": "misc.s8f3077b7",
+"t": "Függőségi csomagok"
+},
+{
+"key": "misc.s5c45dab4",
+"t": "Válassza ki a függőségi csomagok mappáját"
+},
+{
+"key": "misc.s277edf57",
+"t": "%d/%d elem telepítve · Függőségek: kötelező %d / opcionális %d"
+},
+{
+"key": "misc.sf0890286",
+"t": "Nincs adat"
+},
+{
+"key": "misc.sf7055e44",
+"t": "⚠ Feketelista:"
+},
+{
+"key": "misc.s34be29d1",
+"t": "[upd][WSUS] Feketelista találat %s (%s)"
+},
+{
+"key": "misc.se7ee5701",
+"t": "Üresjárat"
+},
+{
+"key": "misc.s4ed23304",
+"t": "Előkészítés"
+},
+{
+"key": "misc.scdfbdf63",
+"t": "Letöltés"
+},
+{
+"key": "misc.s77ea511e",
+"t": "Ellenőrzés"
+},
+{
+"key": "misc.sf23d3062",
+"t": "Telepítés"
+},
+{
+"key": "misc.s8ab41417",
+"t": "Visszagörgetés"
+},
+{
+"key": "misc.s35d25224",
+"t": "Kész"
+},
+{
+"key": "misc.se1d65341",
+"t": "CBS kizárólagos zárolás"
+},
+{
+"key": "misc.sb924cc56",
+"t": "[update] Fázis állapota: "
+},
+{
+"key": "misc.se7d3c6cf",
+"t": "[update] Az UpdateInfo.zip már létezik, a letöltés kihagyása"
+},
+{
+"key": "misc.s04a7b276",
+"t": "[update] Az UpdateInfo.zip letöltése befejeződött"
+},
+{
+"key": "misc.s61c18bf7",
+"t": "[update] Az UpdateInfo.zip letöltése sikeres (%llu bájt)"
+},
+{
+"key": "misc.se371b848",
+"t": "[update] Az UpdateInfo.zip fájl túl kicsi, az ellenőrzés sikertelen"
+},
+{
+"key": "misc.s3bd36694",
+"t": "[update] Az UpdateInfo.zip letöltése sikertelen"
+},
+{
+"key": "misc.sb25b7011",
+"t": "[update] Először töltse le az UpdateInfo.zip fájlt"
+},
+{
+"key": "misc.s816bfd5c",
+"t": "[update] Érvénytelen fázis argumentum"
+},
+{
+"key": "misc.s61631283",
+"t": "[update] Parancs futtatása: "
+},
+{
+"key": "misc.sbfa2e877",
+"t": "[update] A háromfázisú parancs végrehajtása befejeződött"
+},
+{
+"key": "misc.s683452aa",
+"t": "[update] A háromfázisú parancs sikertelen (exit=%lu)"
+},
+{
+"key": "misc.sd6e4b309",
+"t": "Az unattend.xml alkalmazása"
+},
+{
+"key": "misc.s97de183e",
+"t": "A jelenlegi unattended lemezkép konfiguráció üres; először adjon hozzá parancsot az alábbi mezőben."
+},
+{
+"key": "misc.se7b24c11",
+"t": "[unattend] Az Apply-Unattend elindítva: %s"
+},
+{
+"key": "misc.sdb6ef517",
+"t": "A Sysprep futtatása"
+},
+{
+"key": "misc.s7ec72977",
+"t": "Sysprep megerősítés"
+},
+{
+"key": "misc.sc43f80fd",
+"t": "[sysprep] Elindítva: /generalize /oobe /shutdown /quiet"
+},
+{
+"key": "misc.sba2797e3",
+"t": "[sysprep] Indítási hiba err=%lu"
+},
+{
+"key": "misc.sc11f54c4",
+"t": "A Sysprep sikertelen"
+},
+{
+"key": "misc.s721dd997",
+"t": "[IBS] A sysprep_ibs.xml létrejött: %d PnP eszköz, SourcePath=%s"
+},
+{
+"key": "misc.s948df983",
+"t": "IBS jelentés létrejött: %d eszköz → sysprep_ibs.xml"
+},
+{
+"key": "misc.saa67eb74",
+"t": "Hiányzó"
+},
+{
+"key": "misc.s864e94e6",
+"t": "PE varázsló"
+},
+{
+"key": "misc.sb269423c",
+"t": "ISO fájlok (*.iso)\\0*.iso\\0Minden fájl (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sdc55fcab",
+"t": "A létrehozott PE rendszerindító ISO mentési helyének kiválasztása"
+},
+{
+"key": "misc.s4975ca67",
+"t": "PE architektúra kiválasztása:\\r\\n  \"Igen\" - amd64 (64 bites, alapértelmezett)\\r\\n  \"Nem\" - x86 (32 bites)"
+},
+{
+"key": "misc.s48522bd7",
+"t": "[PE varázsló] Elindítva: %s (%s) → %s"
+},
+{
+"key": "misc.sa76ac2b9",
+"t": "ESD aktiválási kulcs megtekintése"
+},
+{
+"key": "misc.s8fe20989",
+"t": "VSS pillanatkép létrehozása"
+},
+{
+"key": "misc.sd9ef6a78",
+"t": "Indítási javítás (bootrec)"
+},
+{
+"key": "misc.s42d10a6f",
+"t": "Rendszerlemezkép létrehozása (wbadmin)"
+},
+{
+"key": "misc.s95da1886",
+"t": "Hálózati visszaállítás (netsh)"
+},
+{
+"key": "misc.sb69356e3",
+"t": "Tűzfal visszaállítás (netsh)"
+},
+{
+"key": "misc.s9e507f98",
+"t": "Környezeti változók megtekintése"
+},
+{
+"key": "misc.s8260b2ec",
+"t": "Lemezkarbantartás (cleanmgr)"
+},
+{
+"key": "misc.s615e6edf",
+"t": "Rendszerinformációk (msinfo32)"
+},
+{
+"key": "misc.s4f54bbf3",
+"t": "Rendszerkonfiguráció (msconfig)"
+},
+{
+"key": "misc.s89140849",
+"t": "Vezérlőpult (control)"
+},
+{
+"key": "misc.s3e9d824f",
+"t": "Eseménynapló (eventvwr)"
+},
+{
+"key": "misc.s7841112b",
+"t": "Parancssor (cmd)"
+},
+{
+"key": "misc.s11a6f7f3",
+"t": "Helyi menü társítása (IContextMenu2)"
+},
+{
+"key": "misc.s3df9e657",
+"t": "\\r\\n\\r\\n[Hiba] A kiválasztott mappa nem tartalmaz Windows almappát."
+},
+{
+"key": "misc.sf722c034",
+"t": "[ESD] Az ESD aktiválási kulcs nem töltődött be a Data.xml fájlból.\\r\\n"
+},
+{
+"key": "misc.s1b8b14cb",
+"t": "Ellenőrizze, hogy a DismData\\Data.xml fájl tartalmaz-e <ESDKeys><Key Value=\"...\"/></ESDKeys> csomópontot."
+},
+{
+"key": "misc.sf289d5d1",
+"t": "ESD kulcsok"
+},
+{
+"key": "misc.s6694abc2",
+"t": "[ESD] Összesen %d aktiválási kulcs (a Data.xml fájlból)"
+},
+{
+"key": "misc.s899cebbe",
+"t": "Az alábbiak a Data.xml fájlban konfigurált általános Windows aktiválási kulcsok:\\r\\n"
+},
+{
+"key": "misc.sd1da7e28",
+"t": "A diskshadow.exe meghívása a Windows kötet-árnyékmásolat (VSS) pillanatkép létrehozásához.\\r\\n"
+},
+{
+"key": "misc.s3e1f16a3",
+"t": "Ehhez a művelethez rendszergazdai jogok szükségesek, és lemezterületet foglal el.\\r\\n\\r\\n"
+},
+{
+"key": "misc.sebe7059e",
+"t": "Folytatja?"
+},
+{
+"key": "misc.s76a97de7",
+"t": "A VSS pillanatkép létrehozása sikeres.\\r\\n\\r\\nAz alábbi a diskshadow.exe kimenete:\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────\\r\\nTipp: a vssadmin list shadows parancsával tekintheti meg a létrehozott pillanatképeket."
+},
+{
+"key": "misc.s9067f73b",
+"t": "VSS pillanatképmisc.sf0d14979\tA VSS pillanatkép létrehozása sikertelen.\\r\\n\\r\\ndiskshadow.exe kilépési kód: %u\\r\\n\\r\\nLehetséges okok:\\r\\n  1) A program nem rendszergazdaként futott\\r\\n  2) A VSS szolgáltatás nem fut\\r\\n  3) Nincs elegendő lemezterület\\r\\n  4) A diskshadow.exe nem létezik (Win 7+ beépített)"
+},
+{
+"key": "misc.sf0d14979",
+"t": "A VSS pillanatkép létrehozása sikertelen.\\r\\n\\r\\ndiskshadow.exe kilépési kód: %u\\r\\n\\r\\nLehetséges okok:\\r\\n  1) A program nem rendszergazdaként futott\\r\\n  2) A VSS szolgáltatás nem fut\\r\\n  3) Nincs elegendő lemezterület\\r\\n  4) A diskshadow.exe nem létezik (Win 7+ beépített)"
+},
+{
+"key": "misc.sbf8401e8",
+"t": "A VSS pillanatkép sikertelen"
+},
+{
+"key": "misc.se87a7e95",
+"t": "A bootrec.exe meghívása az indítási javítás végrehajtásához:\\r\\n"
+},
+{
+"key": "misc.sda2c32cc",
+"t": "  1) fixboot     — a rendszerindító szektor javítása\\r\\n"
+},
+{
+"key": "misc.s7cb7710f",
+"t": "  2) rebuildbcd  — a BCD rendszerindító konfiguráció újraépítése\\r\\n"
+},
+{
+"key": "misc.se0a01ea8",
+"t": "  3) repairboot  — a rendszerindító szektor javítása (Win7 örökség)\\r\\n\\r\\n"
+},
+{
+"key": "misc.s339f32a1",
+"t": "Ehhez a művelethez rendszergazdai jogok szükségesek, és a rendszer újraindulhat.\\r\\n"
+},
+{
+"key": "misc.sd36944dd",
+"t": "Indítási javítás"
+},
+{
+"key": "misc.s71a453f9",
+"t": "Az indítási javítás befejeződött.\\r\\n\\r\\nAz alábbi a bootrec.exe kimenete:\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nTipp: bizonyos lépések csak újraindítás után lépnek érvénybe."
+},
+{
+"key": "misc.s4507f7d9",
+"t": "A wbadmin.exe meghívása a SystemState mentés létrehozásához.\\r\\n"
+},
+{
+"key": "misc.saf28a497",
+"t": "Ehhez a műveletre szükség van:\\r\\n"
+},
+{
+"key": "misc.s9f69afe4",
+"t": "  1) Rendszergazdai jogok\\r\\n"
+},
+{
+"key": "misc.s630178ca",
+"t": "  2) A 'Windows Server Backup' funkció engedélyezése\\r\\n"
+},
+{
+"key": "misc.s1463a12b",
+"t": "  3) Elegendő szabad lemezterület\\r"
+},
+{
+"key": "misc.s0b97d884",
+"t": "A mentés a következő helyre kerül:\\r\\n"
+},
+{
+"key": "misc.sc9dfffe0",
+"t": "Rendszerlemezkép létrehozása"
+},
+{
+"key": "misc.sebe1fc77",
+"t": "A rendszerlemezkép létrehozása sikeres.\\r\\n\\r\\nMentési hely: %s\\r\\n\\r\\nAz alábbi a wbadmin.exe kimenete:\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.sbef84b80",
+"t": "Rendszerlemezkép"
+},
+{
+"key": "misc.s1cf96794",
+"t": "A rendszerlemezkép létrehozása sikertelen.\\r\\n\\r\\nwbadmin.exe kilépési kód: %u\\r\\n\\r\\nLehetséges okok:\\r\\n  1) A Windows Server Backup funkció nincs engedélyezve\\r\\n  2) Nem rendszergazdaként fut\\r\\n  3) Nincs elegendő lemezterület\\r\\n  4) A VSS szolgáltatás hibás\\r\\n\\r\\nAz alábbi a wbadmin.exe kimenete:\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.scd025323",
+"t": "A rendszerlemezkép sikertelen"
+},
+{
+"key": "misc.sdc8cc32f",
+"t": "A netsh.exe meghívása a hálózati visszaállítás végrehajtásához:\\r\\n"
+},
+{
+"key": "misc.s364f8c0c",
+"t": "  1) winsock reset    — a Winsock katalógus visszaállítása\\r\\n"
+},
+{
+"key": "misc.s468f4737",
+"t": "  2) interface reset  — az összes hálózati adapter visszaállítása\\r\\n"
+},
+{
+"key": "misc.sb1d989f0",
+"t": "  3) dns / clearcache — a DNS gyorsítótár kiürítése\\r\\n\\r\\n"
+},
+{
+"key": "misc.s73cf5e83",
+"t": "Ehhez a művelethez rendszergazdai jogok szükségesek, és a hálózat újracsatlakozik.\\r\\n"
+},
+{
+"key": "misc.s8c301507",
+"t": "A rendszer újraindítása javasolt a művelet után.\\r\\n"
+},
+{
+"key": "misc.sca6aa1a5",
+"t": "Hálózati visszaállítás"
+},
+{
+"key": "misc.sedd34cd4",
+"t": "A hálózati visszaállítás befejeződött.\\r\\n\\r\\nAz alábbi a netsh.exe kimenete:\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nTipp: indítsa újra a rendszert, hogy minden változás érvénybe lépjen."
+},
+{
+"key": "misc.scae781fe",
+"t": "A netsh.exe meghívása a tűzfal visszaállítás végrehajtásához:\\r\\n"
+},
+{
+"key": "misc.s19fe5320",
+"t": "  1) advfirewall reset            — a tűzfal visszaállítása alapértelmezett beállításokra\\r\\n"
+},
+{
+"key": "misc.s6a43a20f",
+"t": "  2) advfirewall show allprofiles — az összes profilállapot megjelenítése\\r\\n"
+},
+{
+"key": "misc.sf84f64cf",
+"t": "  3) advfirewall show currentprofile — a jelenlegi profil megjelenítése\\r\\n\\r\\n"
+},
+{
+"key": "misc.s501aa5f5",
+"t": "Figyelem: ez törli az összes tűzfal-módosítást (az egyéni szabályok megmaradnak),\\r\\n"
+},
+{
+"key": "misc.s2df36949",
+"t": "Rendszergazdai jogok szükségesek. A művelet előtt mentse a tűzfal konfigurációját.\\r\\n"
+},
+{
+"key": "misc.sc4e23990",
+"t": "Tűzfal visszaállítás"
+},
+{
+"key": "misc.sd012499b",
+"t": "A tűzfal visszaállítás befejeződött.\\r\\n\\r\\nAz alábbi a netsh.exe kimenete (a visszaállítás előtti/utáni állapotokkal):\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nTipp: bizonyos beállítások csak újraindítás után lépnek érvénybe."
+},
+{
+"key": "misc.sb20b8d28",
+"t": "A környezeti változó lekérdezése sikertelen; ellenőrizze, hogy létezik-e a cmd.exe."
+},
+{
+"key": "misc.sf06d33a6",
+"t": "Környezeti változók"
+},
+{
+"key": "misc.s8e606a84",
+"t": "Jelenleg %d környezeti változó van.\\r\\n\\r\\nAz alábbi a cmd.exe /c set kimenete:\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.sbd62aa24",
+"t": "A lemezkarbantartó eszköz (cleanmgr.exe) indítása:\\r\\n"
+},
+{
+"key": "misc.scce31ab4",
+"t": "Ez az eszköz a következőket vizsgálja és takarítja:\\r\\n"
+},
+{
+"key": "misc.s3cc5690c",
+"t": "  • Ideiglenes fájlok\\r\\n"
+},
+{
+"key": "misc.s7810a508",
+"t": "  • Lomtár\\r\\n"
+},
+{
+"key": "misc.s1ae21860",
+"t": "  • Miniatűr gyorsítótár\\r\\n"
+},
+{
+"key": "misc.sa126fab7",
+"t": "  • Windows Update gyorsítótár\\r\\n"
+},
+{
+"key": "misc.s4a8790e3",
+"t": "  • Eltávolított programok maradványai\\r"
+},
+{
+"key": "misc.s41c6fc58",
+"t": "A cleanmgr grafikus felületet igényel, teljesen némán nem futtatható.\\r\\n"
+},
+{
+"key": "misc.sdcfc7d04",
+"t": "Lemezkarbantartásmisc.sa4433318\tA lemezkarbantartó eszköz elindult; fejezze be a takarítást a megjelenő ablakban."
+},
+{
+"key": "misc.sa4433318",
+"t": "A lemezkarbantartó eszköz elindult; fejezze be a takarítást a megjelenő ablakban."
+},
+{
+"key": "misc.s79e34dd1",
+"t": "A lemezkarbantartó eszköz indítása sikertelen.\\r\\n"
+},
+{
+"key": "misc.s82e0fdc9",
+"t": "Lehetséges okok:\\r\\n"
+},
+{
+"key": "misc.sd002488c",
+"t": "  1) A cleanmgr.exe nem létezik\\r\\n"
+},
+{
+"key": "misc.sb71dbf65",
+"t": "  2) A lemezkarbantartás le van tiltva"
+},
+{
+"key": "misc.s4eda3e17",
+"t": "A lemezkarbantartás sikertelen"
+},
+{
+"key": "misc.s32b3ceef",
+"t": "A rendszerinformáció eszköz (msinfo32.exe) indítása:\\r\\n"
+},
+{
+"key": "misc.sa9119bf4",
+"t": "Ez az eszköz a következőket mutatja:\\r\\n"
+},
+{
+"key": "misc.sc2b4f413",
+"t": "  • Rendszerösszefoglaló\\r\\n"
+},
+{
+"key": "misc.s050f9897",
+"t": "  • Összetevők (szoftverkörnyezet / hardvererőforrások)\\r\\n"
+},
+{
+"key": "misc.s73212f28",
+"t": "  • Rendszerszoftver környezet\\r\\n"
+},
+{
+"key": "misc.s23755c21",
+"t": "  • Rendszer-firmware környezeti változók\\r"
+},
+{
+"key": "misc.sab2a116f",
+"t": "A msinfo32 interaktív eszköz; böngéssze az információt a megjelenő ablakban.\\r\\n"
+},
+{
+"key": "misc.s2d9ecb5d",
+"t": "Rendszerinformációk"
+},
+{
+"key": "misc.s21017174",
+"t": "A rendszerinformáció eszköz elindult; böngéssze a részleteket a megjelenő ablakban."
+},
+{
+"key": "misc.s17e26b0a",
+"t": "A rendszerinformáció eszköz indítása sikertelen.\\r\\n"
+},
+{
+"key": "misc.sff181218",
+"t": "  1) A msinfo32.exe nem létezik\\r\\n"
+},
+{
+"key": "misc.s3554fd38",
+"t": "  2) A rendszerinformáció le van tiltva"
+},
+{
+"key": "misc.se81ab452",
+"t": "A rendszerinformáció sikertelen"
+},
+{
+"key": "misc.s3d1d9be5",
+"t": "A rendszerkonfiguráció eszköz (msconfig.exe) indítása:\\r\\n"
+},
+{
+"key": "misc.s334bc9c1",
+"t": "Ez az eszköz a következőket kezeli:\\r\\n"
+},
+{
+"key": "misc.sf3797e3a",
+"t": "  • Általános beállítások\\r\\n"
+},
+{
+"key": "misc.s832eeaf2",
+"t": "  • Rendszerindítás (Windows rendszerindítási beállítások)\\r\\n"
+},
+{
+"key": "misc.s58666aae",
+"t": "  • Rendszerindítás javítása\\r\\n"
+},
+{
+"key": "misc.s58b29f1a",
+"t": "  • Rendszerszolgáltatások\\r\\n"
+},
+{
+"key": "misc.sc5006ee7",
+"t": "  • Eszközök\\r\\n"
+},
+{
+"key": "misc.s08d74744",
+"t": "  • Indítás\\r"
+},
+{
+"key": "misc.sc54f723a",
+"t": "Figyelem: egyes beállítások módosítása a rendszer újraindítását igényli a hatályba lépéshez.\\r"
+},
+{
+"key": "misc.s4c4152fe",
+"t": "A msconfig rendszergazdai jogokat igényel bizonyos beállítások eléréséhez.\\r\\n"
+},
+{
+"key": "misc.sff7ce546",
+"t": "Rendszerkonfiguráció"
+},
+{
+"key": "misc.s77caa9a9",
+"t": "A rendszerkonfiguráció eszköz elindult; fejezze be a konfigurációt a megjelenő ablakban."
+},
+{
+"key": "misc.scaf6cd5f",
+"t": "A rendszerkonfiguráció eszköz indítása sikertelen.\\r\\n"
+},
+{
+"key": "misc.sbce34283",
+"t": "  1) A msconfig.exe nem létezik (Server Core-on nincs)\\r\\n"
+},
+{
+"key": "misc.s50dd8a7f",
+"t": "  2) A rendszerkonfiguráció le van tiltva\\r\\n"
+},
+{
+"key": "misc.s2dd91833",
+"t": "  3) Nem rendszergazdaként fut"
+},
+{
+"key": "misc.s9d8b10a1",
+"t": "A rendszerkonfiguráció sikertelen"
+},
+{
+"key": "misc.sef71e68a",
+"t": "A Vezérlőpult indítása sikertelen.\\r"
+},
+{
+"key": "misc.s2ef484ee",
+"t": "  1) A control.exe nem létezik\\r\\n"
+},
+{
+"key": "misc.sbefa5dfc",
+"t": "  2) A Vezérlőpult le van tiltva"
+},
+{
+"key": "misc.s89bec4c6",
+"t": "A Vezérlőpult sikertelen"
+},
+{
+"key": "misc.s69031012",
+"t": "A eseménynapló (eventvwr.msc) indítása:\\r\\n"
+},
+{
+"key": "misc.s452145ae",
+"t": "Ez az eszköz lehetővé teszi a következők böngészését:\\r\\n"
+},
+{
+"key": "misc.s887a9f52",
+"t": "  • Alkalmazás- és szolgáltatásnaplók\\r\\n"
+},
+{
+"key": "misc.s2cc27df9",
+"t": "  • Windows naplók (Application/Security/System)\\r\\n"
+},
+{
+"key": "misc.s251dfec1",
+"t": "  • Előfizetések\\r\\n"
+},
+{
+"key": "misc.se4aae918",
+"t": "  • Egyéni nézetek\\r\\n"
+},
+{
+"key": "misc.scce78d57",
+"t": "  • Az aktuális napló szűrése\\r"
+},
+{
+"key": "misc.s373f0dda",
+"t": "Az eseménynapló csak olvasható eszköz, a rendszerproblémák diagnosztizálására szolgál.\\r\\n"
+},
+{
+"key": "misc.s6a0b29f3",
+"t": "Eseménynapló"
+},
+{
+"key": "misc.s5c551bba",
+"t": "Az eseménynapló indítása sikertelen.\\r\\n"
+},
+{
+"key": "misc.sfbb91b2b",
+"t": "  1) A eventvwr.msc nem létezik\\r\\n"
+},
+{
+"key": "misc.s2fab7d24",
+"t": "  2) Az eseménynapló le van tiltva"
+},
+{
+"key": "misc.sd70f8ad0",
+"t": "Az eseménynapló sikertelen"
+},
+{
+"key": "misc.s70672a49",
+"t": "A parancssor (cmd.exe, rendszergazda) indítása:\\r\\n"
+},
+{
+"key": "misc.sd5cd6404",
+"t": "A parancssor a Windows leggyakoribb parancssori eszköze; a következőkre használható:\\r"
+},
+{
+"key": "misc.sa74b5301",
+"t": "  • Rendszergazdai parancsok futtatása\\r"
+},
+{
+"key": "misc.s7cb19803",
+"t": "  • Szkriptek futtatása\\r"
+},
+{
+"key": "misc.sb1dc2e13",
+"t": "  • Könyvtárak böngészése\\r"
+},
+{
+"key": "misc.se5b003a8",
+"t": "  • Hálózati diagnosztika\\r"
+},
+{
+"key": "misc.s01644c1a",
+"t": "  • Fájlműveletek\\r\\n\\r"
+},
+{
+"key": "misc.sc0f80fe7",
+"t": "A runas UAC jogosultságemelést vált ki, és rendszergazdai jelszót igényel.\\r\\n"
+},
+{
+"key": "misc.sba424a20",
+"t": "Parancssor"
+},
+{
+"key": "misc.s1472e4df",
+"t": "A parancssor indítása sikertelen.\\r\\n"
+},
+{
+"key": "misc.s80f8022f",
+"t": "  1) A UAC megtagadta a rendszergazdai jogokat\\r\\n"
+},
+{
+"key": "misc.s7cd442f8",
+"t": "  2) A cmd.exe nem létezik\\r\\n"
+},
+{
+"key": "misc.s6a4b8f4e",
+"t": "  3) A parancssor le van tiltva"
+},
+{
+"key": "misc.s9beff4c3",
+"t": "A parancssor sikertelen"
+},
+{
+"key": "misc.s713bd2ab",
+"t": "A USERPROFILE környezeti változó nincs beállítva."
+},
+{
+"key": "misc.s993eb7f7",
+"t": "Helyi menü társításamisc.sae48fa0b\tContextMenu Demo\\r\\nHelyi menü bemutató fájl\\r\\n"
+},
+{
+"key": "misc.sae48fa0b",
+"t": "ContextMenu Demo\\r\\nHelyi menü bemutató fájl\\r\\n"
+},
+{
+"key": "misc.s3d5a2ec8",
+"t": "Megnyitás"
+},
+{
+"key": "misc.s49512531",
+"t": "Szerkesztés"
+},
+{
+"key": "misc.s461541d8",
+"t": "Másolás"
+},
+{
+"key": "misc.s4bc4a59b",
+"t": "Kivágás"
+},
+{
+"key": "misc.s810d040a",
+"t": "Tulajdonságok"
+},
+{
+"key": "misc.sb032ab04",
+"t": "Megnyitás a Fájlkezelőben"
+},
+{
+"key": "misc.sec7b94d6",
+"t": "Fájl helyének megnyitása"
+},
+{
+"key": "misc.s61a1b839",
+"t": "Biztosan törli ezt a fájlt?"
+},
+{
+"key": "misc.s3b3fbc24",
+"t": "[Szakértői beállítások] A WofAdk tömörítési adapter engedélyezése (hatással van a rendszerfájl-tömörítésre)?"
+},
+{
+"key": "misc.sc9f2dd1b",
+"t": "[Szakértői beállítások] A RE rendszerindítási támogatás engedélyezése (helyreállítási környezeti műveletek)?"
+},
+{
+"key": "misc.s5636a969",
+"t": "[Szakértői beállítások] A differenciális átvitel engedélyezése (inkrementális WIM/ESD konverzió)?"
+},
+{
+"key": "misc.s3a57bfda",
+"t": "%s\\r\\nAktuális állapot: %s"
+},
+{
+"key": "misc.s74621b94",
+"t": "[clean] C:\\ előtte/utána: %llu MB → %llu MB (lemez felszabadult %llu MB, szabályok szerint %llu MB)"
+},
+{
+"key": "misc.sbb374e50",
+"t": "A művelet befejeződött: a számítógép a beállítás szerint újraindul. Folytatja?"
+},
+{
+"key": "misc.s88518317",
+"t": "A művelet befejeződött: a számítógép a beállítás szerint leáll. Folytatja?"
+},
+{
+"key": "misc.sd6608a8c",
+"t": "WIM/ESD lemezképfájlok (*.wim;*.esd;*.swm)\\0*.wim;*.esd;*.swm\\0Minden fájl (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sf7bbdc01",
+"t": "Offline WIM lemezkép kiválasztása az illesztőprogramok vizsgálatához"
+},
+{
+"key": "misc.s47518538",
+"t": "Vizsgálja az illesztőprogramokat a lemezképben?\\r\\n  \"Igen\" - 1. index (alapértelmezett)\\r\\n  \"Nem\" - az összes index vizsgálata"
+},
+{
+"key": "misc.s4e1c9661",
+"t": "Offline illesztőprogram-vizsgálat"
+},
+{
+"key": "misc.s2e011db7",
+"t": "[drv] Az offline illesztőprogram-vizsgálat elindult: %s"
+}
+]

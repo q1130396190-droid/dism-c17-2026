@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "Il componente di sistema è danneggiato. Eseguire \"Pulizia di sistema\" e riprovare."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "L'operazione sui componenti è già stata completata, non è necessario eseguirla di nuovo."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "L'archivio componenti non è coerente. Riavviare il sistema e riprovare."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Impossibile individuare le informazioni sui componenti. Provare \"Ripristino configurazione di sistema\"."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "Il servizio non è avviato. Verificare che il servizio Windows Update sia abilitato."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Il servizio Windows Update non è disponibile. Riprovare più tardi."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Conflitto di sessione di aggiornamento. Chiudere gli altri programmi di aggiornamento e riprovare."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "La sessione di aggiornamento è occupata. Riprovare più tardi."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Mancano i componenti di Windows Update. Si consiglia di abilitare le funzionalità pertinenti."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "È già in esecuzione un altro processo di Windows Update. Riprovare più tardi."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "Operazione completata. È necessario riavviare il sistema per applicare le modifiche."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Il componente è danneggiato ed è in preparazione la riparazione. Attendere."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "È necessario riavviare il sistema per applicare la riparazione dei componenti."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Autorizzazioni insufficienti. Fare clic con il tasto destro del mouse e scegliere \"Esegui come amministratore\"."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "Il file è in uso. Chiudere i programmi pertinenti e riprovare."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Il driver o il servizio non è stato caricato correttamente."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "La verifica della firma del driver non è riuscita. Il driver è stato ignorato."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Il driver non è certificato da Windows ed è stato ignorato."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Il percorso supera la lunghezza massima. Accorciare il nome del file di destinazione."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Percorso non trovato. Verificare che la directory esista."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "La directory non esiste. Verificare il percorso."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "Il dispositivo specificato non esiste."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Impossibile spostare la voce di directory; potrebbe essere in uso."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Spazio su disco insufficiente. Liberare spazio e riprovare."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer non è installato."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "Il file esiste già e non può essere creato."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "L'archivio componenti degli aggiornamenti è danneggiato. Eseguire sfc e riprovare."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "Richiesta di rete non riuscita. Verificare la connessione e riprovare."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA ha restituito un errore generico. Consultare i dettagli dell'errore."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "L'archivio componenti non è coerente. Riavviare il sistema ed eseguire sfc /scannow."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "L'archivio componenti non è coerente. Riavviare il sistema e riprovare."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Impossibile individuare le informazioni sui componenti."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Nessun componente corrispondente. Saltato."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "L'archivio componenti è danneggiato. Eseguire sfc /scannow."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "L'archivio componenti è danneggiato (versione non corrispondente)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "È necessario ricostruire l'archivio componenti. Eseguire sfc /scannow."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "È necessario ricostruire l'archivio componenti. Eseguire sfc /scannow."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "L'archivio componenti è danneggiato e non coerente."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "L'archivio componenti non è coerente (necessaria la ricostruzione)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "L'archivio componenti non è coerente (necessaria la ricostruzione)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "È necessaria una riparazione di Windows. Eseguire sfc /scannow."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "È necessaria una riparazione di Windows. Eseguire sfc /scannow."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "È necessaria una riparazione di Windows."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "pnputil non riconosce il pacchetto driver."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "Il pacchetto driver pnputil è danneggiato."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "Il pacchetto driver pnputil è in uso. Riprovare più tardi."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "Il pacchetto driver pnputil non è installato."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "Il servizio non è in esecuzione."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "Il servizio non è avviato. Avviare prima Windows Update."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Timeout durante l'avvio del servizio."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Il pacchetto Appx non è installato."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Il pacchetto Appx è danneggiato. Si consiglia di registrarlo di nuovo."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Errore generico. Consultare i dettagli nel file clean_errors.log."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "File specificato non trovato."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Accesso negato. Fare clic con il tasto destro del mouse e scegliere \"Esegui come amministratore\"."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Richiesta di rete non riuscita. Verificare la connessione e riprovare."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Risorse di sistema insufficienti."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Impossibile caricare il modulo specificato; il componente potrebbe non essere installato."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "Operazione non riuscita. Riprovare."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Rilevata l'unità di destinazione: "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nContinuare?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Applicazione immagine - Rilevamento del montaggio dell'unità di destinazione"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "È selezionata la modalità di compressione WIMBoot / WindowsToGo / Compact.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "In queste modalità la capacità di iniezione dei driver dopo l'avvio è limitata. Si consiglia di fornire qui anche una directory aggiuntiva di driver (con file .inf).\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "È necessario iniettare una directory aggiuntiva di driver?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Applicazione immagine - Consiglio per l'iniezione dei driver"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Selezionare la directory dei driver (con file .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Modalità batch"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Se selezionata, i collegamenti sottostanti vengono eseguiti in batch secondo l'elenco"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Indice selezionato: "
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Impossibile eliminare tutti gli indici delle immagini (in totale %d indici); ne deve rimanere almeno uno."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "Eliminazione in batch di %d indici:\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "I seguenti indici sono impostati come avviabili: %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Nome directory/file troppo lungo (>31 caratteri): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Nessun nome breve 8.3 valido (contiene spazi/caratteri cinesi): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "Rilevata una sottodirectory \\\\efi nella directory di origine e sul computer sono disponibili sia etfsboot.com che efisys.bin.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Generati automaticamente i parametri di avvio doppio 【BIOS + UEFI】; l'ISO generato è avviabile in entrambe le modalità.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Se UEFI non è necessario, annullare.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "Creazione ISO - Rilevamento avvio doppio"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "Il percorso di origine è lungo %d caratteri e supera il limite del record ISO9660 (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "I seguenti nomi di directory/file potrebbero violare i vincoli di denominazione ISO9660:\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... e altri %d elementi\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nL'ISO generato potrebbe non essere letto correttamente da alcuni supporti o strumenti.\\r\\nContinuare?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "Avviso sui vincoli di denominazione ISO9660"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Errore"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Nel file Data.xml mancano i nodi SystemOptimization / CleanCollection4: potrebbe trattarsi della versione originale a monte e non della versione personalizzata di questo progetto:"
+ }
+]

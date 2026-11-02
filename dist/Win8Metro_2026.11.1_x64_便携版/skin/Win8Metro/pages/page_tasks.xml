@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_tasks" inset="0,0,0,0" childpadding="0">
+  <Text name="tasks_relocated" text="计划任务已迁移至「启动项管理 - 计划任务」标签页" font="1" textcolor="{tok:InkMuted}" align="center" valign="center"/>
+</VerticalLayout>
+</Window>

@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "A rendszerösszetevők megsérültek. Futtassa először a „Rendszertisztítás\" parancsot, majd próbálja újra."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "Az aktuális összetevő-művelet befejeződött, nem kell újra végrehajtani."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "Az összetevőtároló inkonzisztens. Indítsa újra, majd próbálja újra."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "A összetevő-információk nem találhatók. Próbálja meg a „Rendszervisszaállítás\" parancsot."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "A szolgáltatás nem indult el. Győződjön meg arról, hogy a Windows Update szolgáltatás engedélyezve van."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "A Windows Update szolgáltatás nem érhető el. Próbálja meg később."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Ütközés történt a frissítési munkamenetben. Zárja be a többi frissítő programot, majd próbálja újra."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "A frissítési munkamenet foglalt. Próbálja meg később."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "A Windows Update összetevői hiányoznak. Engedélyezze a kapcsolódó funkciókat."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Egy másik Windows frissítési folyamat fut. Próbálja meg később."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "A művelet sikeres, a rendszer újraindítása szükséges a módosítások befejezéséhez."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Az összetevők megsérültek, a javítás előkészítése folyamatban van. Kérjük, legyen türelmes."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "A rendszer újraindítása szükséges az összetevőjavítás alkalmazásához."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Nem elegendő jogosultság. Kattintson jobb gombbal, és válassza a „Futtatás rendszergazdaként\" lehetőséget."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "A fájl foglalt. Zárja be a kapcsolódó programot, majd próbálja újra."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Az illesztőprogram vagy a szolgáltatás nem töltődött be megfelelően."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Az illesztőprogram-aláírás ellenőrzése sikertelen, az illesztőprogram kihagyásra került."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Az illesztőprogram nem rendelkezik Windows minősítéssel, kihagyásra került."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Az elérési út meghaladja a maximális hosszt. Rövidítse le a célfájl nevét."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Az elérési út nem található. Ellenőrizze, hogy a mappa létezik-e."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "A mappa nem létezik. Ellenőrizze az elérési utat."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "A megadott eszköz nem létezik."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "A mappa bejegyzése nem helyezhető át, valószínűleg foglalt."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Nincs elegendő lemezterület. Tisztítsa meg, majd próbálja újra."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "A Windows Installer nincs telepítve."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "A fájl már létezik, nem hozható létre."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "A frissítési összetevőtároló megsérült. Futtassa az sfc parancsot, majd próbálja újra."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "A hálózati kérés sikertelen. Ellenőrizze a hálózatot, majd próbálja újra."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "A WUA általános hibát adott vissza. Tekintse meg a hibadetálokat."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "Az összetevőtároló inkonzisztens. Indítsa újra, majd futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "Az összetevőtároló inkonzisztens. Indítsa újra, majd próbálja újra."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "A összetevő-információk nem találhatók."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Nincs megfelelő összetevő, kihagyás."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "Az összetevőtároló megsérült. Futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "Az összetevőtároló megsérült (verzió-eltérés)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "Az összetevőtároló újraépítése szükséges. Futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "Az összetevőtároló újraépítése szükséges. Futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "Az összetevőtároló megsérült és inkonzisztens."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "Az összetevőtároló inkonzisztens (újraépítés szükséges)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "Az összetevőtároló inkonzisztens (újraépítés szükséges)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "A Windows javítást igényel. Futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "A Windows javítást igényel. Futtassa az sfc /scannow parancsot."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "A Windows javítást igényel."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "A pnputil nem ismeri fel az illesztőprogramcsomagot."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "A pnputil illesztőprogramcsomag megsérült."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "A pnputil illesztőprogramcsomag használatban van. Próbálja meg később."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "A pnputil illesztőprogramcsomag nincs telepítve."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "A szolgáltatás nem fut."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "A szolgáltatás nem indult el. Indítsa el először a Windows Update szolgáltatást."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "A szolgáltatás indítása időtúllépésbe ütközött."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Az Appx-csomag nincs telepítve."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Az Appx-csomag megsérült. Javasoljuk az újbóli regisztrációt."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Általános hiba. Tekintse meg a clean_errors.log részleteit."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "A megadott fájl nem található."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Az elérés megtagadva. Kattintson jobb gombbal, és válassza a „Futtatás rendszergazdaként\" lehetőséget."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "A hálózati kérés sikertelen. Ellenőrizze a hálózatot, majd próbálja újra."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Nincs elegendő rendszererőforrás."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "A megadott modul nem tölthető be, az összetevő valószínűleg nincs telepítve."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "A művelet nem hajtható végre. Próbálja újra."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Célmeghajtó észlelve: "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nFolytatja?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Lemezkép alkalmazása - célmeghajtó csatlakoztatásának ellenőrzése"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "WIMBoot / WindowsToGo / Compact tömörítési mód van bejelölve.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "Ezekben a módokban az indítás utáni illesztőprogram-beszúrási lehetőség korlátozott. Javasoljuk, hogy itt adjon meg egy további illesztőprogram-mappát (.inf fájlokkal).\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Szeretne további illesztőprogram-mappát beszúrni?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Lemezkép alkalmazása - illesztőprogram-beszúrási javaslat"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Illesztőprogram-mappa kiválasztása (.inf fájlokkal)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Tömeges mód"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Bejelölés után az alábbi hivatkozások listaszerűen tömegesen futnak"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Kiválasztott index:"
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Nem törölhető az összes lemezképindex (összesen %d index), legalább egyet meg kell tartani."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "%d index tömeges törlése:\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "A következő indexek egyidejűleg indíthatóvá tétele: %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "A mappa/fájlnév túl hosszú (>31 karakter): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Nincs érvényes 8.3 rövid név (szóköz vagy kínai karakter): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "A forrásmappában \\\\efi alkönyvtár található, és a számítógépen egyidejűleg rendelkezésre áll az etfsboot.com és az efisys.bin.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Automatikusan generálva a [BIOS + UEFI duális rendszerindítás] paraméterek, a létrehozott ISO mindkét indítási módban használható.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Ha nem igényel UEFI-t, kérjük, törölje a jelet.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "ISO létrehozása - duális rendszerindítás ellenőrzése"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "A forrás elérési útja %d karakter hosszú, meghaladja az ISO9660 rekordlimitot (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "A következő mappák/fájlok valószínűleg sértik az ISO9660 elnevezési megkötéseket:\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... és további %d tétel\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nA létrehozott ISO egyes média- vagy eszközökön nem olvasható. Folytatja?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "ISO9660 elnevezési megkötés figyelmeztetés"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Hiba"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "A Data.xml fájlból hiányzik a SystemOptimization / CleanCollection4 csomópont, valószínűleg a felső szintű eredeti verzió, nem az e projekt testre szabott változata:"
+ }
+]

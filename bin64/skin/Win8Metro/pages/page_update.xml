@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_update" bkcolor="{tok:Surface}" inset="0,0,0,0" childpadding="0" borderround="8,8">
+          <!-- tabs -->
+          <HorizontalLayout name="page_update_L5" height="58" bkcolor="{tok:Surface}" inset="380,0,0,0" childvalign="vcenter" borderround="8,8">
+            <Option name="updtab_0" group="upd_tab" text="Windows Update" font="5" textcolor="{tok:Ink}" selectedtextcolor="{tok:AccentText}" bkcolor="#00000000" width="250" height="40" align="left"/>
+            <Option name="updtab_1" group="upd_tab" text="已安装的更新" font="5" textcolor="{tok:Ink}" selectedtextcolor="{tok:AccentText}" bkcolor="#00000000" width="210" height="40" align="left" selected="true"/>
+            <Control width="0"/>
+          </HorizontalLayout>
+
+          <!-- R37: 顶部搜索工具条 -->
+          <HorizontalLayout name="page_update_L12" height="32" bkcolor="{tok:SurfaceAlt}" inset="6,4,6,4" childpadding="8" childvalign="vcenter" borderround="8,8">
+            <Text text="搜索" font="1" textcolor="{tok:InkSecondary}" width="48" valign="vcenter"/>
+            <Edit name="upd_filter" width="0" height="32" tipvalue="输入更新标题关键字过滤（不区分大小写）" tipvaluecolor="{tok:InkMuted}" textcolor="{tok:Ink}" font="1" bkcolor="{tok:Surface}" bordercolor="{tok:Border}" bordersize="1" textpadding="6,4,6,4" borderround="4,4"/>
+            <Text name="lbl_upd_count" text="" font="1" textcolor="{tok:InkTertiary}" autocalcwidth="true" valign="vcenter"/>
+            <Text text="下载线程" font="1" textcolor="{tok:InkTertiary}" width="70" valign="vcenter"/>
+            <Combo name="upd_maxthread_combo" width="80" height="32" font="1" textcolor="{tok:Ink}" bkcolor="{tok:SurfaceSunk}" borderround="4,4" bordercolor="{tok:Border}" bordersize="1"/>
+          </HorizontalLayout>
+
+          <TabLayout name="upd_pages" width="0" height="0">
+            <!-- 0: Windows Update (待安装) -->
+            <VerticalLayout name="page_update_L22" bkcolor="{tok:Surface}" childpadding="0" borderround="8,8">
+              <HorizontalLayout name="page_update_L23" height="34" bkcolor="{tok:SurfaceAlt}" borderround="8,8">
+                <Text name="hdr_wu_item" text="项目" font="6" textcolor="{tok:Ink}" width="0" align="left" valign="vcenter" textpadding="10,0,0,0"/>
+                <Text name="hdr_wu_date" text="安装日期" font="6" textcolor="{tok:Ink}" width="120" align="center" valign="vcenter"/>
+                <Text name="hdr_wu_status" text="状态" font="6" textcolor="{tok:Ink}" width="180" align="center" valign="vcenter"/>
+              </HorizontalLayout>
+              <Text name="upd_wu_hint" width="0" height="0" font="2" textcolor="{tok:InkTertiary}" align="center"/>
+              <VerticalLayout name="upd_pending_list" width="0" height="0" bkcolor="{tok:Surface}" childpadding="0" vscrollbar="true" borderround="8,8"/>
+            </VerticalLayout>
+            <!-- 1: installed updates -->
+            <VerticalLayout name="page_update_L32" bkcolor="{tok:Surface}" childpadding="0" borderround="8,8">
+              <HorizontalLayout name="page_update_L33" height="34" bkcolor="{tok:SurfaceAlt}" borderround="8,8">
+                <Text name="hdr_wu_item2" text="项目" font="6" textcolor="{tok:Ink}" width="0" align="left" valign="vcenter" textpadding="10,0,0,0"/>
+                <Text name="hdr_wu_date2" text="安装日期" font="6" textcolor="{tok:Ink}" width="120" align="center" valign="vcenter"/>
+                <Text name="hdr_wu_status2" text="状态" font="6" textcolor="{tok:Ink}" width="180" align="center" valign="vcenter"/>
+              </HorizontalLayout>
+              <VerticalLayout name="upd_list" width="0" height="0" bkcolor="{tok:Surface}" childpadding="0" vscrollbar="true" borderround="8,8"/>
+            </VerticalLayout>
+          </TabLayout>
+
+          <!-- bottom bar [按钮整合] 暂停/恢复、推迟/恢复功能更新、禁用/恢复系统更新
+               各合并为单一切换键（文案/配色随策略状态切换），总宽压至约 1200px，
+               非全屏 1280 宽也能完整显示 -->
+          <HorizontalLayout name="page_update_L45" height="54" bkcolor="{tok:Surface}" inset="14,0,14,0" childpadding="8" childvalign="vcenter" borderround="8,8">
+            <Button name="btn_upd_find" text="查找" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Control width="0"/>
+            <Button name="btn_upd_refresh" text="刷新" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_upd_selall" text="全选" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" height="32" width="70" borderround="4,4"/>
+            <Button name="btn_upd_delete" text="删除" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="90" height="32" align="center" valign="center"/>
+            <!-- R74: 三阶段更新流（PreDownload / Install / Finalize） -->
+            <Button name="btn_upd_predownload" text="预下载" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_upd_install" text="安装" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="80" height="32" align="center" valign="center"/>
+            <Button name="btn_upd_finalize" text="完成" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="80" height="32" align="center" valign="center"/>
+            <!-- [R82] P0-5 隐藏/取消隐藏更新（作用对象不同，保留两键） -->
+            <Button name="btn_upd_hide" text="隐藏" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="80" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_upd_unhide" text="取消隐藏" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="100" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [R86 P1-18 + 按钮整合] 暂停/恢复自动更新：同一个键，再点切换 -->
+            <Button name="btn_upd_pausetoggle" text="暂停更新" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="100" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [R86 P1-18 + 按钮整合] 推迟/恢复功能更新：同一个键，再点切换 -->
+            <Button name="btn_upd_skiptoggle" text="推迟功能更新" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="115" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [R-B49 + 按钮整合] 禁用/恢复系统更新：同一个键；危险方向红色，已禁用恢复时为白底 -->
+            <Button name="btn_upd_disabletoggle" text="禁用系统更新" font="1" textcolor="{tok:OnDanger}" bkcolor="{tok:Danger}" hotbkcolor="{tok:DangerHot}" borderround="4,4" pushedbkcolor="{tok:DangerPushed}" width="104" height="32" align="center" valign="center"/>
+            <!-- [性能 P3] 策略下拉：折叠暂停/推迟/禁用三枚切换键，点击弹状态菜单 -->
+            <!-- [R216] Install-state line. Page_Update.cpp already writes this in 4 places
+                 (preparing / progress / done / fail) but the control never existed in the
+                 skin, so every write silently did nothing and the install progress was
+                 invisible. Found by the migration completeness audit (A-class omission). -->
+            <Text name="upd_install_state" text="" font="1" textcolor="{tok:InkTertiary}"
+                  width="0" height="38" align="left" valign="vcenter" endellipsis="true"/>
+            <Button name="btn_upd_policy" text="策略▾" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="110" height="32" align="center" valign="center" borderround="4,4"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

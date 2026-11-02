@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="task_panel" inset="0,0,0,0" childpadding="0">
+
+          <HorizontalLayout name="cl_3" height="40" bkcolor="#FFFFFFFF" inset="16,0,0,0" childpadding="24" childvalign="vcenter">
+
+            <Option name="tasktab_0" group="task_tab" text="所有任务" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left" selected="true"/>
+
+            <Option name="tasktab_1" group="task_tab" text="已禁用任务" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left"/>
+
+            <Option name="tasktab_2" group="task_tab" text="即将运行" font="2" textcolor="#FF666666" selectedtextcolor="#FF007ACC" bkcolor="#00000000" width="120" height="40" align="left"/>
+
+          </HorizontalLayout>
+
+          <Control height="1" bkcolor="#FFE5E5E5"/>
+
+          <HorizontalLayout name="cl_4" height="34" bkcolor="#FFEFF6FC" inset="16,4,16,4" childpadding="8" childvalign="vcenter">
+
+            <Text text="搜索" font="1" textcolor="#FF333333" width="48" valign="vcenter"/>
+
+            <Edit name="task_filter" width="0" height="28" tipvalue="输入任务名称过滤（不区分大小写）" tipvaluecolor="#FF999999" textcolor="#FF1A1A1A" font="1" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,4,6,4"/>
+
+            <Text name="task_count" text="" font="1" textcolor="#FF666666" autocalcwidth="true" valign="vcenter"/>
+
+          </HorizontalLayout>
+
+          <Text name="task_infobar" text="" font="1" textcolor="#FF007ACC" bkcolor="#FFEFF6FC" height="26" align="left" valign="vcenter" textpadding="16,4,8,4" endellipsis="true"/>
+
+          <TabLayout name="task_pages" width="0" height="0">
+
+            <VerticalLayout name="cl_5" inset="14,6,14,0" childpadding="0">
+
+              <HorizontalLayout name="cl_6" height="28" bkcolor="#FFEFF6FC" childvalign="vcenter">
+
+                <Text name="hdr_task_name" text="任务名称" font="6" textcolor="#FF333333" width="300" align="center"/>
+
+                <Text name="hdr_task_next" text="下次运行时间" font="6" textcolor="#FF333333" width="180" align="center"/>
+
+                <Text name="hdr_task_mode" text="任务模式" font="6" textcolor="#FF333333" width="120" align="center"/>
+
+                <Text name="hdr_task_status" text="状态" font="6" textcolor="#FF333333" width="100" align="center"/>
+
+                <Text name="hdr_task_user" text="运行用户" font="6" textcolor="#FF333333" width="0" align="center"/>
+
+              </HorizontalLayout>
+
+              <VerticalLayout name="task_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+
+            </VerticalLayout>
+
+          </TabLayout>
+
+          <HorizontalLayout name="cl_7" height="50" bkcolor="#FFFFFFFF" inset="14,0,14,0" childpadding="10" childvalign="vcenter">
+
+            <Button name="btn_task_enable" text="启用" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="80" height="34" align="center" valign="center"/>
+
+            <Button name="btn_task_disable" text="禁用" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="80" height="34" align="center" valign="center"/>
+
+            <Button name="btn_task_run" text="立即运行" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="90" height="34" align="center" valign="center"/>
+
+            <Button name="btn_task_delete" text="删除" font="1" textcolor="#FF1A1A1A" bkcolor="#FFFFFFFF" hotbkcolor="#FFE5F1FB" pushedbkcolor="#FFCCE4F7" bordercolor="#FFABABAB" bordersize="1" width="80" height="34" align="center" valign="center"/>
+
+            <Control width="0"/>
+
+            <Button name="btn_task_refresh" text="刷新" font="1" textcolor="#FFFFFFFF" bkcolor="#FF007ACC" hotbkcolor="#FF1C97EA" borderround="4,4" pushedbkcolor="#FF005A9E" width="100" height="34" align="center" valign="center"/>
+
+          </HorizontalLayout>
+
+        </VerticalLayout>
+</Window>

@@ -1,0 +1,51 @@
+err.s262a4af9	Windows vyžaduje opravu.
+err.s252a4966	Windows vyžaduje opravu.
+err.s302a5ab7	Windows vyžaduje opravu.
+err.s2f2a5924	Windows vyžaduje opravu.
+err.s22280616	Windows vyžaduje opravu.
+err.s3a734fab	Společnost pnputil nedokáže rozpoznat tento balíček ovladačů.
+err.s39734e18	Balíček ovladačů pnputil je poškozen.
+err.sc06bd3d8	Balíček ovladačů pnputil je právě používán, zkuste to později.
+err.sc16bd56b	Balíček ovladačů pnputil není nainstalován.
+err.s8a8de120	Služba není spuštěna.
+err.s96927132	Služba není spuštěna, nejprve spusťte Windows Update.
+err.s92926ae6	Vypršel časový limit pro spuštění služby.
+err.s1c9582bb	Balíček Appx není nainstalován.
+err.s1b958128	Balíček Appx je poškozen, doporučujeme jej znovu zaregistrovat.
+err.sc853be9b	Obecná chyba, podrobnosti najdete v souboru clean_errors.log.
+err.sc953c02e	Zadaný soubor nebyl nalezen.
+err.scc53c4e7	Přístup byl odepřen, klepněte pravým tlačítkem na Spustit jako správce.
+err.sbf55ef07	Požadavek na síť selhal, zkontrolujte síť a zkuste to znovu.
+err.sbe607ad0	Nedostatek systémových prostředků.
+err.s9c64c278	Zadaný modul nelze načíst, komponenta nemusí být nainstalována.
+err.s5c4d8ea4	Operaci nelze dokončit, zkuste to znovu.
+misc.sb8594256	Byl zjištěn cílový disk 
+misc.s8478a7da	\r\nChcete pokračovat?
+misc.s5d87ae03	Použít bitovou kopii – kontrola připojení cílového disku
+misc.se4a927da	Je zaškrtnuto kompresní schéma WIMBoot / WindowsToGo / Compact.
+misc.s01a2ddb2	V těchto režimech je po spuštění omezena schopnost vkládání ovladačů, doporučujeme zde současně poskytnout adresář s dodatečnými ovladači (včetně souborů .inf).
+
+misc.sa5fa8682	Chcete vložit adresář s dodatečnými ovladači?
+misc.s7cd02573	Použít bitovou kopii – doporučení vložení ovladačů
+misc.s3475cdac	Vyberte adresář ovladačů (včetně souborů .inf)
+misc.se8b0a64d	Dávkový režim
+misc.s67572047	Po zaškrtnutí jsou níže uvedené odkazy spouštěny hromadně podle seznamu
+misc.s648e8fa2	Vybraný index: 
+misc.sc66e5d00	Nelze odstranit všechny indexy bitové kopie (celkem %d indexů), musí zůstat alespoň jeden.
+misc.sa94eaf75	Hromadné odstranění %d indexů:
+misc.s46e3ae77	Následující indexy budou zároveň nastaveny jako spustitelné: %s
+%s
+misc.s017f1701	Příliš dlouhá cesta nebo název souboru (>31 znaků): 
+misc.sd82b6f0d	Žádný platný krátký název 8.3 (obsahuje mezery/čínské znaky): 
+misc.s95f4e82c	Ve zdrojovém adresáři byl zjištěn podadresář \efi a na tomto počítači jsou zároveň k dispozici soubory etfsboot.com a efisys.bin.
+misc.s664bc807	Parametry pro duální spouštění systému BIOS + UEFI byly vygenerovány automaticky, vygenerované ISO bude spustitelné v obou režimech spouštění.
+misc.s3c4e2da7	Pokud UEFI nepotřebujete, zrušte jej.
+misc.sc33ebf22	Generování ISO – detekce duálního spouštění
+misc.s74b29a96	Délka zdrojové cesty je %d znaků, což překračuje limit záznamu ISO9660 (65535)
+misc.s37bd0391	Následující názvy adresářů/souborů mohou porušovat pravidla pojmenování ISO9660:
+
+misc.se841b7fd	... a dalších %d položek
+misc.s50b9bd18	\r\nČást médií nebo nástrojů na vygenerovaném ISO nemusí být čitelná.\r\nChcete pokračovat?
+misc.s5d3ee152	Varování ohledně pravidel pojmenování ISO9660
+misc.seb9a44d7	Chyba
+misc.s1adeb99e	Souboru Data.xml chybí uzly SystemOptimization / CleanCollection4, pravděpodobně se jedná o původní verzi od výrobce a nikoli o tuto upravenou verzi:

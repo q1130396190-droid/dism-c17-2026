@@ -1,0 +1,286 @@
+[
+ {
+  "key": "err.s0cfe9a5f_t",
+  "t": "ERROR_NOT_ENOUGH_MEMORY"
+ },
+ {
+  "key": "err.s11f1cf47_t",
+  "t": "HRESULT 0x800F0923"
+ },
+ {
+  "key": "err.s13d5736f_t",
+  "t": "network error 0x800"
+ },
+ {
+  "key": "err.s19eb271e_t",
+  "t": "ERROR_FILENAME_EXCESIVELY_LONG"
+ },
+ {
+  "key": "err.s1ae8ea1a_t",
+  "t": "ERROR_BAD_NET_NAME"
+ },
+ {
+  "key": "err.s1b958128_t",
+  "t": "ERROR_APPX_CORRUPT"
+ },
+ {
+  "key": "err.s1c9582bb_t",
+  "t": "ERROR_APPX_NOT_INSTALLED"
+ },
+ {
+  "key": "err.s2147cf80_t",
+  "t": "COMPACT_SFC_REPAIR_REQUIRED"
+ },
+ {
+  "key": "err.s22280616_t",
+  "t": "HRESULT 0x800F0F30"
+ },
+ {
+  "key": "err.s2247d113_t",
+  "t": "COMPACT_REBOOT_REQUIRED"
+ },
+ {
+  "key": "err.s232a4640_t",
+  "t": "HRESULT 0x800F0F25"
+ },
+ {
+  "key": "err.s242a47d3_t",
+  "t": "HRESULT 0x800F0F24"
+ },
+ {
+  "key": "err.s252a4966_t",
+  "t": "HRESULT 0x800F0F27"
+ },
+ {
+  "key": "err.s262a4af9_t",
+  "t": "HRESULT 0x800F0F26"
+ },
+ {
+  "key": "err.s272a4c8c_t",
+  "t": "HRESULT 0x800F0F21"
+ },
+ {
+  "key": "err.s282a4e1f_t",
+  "t": "HRESULT 0x800F0F20"
+ },
+ {
+  "key": "err.s292a4fb2_t",
+  "t": "HRESULT 0x800F0F23"
+ },
+ {
+  "key": "err.s2a2a5145_t",
+  "t": "HRESULT 0x800F0F22"
+ },
+ {
+  "key": "err.s2f2a5924_t",
+  "t": "HRESULT 0x800F0F29"
+ },
+ {
+  "key": "err.s300ca0d0_t",
+  "t": "ERROR_ACCESS_DENIED"
+ },
+ {
+  "key": "err.s302a5ab7_t",
+  "t": "HRESULT 0x800F0F28"
+ },
+ {
+  "key": "err.s3325e242_t",
+  "t": "HRESULT 0x800F0F09"
+ },
+ {
+  "key": "err.s340ca71c_t",
+  "t": "dism exited 1: component store corruption"
+ },
+ {
+  "key": "err.s3425e3d5_t",
+  "t": "HRESULT 0x800F0F08"
+ },
+ {
+  "key": "err.s3525e568_t",
+  "t": "HRESULT 0x800F0F07"
+ },
+ {
+  "key": "err.s3725e88e_t",
+  "t": "HRESULT 0x800F0F05"
+ },
+ {
+  "key": "err.s39734e18_t",
+  "t": "ERROR_PNP_DRIVER_CORRUPT"
+ },
+ {
+  "key": "err.s3a734fab_t",
+  "t": "ERROR_PNP_NO_DRIVER"
+ },
+ {
+  "key": "err.s3d9f3cff_t",
+  "t": "WU API missing"
+ },
+ {
+  "key": "err.s59824f81_t",
+  "t": "HRESULT 0x800F0906: component store inconsistent"
+ },
+ {
+  "key": "err.s5c0c2074_t",
+  "t": "WUA generic error 0x1000"
+ },
+ {
+  "key": "err.s5c4d8ea4_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_CANT_ACCESS_FILE)"
+ },
+ {
+  "key": "err.s5e8495f7_t",
+  "t": "HRESULT 0x800F0912: no component info"
+ },
+ {
+  "key": "err.s7485f186_t",
+  "t": "WINERROR 692: signature invalid"
+ },
+ {
+  "key": "err.s7e2cbb3f_t",
+  "t": "ERROR_NO_MORE_ITEMS"
+ },
+ {
+  "key": "err.s7ea654ef_t",
+  "t": "ERROR_SERVICE_NOT_INSTALLED"
+ },
+ {
+  "key": "err.s851ffa51_t",
+  "t": "ERROR_CANNOT_OPEN_FILE"
+ },
+ {
+  "key": "err.s85f04e50_t",
+  "t": "ERROR_SHARING_VIOLATION"
+ },
+ {
+  "key": "err.s87aae048_t",
+  "t": "ERROR_NO_SUCH_LOGON_SESSION / WU unavailable"
+ },
+ {
+  "key": "err.s8a8de120_t",
+  "t": "ERROR_SERVICE_NOT_ACTIVE"
+ },
+ {
+  "key": "err.s8ae14ba5_t",
+  "t": "ERROR_BAD_NETPATH"
+ },
+ {
+  "key": "err.s8aeebc2b_t",
+  "t": "HRESULT 0x800F0912"
+ },
+ {
+  "key": "err.s8be5ca66_t",
+  "t": "ERROR_DIR_NOT_EMPTY"
+ },
+ {
+  "key": "err.s8cec80ba_t",
+  "t": "HRESULT 0x800F0906: corrupted"
+ },
+ {
+  "key": "err.s8ef29b12_t",
+  "t": "ERROR_FILE_NOT_FOUND"
+ },
+ {
+  "key": "err.s909267c0_t",
+  "t": "ERROR_FAILED_SERVICE_START"
+ },
+ {
+  "key": "err.s90bd8562_t",
+  "t": "ERROR_IP_ADDRESS_CONFLICT / session conflict"
+ },
+ {
+  "key": "err.s91bd86f5_t",
+  "t": "session busy"
+ },
+ {
+  "key": "err.s92926ae6_t",
+  "t": "ERROR_TIMEOUT"
+ },
+ {
+  "key": "err.s96927132_t",
+  "t": "ERROR_DEPENDENT_SERVICES_RUNNING"
+ },
+ {
+  "key": "err.s9c64c278_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_MOD_NOT_FOUND)"
+ },
+ {
+  "key": "err.sa4db77af_t",
+  "t": "ERROR_SUCCESS_REBOOT_REQUIRED"
+ },
+ {
+  "key": "err.sae22d24c_t",
+  "t": "HRESULT 0x800F0F18"
+ },
+ {
+  "key": "err.saf22d3df_t",
+  "t": "HRESULT 0x800F0F19"
+ },
+ {
+  "key": "err.sb422dbbe_t",
+  "t": "HRESULT 0x800F0F16"
+ },
+ {
+  "key": "err.sb522dd51_t",
+  "t": "HRESULT 0x800F0F17"
+ },
+ {
+  "key": "err.sb622dee4_t",
+  "t": "HRESULT 0x800F0F10"
+ },
+ {
+  "key": "err.sb722e077_t",
+  "t": "HRESULT 0x800F0F11"
+ },
+ {
+  "key": "err.sb822e20a_t",
+  "t": "HRESULT 0x800F0F12"
+ },
+ {
+  "key": "err.sbe607ad0_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_BAD_NETPATH)"
+ },
+ {
+  "key": "err.sbf55ef07_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS)"
+ },
+ {
+  "key": "err.sc06bd3d8_t",
+  "t": "ERROR_PNP_DRIVER_IN_USE"
+ },
+ {
+  "key": "err.sc16bd56b_t",
+  "t": "ERROR_PNP_NOT_INSTALLED"
+ },
+ {
+  "key": "err.sc27d201f_t",
+  "t": "ERROR_NO_WINDOWS_UPDATE_SERVER 1618"
+ },
+ {
+  "key": "err.sc853be9b_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_GENERIC)"
+ },
+ {
+  "key": "err.sc953c02e_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)"
+ },
+ {
+  "key": "err.scc53c4e7_t",
+  "t": "HRESULT_FROM_WIN32(ERROR_ACCESS_DENIED)"
+ },
+ {
+  "key": "err.sd12c606d_t",
+  "t": "0x80070000: component store inconsistent (2015)"
+ },
+ {
+  "key": "err.se5561e45_t",
+  "t": "WINERROR 1379: not authenticated"
+ },
+ {
+  "key": "err.seb83b485_t",
+  "t": "HRESULT 0x800F0806: component store inconsistent"
+ },
+ {
+  "key": "err.sffc664ba_t",
+  "t": "DISM_S_ALREADY_INSTALLED / clean state"
+ }
+]

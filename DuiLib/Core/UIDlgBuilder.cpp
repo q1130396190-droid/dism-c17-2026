@@ -1,0 +1,608 @@
+﻿#include "StdAfx.h"
+#include "PerfProbe.h"
+#include "AttrParse.h"
+
+#include <string_view>
+#include <optional>
+#include <charconv>
+#include <array>
+
+namespace DuiLib {
+namespace {
+// S5/T5.2 internal_pilot: use basic_string_view<TCHAR> for read-only attribute
+// name comparison, replacing hand-written _tcsicmp(pstrName, _T("...")) calls.
+// C17.6: read-only param only, never stored, never owns. Case-insensitive
+// semantics identical to _tcsicmp. Zero ABI risk: anonymous-namespace internal
+// helper, non-exported, no exported class signature/layout change.
+inline bool AttrNameEquals(LPCTSTR name, std::basic_string_view<TCHAR> attr,
+                          bool case_sensitive = false)
+{
+    if (name == nullptr) return false;
+    if (attr.size() != _tcslen(name)) return false;
+    if (case_sensitive) return _tcsncmp(name, attr.data(), attr.size()) == 0;
+    return _tcsnicmp(name, attr.data(), attr.size()) == 0;
+}
+// S5/T5.3 internal_pilot: use std::optional<int> to express attribute
+// presence vs. numeric value. Replaces the fragile C pattern
+//   int count = 1; if (HasAttr("count")) count = _tcstol(...);
+// C17.6: anonymous-namespace internal helper, non-exported.
+inline std::optional<int> ParseOptionalInt(LPCTSTR text, int base = 10)
+{
+    if (text == nullptr) return std::nullopt;
+    LPTSTR pstrEnd = nullptr;
+    long v = _tcstol(text, &pstrEnd, base);
+    if (pstrEnd == text) return std::nullopt;   // no digits converted
+    return static_cast<int>(v);
+}
+// S5/T4.6 internal_pilot: use std::from_chars for locale-independent
+// integer parsing, replacing _ttoi() which depends on the current C
+// locale and never signals parse failure.
+// [round 477 VS2026 fix] MSVC 14.51 (v145) 不支持 wchar_t 的
+// std::from_chars（C2665，P2497 是 C++26 特性），Unicode 轨下 LPCTSTR=wchar_t，
+// 故底层改回 _tcstol（与 ParseOptionalInt 一致），保持与 from_chars 相同的
+// "整串解析 + 未解析返回 0" 语义，不依赖 wchar_t 整数 from_chars 重载。
+inline int ParseToInt(LPCTSTR text)
+{
+    if (text == nullptr) return 0;
+    LPTSTR pstrEnd = nullptr;
+    long v = _tcstol(text, &pstrEnd, 10);
+    if (pstrEnd == text) return 0;   // no digits converted
+    return static_cast<int>(v);
+}
+} // namespace
+
+namespace {
+// [PERF-15] The split markers belong to the outermost skin build only;
+// nested sub-skin builds previously printed 18 untimed lines.
+thread_local int t_nDlgBuildDepth = 0;
+struct CDlgBuildDepthGuard {
+	CDlgBuildDepthGuard() { ++t_nDlgBuildDepth; }
+	~CDlgBuildDepthGuard() { --t_nDlgBuildDepth; }
+};
+} // namespace
+
+	CDialogBuilder::CDialogBuilder() : m_pCallback(nullptr), m_pstrtype(nullptr)
+	{
+		m_instance = nullptr;
+	}
+
+	CControlUI* CDialogBuilder::Create(STRINGorID xml, LPCTSTR type, IDialogBuilderCallback* pCallback, 
+		CPaintManagerUI* pManager, CControlUI* pParent)
+	{
+		// [PERF-15] Skin parsing (this function) and control-tree build (the
+		// delegated Create below) used to be one opaque "create+skin" number.
+		const bool bPerfTop = (::GetEnvironmentVariableW(L"DUILIB_STARTUP_PROBE", nullptr, 0) != 0)
+			&& (t_nDlgBuildDepth == 0);
+		const LARGE_INTEGER ullParseT0 = DuiLib::perfprobe::CClock::Instance().Now();
+		CDlgBuildDepthGuard dlgDepthGuard;
+		//资源ID为0-65535，两个字节；字符串指针为4个字节
+		//字符串以<开头认为是XML字符串，否则认为是XML文件
+		if(HIWORD(xml.m_lpstr) != 0 && *(xml.m_lpstr) != _T('<')) {
+			LPCTSTR xmlpath = CResourceManager::GetInstance()->GetXmlPath(xml.m_lpstr);
+			if (xmlpath != nullptr) {
+				xml = xmlpath;
+			}
+		}
+
+		if( HIWORD(xml.m_lpstr) != 0 ) {
+			if( *(xml.m_lpstr) == _T('<') ) {
+				if( !m_xml.Load(xml.m_lpstr) ) {
+					TCHAR szErr[128] = {0}; m_xml.GetLastErrorMessage(szErr, 128);
+					DUI_LOGE("dialog XML (inline) parse failed: %s", szErr);
+					return nullptr;
+				}
+			}
+			else {
+				if( !m_xml.LoadFromFile(xml.m_lpstr) ) {
+					TCHAR szErr[128] = {0}; m_xml.GetLastErrorMessage(szErr, 128);
+					DUI_LOGE("dialog XML load failed: %s (%s)", xml.m_lpstr, szErr);
+					return nullptr;
+				}
+			}
+		}
+		else {
+			HINSTANCE dll_instence = nullptr;
+			if (m_instance)
+			{
+				dll_instence = m_instance;
+			}
+			else
+			{
+				dll_instence = CPaintManagerUI::GetResourceDll();
+			}
+			HRSRC hResource = ::FindResource(dll_instence, xml.m_lpstr, type);
+			if( hResource == nullptr ) {
+				DUI_LOGE("dialog resource not found: id=%u type=%s (GetLastError=%lu)",
+					(unsigned)(UINT_PTR)xml.m_lpstr, type, ::GetLastError());
+				return nullptr;
+			}
+			HGLOBAL hGlobal = ::LoadResource(dll_instence, hResource);
+			if( hGlobal == nullptr ) {
+				DUI_LOGE("dialog resource load failed: id=%u (GetLastError=%lu)",
+					(unsigned)(UINT_PTR)xml.m_lpstr, ::GetLastError());
+				FreeResource(hResource);
+				return nullptr;
+			}
+
+			m_pCallback = pCallback;
+			if( !m_xml.LoadFromMem((BYTE*)::LockResource(hGlobal), ::SizeofResource(dll_instence, hResource) )) { // [M3] free on failure branch
+				TCHAR szErr[128] = {0}; m_xml.GetLastErrorMessage(szErr, 128);
+				DUI_LOGE("dialog XML from resource failed: id=%u (%s)",
+					(unsigned)(UINT_PTR)xml.m_lpstr, szErr);
+				::FreeResource(hGlobal);
+				return nullptr;
+			}
+			::FreeResource(hGlobal);
+			m_pstrtype = type;
+		}
+
+		if (bPerfTop) DuiLib::perfprobe::Mark("dlg xml-parse", ullParseT0);
+		return Create(pCallback, pManager, pParent);
+	}
+
+	CControlUI* CDialogBuilder::Create(IDialogBuilderCallback* pCallback, CPaintManagerUI* pManager, CControlUI* pParent)
+	{
+		m_pCallback = pCallback;
+		CMarkupNode root = m_xml.GetRoot();
+		if( !root.IsValid() ) {
+			TCHAR szErr[128] = {0}; m_xml.GetLastErrorMessage(szErr, 128);
+			DUI_LOGE("dialog XML has no root element (%s)", szErr);
+			return nullptr;
+		}
+
+		if( pManager ) {
+			LPCTSTR pstrClass = nullptr;
+			int nAttributes = 0;
+			LPCTSTR pstrName = nullptr;
+			LPCTSTR pstrValue = nullptr;
+			LPTSTR pstr = nullptr;
+			for( CMarkupNode node = root.GetChild() ; node.IsValid(); node = node.GetSibling() ) {
+				pstrClass = node.GetName();
+				if( AttrNameEquals(pstrClass, _T("Image")) ) {
+					nAttributes = node.GetAttributeCount();
+					LPCTSTR pImageName = nullptr;
+					LPCTSTR pImageResType = nullptr;
+					bool shared = false;
+					DWORD mask = 0;
+					for( int i = 0; i < nAttributes; i++ ) {
+						pstrName = node.GetAttributeName(i);
+						pstrValue = node.GetAttributeValue(i);
+						if( AttrNameEquals(pstrName, _T("name")) ) {
+							pImageName = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("restype")) ) {
+							pImageResType = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("mask")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							mask = _tcstoul(pstrValue, &pstr, 16);
+						}
+						else if( AttrNameEquals(pstrName, _T("shared")) ) {
+							shared = (AttrNameEquals(pstrValue, _T("true")));
+						}
+					}
+					if( pImageName ) pManager->AddImage(pImageName, pImageResType, mask, false, shared);
+				}
+				else if( AttrNameEquals(pstrClass, _T("Font")) ) {
+					nAttributes = node.GetAttributeCount();
+					int id = -1;
+					LPCTSTR pFontName = nullptr;
+					int size = 12;
+					bool bold = false;
+					bool underline = false;
+					bool italic = false;
+					bool defaultfont = false;
+					bool shared = false;
+					bool strikeout = false;
+					for( int i = 0; i < nAttributes; i++ ) {
+						pstrName = node.GetAttributeName(i);
+						pstrValue = node.GetAttributeValue(i);
+						if( AttrNameEquals(pstrName, _T("id")) ) {
+							id = _tcstol(pstrValue, &pstr, 10);
+						}
+						else if( AttrNameEquals(pstrName, _T("name")) ) {
+							pFontName = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("size")) ) {
+							size = _tcstol(pstrValue, &pstr, 10);
+						}
+						else if( AttrNameEquals(pstrName, _T("bold")) ) {
+							bold = (AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("underline")) ) {
+							underline = (AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("italic")) ) {
+							italic = (AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if (AttrNameEquals(pstrName, _T("strikeout"))) {
+							strikeout = (AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("default")) ) {
+							defaultfont = (AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("shared")) ) {
+							shared = (AttrNameEquals(pstrValue, _T("true")));
+						}
+					}
+					if( id >= 0 ) {
+						pManager->AddFont(id, pFontName, size, bold, underline, italic, strikeout, shared);
+						if( defaultfont ) pManager->SetDefaultFont(pFontName, size, bold, underline, italic, strikeout, shared);
+					}
+				}
+				else if( AttrNameEquals(pstrClass, _T("Default")) ) {
+					nAttributes = node.GetAttributeCount();
+					LPCTSTR pControlName = nullptr;
+					LPCTSTR pControlValue = nullptr;
+					bool shared = false;
+					for( int i = 0; i < nAttributes; i++ ) {
+						pstrName = node.GetAttributeName(i);
+						pstrValue = node.GetAttributeValue(i);
+						if( AttrNameEquals(pstrName, _T("name")) ) {
+							pControlName = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("value")) ) {
+							pControlValue = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("shared")) ) {
+							shared = (AttrNameEquals(pstrValue, _T("true")));
+						}
+					}
+					if( pControlName ) {
+						pManager->AddDefaultAttributeList(pControlName, pControlValue, shared);
+					}
+				}
+				else if( AttrNameEquals(pstrClass, _T("Style")) ) {
+					nAttributes = node.GetAttributeCount();
+					LPCTSTR pName = nullptr;
+					LPCTSTR pStyle = nullptr;
+					bool shared = false;
+					for( int i = 0; i < nAttributes; i++ ) {
+						pstrName = node.GetAttributeName(i);
+						pstrValue = node.GetAttributeValue(i);
+						if( AttrNameEquals(pstrName, _T("name")) ) {
+							pName = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("value")) ) {
+							pStyle = pstrValue;
+						}
+						else if( AttrNameEquals(pstrName, _T("shared")) ) {
+							shared = (AttrNameEquals(pstrValue, _T("true")));
+						}
+					}
+					if( pName ) {
+						pManager->AddStyle(pName, pStyle, shared);
+					}
+				}
+				else if (AttrNameEquals(pstrClass, _T("Import"))) {
+					nAttributes = node.GetAttributeCount();
+					LPCTSTR pstrPath = nullptr;
+					for (int i = 0; i < nAttributes; i++) {
+						pstrName = node.GetAttributeName(i);
+						pstrValue = node.GetAttributeValue(i);
+						if (AttrNameEquals(pstrName, _T("fontfile"))) {
+							pstrPath = pstrValue;
+						}
+					}
+					if (pstrPath) {
+						pManager->AddFontArray(pstrPath);
+					}
+				}
+			}
+
+			pstrClass = root.GetName();
+			if( AttrNameEquals(pstrClass, _T("Window")) ) {
+				if( pManager->GetPaintWindow() ) {
+					int nAttrCount = root.GetAttributeCount();
+					for( int i = 0; i < nAttrCount; i++ ) {
+						pstrName = root.GetAttributeName(i);
+						pstrValue = root.GetAttributeValue(i);
+						if( AttrNameEquals(pstrName, _T("size")) ) {
+							int cx = 0, cy = 0;
+							LPCTSTR pv = pstrValue;
+							if( !DuiLib::attr::NextInt(pv, cx) || !DuiLib::attr::NextInt(pv, cy) ) { DUI_LOGW("attr 'size' bad value='%s'", pstrValue); }
+							else { pManager->SetInitSize(pManager->GetDPIObj()->Scale(cx), pManager->GetDPIObj()->Scale(cy)); }
+						} 
+						else if( AttrNameEquals(pstrName, _T("sizebox")) ) {
+							RECT rcSizeBox = { 0 };
+							if( !DuiLib::attr::ParseRect4(pstrValue, rcSizeBox) ) { DUI_LOGW("attr 'sizebox' bad value='%s'", pstrValue); }
+							else { pManager->SetSizeBox(rcSizeBox); }
+						}
+						else if( AttrNameEquals(pstrName, _T("caption")) ) {
+							RECT rcCaption = { 0 };
+							if( !DuiLib::attr::ParseRect4(pstrValue, rcCaption) ) { DUI_LOGW("attr 'caption' bad value='%s'", pstrValue); }
+							else { pManager->SetCaptionRect(rcCaption); }
+						}
+						else if( AttrNameEquals(pstrName, _T("roundcorner")) ) {
+							int cx = 0, cy = 0;
+							LPCTSTR pv = pstrValue;
+							if( !DuiLib::attr::NextInt(pv, cx) || !DuiLib::attr::NextInt(pv, cy) ) { DUI_LOGW("attr 'roundcorner' bad value='%s'", pstrValue); }
+							else { pManager->SetRoundCorner(cx, cy); }
+						} 
+						else if( AttrNameEquals(pstrName, _T("mininfo")) ) {
+							int cx = 0, cy = 0;
+							LPCTSTR pv = pstrValue;
+							if( !DuiLib::attr::NextInt(pv, cx) || !DuiLib::attr::NextInt(pv, cy) ) { DUI_LOGW("attr 'mininfo' bad value='%s'", pstrValue); }
+							else { pManager->SetMinInfo(cx, cy); }
+						}
+						else if( AttrNameEquals(pstrName, _T("maxinfo")) ) {
+							int cx = 0, cy = 0;
+							LPCTSTR pv = pstrValue;
+							if( !DuiLib::attr::NextInt(pv, cx) || !DuiLib::attr::NextInt(pv, cy) ) { DUI_LOGW("attr 'maxinfo' bad value='%s'", pstrValue); }
+							else { pManager->SetMaxInfo(cx, cy); }
+						}
+						else if( AttrNameEquals(pstrName, _T("showdirty")) ) {
+							pManager->SetShowUpdateRect(AttrNameEquals(pstrValue, _T("true")));
+						} 
+						else if( AttrNameEquals(pstrName, _T("opacity")) || AttrNameEquals(pstrName, _T("alpha")) ) {
+							pManager->SetOpacity(static_cast<BYTE>(ParseToInt(pstrValue)));
+						} 
+						else if( AttrNameEquals(pstrName, _T("layeredopacity"), true) ) {
+							pManager->SetLayeredOpacity(static_cast<BYTE>(ParseToInt(pstrValue)));
+						} 
+						else if( AttrNameEquals(pstrName, _T("layered"), true) || AttrNameEquals(pstrName, _T("bktrans"), true)) {
+							pManager->SetLayered(AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("layeredimage"), true) ) {
+							pManager->SetLayered(true);
+							pManager->SetLayeredImage(pstrValue);
+						} 
+						else if( AttrNameEquals(pstrName, _T("noactivate"), true) ) {
+							pManager->SetNoActivate(AttrNameEquals(pstrValue, _T("true")));
+						}
+						else if( AttrNameEquals(pstrName, _T("disabledfontcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->SetDefaultDisabledColor(clrColor);
+						} 
+						else if( AttrNameEquals(pstrName, _T("defaultfontcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->SetDefaultFontColor(clrColor);
+						}
+						else if( AttrNameEquals(pstrName, _T("linkfontcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->SetDefaultLinkFontColor(clrColor);
+						} 
+						else if( AttrNameEquals(pstrName, _T("linkhoverfontcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->SetDefaultLinkHoverFontColor(clrColor);
+						} 
+						else if( AttrNameEquals(pstrName, _T("selectedcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->SetDefaultSelectedBkColor(clrColor);
+						} 
+						else if( AttrNameEquals(pstrName, _T("shadowsize")) ) {
+							pManager->GetShadow()->SetSize(ParseToInt(pstrValue));
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowsharpness")) ) {
+							pManager->GetShadow()->SetSharpness(ParseToInt(pstrValue));
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowdarkness")) ) {
+							pManager->GetShadow()->SetDarkness(ParseToInt(pstrValue));
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowposition")) ) {
+							int cx = 0, cy = 0;
+							LPCTSTR pv = pstrValue;
+							if( !DuiLib::attr::NextInt(pv, cx) || !DuiLib::attr::NextInt(pv, cy) ) { DUI_LOGW("attr 'shadowposition' bad value='%s'", pstrValue); }
+							else { pManager->GetShadow()->SetPosition(cx, cy); }
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowcolor")) ) {
+							if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+							LPTSTR pstrEnd = nullptr;
+							DWORD clrColor = _tcstoul(pstrValue, &pstrEnd, 16);
+							pManager->GetShadow()->SetColor(clrColor);
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowcorner")) ) {
+							RECT rcCorner = { 0 };
+							if( !DuiLib::attr::ParseRect4(pstrValue, rcCorner) ) { DUI_LOGW("attr 'shadowcorner' bad value='%s'", pstrValue); }
+							else { pManager->GetShadow()->SetShadowCorner(rcCorner); }
+						}
+						else if( AttrNameEquals(pstrName, _T("shadowimage")) ) {
+							pManager->GetShadow()->SetImage(pstrValue);
+						}
+						else if( AttrNameEquals(pstrName, _T("showshadow")) ) {
+							pManager->GetShadow()->ShowShadow(AttrNameEquals(pstrValue, _T("true")));
+						} 
+						else if( AttrNameEquals(pstrName, _T("gdiplustext")) ) {
+							pManager->SetUseGdiplusText(AttrNameEquals(pstrValue, _T("true")));
+						} 
+						else if( AttrNameEquals(pstrName, _T("textrenderinghint")) ) {
+							pManager->SetGdiplusTextRenderingHint(ParseToInt(pstrValue));
+						} 
+						else if( AttrNameEquals(pstrName, _T("tooltiphovertime")) ) {
+							pManager->SetHoverTime(ParseToInt(pstrValue));
+						} 
+					}
+				}
+			}
+		}
+		return _Parse(&root, pParent, pManager);
+	}
+
+	CMarkup* CDialogBuilder::GetMarkup()
+	{
+		return &m_xml;
+	}
+
+	void CDialogBuilder::GetLastErrorMessage(LPTSTR pstrMessage, SIZE_T cchMax) const
+	{
+		return m_xml.GetLastErrorMessage(pstrMessage, cchMax);
+	}
+
+	void CDialogBuilder::GetLastErrorLocation(LPTSTR pstrSource, SIZE_T cchMax) const
+	{
+		return m_xml.GetLastErrorLocation(pstrSource, cchMax);
+	}
+
+	CControlUI* CDialogBuilder::_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPaintManagerUI* pManager)
+	{
+		IContainerUI* pContainer = nullptr;
+		CControlUI* pReturn = nullptr;
+		for( CMarkupNode node = pRoot->GetChild() ; node.IsValid(); node = node.GetSibling() ) {
+			LPCTSTR pstrClass = node.GetName();
+			if( AttrNameEquals(pstrClass, _T("Image")) || AttrNameEquals(pstrClass, _T("Font")) \
+				|| AttrNameEquals(pstrClass, _T("Default")) || AttrNameEquals(pstrClass, _T("Style")) ) continue;
+
+			CControlUI* pControl = nullptr;
+			if (AttrNameEquals(pstrClass, _T("Import"))) continue;
+			if( AttrNameEquals(pstrClass, _T("Include")) ) {
+				if( !node.HasAttributes() ) continue;
+				int count = 1;
+				LPTSTR pstr = nullptr;
+				std::array<TCHAR, 500> szValue = {};
+				SIZE_T cchLen = static_cast<SIZE_T>(szValue.size()) - 1;
+				if ( node.GetAttributeValue(_T("count"), szValue.data(), cchLen) ) {
+					std::optional<int> optCount = ParseOptionalInt(szValue.data(), 10);
+					if (optCount.has_value()) count = *optCount;
+				}
+				cchLen = static_cast<SIZE_T>(szValue.size()) - 1;
+				if ( !node.GetAttributeValue(_T("source"), szValue.data(), cchLen) ) continue;
+				for ( int i = 0; i < count; i++ ) {
+					CDialogBuilder builder;
+					if( m_pstrtype != nullptr ) { // 使用资源dll，从资源中读取
+						WORD id = static_cast<WORD>(_tcstol(szValue.data(), &pstr, 10)); 
+						pControl = builder.Create(static_cast<UINT>(id), m_pstrtype, m_pCallback, pManager, pParent);
+					}
+					else {
+						pControl = builder.Create(szValue.data(), nullptr, m_pCallback, pManager, pParent);
+					}
+				}
+				continue;
+			}
+			else {
+				CDuiString strClass;
+				strClass.Format(_T("C%sUI"), pstrClass);
+				pControl = dynamic_cast<CControlUI*>(CControlFactory::GetInstance()->CreateControl(strClass));
+
+				// 检查插件
+				if( pControl == nullptr ) {
+					CStdPtrArray* pPlugins = CPaintManagerUI::GetPlugins();
+					LPCREATECONTROL lpCreateControl = nullptr;
+					for( int i = 0; i < pPlugins->GetSize(); ++i ) {
+						lpCreateControl = reinterpret_cast<LPCREATECONTROL>(pPlugins->GetAt(i));
+						if( lpCreateControl != nullptr ) {
+							pControl = lpCreateControl(pstrClass);
+							if( pControl != nullptr ) break;
+						}
+					}
+				}
+				// 回掉创建
+				if( pControl == nullptr && m_pCallback != nullptr ) {
+					pControl = m_pCallback->CreateControl(pstrClass);
+				}
+			}
+
+			if( pControl == nullptr ) {
+				// [R49] Unknown control class. This used to be:
+				//
+				//   #ifdef _DEBUG
+				//       DUITRACE("unknown control: %s", pstrClass);
+				//   #else
+				//       continue;
+				//   #endif
+				//
+				// Two problems with that:
+				//   1) In Release, an unknown class was skipped with no log at all,
+				//      so a typo in a skin silently dropped a whole control subtree.
+				//      Same class of defect as the attribute diagnostics fixed in R43.
+				//   2) Worse, Debug did NOT skip: it traced and fell through to use
+				//      pControl == nullptr as a parent for the children and for the
+				//      attach step. So the two builds behaved differently, and the
+				//      Debug path was the dangerous one.
+				//
+				// Now: always report, always skip, in every build.
+				// [BISECT] 诊断扩展已回退（启动 AV 排查中）
+				DUI_LOGW("CDialogBuilder: unknown control class '%s' skipped", pstrClass);
+				continue;
+			}
+
+			// Add children
+			if( node.HasChildren() ) {
+				_Parse(&node, pControl, pManager);
+			}
+			// Attach to parent
+			// 因为某些属性和父窗口相关，比如selected，必须先Add到父窗口
+			CTreeViewUI* pTreeView = nullptr;
+			if( pParent != nullptr && pControl != nullptr ) {
+				CTreeNodeUI* pParentTreeNode = static_cast<CTreeNodeUI*>(pParent->GetInterface(_T("TreeNode")));
+				CTreeNodeUI* pTreeNode = static_cast<CTreeNodeUI*>(pControl->GetInterface(_T("TreeNode")));
+				pTreeView = static_cast<CTreeViewUI*>(pParent->GetInterface(_T("TreeView")));
+				// TreeNode子节点
+				if(pTreeNode != nullptr) {
+					if(pParentTreeNode) {
+						pTreeView = pParentTreeNode->GetTreeView();
+						if(!pParentTreeNode->Add(pTreeNode)) {
+							delete pTreeNode;
+							pTreeNode = nullptr;
+							continue;
+						}
+					}
+					else {
+						if(pTreeView != nullptr) {
+							if(!pTreeView->Add(pTreeNode)) {
+								delete pTreeNode;
+								pTreeNode = nullptr;
+								continue;
+							}
+						}
+					}
+				}
+				// TreeNode子控件
+				else if(pParentTreeNode != nullptr) {
+					pParentTreeNode->GetTreeNodeHoriznotal()->Add(pControl);
+				}
+				// 普通控件
+				else {
+					if( pContainer == nullptr ) pContainer = static_cast<IContainerUI*>(pParent->GetInterface(_T("IContainer")));
+					ASSERT(pContainer);
+					if( pContainer == nullptr ) return nullptr;
+					if( !pContainer->Add(pControl) ) {
+						delete pControl;
+						continue;
+					}
+				}
+			}
+			if( pControl == nullptr ) continue;
+
+			// Init default attributes
+			if( pManager ) {
+				if(pTreeView != nullptr) {
+					pControl->SetManager(pManager, pTreeView, true);
+				}
+				else {
+					pControl->SetManager(pManager, nullptr, false);
+				}
+				LPCTSTR pDefaultAttributes = pManager->GetDefaultAttributeList(pstrClass);
+				if( pDefaultAttributes ) {
+					pControl->ApplyAttributeList(pDefaultAttributes);
+				}
+			}
+			// Process attributes
+			if( node.HasAttributes() ) {
+				// Set ordinary attributes
+				int nAttributes = node.GetAttributeCount();
+				for( int i = 0; i < nAttributes; i++ ) {
+					pControl->SetAttribute(node.GetAttributeName(i), node.GetAttributeValue(i));
+				}
+			}
+			if( pManager ) {
+				if(pTreeView == nullptr) {
+					pControl->SetManager(nullptr, nullptr, false);
+				}
+			}
+			// Return first item
+			if( pReturn == nullptr ) pReturn = pControl;
+		}
+		return pReturn;
+	}
+
+} // namespace DuiLib

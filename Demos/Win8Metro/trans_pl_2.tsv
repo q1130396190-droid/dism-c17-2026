@@ -1,0 +1,2 @@
+misc.se9e0e35c	Na dysku istnieją już katalogi systemowe, takie jak Windows/EFI/Sources, które mogły zostać zamontowane przez dism/imagex lub w których mogą pozostać stare pliki systemowe.\r\n\r\n
+misc.sf00266a2	Jeśli nie zaznaczono "Sformatuj dysk docelowy", polecenie Apply-Image może zakończyć się niepowodzeniem lub spowodować konflikty plików.\r\n\r\n

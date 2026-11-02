@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "Systemkomponenten sind beschädigt. Führen Sie zunächst die „Systembereinigung\" aus und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "Der aktuelle Komponentenvorgang ist bereits abgeschlossen, eine erneute Ausführung ist nicht erforderlich."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Die Komponenteninformationen konnten nicht ermittelt werden. Versuchen Sie eine „Systemwiederherstellung\"."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "Der Dienst wurde nicht gestartet. Stellen Sie sicher, dass der Windows Update-Dienst aktiviert ist."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Der Windows Update-Dienst ist nicht verfügbar. Versuchen Sie es später erneut."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Die Updatesitzung steht in Konflikt. Schließen Sie andere Updateprogramme und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "Die Updatesitzung ist ausgelastet. Versuchen Sie es später erneut."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Windows Update-Komponenten fehlen. Aktivieren Sie die zugehörigen Funktionen."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Ein anderer Windows Update-Prozess wird gerade ausgeführt. Versuchen Sie es später erneut."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "Der Vorgang war erfolgreich, ein Neustart des Systems ist zum Abschließen der Änderungen erforderlich."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Komponenten sind beschädigt, die Reparatur wird vorbereitet. Bitte haben Sie Geduld."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "Ein Neustart ist erforderlich, um die Komponentenreparatur anzuwenden."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Unzureichende Berechtigungen. Klicken Sie mit der rechten Maustaste auf „Als Administrator ausführen\"."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "Die Datei ist belegt. Schließen Sie die zugehörigen Programme und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Der Treiber oder Dienst wurde nicht korrekt geladen."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Die Treibersignaturprüfung ist fehlgeschlagen, der Treiber wurde übersprungen."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Der Treiber ist nicht von Windows zertifiziert und wurde übersprungen."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Der Pfad überschreitet die maximale Länge. Kürzen Sie den Zieldateinamen."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Der Pfad wurde nicht gefunden. Prüfen Sie, ob das Verzeichnis vorhanden ist."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "Das Verzeichnis existiert nicht. Überprüfen Sie den Pfad."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "Das angegebene Gerät ist nicht vorhanden."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Der Verzeichniseintrag kann nicht verschoben werden, er ist möglicherweise belegt."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Der Speicherplatz ist nicht ausreichend. Geben Sie Speicherplatz frei und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer ist nicht installiert."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "Die Datei ist bereits vorhanden und kann nicht erstellt werden."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "Der Update-Komponentenspeicher ist beschädigt. Führen Sie sfc aus und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "Die Netzwerkanforderung ist fehlgeschlagen. Prüfen Sie die Netzwerkverbindung und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA hat einen allgemeinen Fehler zurückgegeben. Weitere Informationen finden Sie in den Fehlerdetails."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und führen Sie anschließend sfc /scannow aus."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "Der Komponentenspeicher ist inkonsistent. Starten Sie das System neu und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Die Komponenteninformationen konnten nicht ermittelt werden."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Keine passenden Komponenten gefunden, übersprungen."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "Der Komponentenspeicher ist beschädigt. Führen Sie sfc /scannow aus."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "Der Komponentenspeicher ist beschädigt (Versionskonflikt)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "Der Komponentenspeicher muss neu aufgebaut werden. Führen Sie sfc /scannow aus."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "Der Komponentenspeicher muss neu aufgebaut werden. Führen Sie sfc /scannow aus."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "Der Komponentenspeicher ist beschädigt und inkonsistent."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "Der Komponentenspeicher ist inkonsistent (Neuerstellung erforderlich)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "Der Komponentenspeicher ist inkonsistent (Neuerstellung erforderlich)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "Windows muss repariert werden. Führen Sie sfc /scannow aus."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "Windows muss repariert werden. Führen Sie sfc /scannow aus."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "Windows muss repariert werden."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "pnputil kann dieses Treiberpaket nicht erkennen."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "Das pnputil-Treiberpaket ist beschädigt."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "Das pnputil-Treiberpaket wird gerade verwendet. Versuchen Sie es später erneut."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "Das pnputil-Treiberpaket ist nicht installiert."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "Der Dienst wird nicht ausgeführt."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "Der Dienst wurde nicht gestartet. Starten Sie zunächst Windows Update."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Der Dienststart hat ein Timeout ausgelöst."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Das Appx-Paket ist nicht installiert."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Das Appx-Paket ist beschädigt. Registrieren Sie es erneut."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Allgemeiner Fehler. Details finden Sie in der Datei clean_errors.log."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "Die angegebene Datei wurde nicht gefunden."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Zugriff verweigert. Klicken Sie mit der rechten Maustaste auf „Als Administrator ausführen\"."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Die Netzwerkanforderung ist fehlgeschlagen. Prüfen Sie die Netzwerkverbindung und versuchen Sie es erneut."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Die Systemressourcen sind nicht ausreichend."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Das angegebene Modul kann nicht geladen werden. Die Komponente ist möglicherweise nicht installiert."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "Der Vorgang kann nicht abgeschlossen werden. Versuchen Sie es erneut."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Zieldatenträger erkannt:"
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nFortfahren?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Image freigeben – Erkennung des Ziel-Laufwerks"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "Der Komprimierungsmodus WIMBoot / WindowsToGo / Compact ist aktiviert.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "In diesen Modi ist die Treiberinjektion nach dem Start eingeschränkt. Es wird empfohlen, hier zusätzliche Treiberverzeichnisse (mit .inf) anzugeben.\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Sollen zusätzliche Treiberverzeichnisse injiziert werden?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Image freigeben – Empfehlung zur Treiberinjektion"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Treiberverzeichnis auswählen (mit .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Batchmodus"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Bei Aktivierung werden die folgenden Links als Liste im Batch ausgeführt"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Ausgewählter Index:"
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Es können nicht alle Imageindizes (insgesamt %d) gelöscht werden, mindestens einer muss erhalten bleiben."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "%d Indizes werden im Batch gelöscht:\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "Die folgenden Indizes werden gleichzeitig als startbar festgelegt: %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Verzeichnis-/Dateiname zu lang (>31 Zeichen):"
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Kein gültiger 8.3-Kurzname (enthält Leerzeichen/Chinesisch):"
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "Im Quellverzeichnis wurde ein Unterverzeichnis \\efi erkannt, und etfsboot.com sowie efisys.bin sind auf diesem System vorhanden.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Die Parameter für den Dual-Boot-Modus [BIOS + UEFI] wurden automatisch generiert, die erzeugte ISO ist in beiden Startmodi nutzbar.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Falls UEFI nicht benötigt wird, deaktivieren Sie diese Option.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "ISO-Erstellung – Dual-Boot-Erkennung"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "Der Quellpfad umfasst %d Zeichen und überschreitet die ISO9660-Limitierung (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "Die folgenden Verzeichnis-/Dateinamen verstoßen möglicherweise gegen die ISO9660-Namenskonventionen:\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... und %d weitere\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nBei der erzeugten ISO können einige Medien oder Tools nicht gelesen werden.\\r\\nFortfahren?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "Warnung zu ISO9660-Namenskonventionen"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Fehler"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "Die Data.xml enthält keine Knoten SystemOptimization / CleanCollection4 und stammt möglicherweise aus dem Original-Upload statt aus dieser angepassten Version:"
+ }
+]

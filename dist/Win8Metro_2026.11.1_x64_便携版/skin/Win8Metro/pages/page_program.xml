@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_program" inset="0,0,0,0" childpadding="0">
+
+          <!-- tab row (white) -->
+          <HorizontalLayout height="40" childvalign="vcenter">
+            <Control width="0"/>
+            <Option name="progtab_0" group="prog_tab" text="应用程序" font="3" textcolor="{tok:Ink}" selectedtextcolor="{tok:AccentText}" bkcolor="#00000000" width="280" height="40" align="center" selected="true"/>
+            <Option name="progtab_1" group="prog_tab" text="Windows功能" font="3" textcolor="{tok:Ink}" selectedtextcolor="{tok:AccentText}" bkcolor="#00000000" width="280" height="40" align="center"/>
+            <Control width="0"/>
+          </HorizontalLayout>
+
+          <!-- P-3: 程序/功能 统一过滤框 -->
+          <HorizontalLayout name="page_program_L14" height="40" bkcolor="{tok:Surface}" inset="12,4,12,4" childpadding="8" childvalign="vcenter" borderround="8,8">
+            <Text name="lbl_pg_filter" text="过滤:" font="1" textcolor="{tok:Ink}" height="28"/>
+            <Edit name="prog_filter" width="0" height="32" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" tipvalue="按名称过滤（实时、不区分大小写）" tipvaluecolor="{tok:InkMuted}" bordersize="1" bordercolor="{tok:Border}" font="1" textpadding="6,4,6,4" borderround="4,4"/>
+          </HorizontalLayout>
+
+          <TabLayout name="prog_pages" width="0" height="0">
+            <!-- installed applications -->
+            <VerticalLayout inset="0,0,0,0" childpadding="0">
+              <!-- [FIX-HDR] 只调整"表头"，数据行保持原样（ProgBuildRow 未改动）。
+                   数据行的真实列结构（Page_ProgramBuild.cpp）：
+                     inset.left(10) + 复选框(36) + 名称(弹性) + 来源(80) + 位数(56)
+                     + 发布者(180) + 签名(72) + 安装日期(100) + 大小(100)
+                   表头必须逐列复制这套宽度与起点，否则列头与内容错轴：
+                     · 原表头没有 inset.left、也没有 36px 复选框占位 → 整体左移 46px；
+                     · 原表头 安装日期=240、大小=150，而行内实际是 100/100 → 再错 190px。
+                   本版：补 10px 缩进 + 36px 占位，并把日期/大小改为 100/100。 -->
+              <!-- [R221] Header height 32, matching the data rows (ProgBuildRow uses
+                   SetFixedHeight(32)). R217 收敛时表头改成 32、数据行仍写死 38，两者错轴 6px。
+                   旧注释写的「高度 32→26」与实际不符，一并更正。 --><HorizontalLayout name="page_program_L32" height="32" bkcolor="{tok:HeaderBand}" inset="10,0,0,0" borderround="8,8">
+                <Control width="36" height="1"/>
+                <Text name="hdr_pg_item" text="项目" font="6" textcolor="{tok:OnHeaderBand}" width="0" align="left" valign="vcenter"/>
+                <Text name="hdr_pg_root" text="来源" font="6" textcolor="{tok:OnHeaderBand}" width="80" align="center" valign="vcenter"/>
+                <Text name="hdr_pg_arch" text="位数" font="6" textcolor="{tok:OnHeaderBand}" width="56" align="center" valign="vcenter"/>
+                <!-- [FIX-ALIGN-PUB] 发布者列：数据行 pPub 未设 align（默认左对齐）、
+                     也未设 textpadding，表头原为 center，两者不同轴
+                     （实测表头块 L900-935、数据块 L820-882）。
+                     这里把表头改成 left，且不加 textpadding，与数据行逐像素一致 ——
+                     发布者名长短不一时左对齐最稳定，也是表格类界面的常规做法。 -->
+                <Text name="hdr_pg_pub" text="发布者" font="6" textcolor="{tok:OnHeaderBand}" width="180" align="left" valign="vcenter"/>
+                <Text name="hdr_pg_sig" text="签名" font="6" textcolor="{tok:Ink}" width="72" align="center" valign="vcenter"/>
+                <Text name="hdr_pg_date" text="安装日期" font="6" textcolor="{tok:Ink}" width="100" align="center" valign="vcenter"/>
+                <Text name="hdr_pg_size" text="大小" font="6" textcolor="{tok:Ink}" width="100" align="center" valign="vcenter"/>
+              </HorizontalLayout>
+              <VerticalLayout name="prog_apps_list" width="0" height="0" bkcolor="{tok:Surface}" vscrollbar="true" childpadding="0" borderround="8,8"/>
+            </VerticalLayout>
+            <!-- windows features: bordered check list + local source panel -->
+            <HorizontalLayout width="0" height="0" inset="10,2,10,2" childpadding="12">
+              <VerticalLayout name="page_program_L51" width="0" height="0" bordersize="1" bordercolor="{tok:Border}" childpadding="0">
+                <VerticalLayout name="prog_feat_list" width="0" height="0" bkcolor="{tok:Surface}" vscrollbar="true" childpadding="0" borderround="8,8">
+                  <Text name="prog_feat_empty" text="功能列表未加载，请点击“刷新”读取（需同意 UAC 提升）" font="1" textcolor="{tok:InkMuted}" height="60" align="center"/>
+                </VerticalLayout>
+              </VerticalLayout>
+              <VerticalLayout width="300" height="0" childpadding="6">
+                <Text name="lbl_pg_localsrc" text="本地源:" font="1" textcolor="{tok:Ink}" height="24"/>
+                <HorizontalLayout height="32" childpadding="8">
+                  <Edit name="feat_src_edit" width="0" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" tipvalue="请在此输入本地源" tipvaluecolor="{tok:InkMuted}" bordersize="1" bordercolor="{tok:Border}" borderround="4,4"/>
+                  <Button name="btn_feat_browse" text="浏览" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordersize="1" bordercolor="{tok:Border}" width="80" height="32" borderround="4,4"/>
+                </HorizontalLayout>
+                <!-- [rb26] 功能详情面板：单击左侧功能行后显示中文名/状态/说明/内部名 -->
+                <VerticalLayout name="feat_detail_box" width="0" height="0" bkcolor="{tok:SurfaceAlt}" bordersize="1" bordercolor="{tok:BorderSoft}" inset="12,10,12,10" childpadding="6" borderround="8,8">
+                  <Text name="feat_detail_name" text="功能详情" font="6" textcolor="{tok:Ink}" height="24" endellipsis="true"/>
+                  <Text name="feat_detail_state" text="" font="1" textcolor="{tok:AccentText}" height="20"/>
+                  <Text name="feat_detail_desc" text="在左侧列表单击任一功能，可在此查看其中文说明、当前状态与内部名称。" font="1" textcolor="{tok:InkTertiary}" width="0" height="0"/>
+                  <Text name="feat_detail_sys" text="" font="1" textcolor="{tok:InkTertiary}" height="18" endellipsis="true"/>
+                </VerticalLayout>
+              </VerticalLayout>
+            </HorizontalLayout>
+          </TabLayout>
+
+          <!-- bottom bar -->
+          <HorizontalLayout name="page_program_L74" height="52" bkcolor="{tok:Surface}" inset="14,0,14,0" childpadding="10" childvalign="vcenter" borderround="8,8">
+            <Button name="btn_prog_delete" text="删除" font="1" textcolor="{tok:OnDanger}" bkcolor="{tok:Danger}" hotbkcolor="{tok:DangerHot}" borderround="4,4" pushedbkcolor="{tok:DangerPushed}" width="104" height="36" align="center" valign="center" visible="false"/>
+            <!-- [R70] 已装程序批量卸载：遍历 prowck_%d 勾选行 -->
+            <Button name="btn_prog_batch_uninstall" text="批量卸载" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordercolor="{tok:Border}" bordersize="1" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <!-- [FIX-LEGEND] 图例四项（关闭功能/部分启用/全部启用/删除功能）一行横排。
+                 原写法：外层 prog_legend 与内层四个子 HorizontalLayout 都未指定宽度。
+                 DuiLib 的 CHorizontalLayoutUI 只把 EstimateSize 返回 cx==0 的子项
+                 计为可伸缩项，而嵌套容器的 m_cxyFixed.cx 恒为 0 —— 于是这 5 个
+                 容器全被当成可伸缩项、平分剩余宽度，每项被撑到 ~180 逻辑px，
+                 图标与文字的间距被拉开、字形看着"错位/不齐"。
+                 修法：外层给固定宽度（4 项实测各 ~82px 内容 + 3×16 间距 ≈ 376），
+                 内层子项改为固定宽度，整组不再参与均分，四项等距紧排成一行。 -->
+            <HorizontalLayout name="prog_legend" visible="false" childpadding="16" width="392" height="30" childvalign="vcenter">
+              <HorizontalLayout width="78" childpadding="4" childvalign="vcenter"><Text text="☐" font="11" width="19" height="24" align="center" valign="vcenter" textcolor="{tok:Ink}"/><Text name="legend_off" text="关闭功能" font="1" textcolor="{tok:Ink}"/></HorizontalLayout>
+              <HorizontalLayout width="86" childpadding="4" childvalign="vcenter"><Text text="■" font="11" width="19" height="24" align="center" valign="vcenter" textcolor="{tok:AccentText}"/><Text name="legend_partial" text="部分启用" font="1" textcolor="{tok:Ink}"/></HorizontalLayout>
+              <HorizontalLayout width="86" childpadding="4" childvalign="vcenter"><Text text="☑" font="11" width="19" height="24" align="center" valign="vcenter" textcolor="{tok:AccentText}"/><Text name="legend_all" text="全部启用" font="1" textcolor="{tok:Ink}"/></HorizontalLayout>
+              <HorizontalLayout width="86" childpadding="4" childvalign="vcenter"><Text text="✕" font="11" width="19" height="24" align="center" valign="vcenter" textcolor="{tok:Danger}"/><Text name="legend_del" text="删除功能" font="1" textcolor="{tok:Ink}"/></HorizontalLayout>
+            </HorizontalLayout>
+            <Control width="0"/>
+            <Button name="btn_prog_refresh" text="刷新" font="1" textcolor="{tok:Ink}" bkcolor="{tok:Surface}" hotbkcolor="{tok:SurfaceHover}" pushedbkcolor="{tok:SurfaceHover}" bordersize="1" bordercolor="{tok:Border}" width="104" height="32" align="center" valign="center" borderround="4,4"/>
+            <Button name="btn_prog_apply" text="应用" font="1" textcolor="{tok:OnAccent}" bkcolor="{tok:Accent}" hotbkcolor="{tok:AccentHot}" borderround="4,4" pushedbkcolor="{tok:AccentPushed}" width="104" height="36" align="center" valign="center" visible="false"/>
+          </HorizontalLayout>
+        </VerticalLayout>
+</Window>

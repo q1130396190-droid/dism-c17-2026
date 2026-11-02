@@ -1,0 +1,13 @@
+; ============================================================================
+;  ActivationKit.def -- 3 个导出，序号自 @1 冻结
+;
+;  R01 FrogPlugins 重构新增组件（替代原插件 vtable slot[77]/[81]）。
+;  名+序双稳定；后续版本只能尾部追加，不得改动既有序号。
+; ============================================================================
+
+LIBRARY "ActivationKit.dll"
+
+EXPORTS
+    AK_BackupActivation        @1
+    AK_RestoreActivation       @2
+    AK_ActivationBackupExists  @3

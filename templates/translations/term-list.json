@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "version": "1.0",
+    "project": "DuiLib 2.0",
+    "generated_at": "2026-10-16T16:39:35",
+    "languages": [
+      "zh",
+      "en",
+      "ja",
+      "ko"
+    ],
+    "total_terms": 28
+  },
+  "terms": [
+    {
+      "key": "duilib",
+      "zh": "DuiLib",
+      "en": "DuiLib",
+      "ja": "DuiLib",
+      "ko": "DuiLib",
+      "category": "brand"
+    },
+    {
+      "key": "duilib_ultimate",
+      "zh": "DuiLib Ultimate",
+      "en": "DuiLib Ultimate",
+      "ja": "DuiLib Ultimate",
+      "ko": "DuiLib Ultimate",
+      "category": "brand"
+    },
+    {
+      "key": "duilib_2_0",
+      "zh": "DuiLib 2.0",
+      "en": "DuiLib 2.0",
+      "ja": "DuiLib 2.0",
+      "ko": "DuiLib 2.0",
+      "category": "version"
+    },
+    {
+      "key": "crm",
+      "zh": "CRM（历史命名空间）",
+      "en": "CRM (legacy namespace)",
+      "ja": "CRM（レガシー名前空間）",
+      "ko": "CRM (레거시 네임스페이스)",
+      "category": "legacy"
+    },
+    {
+      "key": "crm_button",
+      "zh": "CRM 按钮",
+      "en": "CRM Button",
+      "ja": "CRM ボタン",
+      "ko": "CRM 버튼",
+      "category": "legacy-api"
+    },
+    {
+      "key": "crm_edit",
+      "zh": "CRM 编辑框",
+      "en": "CRM Edit Box",
+      "ja": "CRM 編集ボックス",
+      "ko": "CRM 편집 상자",
+      "category": "legacy-api"
+    },
+    {
+      "key": "crm_checkbox",
+      "zh": "CRM 复选框",
+      "en": "CRM Checkbox",
+      "ja": "CRM チェックボックス",
+      "ko": "CRM 체크박스",
+      "category": "legacy-api"
+    },
+    {
+      "key": "cuilib",
+      "zh": "CUILib（新命名空间）",
+      "en": "CUILib (new namespace)",
+      "ja": "CUILib（新名前空間）",
+      "ko": "CUILib (새 네임스페이스)",
+      "category": "modern"
+    },
+    {
+      "key": "cuibutton",
+      "zh": "CUI 按钮",
+      "en": "CUI Button",
+      "ja": "CUI ボタン",
+      "ko": "CUI 버튼",
+      "category": "modern-api"
+    },
+    {
+      "key": "cuedit",
+      "zh": "CUI 编辑框",
+      "en": "CUI Edit Box",
+      "ja": "CUI 編集ボックス",
+      "ko": "CUI 편집 상자",
+      "category": "modern-api"
+    },
+    {
+      "key": "tools_version",
+      "zh": "工具集版本",
+      "en": "Tools Version",
+      "ja": "ツールセットバージョン",
+      "ko": "도구세트 버전",
+      "category": "toolchain"
+    },
+    {
+      "key": "platform_toolset",
+      "zh": "平台工具集",
+      "en": "Platform Toolset",
+      "ja": "プラットフォームツールセット",
+      "ko": "플랫폼 도구세트",
+      "category": "toolchain"
+    },
+    {
+      "key": "msvc",
+      "zh": "MSVC 编译器",
+      "en": "MSVC Compiler",
+      "ja": "MSVC コンパイラ",
+      "ko": "MSVC 컴파일러",
+      "category": "toolchain"
+    },
+    {
+      "key": "v180",
+      "zh": "VS 2026 工具集",
+      "en": "VS 2026 Toolset",
+      "ja": "VS 2026 ツールセット",
+      "ko": "VS 2026 도구세트",
+      "category": "toolchain"
+    },
+    {
+      "key": "cpp17",
+      "zh": "C++17 标准",
+      "en": "C++17 Standard",
+      "ja": "C++17 規格",
+      "ko": "C++17 표준",
+      "category": "standard"
+    },
+    {
+      "key": "static_cast",
+      "zh": "static_cast 转换",
+      "en": "static_cast Conversion",
+      "ja": "static_cast 変換",
+      "ko": "static_cast 변환",
+      "category": "c++17"
+    },
+    {
+      "key": "using_alias",
+      "zh": "using 别名",
+      "en": "using Alias",
+      "ja": "using 別名",
+      "ko": "using 별칭",
+      "category": "c++17"
+    },
+    {
+      "key": "enum_class",
+      "zh": "enum class（强类型枚举）",
+      "en": "enum class (strongly-typed)",
+      "ja": "enum class（強く型付）",
+      "ko": "enum class (강한 타입)",
+      "category": "c++17"
+    },
+    {
+      "key": "raii",
+      "zh": "RAII 资源管理",
+      "en": "RAII Resource Management",
+      "ja": "RAII リソース管理",
+      "ko": "RAII 리소스 관리",
+      "category": "c++17"
+    },
+    {
+      "key": "unique_ptr",
+      "zh": "unique_ptr 独占指针",
+      "en": "unique_ptr Exclusive Pointer",
+      "ja": "unique_ptr 独占ポインタ",
+      "ko": "unique_ptr 배타적 포인터",
+      "category": "c++17"
+    },
+    {
+      "key": "migration",
+      "zh": "迁移",
+      "en": "Migration",
+      "ja": "移行",
+      "ko": "이전",
+      "category": "migration"
+    },
+    {
+      "key": "safe_mode",
+      "zh": "安全模式",
+      "en": "Safe Mode",
+      "ja": "セーフモード",
+      "ko": "안전 모드",
+      "category": "migration"
+    },
+    {
+      "key": "allowlist",
+      "zh": "白名单",
+      "en": "Allowlist",
+      "ja": "許可リスト",
+      "ko": "허용 목록",
+      "category": "migration"
+    },
+    {
+      "key": "one_click_migration",
+      "zh": "一键迁移",
+      "en": "One-Click Migration",
+      "ja": "ワンクリック移行",
+      "ko": "원클릭 이전",
+      "category": "migration"
+    },
+    {
+      "key": "announcement_period",
+      "zh": "公告期",
+      "en": "Announcement Period",
+      "ja": "発表期間",
+      "ko": "발표 기간",
+      "category": "announcement"
+    },
+    {
+      "key": "general_availability",
+      "zh": "正式发布 (GA)",
+      "en": "General Availability (GA)",
+      "ja": "正式リリース (GA)",
+      "ko": "공식 릴리스 (GA)",
+      "category": "announcement"
+    },
+    {
+      "key": "end_of_life",
+      "zh": "维护结束 (EOL)",
+      "en": "End of Life (EOL)",
+      "ja": "メンテナンス終了 (EOL)",
+      "ko": "유지보수 종료 (EOL)",
+      "category": "announcement"
+    },
+    {
+      "key": "release_candidate",
+      "zh": "候选版本 (RC)",
+      "en": "Release Candidate (RC)",
+      "ja": "候補バージョン (RC)",
+      "ko": "후보 버전 (RC)",
+      "category": "announcement"
+    }
+  ]
+}

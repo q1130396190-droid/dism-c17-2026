@@ -1,0 +1,246 @@
+misc.s794fda41	[clean] Czyszczenie rozpoczęte: C:\\ pozostało %llu MB
+misc.sc9baee09	 · Ostatnie zdarzenie rozruchu zapisane (6005/12)
+misc.s5a23c608	 · Szacowany czas rozruchu: brak danych (sprawdź dziennik System w eventvwr.msc)
+misc.s80af2be3	Pliki wykonywalne (*.exe)\\0*.exe\\0Wszystkie pliki (*.*)\\0*.*\\0
+misc.se93c7bec	Wybierz stronę funkcji po lewej; przeskanuj przed odzyskaniem miejsca; potwierdź kolejno każdą pozycję optymalizacji systemu.
+misc.s758ec357	── Właściwości reguły ──\r\n
+misc.s6000de8e	── Opis ──\r\n
+misc.sa8c26203	\r\n── Ostrzeżenie ──\r\n
+misc.s9d4db836	\"Automatyczne logowanie + wyłączenie UAC\" sprawia, że wbudowane konto Administrator nie ma żadnej ochrony i loguje się automatycznie,\r\n
+misc.sd09fb8d4	Każda osoba z fizycznym dostępem do komputera może wejść do systemu.\r\n\r\n
+misc.s27fb951d	Nie znaleziono boot.wim / boot.esd w tym samym folderze co ESD.\r\n\r\n
+misc.sc5acb47d	Wygenerowany ISO nie będzie zawierał obrazu rozruchowego Windows PE:\r\n
+misc.se604a9a8	  - Instalacja z zamontowanego obrazu (tryb napędu USB) nadal działa\r\n
+misc.s4a226f88	  - Nie można uruchomić ani instalować z USB / CD / napędu optycznego\r\n\r\n
+misc.s3902b468	Za mało wolnego miejsca na dysku docelowym %s:\r\n
+misc.s2404d4fa	  Szacowane zapotrzebowanie: około %lld MB\r\n
+misc.s7056d3aa	  Aktualnie dostępne: %lld MB\r\n
+misc.s5f1d6a72	\r\nCzy kontynuować? (może się nie udać)
+misc.s78c4c51d	Strategia kompresji (kontynuuj):\r\n  \"Tak\" — Compress:fast (najszybsza)\r\n  \"Nie\" — wybierz none / WIMBoot w podmenu
+misc.s4bf7313c	WIMBoot dotyczy tylko kierunku ESD→WIM; automatycznie przywrócono Compress:recovery.
+misc.se28109f4	Za mało wolnego miejsca na dysku docelowym %s:\r\n  Szacowane zapotrzebowanie: około %lld MB\r\n  Aktualnie dostępne: %lld MB\r\nCzy kontynuować?
+misc.s8028c1bb	msg.exe /W /Q /Y \"Konwersja zakończona, otworzyć folder docelowy?\" N Open No C Close Y\r\n
+misc.sd7762eca	Edytor hosts\n\n
+misc.s41c54ee7	Tak: otwórz edytor hosts (Notatnik, wymaga uprawnień administratora)\n
+misc.s6b09afbd	Nie: przywróć ostatnią kopię zapasową\n
+misc.s7a92cd0f	Anuluj: wyczyść pamięć podręczną DNS (bez żadnych zmian)\n
+misc.s4a533876	Nie znaleziono pliku kopii zapasowej:\r\n%s\r\n\r\nPrzed edycją hosts kopia zapasowa zostanie utworzona automatycznie w tym pliku.
+misc.sa412f09e	Zamierzasz przywrócić hosts z ostatniej kopii zapasowej:\r\n%s\r\n\r\nObecny hosts zostanie najpierw zabezpieczony, a następnie nadpisany. Czy kontynuować?
+misc.s64513cc7	Najpierw zaznacz programy do odinstalowania zbiorczego.
+misc.se24b6a39	Odinstalować zaznaczone %d programy?\n\nTa operacja uruchomi kolejno programy odinstalowujące poszczególne aplikacje; nie można jej cofnąć.
+misc.s6e26250f	[batch-uninstall] Rozpoczęto odinstalowywanie: %s
+misc.sf4f17c78	[batch-uninstall] Błąd uruchomienia: %s err=%lu
+misc.s4a787ee6	[batch-uninstall] Zakończono: %d powodzeń / %d niepowodzeń / razem %d
+misc.sbaa793d4	Odinstalowanie zbiorcze zakończone: %d powodzeń, %d niepowodzeń
+misc.s6da661b2	Zbiorcze odinstalowanie zainstalowanych programów
+misc.s86d5c25a	[appx] Rozdzielenie pakietów zasobów: pakiet główny %d, pakiet zasobów językowych %d
+misc.sffdd7fa5	Typ: pakiet zasobów językowych
+misc.s647b719f	Typ: pakiet główny
+misc.s1207edb3	Pakiety Appx/MSIX (*.appx;*.msix;*.appxbundle;*.msixbundle)\\0*.appx;*.msix;*.appxbundle;*.msixbundle\\0Wszystkie pliki\\0*.*\\0\\0
+misc.sc8059969	Wybierz pakiet aplikacji do zainstalowania
+misc.s22dfbca7	Zainstaluj pakiet aplikacji
+misc.s587c8055	Czy wskazać katalog pakietów zależności (katalog Dependencies)?\n\nTak → wybierz katalog\nNie → zainstaluj tylko pakiet główny
+misc.s8f3077b7	Pakiety zależności
+misc.s5c45dab4	Wybierz katalog pakietów zależności
+misc.s277edf57	Zainstalowano %d/%d elementów · Zależności: wymagane %d / opcjonalne %d
+misc.sf0890286	Brak danych
+misc.sf7055e44	⚠ Czarna lista:
+misc.s34be29d1	[upd][WSUS] Trafienie na czarnej liście: %s (%s)
+misc.se7ee5701	Bezczynny
+misc.s4ed23304	Przygotowywaniemisc.scdfbdf63	Pobieranie
+misc.scdfbdf63	Pobieranie
+misc.s77ea511e	Weryfikacja
+misc.sf23d3062	Instalowanie
+misc.s8ab41417	Wycofywanie
+misc.s35d25224	Zakończone
+misc.se1d65341	Blokada wyłączna CBS
+misc.sb924cc56	[update] Stan fazy: 
+misc.se7d3c6cf	[update] UpdateInfo.zip już istnieje, pominięto pobieranie
+misc.s04a7b276	[update] Pobieranie UpdateInfo.zip zakończone
+misc.s61c18bf7	[update] UpdateInfo.zip pobrany pomyślnie (%llu bajtów)
+misc.se371b848	[update] UpdateInfo.zip jest zbyt mały — weryfikacja nieudana
+misc.s3bd36694	[update] Pobieranie UpdateInfo.zip nie powiodło się
+misc.sb25b7011	[update] Najpierw pobierz UpdateInfo.zip
+misc.s816bfd5c	[update] Nieprawidłowy parametr fazy
+misc.s61631283	[update] Wykonaj polecenie: 
+misc.sbfa2e877	[update] Wykonanie polecenia trzech faz zakończone
+misc.s683452aa	[update] Wykonanie polecenia trzech faz nieudane (exit=%lu)
+misc.sd6e4b309	Zastosuj unattend.xml
+misc.s97de183e	Bieżąca konfiguracja obrazu unattend jest pusta. Dodaj najpierw polecenie poniżej.
+misc.se7b24c11	[unattend] Apply-Unattend wyzwolony: %s
+misc.sdb6ef517	Uruchom Sysprep
+misc.s7ec72977	Potwierdzenie Sysprep
+misc.sc43f80fd	[sysprep] Uruchomiono: /generalize /oobe /shutdown /quiet
+misc.sba2797e3	[sysprep] Błąd uruchomienia err=%lu
+misc.sc11f54c4	Błąd Sysprep
+misc.s721dd997	[IBS] Wygenerowano sysprep_ibs.xml: %d urządzeń PnP, SourcePath=%s
+misc.s948df983	Raport IBS wygenerowany: %d urządzeń → sysprep_ibs.xml
+misc.saa67eb74	Brak
+misc.s864e94e6	Kreator PE
+misc.sb269423c	Pliki ISO (*.iso)\\0*.iso\\0Wszystkie pliki (*.*)\\0*.*\\0
+misc.sdc55fcab	Wybierz lokalizację zapisu utworzonego rozruchowego ISO PE
+misc.s4975ca67	Wybierz architekturę PE:\r\n  \"Tak\" — amd64 (64-bitowa, domyślna)\r\n  \"Nie\" — x86 (32-bitowa)
+misc.s48522bd7	[PE-creator] Uruchomiono: %s (%s) → %s
+misc.sa76ac2b9	Wyświetl klucz aktywacji ESD
+misc.s8fe20989	Utwórz migawkę VSS
+misc.sd9ef6a78	Naprawa rozruchu (bootrec)
+misc.s42d10a6f	Utwórz obraz systemu (wbadmin)
+misc.s95da1886	Reset sieci (netsh)
+misc.sb69356e3	Reset zapory sieciowej (netsh)
+misc.s9e507f98	Wyświetl zmienne środowiskowe
+misc.s8260b2ec	Oczyszczanie dysku (cleanmgr)
+misc.s615e6edf	Informacje o systemie (msinfo32)
+misc.s4f54bbf3	Konfiguracja systemu (msconfig)
+misc.s89140849	Panel sterowania (control)
+misc.s3e9d824f	Podgląd zdarzeń (eventvwr)
+misc.s7841112b	Wiersz polecenia (cmd)
+misc.s11a6f7f3	Menu kontekstowe (IContextMenu2)
+misc.s3df9e657	\r\n\r\n[Error] Wybrany katalog nie zawiera podkatalogu Windows.
+misc.sf722c034	[ESD] Nie wczytano klucza aktywacji ESD z Data.xml.\r\n
+misc.s1b8b14cb	Sprawdź, czy plik DismData\\Data.xml zawiera węzeł <ESDKeys><Key Value=\"...\"/></ESDKeys>.misc.sf289d5d1	Klucz ESD
+misc.sf289d5d1	Klucze ESD
+misc.s6694abc2	[ESD] Razem %d kluczy aktywacji (z Data.xml)
+misc.s899cebbe	Poniżej znajdują się uniwersalne klucze aktywacji Windows skonfigurowane w Data.xml:\r\n
+misc.sd1da7e28	Program diskshadow.exe zostanie wywołany w celu utworzenia migawki kopii w tle woluminów (VSS) Windows.\r\n
+misc.s3e1f16a3	Ta operacja wymaga uprawnień administratora i zajmie miejsce na dysku.\r\n\r\n
+misc.sebe7059e	Czy kontynuować?
+misc.s76a97de7	Migawka VSS utworzona pomyślnie.\r\n\r\nPoniżej znajduje się wynik programu diskshadow.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────\r\nWskazówka: utworzone migawki można sprawdzić poleceniem vssadmin list shadows.
+misc.s9067f73b	Migawka VSS
+misc.sf0d14979	Nie udało się utworzyć migawki VSS.\r\n\r\nKod wyjścia diskshadow.exe: %u\r\n\r\nMożliwe przyczyny:\r\n  1) Program nie został uruchomiony jako administrator\r\n  2) Usługa VSS nie jest uruchomiona\r\n  3) Za mało miejsca na dysku\r\n  4) Brak programu diskshadow.exe (wbudowany w Windows 7+)"
+misc.sbf8401e8	Błąd migawki VSS
+misc.se87a7e95	Program bootrec.exe zostanie wywołany w celu naprawy rozruchu:\r\n
+misc.sda2c32cc	  1) fixboot     — napraw sektor rozruchowy\r\n
+misc.s7cb7710f	  2) rebuildbcd  — przebuduj konfigurację rozruchową BCD\r\n
+misc.se0a01ea8	  3) repairboot  — napraw sektor rozruchowy (dziedzictwo Win7)\r\n\r\n
+misc.s339f32a1	Ta operacja wymaga uprawnień administratora i może spowodować ponowne uruchomienie systemu.\r\n
+misc.sd36944dd	Naprawa rozruchu
+misc.s71a453f9	Naprawa rozruchu zakończona.\r\n\r\nPoniżej znajduje się wynik programu bootrec.exe:\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nWskazówka: niektóre kroki wymagają ponownego uruchomienia, aby zaczęły obowiązywać.
+misc.s4507f7d9	Program wbadmin.exe zostanie wywołany w celu utworzenia kopii zapasowej stanu systemu (SystemState).\r\n
+misc.saf28a497	Ta operacja wymaga:\r\n
+misc.s9f69afe4	  1) uprawnień administratora\r\n
+misc.s630178ca	  2) włączonej funkcji \"Windows Server Backup\"\r\n
+misc.s1463a12b	  3) wystarczającej ilości miejsca na dysku\r\n
+misc.s0b97d884	Kopia zapasowa zostanie zapisana w:\r\n
+misc.sc9dfffe0	Utwórz obraz systemu
+misc.sebe1fc77	Obraz systemu utworzony pomyślnie.\r\n\r\nLokalizacja kopii zapasowej: %s\r\n\r\nPoniżej znajduje się wynik programu wbadmin.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────
+misc.sbef84b80	Obraz systemu
+misc.s1cf96794	Nie udało się utworzyć obrazu systemu.\r\n\r\nKod wyjścia wbadmin.exe: %u\r\n\r\nMożliwe przyczyny:\r\n  1) Funkcja Windows Server Backup nie jest włączona\r\n  2) Program nie został uruchomiony jako administrator\r\n  3) Za mało miejsca na dysku\r\n  4) Nieprawidłowe działanie usługi VSS\r\n\r\nPoniżej znajduje się wynik programu wbadmin.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────
+misc.scd025323	Błąd obrazu systemu
+misc.sdc8cc32f	Program netsh.exe zostanie wywołany w celu resetu sieci:\r\n
+misc.s364f8c0c	  1) winsock reset    — resetuj katalog Winsock\r\n
+misc.s468f4737	  2) interface reset  — resetuj wszystkie karty sieciowe\r\n
+misc.sb1d989f0	  3) dns / clearcache — wyczyść pamięć podręczną DNS\r\n\r\n
+misc.s73cf5e83	Ta operacja wymaga uprawnień administratora i spowoduje rozłączenie i ponowne połączenie sieci.\r\n
+misc.s8c301507	Zalecane jest ponowne uruchomienie systemu po operacji.\r\n
+misc.sca6aa1a5	Reset sieci
+misc.sedd34cd4	Reset sieci zakończony.\r\n\r\nPoniżej znajduje się wynik programu netsh.exe:\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nWskazówka: uruchom ponownie system, aby wszystkie zmiany zaczęły obowiązywać.
+misc.scae781fe	Program netsh.exe zostanie wywołany w celu resetu zapory sieciowej:\r\n
+misc.s19fe5320	  1) advfirewall reset            — przywróć zaporę do konfiguracji domyślnej\r\n
+misc.s6a43a20f	  2) advfirewall show allprofiles — wyświetl stan wszystkich profili\r\n
+misc.sf84f64cf	  3) advfirewall show currentprofile — wyświetl bieżący profil\r\n\r\n
+misc.s501aa5f5	⚠️ Ta operacja usunie wszystkie modyfikacje zapory (własne reguły zostaną zachowane),\r\n
+misc.s2df36949	Wymagane są uprawnienia administratora. Zaleca się utworzenie kopii zapasowej konfiguracji zapory przed operacją.\r\n
+misc.sc4e23990	Reset zapory sieciowej
+misc.sd012499b	Reset zapory sieciowej zakończony.\r\n\r\nPoniżej znajduje się wynik programu netsh.exe (stan przed i po resecie):\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nWskazówka: niektóre ustawienia mogą wymagać ponownego uruchomienia.
+misc.sb20b8d28	Zapytanie o zmienne środowiskowe nie powiodło się. Sprawdź, czy plik cmd.exe istnieje.
+misc.sf06d33a6	Zmienne środowiskowe
+misc.s8e606a84	Bieżących zmiennych środowiskowych jest %d.\r\n\r\nPoniżej znajduje się wynik polecenia cmd.exe /c set:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────
+misc.sbd62aa24	Zostanie uruchomione narzędzie Oczyszczanie dysku (cleanmgr.exe).\r\n
+misc.scce31ab4	Narzędzie przeskanuje i wyczyści:\r\n
+misc.s3cc5690c	 ⁣• Pliki tymczasowe\r\n
+misc.s7810a508	 ⁣• Kosz\r\n
+misc.s1ae21860	 ⁣• Pamięć podręczna miniatur\r\n
+misc.sa126fab7	 ⁣• Pamięć podręczna Windows Update\r\n
+misc.s4a8790e3	 ⁣• Pozostałości po odinstalowanych programach\r\n
+misc.s41c6fc58	Narzędzie cleanmgr wymaga interakcji w interfejsie graficznym i nie może być w pełni uruchomione w trybie cichym.\r\n
+misc.sdcfc7d04	Oczyszczanie dysku
+misc.sa4433318	Narzędzie Oczyszczanie dysku zostało uruchomione. Ukończ czyszczenie w wyświetlonym oknie.
+misc.s79e34dd1	Nie udało się uruchomić narzędzia Oczyszczanie dysku.\r\n
+misc.s82e0fdc9	Możliwe przyczyny:\r\n
+misc.sd002488c	  1) Brak pliku cleanmgr.exe\r\n
+misc.sb71dbf65	  2) Funkcja Oczyszczanie dysku została wyłączona
+misc.s4eda3e17	Błąd Oczyszczania dysku
+misc.s32b3ceef	Zostanie uruchomione narzędzie Informacje o systemie (msinfo32.exe).\r\n
+misc.sa9119bf4	Narzędzie wyświetla:\r\n
+misc.sc2b4f413	 ⁣• Podsumowanie systemu\r\n
+misc.s050f9897	 ⁣• Składniki (środowisko oprogramowania / zasoby sprzętowe)\r\n
+misc.s73212f28	 ⁣• Środowisko oprogramowania systemu\r\n
+misc.s23755c21	 ⁣• Zmienne środowiskowe oprogramowania układowego systemu\r\nmisc.sab2a116f	Narzędzie msinfo32 jest interaktywne — przeglądaj informacje w wyświetlonym oknie.
+misc.sab2a116f	msinfo32 to narzędzie interaktywne; przeglądaj informacje w wyświetlonym oknie.\r\n
+misc.s2d9ecb5d	Informacje o systemie
+misc.s21017174	Narzędzie Informacje o systemie zostało uruchomione. Przeglądaj szczegółowe informacje w wyświetlonym oknie.
+misc.s17e26b0a	Nie udało się uruchomić narzędzia Informacje o systemie.\r\n
+misc.sff181218	  1) Brak pliku msinfo32.exe\r\n
+misc.s3554fd38	  2) Funkcja Informacje o systemie została wyłączona
+misc.se81ab452	Błąd Informacji o systemie
+misc.s3d1d9be5	Zostanie uruchomione narzędzie Konfiguracja systemu (msconfig.exe).\r\n
+misc.s334bc9c1	Narzędzie zarządza:\r\n
+misc.sf3797e3a	 ⁣• Opcje ogólne\r\n
+misc.s832eeaf2	 ⁣• Uruchamianie (opcje rozruchu Windows)\r\n
+misc.s58666aae	 ⁣• Naprawa rozruchu\r\n
+misc.s58b29f1a	 ⁣• Usługi systemowe\r\n
+misc.sc5006ee7	 ⁣• Narzędzia\r\n
+misc.s08d74744	 ⁣• Programy uruchamiane przy starcie\r\n
+misc.sc54f723a	⚠️ Aby niektóre ustawienia zaczęły obowiązywać, konieczne jest ponowne uruchomienie systemu.
+misc.s4c4152fe	Narzędzie msconfig wymaga uprawnień administratora, aby uzyskać dostęp do niektórych opcji.\r\n
+misc.sff7ce546	Konfiguracja systemu
+misc.s77caa9a9	Narzędzie Konfiguracja systemu zostało uruchomione. Ukończ konfigurację w wyświetlonym oknie.
+misc.scaf6cd5f	Nie udało się uruchomić narzędzia Konfiguracja systemu.\r\n
+misc.sbce34283	  1) Brak pliku msconfig.exe (nie występuje w Server Core)\r\n
+misc.s50dd8a7f	  2) Funkcja Konfiguracja systemu została wyłączona\r\n
+misc.s2dd91833	  3) Program nie został uruchomiony jako administrator
+misc.s9d8b10a1	Błąd Konfiguracji systemu
+misc.sef71e68a	Nie udało się uruchomić Panelu sterowania.
+misc.s2ef484ee	  1) Brak pliku control.exe\r\n
+misc.sbefa5dfc	  2) Funkcja Panel sterowania została wyłączona
+misc.s89bec4c6	Błąd Panelu sterowania
+misc.s69031012	Zostanie uruchomiony Podgląd zdarzeń (eventvwr.msc).\r\n
+misc.s452145ae	Narzędzie umożliwia przeglądanie:\r\n
+misc.s887a9f52	 ⁣• Dzienniki aplikacji i usług\r\n
+misc.s2cc27df9	 ⁣• Dzienniki Windows (Application/Security/System)\r\n
+misc.s251dfec1	 ⁣• Subskrypcje\r\n
+misc.se4aae918	 ⁣• Widoki niestandardowe\r\n
+misc.scce78d57	 ⁣• Filtrowanie bieżącego dziennika\r\n
+misc.s373f0dda	Podgląd zdarzeń jest narzędziem tylko do odczytu, służącym do diagnozowania problemów systemu.\r\n
+misc.s6a0b29f3	Podgląd zdarzeń
+misc.s5c551bba	Nie udało się uruchomić Podglądu zdarzeń.\r\n
+misc.sfbb91b2b	  1) Brak pliku eventvwr.msc\r\n
+misc.s2fab7d24	  2) Funkcja Podgląd zdarzeń została wyłączona
+misc.sd70f8ad0	Błąd Podglądu zdarzeń
+misc.s70672a49	Zostanie uruchomiony wiersz polecenia (cmd.exe, jako administrator).\r\n
+misc.sd5cd6404	Wiersz polecenia jest najczęściej używanym narzędziem wiersza polecenia systemu Windows i może służyć do:
+misc.sa74b5301	 ⁣• Wykonywania poleceń administracyjnych
+misc.s7cb19803	 ⁣• Uruchamiania skryptów
+misc.sb1dc2e13	 ⁣• Przeglądania katalogów
+misc.se5b003a8	 ⁣• Diagnozowania sieci
+misc.s01644c1a	 ⁣• Operacji na plikach\r\n
+misc.sc0f80fe7	Polecenie runas wywoła podniesienie uprawnień UAC i wymaga hasła administratora.\r\n
+misc.sba424a20	Wiersz polecenia
+misc.s1472e4df	Nie udało się uruchomić wiersza polecenia.\r\n
+misc.s80f8022f	  1) UAC odmówił uprawnień administratora\r\n
+misc.s7cd442f8	  2) Brak pliku cmd.exe\r\n
+misc.s6a4b8f4e	  3) Funkcja wiersza polecenia została wyłączona
+misc.s9beff4c3	Błąd wiersza polecenia
+misc.s713bd2ab	Zmienna środowiskowa USERPROFILE nie jest ustawiona.
+misc.s993eb7f7	Menu kontekstowe
+misc.sae48fa0b	ContextMenu Demo\r\nPlik demonstracyjny menu kontekstowego\r\n
+misc.s3d5a2ec8	Otwórz
+misc.s49512531	Edycja
+misc.s461541d8	Kopiuj
+misc.s4bc4a59b	Wytnij
+misc.s810d040a	Właściwości
+misc.sb032ab04	Otwórz w Eksploratorze plików
+misc.sec7b94d6	Otwórz lokalizację pliku
+misc.s61a1b839	Czy na pewno chcesz usunąć ten plik?
+misc.s3b3fbc24	[Ustawienia eksperta] Włączyć adapter kompresji WofAdk (wpływa na strategię kompresji plików systemowych)?
+misc.sc9f2dd1b	[Ustawienia eksperta] Włączyć obsługę rozruchu RE (operacje związane ze środowiskiem odzyskiwania)?
+misc.s5636a969	[Ustawienia eksperta] Włączyć transfer różnicowy (przyrostowa konwersja WIM/ESD)?
+misc.s3a57bfda	%s\r\nBieżący stan: %s
+misc.s74621b94	[clean] Porównanie przed/po dla C:\\: przed %llu MB → po %llu MB (zwolniono na dysku %llu MB, raport reguł: zwolniono %llu MB)
+misc.sbb374e50	Operacja zakończona: zgodnie z ustawieniami komputer zostanie ponownie uruchomiony. Czy kontynuować?
+misc.s88518317	Operacja zakończona: zgodnie z ustawieniami komputer zostanie wyłączony. Czy kontynuować?
+misc.sd6608a8c	Pliki obrazów WIM/ESD (*.wim;*.esd;*.swm)\\0*.wim;*.esd;*.swm\\0Wszystkie pliki (*.*)\\0*.*\\0
+misc.sf7bbdc01	Wybierz obraz WIM offline, aby przeskanować sterowniki
+misc.s47518538	Przeskanować sterowniki w obrazie?\r\n  \"Tak\" — indeks 1 (domyślny)\r\n  \"Nie\" — przeskanuj wszystkie indeksy
+misc.s4e1c9661	Skanowanie sterowników offline
+misc.s2e011db7	[drv] Rozpoczęto skanowanie sterowników offline: %s

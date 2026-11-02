@@ -1,0 +1,986 @@
+[
+{
+"key": "misc.s794fda41",
+"t": "[clean] Čištění zahájeno: C:\\ zbývá %llu MB"
+},
+{
+"key": "misc.sc9baee09",
+"t": " - Poslední událost spuštění zaznamenána (6005/12)"
+},
+{
+"key": "misc.s5a23c608",
+"t": " - Odhad doby spuštění: žádná data (zkontrolujte protokol System v eventvwr.msc)"
+},
+{
+"key": "misc.s80af2be3",
+"t": "Spustitelné soubory (*.exe)\\0*.exe\\0Všechny soubory (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.se93c7bec",
+"t": "Vlevo vyberte stránku funkce; před uvolněním místa proveďte skenování; každou položku optimalizace systému po potvrzení použijte."
+},
+{
+"key": "misc.s758ec357",
+"t": "-- Vlastnosti pravidla --\r\n"
+},
+{
+"key": "misc.s6000de8e",
+"t": "-- Popis --\r\n"
+},
+{
+"key": "misc.sa8c26203",
+"t": "\r\n-- Upozornění --\r\n"
+},
+{
+"key": "misc.s9d4db836",
+"t": "\"Automatické přihlášení + vypnutí UAC\" nechává vestavěný účet Administrátor zcela bez ochrany, s automatickým přihlášením,\r\n"
+},
+{
+"key": "misc.sd09fb8d4",
+"t": "Kdokoli s fyzickým přístupem může vstoupit do systému.\r\n\r\n"
+},
+{
+"key": "misc.s27fb951d",
+"t": "Soubor boot.wim / boot.esd nebyl nalezen ve stejné složce jako ESD.\r\n\r\n"
+},
+{
+"key": "misc.sc5acb47d",
+"t": "Vygenerované ISO nebude obsahovat spouštěcí obraz Windows PE:\r\n"
+},
+{
+"key": "misc.se604a9a8",
+"t": "  - Instalace připojením (režim USB optické jednotky) je stále možná\r\n"
+},
+{
+"key": "misc.s4a226f88",
+"t": "  - Nelze spustit/instalovat z USB / CD / optické jednotky\r\n\r\n"
+},
+{
+"key": "misc.s3902b468",
+"t": "Na cílovém disku %s není dostatek volného místa:\r\n"
+},
+{
+"key": "misc.s2404d4fa",
+"t": "  Odhadovaná potřeba: přibližně %lld MB\r\n"
+},
+{
+"key": "misc.s7056d3aa",
+"t": "  Aktuálně dostupné: %lld MB\r\n"
+},
+{
+"key": "misc.s5f1d6a72",
+"t": "\r\nPokračovat? (může selhat)"
+},
+{
+"key": "misc.s78c4c51d",
+"t": "Strategie komprese (pokračovat):\r\n  \"Ano\" — Compress:fast (nejrychlejší)\r\n  \"Ne\" — v podnabídce vyberte none / WIMBoot"
+},
+{
+"key": "misc.s4bf7313c",
+"t": "WIMBoot se vztahuje pouze na směr ESD→WIM, bylo automaticky vráceno na Compress:recovery."
+},
+{
+"key": "misc.se28109f4",
+"t": "Na cílovém disku %s není dostatek volného místa:\r\n  Odhadovaná potřeba: přibližně %lld MB\r\n  Aktuálně dostupné: %lld MB\r\nPokračovat?"
+},
+{
+"key": "misc.s8028c1bb",
+"t": "msg.exe /W /Q /Y \"Převod dokončen, otevřít cílovou složku?\" N Open No C Close Y\r\n"
+},
+{
+"key": "misc.sd7762eca",
+"t": "Editor hosts\n\n"
+},
+{
+"key": "misc.s41c54ee7",
+"t": "Ano: otevřít editor hosts (Poznámkový blok, vyžaduje práva správce)\n"
+},
+{
+"key": "misc.s6b09afbd",
+"t": "Ne: obnovit poslední zálohu\n"
+},
+{
+"key": "misc.s7a92cd0f",
+"t": "Zrušit: vyprázdnit mezipaměť překladu DNS (bez jakýchkoli změn)\n"
+},
+{
+"key": "misc.s4a533876",
+"t": "Nebyl nalezen záložní soubor:\r\n%s\r\n\r\nPřed úpravou hosts bude automaticky vytvořena záloha do tohoto souboru."
+},
+{
+"key": "misc.sa412f09e",
+"t": "Hosts bude obnoven z nejnovější zálohy:\r\n%s\r\n\r\nStávající hosts bude po synchronním zazálohování přepsán. Pokračovat?"
+},
+{
+"key": "misc.s64513cc7",
+"t": "Nejprve zaškrtněte programy pro hromadné odinstalování."
+},
+{
+"key": "misc.se24b6a39",
+"t": "Odinstalovat vybrané programy (%d)?\n\nTímto se postupně spustí odinstalační program každé aplikace; akci nelze vrátit zpět."
+},
+{
+"key": "misc.s6e26250f",
+"t": "[batch-uninstall] Odinstalování zahájeno: %s"
+},
+{
+"key": "misc.sf4f17c78",
+"t": "[batch-uninstall] Zahájení selhalo: %s err=%lu"
+},
+{
+"key": "misc.s4a787ee6",
+"t": "[batch-uninstall] Hotovo: %d úspěšně / %d selhalo / %d celkem"
+},
+{
+"key": "misc.sbaa793d4",
+"t": "Hromadné odinstalování dokončeno: %d úspěšně, %d selhalo"
+},
+{
+"key": "misc.s6da661b2",
+"t": "Hromadné odinstalování nainstalovaných programů"
+},
+{
+"key": "misc.s86d5c25a",
+"t": "[appx] Rozdělení balíčků prostředků: hlavní balíček %d, balíček jazykových prostředků %d"
+},
+{
+"key": "misc.sffdd7fa5",
+"t": "Typ: Balíček jazykových prostředků"
+},
+{
+"key": "misc.s647b719f",
+"t": "Typ: Hlavní balíček"
+},
+{
+"key": "misc.s1207edb3",
+"t": "Balíčky Appx/MSIX (*.appx;*.msix;*.appxbundle;*.msixbundle)\\0*.appx;*.msix;*.appxbundle;*.msixbundle\\0Všechny soubory\\0*.*\\0\\0"
+},
+{
+"key": "misc.sc8059969",
+"t": "Vyberte balíček aplikace k instalaci"
+},
+{
+"key": "misc.s22dfbca7",
+"t": "Instalovat balíček aplikace"
+},
+{
+"key": "misc.s587c8055",
+"t": "Zadat složku balíčků závislostí (složka Dependencies)?\n\nAno → vybrat složku\nNe → nainstalovat pouze hlavní balíček"
+},
+{
+"key": "misc.s8f3077b7",
+"t": "Balíčky závislostí"
+},
+{
+"key": "misc.s5c45dab4",
+"t": "Vyberte složku balíčků závislostí"
+},
+{
+"key": "misc.s277edf57",
+"t": "Nainstalováno %d/%d položek · Závislosti: povinné %d / volitelné %d"
+},
+{
+"key": "misc.sf0890286",
+"t": "Žádná data"
+},
+{
+"key": "misc.sf7055e44",
+"t": "Upozornění: Černá listina:"
+},
+{
+"key": "misc.s34be29d1",
+"t": "[upd][WSUS] Zásah černé listiny %s (%s)"
+},
+{
+"key": "misc.se7ee5701",
+"t": "Nečinné"
+},
+{
+"key": "misc.s4ed23304",
+"t": "Příprava"
+},
+{
+"key": "misc.scdfbdf63",
+"t": "Stahování"
+},
+{
+"key": "misc.s77ea511e",
+"t": "Ověřování"
+},
+{
+"key": "misc.sf23d3062",
+"t": "Instalace"
+},
+{
+"key": "misc.s8ab41417",
+"t": "Vrácení zpět"
+},
+{
+"key": "misc.s35d25224",
+"t": "Dokončeno"
+},
+{
+"key": "misc.se1d65341",
+"t": "Výhradní zámek CBS"
+},
+{
+"key": "misc.sb924cc56",
+"t": "[update] Stav fáze: "
+},
+{
+"key": "misc.se7d3c6cf",
+"t": "[update] UpdateInfo.zip již existuje, stahování se přeskočí"
+},
+{
+"key": "misc.s04a7b276",
+"t": "[update] Stahování UpdateInfo.zip dokončeno"
+},
+{
+"key": "misc.s61c18bf7",
+"t": "[update] UpdateInfo.zip stažen úspěšně (%llu bajtů)"
+},
+{
+"key": "misc.se371b848",
+"t": "[update] UpdateInfo.zip je příliš malý, ověření selhalo"
+},
+{
+"key": "misc.s3bd36694",
+"t": "[update] Stahování UpdateInfo.zip selhalo"
+},
+{
+"key": "misc.sb25b7011",
+"t": "[update] Nejprve stáhněte UpdateInfo.zip"
+},
+{
+"key": "misc.s816bfd5c",
+"t": "[update] Neplatný argument fáze"
+},
+{
+"key": "misc.s61631283",
+"t": "[update] Provádím příkaz: "
+},
+{
+"key": "misc.sbfa2e877",
+"t": "[update] Sekvence třífázových příkazů dokončena"
+},
+{
+"key": "misc.s683452aa",
+"t": "[update] Třífázový příkaz selhal (exit=%lu)"
+},
+{
+"key": "misc.sd6e4b309",
+"t": "Použít unattend.xml"
+},
+{
+"key": "misc.s97de183e",
+"t": "Aktuální konfigurace neodpovídajícího obrazu je prázdná; nejprve níže přidejte příkaz."
+},
+{
+"key": "misc.se7b24c11",
+"t": "[unattend] Apply-Unattend bylo spuštěno: %s"
+},
+{
+"key": "misc.sdb6ef517",
+"t": "Spustit Sysprep"
+},
+{
+"key": "misc.s7ec72977",
+"t": "Potvrzení Sysprep"
+},
+{
+"key": "misc.sc43f80fd",
+"t": "[sysprep] Zahájeno: /generalize /oobe /shutdown /quiet"
+},
+{
+"key": "misc.sba2797e3",
+"t": "[sysprep] Zahájení selhalo err=%lu"
+},
+{
+"key": "misc.sc11f54c4",
+"t": "Sysprep selhal"
+},
+{
+"key": "misc.s721dd997",
+"t": "[IBS] Vygenerován sysprep_ibs.xml: %d zařízení PnP, SourcePath=%s"
+},
+{
+"key": "misc.s948df983",
+"t": "Sestava IBS vygenerována: %d zařízení → sysprep_ibs.xml"
+},
+{
+"key": "misc.saa67eb74",
+"t": "Chybí"
+},
+{
+"key": "misc.s864e94e6",
+"t": "Průvodce PE"
+},
+{
+"key": "misc.sb269423c",
+"t": "Soubory ISO (*.iso)\\0*.iso\\0Všechny soubory (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sdc55fcab",
+"t": "Vyberte umístění uložení vygenerovaného spouštěcího PE ISO"
+},
+{
+"key": "misc.s4975ca67",
+"t": "Vyberte architekturu PE:\r\n  \"Ano\" — amd64 (64bit, výchozí)\r\n  \"Ne\" — x86 (32bit)"
+},
+{
+"key": "misc.s48522bd7",
+"t": "[Průvodce PE] Zahájeno: %s (%s) → %s"
+},
+{
+"key": "misc.sa76ac2b9",
+"t": "Zobrazit aktivační klíč ESD"
+},
+{
+"key": "misc.s8fe20989",
+"t": "Vytvořit snímek VSS"
+},
+{
+"key": "misc.sd9ef6a78",
+"t": "Oprava spouštění (bootrec)"
+},
+{
+"key": "misc.s42d10a6f",
+"t": "Vytvořit systémový obraz (wbadmin)"
+},
+{
+"key": "misc.s95da1886",
+"t": "Obnovení sítě (netsh)"
+},
+{
+"key": "misc.sb69356e3",
+"t": "Reset brány firewall (netsh)"
+},
+{
+"key": "misc.s9e507f98",
+"t": "Zobrazit proměnné prostředí"
+},
+{
+"key": "misc.s8260b2ec",
+"t": "Čištění disku (cleanmgr)"
+},
+{
+"key": "misc.s615e6edf",
+"t": "Informace o systému (msinfo32)"
+},
+{
+"key": "misc.s4f54bbf3",
+"t": "Konfigurace systému (msconfig)"
+},
+{
+"key": "misc.s89140849",
+"t": "Ovládací panely (control)"
+},
+{
+"key": "misc.s3e9d824f",
+"t": "Prohlížeč událostí (eventvwr)"
+},
+{
+"key": "misc.s7841112b",
+"t": "Příkazový řádek (cmd)"
+},
+{
+"key": "misc.s11a6f7f3",
+"t": "Přiřadit kontextovou nabídku (IContextMenu2)"
+},
+{
+"key": "misc.s3df9e657",
+"t": "\r\n\r\n[Chyba] Vybraná složka neobsahuje podsložku Windows."
+},
+{
+"key": "misc.sf722c034",
+"t": "[ESD] Aktivační klíč ESD nebyl načten z Data.xml.\r\n"
+},
+{
+"key": "misc.s1b8b14cb",
+"t": "Zkontrolujte, zda DismData\\Data.xml obsahuje uzel <ESDKeys><Key Value=\"...\"/></ESDKeys>."
+},
+{
+"key": "misc.sf289d5d1",
+"t": "Klíče ESD"
+},
+{
+"key": "misc.s6694abc2",
+"t": "[ESD] Celkem %d aktivačních klíčů (z Data.xml)"
+},
+{
+"key": "misc.s899cebbe",
+"t": "Následují obecné aktivační klíče systému Windows nakonfigurované v Data.xml:\r\n"
+},
+{
+"key": "misc.sd1da7e28",
+"t": "Nyní bude vyvolán diskshadow.exe k vytvoření snímku stínové kopie svazku (VSS) systému Windows.\r\n"
+},
+{
+"key": "misc.s3e1f16a3",
+"t": "Tato operace vyžaduje práva správce a spotřebuje místo na disku.\r\n\r\n"
+},
+{
+"key": "misc.sebe7059e",
+"t": "Určitě pokračovat?"
+},
+{
+"key": "misc.s76a97de7",
+"t": "Snímek VSS byl úspěšně vytvořen.\r\n\r\nNásleduje výstup diskshadow.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────\r\nTip: vytvořené snímky můžete zobrazit příkazem vssadmin list shadows."
+},
+{
+"key": "misc.s9067f73b",
+"t": "Snímek VSS"
+},
+{
+"key": "misc.sf0d14979",
+"t": "Vytvoření snímku VSS selhalo.\r\n\r\nKód ukončení diskshadow.exe: %u\r\n\r\nMožné příčiny:\r\n  1) Program nebyl spuštěn jako správce\r\n  2) Služba VSS není spuštěna\r\n  3) Nedostatek místa na disku\r\n  4) diskshadow.exe neexistuje (součást systému Win 7+)"
+},
+{
+"key": "misc.sbf8401e8",
+"t": "Snímek VSS selhal"
+},
+{
+"key": "misc.se87a7e95",
+"t": "Nyní bude vyvolán bootrec.exe k provedení opravy spouštění:\r\n"
+},
+{
+"key": "misc.sda2c32cc",
+"t": "  1) fixboot     — opravit spouštěcí sektor\r\n"
+},
+{
+"key": "misc.s7cb7710f",
+"t": "  2) rebuildbcd  — znovu vytvořit konfiguraci spouštění BCD\r\n"
+},
+{
+"key": "misc.se0a01ea8",
+"t": "  3) repairboot  — opravit spouštěcí sektor (dědictví Win7)\r\n\r\n"
+},
+{
+"key": "misc.s339f32a1",
+"t": "Tato operace vyžaduje práva správce a může restartovat systém.\r\n"
+},
+{
+"key": "misc.sd36944dd",
+"t": "Oprava spouštění"
+},
+{
+"key": "misc.s71a453f9",
+"t": "Oprava spouštění dokončena.\r\n\r\nNásleduje výstup bootrec.exe:\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nTip: některé kroky se projeví až po restartu."
+},
+{
+"key": "misc.s4507f7d9",
+"t": "Nyní bude vyvolán wbadmin.exe k vytvoření zálohy stavu systému (SystemState).\r\n"
+},
+{
+"key": "misc.saf28a497",
+"t": "Tato operace vyžaduje:\r\n"
+},
+{
+"key": "misc.s9f69afe4",
+"t": "  1) Práva správce\r\n"
+},
+{
+"key": "misc.s630178ca",
+"t": "  2) Povolenou funkci \"Windows Server Backup\"\r\n"
+},
+{
+"key": "misc.s1463a12b",
+"t": "  3) Dostatek místa na disku\r\r"
+},
+{
+"key": "misc.s0b97d884",
+"t": "Záloha bude uložena do:\r\n"
+},
+{
+"key": "misc.sc9dfffe0",
+"t": "Vytvořit systémový obraz"
+},
+{
+"key": "misc.sebe1fc77",
+"t": "Systémový obraz byl úspěšně vytvořen.\r\n\r\nUmístění zálohy: %s\r\n\r\nNásleduje výstup wbadmin.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────"
+},
+{
+"key": "misc.sbef84b80",
+"t": "Systémový obraz"
+},
+{
+"key": "misc.s1cf96794",
+"t": "Vytvoření systémového obrazu selhalo.\r\n\r\nKód ukončení wbadmin.exe: %u\r\n\r\nMožné příčiny:\r\n  1) Funkce Windows Server Backup není povolena\r\n  2) Program nebyl spuštěn jako správce\r\n  3) Nedostatek místa na disku\r\n  4) Anomálie služby VSS\r\n\r\nNásleduje výstup wbadmin.exe:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────"
+},
+{
+"key": "misc.scd025323",
+"t": "Systémový obraz selhal"
+},
+{
+"key": "misc.sdc8cc32f",
+"t": "Nyní bude vyvolán netsh.exe k provedení obnovení sítě:\r\n"
+},
+{
+"key": "misc.s364f8c0c",
+"t": "  1) winsock reset    — resetovat katalog Winsock\r\n"
+},
+{
+"key": "misc.s468f4737",
+"t": "  2) interface reset  — resetovat všechny síťové adaptéry\r\n"
+},
+{
+"key": "misc.sb1d989f0",
+"t": "  3) dns / clearcache — vyprázdnit mezipaměť DNS\r\n\r\n"
+},
+{
+"key": "misc.s73cf5e83",
+"t": "Tato operace vyžaduje práva správce a dojde k odpojení a znovupřipojení sítě.\r\n"
+},
+{
+"key": "misc.s8c301507",
+"t": "Doporučujeme po operaci restartovat systém.\r\n"
+},
+{
+"key": "misc.sca6aa1a5",
+"t": "Obnovení sítě"
+},
+{
+"key": "misc.sedd34cd4",
+"t": "Obnovení sítě dokončeno.\r\n\r\nNásleduje výstup netsh.exe:\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nTip: restartujte systém, aby se projevily všechny změny."
+},
+{
+"key": "misc.scae781fe",
+"t": "Nyní bude vyvolán netsh.exe k provedení resetu brány firewall:\r\n"
+},
+{
+"key": "misc.s19fe5320",
+"t": "  1) advfirewall reset            — obnovit bránu firewall do výchozí konfigurace\r\n"
+},
+{
+"key": "misc.s6a43a20f",
+"t": "  2) advfirewall show allprofiles — zobrazit stavy všech profilů\r\n"
+},
+{
+"key": "misc.sf84f64cf",
+"t": "  3) advfirewall show currentprofile — zobrazit aktuální profil\r\n\r\n"
+},
+{
+"key": "misc.s501aa5f5",
+"t": "Upozornění: tato operace vymaže všechny úpravy brány firewall (vlastní pravidla zůstanou zachována),\r\n"
+},
+{
+"key": "misc.s2df36949",
+"t": "Jsou vyžadována práva správce. Před operací doporučujeme zazálohovat konfiguraci brány firewall.\r\n"
+},
+{
+"key": "misc.sc4e23990",
+"t": "Reset brány firewall"
+},
+{
+"key": "misc.sd012499b",
+"t": "Reset brány firewall dokončen.\r\n\r\nNásleduje výstup netsh.exe (stav před/po resetu):\r\n─────────────────────────────\r\n%s─────────────────────────────\r\nTip: některá nastavení se mohou projevit až po restartu."
+},
+{
+"key": "misc.sb20b8d28",
+"t": "Dotaz na proměnné prostředí selhal, zkontrolujte, zda existuje cmd.exe."
+},
+{
+"key": "misc.sf06d33a6",
+"t": "Proměnné prostředí"
+},
+{
+"key": "misc.s8e606a84",
+"t": "Aktuálně %d proměnných prostředí.\r\n\r\nNásleduje výstup cmd.exe /c set:\r\n─────────────────────────────\r\n%s\r\n─────────────────────────────"
+},
+{
+"key": "misc.sbd62aa24",
+"t": "Nyní bude spuštěn nástroj čištění disku (cleanmgr.exe).\r\n"
+},
+{
+"key": "misc.scce31ab4",
+"t": "Tento nástroj prohledá a vyčistí:\r\n"
+},
+{
+"key": "misc.s3cc5690c",
+"t": "  • Dočasné soubory\r\n"
+},
+{
+"key": "misc.s7810a508",
+"t": "  • Koš\r\n"
+},
+{
+"key": "misc.s1ae21860",
+"t": "  • Mezipaměť miniatur\r\n"
+},
+{
+"key": "misc.sa126fab7",
+"t": "  • Mezipaměť Windows Update\r\n"
+},
+{
+"key": "misc.s4a8790e3",
+"t": "  • Zbytky odinstalovaných programů\r\r"
+},
+{
+"key": "misc.s41c6fc58",
+"t": "cleanmgr vyžaduje interakci s grafickým rozhraním, nelze jej spustit zcela neviditelně.\r\n"
+},
+{
+"key": "misc.sdcfc7d04",
+"t": "Čištění disku"
+},
+{
+"key": "misc.sa4433318",
+"t": "Nástroj čištění disku byl spuštěn, dokončete čištění v zobrazeném okně."
+},
+{
+"key": "misc.s79e34dd1",
+"t": "Spuštění nástroje čištění disku selhalo.\r\n"
+},
+{
+"key": "misc.s82e0fdc9",
+"t": "Možné příčiny:\r\n"
+},
+{
+"key": "misc.sd002488c",
+"t": "  1) cleanmgr.exe neexistuje\r\n"
+},
+{
+"key": "misc.sb71dbf65",
+"t": "  2) Funkce čištění disku je zakázána"
+},
+{
+"key": "misc.s4eda3e17",
+"t": "Čištění disku selhalo"
+},
+{
+"key": "misc.s32b3ceef",
+"t": "Nyní bude spuštěn nástroj systémové informace (msinfo32.exe).\r\n"
+},
+{
+"key": "misc.sa9119bf4",
+"t": "Tento nástroj zobrazuje:\r\n"
+},
+{
+"key": "misc.sc2b4f413",
+"t": "  • Souhrn systému\r\n"
+},
+{
+"key": "misc.s050f9897",
+"t": "  • Komponenty (softwarové prostředí / hardwarové prostředky)\r\n"
+},
+{
+"key": "misc.s73212f28",
+"t": "  • Systémové softwarové prostředí\r\n"
+},
+{
+"key": "misc.s23755c21",
+"t": "  • Systémové proměnné prostředí firmwaru\r\r"
+},
+{
+"key": "misc.sab2a116f",
+"t": "msinfo32 je interaktivní nástroj, procházejte informace v zobrazeném okně.\r\n"
+},
+{
+"key": "misc.s2d9ecb5d",
+"t": "Informace o systému"
+},
+{
+"key": "misc.s21017174",
+"t": "Nástroj systémové informace byl spuštěn, procházejte podrobnosti v zobrazeném okně."
+},
+{
+"key": "misc.s17e26b0a",
+"t": "Spuštění nástroje systémové informace selhalo.\r\n"
+},
+{
+"key": "misc.sff181218",
+"t": "  1) msinfo32.exe neexistuje\r\n"
+},
+{
+"key": "misc.s3554fd38",
+"t": "  2) Funkce systémové informace je zakázána"
+},
+{
+"key": "misc.se81ab452",
+"t": "Informace o systému selhaly"
+},
+{
+"key": "misc.s3d1d9be5",
+"t": "Nyní bude spuštěn nástroj konfigurace systému (msconfig.exe).\r\n"
+},
+{
+"key": "misc.s334bc9c1",
+"t": "Tento nástroj spravuje:\r\n"
+},
+{
+"key": "misc.sf3797e3a",
+"t": "  • Obecné možnosti\r\n"
+},
+{
+"key": "misc.s832eeaf2",
+"t": "  • Spouštění (možnosti spouštění Windows)\r\n"
+},
+{
+"key": "misc.s58666aae",
+"t": "  • Oprava spouštění\r\n"
+},
+{
+"key": "misc.s58b29f1a",
+"t": "  • Systémové služby\r\n"
+},
+{
+"key": "misc.sc5006ee7",
+"t": "  • Nástroje\r\n"
+},
+{
+"key": "misc.s08d74744",
+"t": "  • Po spuštění\r\r"
+},
+{
+"key": "misc.sc54f723a",
+"t": "Upozornění: změna některých nastavení se projeví až po restartu systému.\r"
+},
+{
+"key": "misc.s4c4152fe",
+"t": "msconfig vyžaduje práva správce pro přístup k některým možnostem.\r\n"
+},
+{
+"key": "misc.sff7ce546",
+"t": "Konfigurace systému"
+},
+{
+"key": "misc.s77caa9a9",
+"t": "Nástroj konfigurace systému byl spuštěn, dokončete konfiguraci v zobrazeném okně."
+},
+{
+"key": "misc.scaf6cd5f",
+"t": "Spuštění nástroje konfigurace systému selhalo.\r\n"
+},
+{
+"key": "misc.sbce34283",
+"t": "  1) msconfig.exe neexistuje (v Server Core není)"
+},
+{
+"key": "misc.s50dd8a7f",
+"t": "  2) Funkce konfigurace systému je zakázána\r\n"
+},
+{
+"key": "misc.s2dd91833",
+"t": "  3) Program nebyl spuštěn jako správce"
+},
+{
+"key": "misc.s9d8b10a1",
+"t": "Konfigurace systému selhala"
+},
+{
+"key": "misc.sef71e68a",
+"t": "Spuštění ovládacích panelů selhalo.\r"
+},
+{
+"key": "misc.s2ef484ee",
+"t": "  1) control.exe neexistuje\r\n"
+},
+{
+"key": "misc.sbefa5dfc",
+"t": "  2) Funkce ovládacích panelů je zakázána"
+},
+{
+"key": "misc.s89bec4c6",
+"t": "Ovládací panely selhaly"
+},
+{
+"key": "misc.s69031012",
+"t": "Nyní bude spuštěn prohlížeč událostí (eventvwr.msc).\r\n"
+},
+{
+"key": "misc.s452145ae",
+"t": "Tento nástroj umožňuje procházet:\r\n"
+},
+{
+"key": "misc.s887a9f52",
+"t": "  • Protokoly aplikací a služeb\r\n"
+},
+{
+"key": "misc.s2cc27df9",
+"t": "  • Protokoly Windows (Application/Security/System)\r\n"
+},
+{
+"key": "misc.s251dfec1",
+"t": "  • Předplatná\r\n"
+},
+{
+"key": "misc.se4aae918",
+"t": "  • Vlastní zobrazení\r\n"
+},
+{
+"key": "misc.scce78d57",
+"t": "  • Filtrovat aktuální protokol\r\r"
+},
+{
+"key": "misc.s373f0dda",
+"t": "Prohlížeč událostí je nástroj pouze pro čtení, slouží k diagnostice problémů systému.\r\n"
+},
+{
+"key": "misc.s6a0b29f3",
+"t": "Prohlížeč událostí"
+},
+{
+"key": "misc.s5c551bba",
+"t": "Spuštění prohlížeče událostí selhalo.\r\n"
+},
+{
+"key": "misc.sfbb91b2b",
+"t": "  1) eventvwr.msc neexistuje\r\n"
+},
+{
+"key": "misc.s2fab7d24",
+"t": "  2) Funkce prohlížeče událostí je zakázána"
+},
+{
+"key": "misc.sd70f8ad0",
+"t": "Prohlížeč událostí selhal"
+},
+{
+"key": "misc.s70672a49",
+"t": "Nyní bude spuštěn příkazový řádek (cmd.exe, jako správce).\r\n"
+},
+{
+"key": "misc.sd5cd6404",
+"t": "Příkazový řádek je nejpoužívanější nástroj příkazového řádku systému Windows; lze jej použít pro:\r"
+},
+{
+"key": "misc.sa74b5301",
+"t": "  • Provádění příkazů pro správu systému\r"
+},
+{
+"key": "misc.s7cb19803",
+"t": "  • Spouštění skriptů\r"
+},
+{
+"key": "misc.sb1dc2e13",
+"t": "  • Procházení adresářů\r"
+},
+{
+"key": "misc.se5b003a8",
+"t": "  • Diagnostiku sítě\r"
+},
+{
+"key": "misc.s01644c1a",
+"t": "  • Operace se soubory\r\n\r"
+},
+{
+"key": "misc.sc0f80fe7",
+"t": "runas spustí výzvu ke zvýšení oprávnění UAC a vyžaduje heslo správce.\r\n"
+},
+{
+"key": "misc.sba424a20",
+"t": "Příkazový řádek"
+},
+{
+"key": "misc.s1472e4df",
+"t": "Spuštění příkazového řádku selhalo.\r\n"
+},
+{
+"key": "misc.s80f8022f",
+"t": "  1) UAC odmítlo práva správce\r\n"
+},
+{
+"key": "misc.s7cd442f8",
+"t": "  2) cmd.exe neexistuje\r\n"
+},
+{
+"key": "misc.s6a4b8f4e",
+"t": "  3) Funkce příkazového řádku je zakázána"
+},
+{
+"key": "misc.s9beff4c3",
+"t": "Příkazový řádek selhal"
+},
+{
+"key": "misc.s713bd2ab",
+"t": "Proměnná prostředí USERPROFILE není nastavena."
+},
+{
+"key": "misc.s993eb7f7",
+"t": "Přiřadit kontextovou nabídku"
+},
+{
+"key": "misc.sae48fa0b",
+"t": "ContextMenu Demo\r\nSoubor ukázky kontextové nabídky\r\n"
+},
+{
+"key": "misc.s3d5a2ec8",
+"t": "Otevřít"
+},
+{
+"key": "misc.s49512531",
+"t": "Upravit"
+},
+{
+"key": "misc.s461541d8",
+"t": "Kopírovat"
+},
+{
+"key": "misc.s4bc4a59b",
+"t": "Vyjmout"
+},
+{
+"key": "misc.s810d040a",
+"t": "Vlastnosti"
+},
+{
+"key": "misc.sb032ab04",
+"t": "Otevřít v Průzkumníku souborů"
+},
+{
+"key": "misc.sec7b94d6",
+"t": "Otevřít umístění souboru"
+},
+{
+"key": "misc.s61a1b839",
+"t": "Smazat tento soubor?"
+},
+{
+"key": "misc.s3b3fbc24",
+"t": "[Odborná nastavení] Povolit adaptér komprese WofAdk (ovlivňuje strategii komprese systémových souborů)?"
+},
+{
+"key": "misc.sc9f2dd1b",
+"t": "[Odborná nastavení] Povolit podporu spouštění RE (operace prostředí pro obnovu)?"
+},
+{
+"key": "misc.s5636a969",
+"t": "[Odborná nastavení] Povolit diferenciální přenos (přírůstkový převod WIM/ESD)?"
+},
+{
+"key": "misc.s3a57bfda",
+"t": "%s\r\nAktuální stav: %s"
+},
+{
+"key": "misc.s74621b94",
+"t": "[clean] C:\\ před/po: %llu MB → %llu MB (uvolněno %llu MB z disku, pravidla vykázala %llu MB)"
+},
+{
+"key": "misc.sbb374e50",
+"t": "Operace dokončena: podle nastavení bude počítač restartován, pokračovat?"
+},
+{
+"key": "misc.s88518317",
+"t": "Operace dokončena: podle nastavení bude počítač vypnut, pokračovat?"
+},
+{
+"key": "misc.sd6608a8c",
+"t": "Soubory obrazu WIM/ESD (*.wim;*.esd;*.swm)\\0*.wim;*.esd;*.swm\\0Všechny soubory (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sf7bbdc01",
+"t": "Vyberte offline obraz WIM pro prohledání ovladačů"
+},
+{
+"key": "misc.s47518538",
+"t": "Prohledat ovladače v obrazu?\r\n  \"Ano\" — index 1 (výchozí)\r\n  \"Ne\" — prohledat všechny indexy"
+},
+{
+"key": "misc.s4e1c9661",
+"t": "Offline prohledání ovladačů"
+},
+{
+"key": "misc.s2e011db7",
+"t": "[drv] Offline prohledání ovladačů zahájeno: %s"
+}
+]

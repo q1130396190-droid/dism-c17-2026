@@ -1,0 +1,12 @@
+; ============================================================================
+;  CBSHost.def -- 6 个官方导出，序号与知识库 2.1 节一致
+; ============================================================================
+LIBRARY "CBSHost.dll"
+
+EXPORTS
+    CbsCreateTempDirectory2 @1
+    CreateCbsHostHelper     @2
+    DismGetScratchDir       @3
+    DismWriteLog            @4
+    GetConfig               @5
+    RunCbsHostW             @6

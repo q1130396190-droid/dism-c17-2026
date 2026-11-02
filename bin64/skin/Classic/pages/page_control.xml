@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+<VerticalLayout name="page_control" inset="14,6,14,0" childpadding="10">
+          <HorizontalLayout name="cl_24" height="30" bkcolor="#FFEFF6FC" childvalign="vcenter">
+            <Text name="lbl_ctrl_title" text="控制面板" font="6" textcolor="#FF333333" width="120" align="center"/>
+            <Control width="8" height="1"/>
+            <Edit name="ctrl_filter" width="0" height="28" tipvalue="输入名称过滤（如 设备 / 网络 / 电源）" tipvaluecolor="#FF999999" textcolor="#FF1A1A1A" font="1" bkcolor="#FFFFFFFF" bordercolor="#FFABABAB" bordersize="1" textpadding="6,4,6,4"/>
+          <Control width="8" height="1"/>
+          <Button name="btn_ctrl_refresh" text="刷新" font="1" textcolor="#FF007ACC" bkcolor="#FFEEF4FB" hotbkcolor="#FFDCE9F7" pushedbkcolor="#FFCCE4F7" bordercolor="#FFB8D0F0" bordersize="1" width="56" height="26"/>
+          <Control width="4" height="1"/>
+          <Button name="btn_ctrl_open" text="打开" font="1" textcolor="#FF007ACC" bkcolor="#FFEEF4FB" hotbkcolor="#FFDCE9F7" pushedbkcolor="#FFCCE4F7" bordercolor="#FFB8D0F0" bordersize="1" width="56" height="26"/>
+          </HorizontalLayout>
+          <Control height="1" bkcolor="#FFE5E5E5"/>
+          <VerticalLayout name="ctrl_list" width="0" height="0" bkcolor="#FFFFFFFF" childpadding="0" vscrollbar="true"/>
+        </VerticalLayout>
+</Window>

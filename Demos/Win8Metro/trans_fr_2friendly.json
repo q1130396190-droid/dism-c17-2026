@@ -1,0 +1,10 @@
+[
+ {
+  "key": "misc.se9e0e35c",
+  "t": " Des répertoires système tels que Windows/EFI/Sources existent déjà ici et sont peut-être montés par dism/imagex ou contiennent des fichiers système résiduels.\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sf00266a2",
+  "t": "Si « Formater le disque cible » n'est pas coché, Apply-Image risque d'échouer ou de générer des fichiers en conflit.\\r\\n\\r\\n"
+ }
+]

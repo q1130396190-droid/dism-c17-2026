@@ -1,0 +1,394 @@
+[
+ {
+  "key": "err.s340ca71c",
+  "t": "Składniki systemu są uszkodzone. Zalecamy najpierw uruchomić „Czyszczenie systemu\" i ponowić próbę."
+ },
+ {
+  "key": "err.sffc664ba",
+  "t": "Operacja na składnikach została już zakończona, nie ma potrzeby powtarzania."
+ },
+ {
+  "key": "err.s59824f81",
+  "t": "Magazyn składników jest niespójny. Zalecamy ponowić próbę po restarcie."
+ },
+ {
+  "key": "err.s5e8495f7",
+  "t": "Nie można zlokalizować informacji o składnikach. Można spróbować „Przywrócenie systemu\"."
+ },
+ {
+  "key": "err.s7ea654ef",
+  "t": "Usługa nie jest uruchomiona. Upewnij się, że usługa Windows Update jest włączona."
+ },
+ {
+  "key": "err.s87aae048",
+  "t": "Usługa Windows Update jest niedostępna. Spróbuj ponownie później."
+ },
+ {
+  "key": "err.s90bd8562",
+  "t": "Konflikt sesji aktualizacji. Zamknij inne programy aktualizujące i ponów próbę."
+ },
+ {
+  "key": "err.s91bd86f5",
+  "t": "Sesja aktualizacji jest zajęta. Spróbuj ponownie później."
+ },
+ {
+  "key": "err.s3d9f3cff",
+  "t": "Brakuje składników Windows Update. Zalecamy włączenie odpowiednich funkcji."
+ },
+ {
+  "key": "err.sc27d201f",
+  "t": "Działa inny proces aktualizacji systemu Windows. Spróbuj ponownie później."
+ },
+ {
+  "key": "err.sa4db77af",
+  "t": "Operacja zakończona pomyślnie. Aby zastosować zmiany, wymagane jest ponowne uruchomienie systemu."
+ },
+ {
+  "key": "err.s2147cf80",
+  "t": "Składniki są uszkodzone. Trwa przygotowanie naprawy, zachowaj cierpliwość."
+ },
+ {
+  "key": "err.s2247d113",
+  "t": "Aby zastosować naprawę składników, wymagane jest ponowne uruchomienie systemu."
+ },
+ {
+  "key": "err.s300ca0d0",
+  "t": "Brak uprawnień. Kliknij prawym przyciskiem myszy i wybierz „Uruchom jako administrator\"."
+ },
+ {
+  "key": "err.s85f04e50",
+  "t": "Plik jest używany. Zamknij odpowiednie programy i ponów próbę."
+ },
+ {
+  "key": "err.s909267c0",
+  "t": "Sterownik lub usługa nie została poprawnie załadowana."
+ },
+ {
+  "key": "err.s7485f186",
+  "t": "Weryfikacja podpisu sterownika nie powiodła się — sterownik został pominięty."
+ },
+ {
+  "key": "err.se5561e45",
+  "t": "Sterownik nie przeszedł certyfikacji systemu Windows i został pominięty."
+ },
+ {
+  "key": "err.s19eb271e",
+  "t": "Ścieżka przekracza maksymalną długość. Skróć nazwę pliku docelowego."
+ },
+ {
+  "key": "err.s8ef29b12",
+  "t": "Ścieżka nie została znaleziona. Sprawdź, czy katalog istnieje."
+ },
+ {
+  "key": "err.s8ae14ba5",
+  "t": "Katalog nie istnieje. Upewnij się co do ścieżki."
+ },
+ {
+  "key": "err.s1ae8ea1a",
+  "t": "Wskazane urządzenie nie istnieje."
+ },
+ {
+  "key": "err.s8be5ca66",
+  "t": "Nie można przenieść wpisu katalogu — może być on używany."
+ },
+ {
+  "key": "err.s0cfe9a5f",
+  "t": "Za mało miejsca na dysku. Uporządkuj dysk i ponów próbę."
+ },
+ {
+  "key": "err.s7e2cbb3f",
+  "t": "Windows Installer nie jest zainstalowany."
+ },
+ {
+  "key": "err.s851ffa51",
+  "t": "Plik już istnieje, nie można go utworzyć."
+ },
+ {
+  "key": "err.sd12c606d",
+  "t": "Magazyn składników aktualizacji jest uszkodzony. Uruchom sfc i ponów próbę."
+ },
+ {
+  "key": "err.s13d5736f",
+  "t": "Żądanie sieciowe nie powiodło się. Sprawdź połączenie sieciowe i ponów próbę."
+ },
+ {
+  "key": "err.s5c0c2074",
+  "t": "WUA zwrócił błąd ogólny. Sprawdź szczegóły błędu."
+ },
+ {
+  "key": "err.seb83b485",
+  "t": "Magazyn składników jest niespójny. Zalecamy po restarcie uruchomić sfc /scannow."
+ },
+ {
+  "key": "err.s8cec80ba",
+  "t": "Magazyn składników jest niespójny. Zalecamy ponowić próbę po restarcie."
+ },
+ {
+  "key": "err.s8aeebc2b",
+  "t": "Nie można zlokalizować informacji o składnikach."
+ },
+ {
+  "key": "err.s11f1cf47",
+  "t": "Brak pasującego składnika — pominięto."
+ },
+ {
+  "key": "err.s3725e88e",
+  "t": "Magazyn składników jest uszkodzony. Zalecamy sfc /scannow."
+ },
+ {
+  "key": "err.s3525e568",
+  "t": "Magazyn składników jest uszkodzony (niezgodność wersji)."
+ },
+ {
+  "key": "err.s3425e3d5",
+  "t": "Magazyn składników wymaga przebudowy. Zalecamy sfc /scannow."
+ },
+ {
+  "key": "err.s3325e242",
+  "t": "Magazyn składników wymaga przebudowy. Zalecamy sfc /scannow."
+ },
+ {
+  "key": "err.sb622dee4",
+  "t": "Magazyn składników jest uszkodzony i niespójny."
+ },
+ {
+  "key": "err.sb722e077",
+  "t": "Magazyn składników jest niespójny (wymaga przebudowy)."
+ },
+ {
+  "key": "err.sb822e20a",
+  "t": "Magazyn składników jest niespójny (wymaga przebudowy)."
+ },
+ {
+  "key": "err.sb422dbbe",
+  "t": "System Windows wymaga naprawy. Zalecamy sfc /scannow."
+ },
+ {
+  "key": "err.sb522dd51",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.sae22d24c",
+  "t": "System Windows wymaga naprawy. Zalecamy sfc /scannow."
+ },
+ {
+  "key": "err.saf22d3df",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s282a4e1f",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s272a4c8c",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s2a2a5145",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s292a4fb2",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s242a47d3",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s232a4640",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s262a4af9",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s252a4966",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s302a5ab7",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s2f2a5924",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s22280616",
+  "t": "System Windows wymaga naprawy."
+ },
+ {
+  "key": "err.s3a734fab",
+  "t": "Narzędzie pnputil nie może rozpoznać tego pakietu sterowników."
+ },
+ {
+  "key": "err.s39734e18",
+  "t": "Pakiet sterowników pnputil jest uszkodzony."
+ },
+ {
+  "key": "err.sc06bd3d8",
+  "t": "Pakiet sterowników pnputil jest aktualnie używany. Spróbuj ponownie później."
+ },
+ {
+  "key": "err.sc16bd56b",
+  "t": "Pakiet sterowników pnputil nie jest zainstalowany."
+ },
+ {
+  "key": "err.s8a8de120",
+  "t": "Usługa nie działa."
+ },
+ {
+  "key": "err.s96927132",
+  "t": "Usługa nie jest uruchomiona. Najpierw uruchom Windows Update."
+ },
+ {
+  "key": "err.s92926ae6",
+  "t": "Przekroczono czas uruchamiania usługi."
+ },
+ {
+  "key": "err.s1c9582bb",
+  "t": "Pakiet Appx nie jest zainstalowany."
+ },
+ {
+  "key": "err.s1b958128",
+  "t": "Pakiet Appx jest uszkodzony. Zalecamy ponowną rejestrację."
+ },
+ {
+  "key": "err.sc853be9b",
+  "t": "Błąd ogólny. Sprawdź szczegóły w clean_errors.log."
+ },
+ {
+  "key": "err.sc953c02e",
+  "t": "Nie można znaleźć wskazanego pliku."
+ },
+ {
+  "key": "err.scc53c4e7",
+  "t": "Odmowa dostępu. Kliknij prawym przyciskiem myszy i wybierz „Uruchom jako administrator\"."
+ },
+ {
+  "key": "err.sbf55ef07",
+  "t": "Żądanie sieciowe nie powiodło się. Sprawdź połączenie sieciowe i ponów próbę."
+ },
+ {
+  "key": "err.sbe607ad0",
+  "t": "Niewystarczające zasoby systemowe."
+ },
+ {
+  "key": "err.s9c64c278",
+  "t": "Nie można załadować wskazanego modułu — składnik może nie być zainstalowany."
+ },
+ {
+  "key": "err.s5c4d8ea4",
+  "t": "Nie można wykonać operacji. Spróbuj ponownie."
+ },
+ {
+  "key": "misc.sb8594256",
+  "t": "Wykryto dysk docelowy "
+ },
+ {
+  "key": "misc.s8478a7da",
+  "t": "\\r\\nCzy kontynuować?"
+ },
+ {
+  "key": "misc.s5d87ae03",
+  "t": "Zastosuj obraz — wykrywanie zamontowania dysku docelowego"
+ },
+ {
+  "key": "misc.se4a927da",
+  "t": "Zaznaczono tryb kompresji WIMBoot / WindowsToGo / Compact.\\r\\n"
+ },
+ {
+  "key": "misc.s01a2ddb2",
+  "t": "W tych trybach po uruchomieniu możliwości wstrzykiwania sterowników są ograniczone. Zaleca się podanie tutaj dodatkowego katalogu ze sterownikami (zawierającego pliki .inf).\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.sa5fa8682",
+  "t": "Czy chcesz wstrzyknąć dodatkowy katalog ze sterownikami?\\r\\n"
+ },
+ {
+  "key": "misc.s7cd02573",
+  "t": "Zastosuj obraz — zalecenie dotyczące wstrzykiwania sterowników"
+ },
+ {
+  "key": "misc.s3475cdac",
+  "t": "Wybierz katalog ze sterownikami (zawierający pliki .inf)"
+ },
+ {
+  "key": "misc.se8b0a64d",
+  "t": "Tryb zbiorczy"
+ },
+ {
+  "key": "misc.s67572047",
+  "t": "Po zaznaczeniu poniższe łącza będą wykonywane zbiorczo wg listy"
+ },
+ {
+  "key": "misc.s648e8fa2",
+  "t": "Wybrany indeks: "
+ },
+ {
+  "key": "misc.sc66e5d00",
+  "t": "Nie można usunąć wszystkich indeksów obrazu (łącznie %d indeksów). Należy zachować co najmniej jeden."
+ },
+ {
+  "key": "misc.sa94eaf75",
+  "t": "Zbiorcze usunięcie %d indeksów:\\r\\n"
+ },
+ {
+  "key": "misc.s46e3ae77",
+  "t": "Następujące indeksy są jednocześnie ustawione jako rozruchowe: %s\\r\\n%s"
+ },
+ {
+  "key": "misc.s017f1701",
+  "t": "Katalog/nazwa pliku są zbyt długie (>31 znaków): "
+ },
+ {
+  "key": "misc.sd82b6f0d",
+  "t": "Brak prawidłowej krótkiej nazwy 8.3 (zawiera spacje/chińskie znaki): "
+ },
+ {
+  "key": "misc.s95f4e82c",
+  "t": "Wykryto podkatalog \\\\efi w katalogu źródłowym, a na tym komputerze dostępne są jednocześnie pliki etfsboot.com i efisys.bin.\\r\\n"
+ },
+ {
+  "key": "misc.s664bc807",
+  "t": "Automatycznie wygenerowano parametry 【podwójnego rozruchu BIOS + UEFI】. Wygenerowany obraz ISO jest dostępny w obu trybach uruchamiania.\\r\\n"
+ },
+ {
+  "key": "misc.s3c4e2da7",
+  "t": "Jeśli UEFI nie jest potrzebny, anuluj.\\r\\n"
+ },
+ {
+  "key": "misc.sc33ebf22",
+  "t": "Generowanie ISO — wykrywanie podwójnego rozruchu"
+ },
+ {
+  "key": "misc.s74b29a96",
+  "t": "Długość ścieżki źródłowej wynosi %d znaków, co przekracza limit zapisu ISO9660 (65535)"
+ },
+ {
+  "key": "misc.s37bd0391",
+  "t": "Poniższe katalogi/nazwy plików mogą naruszać ograniczenia nazewnictwa ISO9660:\\r\\n\\r\\n"
+ },
+ {
+  "key": "misc.se841b7fd",
+  "t": "... oraz %d innych pozycji\\r\\n"
+ },
+ {
+  "key": "misc.s50b9bd18",
+  "t": "\\r\\nNiektóre nośniki lub narzędzia mogą nie odczytać wygenerowanego obrazu ISO.\\r\\nCzy kontynuować?"
+ },
+ {
+  "key": "misc.s5d3ee152",
+  "t": "Ostrzeżenie o ograniczeniach nazewnictwa ISO9660"
+ },
+ {
+  "key": "misc.seb9a44d7",
+  "t": "Błąd"
+ },
+ {
+  "key": "misc.s1adeb99e",
+  "t": "W pliku Data.xml brakuje węzłów SystemOptimization / CleanCollection4 — może to być oryginalna wersja nadrzędna, a nie wersja dostosowana w tym projekcie:"
+ }
+]

@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <!-- [PORTABLE] 单文件便携配置：DuiLib 以静态库链入，不产生/不依赖 DuiLib.dll -->
+    <ProjectConfiguration Include="SRelease|x64">
+      <Configuration>SRelease</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A3B4C5D6-7E8F-9A0B-C1D2-E3F4A5B6C7D8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Win8Metro</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <!-- [PORTABLE] 与 Release|x64 完全一致，差异仅在链接期（见下方 ItemDefinitionGroup） -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  
+  
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\bin64\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IntDir>$(ProjectDir)..\..\temp\Win8Metro\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)..\..\temp\Win8Metro\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\bin64\</OutDir>
+  </PropertyGroup>
+  <!-- [PORTABLE] 与 Release|x64 相同：产物同为 bin64\Win8Metro.exe；IntDir 已含 $(Configuration)，不会与 Release 的中间文件互相污染 -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)..\..\temp\Win8Metro\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\bin64\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\DuiLib;$(ProjectDir)..\..\DuiLib\Utils;$(ProjectDir)..\wimgapi\include;$(ProjectDir)..\ThemeManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4091;4819;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\$(Platform)\;$(SolutionDir)Bin\$(Platform)\;$(ProjectDir)..\..\bin64\amd64\;$(ProjectDir)..\..\bin64\;$(ProjectDir)..\wimgapi\lib\$(PlatformShortName);$(ProjectDir)..\..\rust\dismcore\target\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DuiLib_d.lib;delayimp.lib;vssapi.lib;runtimeobject.lib;duilibcalc.dll.lib;ThemeManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <!-- DuiLib_d.dll 延迟加载：依赖统一存放于 bin64\amd64，由 Win8Metro.cpp 的 delayimp 通知 hook 按绝对路径定位 -->
+      <DelayLoadDLLs>DuiLib_d.dll;duilibcalc.dll</DelayLoadDLLs>
+      <!-- [R-B87] wimgapi 零导入：手工 IAT（LoadLibrary+GetProcAddress），不链接 wimgapi.lib -->
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\DuiLib;$(ProjectDir)..\..\DuiLib\Utils;$(ProjectDir)..\wimgapi\include;$(ProjectDir)..\ThemeManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4091;4819;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\$(Platform)\;$(SolutionDir)Bin\$(Platform)\;$(ProjectDir)..\..\bin64\amd64\;$(ProjectDir)..\..\bin64\;$(ProjectDir)..\wimgapi\lib\$(PlatformShortName);$(ProjectDir)..\..\rust\dismcore\target\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DuiLib.lib;delayimp.lib;vssapi.lib;runtimeobject.lib;crypt32.lib;duilibcalc.dll.lib;ThemeManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <!-- DuiLib.dll 延迟加载：依赖统一存放于 bin64\amd64，由 Win8Metro.cpp 的 delayimp 通知 hook 按绝对路径定位 -->
+      <DelayLoadDLLs>DuiLib.dll;duilibcalc.dll</DelayLoadDLLs>
+      <!-- [R-B87] wimgapi 零导入：手工 IAT（LoadLibrary+GetProcAddress），不链接 wimgapi.lib -->
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- [PORTABLE] SRelease|x64：逐项复制 Release|x64，只做静态链接必需的最小差异：
+       1) ClCompile 追加 UILIB_STATIC —— 消费者必须定义，否则 UIlib.h/UIDefine.h 走
+          __declspec(dllimport) 分支，链静态库时全部 unresolved external；
+       2) Link 依赖 DuiLib.lib -> DuiLib_static.lib（不再捡 bin64\amd64 下的旧导入库）；
+       3) Link 追加 lib\Static\x64 搜索路径（DuiLib SRelease 的 OutDir）；
+       4) DelayLoadDLLs 只保留 duilibcalc.dll，去掉 DuiLib.dll；
+       5) 追加 oleacc.lib / UIAutomationCore.lib：DuiLib 的 Utils\UIAutomation.cpp 用到
+          LresultFromObject 与 UiaReturnRawElementProvider，这两个库原先只写在
+          DuiLib.vcxproj 的 <Link> 里；静态库没有链接步骤，该设置不会传递给消费者，
+          必须由 exe 自己链，否则 LNK2019。 -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\DuiLib;$(ProjectDir)..\..\DuiLib\Utils;$(ProjectDir)..\wimgapi\include;$(ProjectDir)..\ThemeManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;UILIB_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4091;4819;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\$(Platform)\;$(SolutionDir)Bin\$(Platform)\;$(ProjectDir)..\..\bin64\amd64\;$(ProjectDir)..\..\bin64\;$(ProjectDir)..\wimgapi\lib\$(PlatformShortName);$(ProjectDir)..\..\rust\dismcore\target\release;$(SolutionDir)lib\Static\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DuiLib_static.lib;delayimp.lib;vssapi.lib;runtimeobject.lib;crypt32.lib;oleacc.lib;UIAutomationCore.lib;duilibcalc.dll.lib;ThemeManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <!-- 静态链接：DuiLib 已在 exe 内，运行期只剩 duilibcalc.dll 需要延迟加载定位 -->
+      <DelayLoadDLLs>duilibcalc.dll</DelayLoadDLLs>
+      <!-- [R-B87] wimgapi 零导入：手工 IAT（LoadLibrary+GetProcAddress），不链接 wimgapi.lib -->
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\bin\skin\Win8Metro\Main.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\bin\skin\Win8Metro\ToolDialog.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DismCore_SelfTest_Runtime.h" />
+    <ClInclude Include="CleanEngine.h" />
+    <ClInclude Include="ConfigReader.h" />
+    <ClInclude Include="DataEngine.h" />
+    <ClInclude Include="FrameWnd.h" />
+    <ClInclude Include="FrameWnd_Messages.h" />
+    <ClInclude Include="HostInterfaces.h" />
+    <ClInclude Include="HostExports.h" />
+    <ClInclude Include="ActivationKitClient.h" />
+    <ClInclude Include="ProcessJob.h" />
+    <ClInclude Include="FrameWnd_ErrorMap.h" />
+    <ClInclude Include="FrameWnd_Util.h" />
+    <ClInclude Include="FrameWnd_Menu.h" />
+  <ClInclude Include="FrameWnd_UiHelpers.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SystemInfoService.h" />
+    <ClInclude Include="GeometryDump.h" />
+    <ClInclude Include="CommandLineService.h" />
+    <ClInclude Include="UpdPhaseRelay.h" />
+    <ClInclude Include="MountLedgerService.h" />
+    <ClInclude Include="CBSHostApi.h" />
+    <ClInclude Include="CbsHostClient.h" />
+    <ClInclude Include="NCleanerClient.h" />
+    <ClInclude Include="OfflineCbsService.h" />
+    <ClInclude Include="OfflineCbsSessionService.h" />
+    <ClInclude Include="WofUncompactJob.h" />
+    <ClInclude Include="UpdateMetaService.h" />
+    <ClInclude Include="DependencyGraphService.h" />
+    <ClInclude Include="ToolDependencyTable.h" />
+    <ClInclude Include="Win32DialogService.h" />
+    <ClInclude Include="DiagnosticsService.h" />
+    <ClInclude Include="LogService.h" />
+    <ClInclude Include="EsdDecryptor.h" />
+    <ClInclude Include="PageBase.h" />
+    <ClInclude Include="IPageHost.h" />
+    <ClInclude Include="PageHost.h" />
+    <ClInclude Include="CustomControls.h" />
+    <ClInclude Include="Page_Unattend.h" />
+    <ClInclude Include="Page_Tasks.h" />
+    <ClInclude Include="Page_Assoc.h" />
+    <ClInclude Include="Page_Program.h" />
+    <ClInclude Include="ProgramCacheService.h" />
+    <ClInclude Include="Page_Startup.h" />
+    <ClInclude Include="Page_Appx.h" />
+    <ClInclude Include="AppxSmartFilter.h" />
+    <ClInclude Include="DwmTheme.h" />
+    <ClInclude Include="ThemeTokens.h" />
+    <ClInclude Include="ThemePickerWnd.h" />
+    <ClInclude Include="FontSupport.h" />
+    <ClInclude Include="UiSnapshot.h" />
+    <ClInclude Include="Page_Capability.h" />
+    <ClInclude Include="Page_Update.h" />
+    <ClInclude Include="AppxCapUpdService.h" />
+    <ClInclude Include="AppxDeployService.h" />
+    <ClInclude Include="DriverService.h" />
+    <ClInclude Include="Page_Driver.h" />
+    <ClInclude Include="FeatureService.h" />
+    <ClInclude Include="SeedCache.h" />
+    <ClInclude Include="SeedStamp.h" />
+    <ClInclude Include="Bench.h" />
+    <ClInclude Include="Page_Feature.h" />
+    <ClInclude Include="Page_Tools.h" />
+    <ClInclude Include="Page_Cleanup.h" />
+    <ClInclude Include="VssNativeService.h" />
+    <ClInclude Include="CleanNativePrimitives.h" />
+    <ClInclude Include="MsgParam.h" />
+    <ClInclude Include="OptimScopeColumns.h" />
+    <ClInclude Include="Page_Optim.h" />
+    <ClInclude Include="Page_OptimInternal.h" />
+    <ClInclude Include="ExternalToolService.h" />
+    <ClInclude Include="CleanJobService.h" />
+    <ClInclude Include="StartupService.h" />
+    <ClInclude Include="Registry.h" />
+    <ClInclude Include="AssocService.h" />
+    <ClInclude Include="IntlService.h" />
+    <ClInclude Include="ControlService.h" />
+    <ClInclude Include="ProgramService.h" />
+    <ClInclude Include="ProcessRunner.h" />
+    <ClInclude Include="ScheduleTaskService.h" />
+    <ClInclude Include="StringManager.h" />
+    <ClInclude Include="ToolDialogPage.h" />
+    <ClInclude Include="ToolService\ToolTypes.h" />
+    <ClInclude Include="ToolService\IToolServiceHost.h" />
+    <ClInclude Include="ToolService\IToolService.h" />
+    <ClInclude Include="ToolService\ToolServiceFactory.h" />
+    <ClInclude Include="ToolService\LogDepGraphService.h" />
+    <ClInclude Include="ToolService\ListService.h" />
+    <ClInclude Include="ToolService\ConfirmService.h" />
+    <ClInclude Include="ToolService\IsoMount.h" />
+    <ClInclude Include="ToolService\IIsoImageService.h" />
+    <ClInclude Include="ToolService\WizDiskPart.h" />
+    <ClInclude Include="ToolService\IWizardService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Page_Control.h" />
+    <ClInclude Include="Page_Intl.h" />
+    <ClInclude Include="Page_Welcome.h" />
+    <ClInclude Include="WelcomeService.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="RegCleanRule.h" />
+    <ClInclude Include="RegCleanEngine.h" />
+    <ClInclude Include="RegCleanJobService.h" />
+    <ClInclude Include="CleanExtend.h" />
+    <ClInclude Include="Page_RegClean.h" />
+    <ClInclude Include="IsoWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CleanEngine.cpp" />
+    <ClCompile Include="DismCore_SelfTest.cpp" />
+    <ClCompile Include="DismCore_SelfTest_Runtime.cpp" />
+    <ClCompile Include="BenchEnum.cpp" />
+    <ClCompile Include="BenchRender.cpp" />
+    <ClCompile Include="BenchSeed.cpp" />
+    <ClCompile Include="BenchProbe.cpp" />
+    <ClCompile Include="ConfigReader.cpp" />
+    <ClCompile Include="DataEngine.cpp" />
+    <ClCompile Include="DataEngine_Reg.cpp" />
+    <ClCompile Include="DataEngine_File.cpp" />
+    <ClCompile Include="DataEngine_Sys.cpp" />
+    <ClCompile Include="OfflineSession.cpp" />
+    <ClCompile Include="Page_Cleanup_Build.cpp" />
+    <ClCompile Include="Page_Cleanup_Report.cpp" />
+    <ClCompile Include="Page_Cleanup_Diag.cpp" />
+    <ClCompile Include="FrameWnd.cpp" />
+    <ClCompile Include="FrameWnd_ErrorMap.cpp" />
+    <ClCompile Include="FrameWnd_PageMsg.cpp" />
+    <ClCompile Include="FrameWnd_SysMsg.cpp" />
+    <ClCompile Include="FrameWnd_Util.cpp" />
+    <ClCompile Include="FrameWnd_Menu.cpp" />
+    <ClCompile Include="PageHost.cpp" />
+    <ClCompile Include="HostExports.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  <ClCompile Include="FrameWnd_UiHelpers.cpp" />
+    <ClCompile Include="Page_Unattend.cpp" />
+    <ClCompile Include="Page_UnattendApply.cpp" />
+    <ClCompile Include="Page_UnattendIbs.cpp" />
+    <ClCompile Include="Page_UnattendIbs_Report.cpp" />
+    <ClCompile Include="Page_UnattendXml.cpp" />
+    <ClCompile Include="Page_UnattendSysprep.cpp" />
+    <ClCompile Include="Page_Tasks.cpp" />
+    <ClCompile Include="Page_Assoc.cpp" />
+    <ClCompile Include="Page_AssocBuild.cpp" />
+    <ClCompile Include="Page_AssocRender.cpp" />
+    <ClCompile Include="Page_AssocActions.cpp" />
+    <ClCompile Include="Page_AssocMenu.cpp" />
+    <ClCompile Include="Page_Program.cpp" />
+    <ClCompile Include="ProgramCacheService.cpp" />
+    <ClCompile Include="Page_Startup.cpp" />
+  <ClCompile Include="Page_StartupService.cpp" />
+  <ClCompile Include="Page_ProgramBuild.cpp" />
+    <ClCompile Include="Page_Appx.cpp" />
+    <ClCompile Include="Page_AppxDel.cpp" />
+    <ClCompile Include="Page_AppxDeploy.cpp" />
+    <ClCompile Include="Page_AppxCtx.cpp" />
+    <ClCompile Include="Page_AppxLog.cpp" />
+    <ClCompile Include="Page_Capability.cpp" />
+    <ClCompile Include="Page_CapabilityTimers.cpp" />
+    <ClCompile Include="Page_CapabilityActions.cpp" />
+  <ClCompile Include="Page_CapabilityResolve.cpp" />
+  <!-- [R200] 应用包中文映射（Win10/Win11 分级）+ 智能筛选 -->
+  <ClCompile Include="AppxSmartFilter.cpp" />
+  <!-- [R201] Win11 视觉适配（圆角/Mica/强调色），Win10 上逐项降级 -->
+  <ClCompile Include="DwmTheme.cpp" />
+  <!-- [R201] 颜色令牌：强调色运行期查表，替代写死的 #007ACC -->
+  <ClCompile Include="ThemeTokens.cpp" />
+  <ClCompile Include="ThemePickerWnd.cpp" />
+  <ClCompile Include="ThemeService.cpp" />
+  <!-- [R201] 字体族探测：修正 XML 设计名与本机实际字体不一致 -->
+  <ClCompile Include="FontSupport.cpp" />
+  <!-- [R209] 界面离屏渲染：像素级验收导出 PNG -->
+  <ClCompile Include="UiSnapshot.cpp" />
+  <ClCompile Include="Page_CapabilityBuild.cpp" />
+  <ClCompile Include="Page_CapabilityCopy.cpp" />
+    <ClCompile Include="Page_Update.cpp" />
+    <ClCompile Include="Page_UpdateLocalPkg.cpp" />
+    <ClCompile Include="Page_UpdatePhase.cpp" />
+    <ClCompile Include="Page_UpdateRender.cpp" />
+    <ClCompile Include="Page_UpdateButtons.cpp" />
+    <ClCompile Include="Page_UpdatePolicy.cpp" />
+    <ClCompile Include="Page_UpdateCbs.cpp" />
+    <ClCompile Include="Page_UpdateShell.cpp" />
+    <ClCompile Include="Page_UpdateScan.cpp" />
+    <ClCompile Include="Page_Driver.cpp" />
+  <ClCompile Include="Page_DriverDetail.cpp" />
+  <ClCompile Include="Page_DriverProbe.cpp" />
+  <ClCompile Include="Page_DriverAsync.cpp" />
+  <ClCompile Include="Page_DriverMenu.cpp" />
+  <ClCompile Include="Page_DriverScan.cpp" />
+    <ClCompile Include="Page_Feature.cpp" />
+    <ClCompile Include="Page_FeatureInteraction.cpp" />
+    <ClCompile Include="Page_FeatureAgg.cpp" />
+    <ClCompile Include="Page_FeatureMenu.cpp" />
+    <ClCompile Include="Page_FeatureApply.cpp" />
+    <ClCompile Include="Page_FeatureRender.cpp" />
+    <ClCompile Include="Page_Tools.cpp" />
+    <ClCompile Include="Page_ToolsCg.cpp" />
+    <ClCompile Include="Page_ToolsCgAccount.cpp" />
+    <ClCompile Include="Page_ToolsCardsGlyph.cpp" />
+    <ClCompile Include="Page_ToolsWimOps.cpp" />
+    <ClCompile Include="Page_ToolsDirs.cpp" />
+    <ClCompile Include="Page_ToolsShell.cpp" />
+    <ClCompile Include="Page_ToolsDism.cpp" />
+    <ClCompile Include="Page_ToolsBuild.cpp" />
+    <ClCompile Include="Page_ToolsImage.cpp" />
+    <ClCompile Include="Page_ToolsItems.cpp" />
+    <ClCompile Include="Page_ToolsHostsTpl.cpp" />
+    <ClCompile Include="Page_ToolsHostsIO.cpp" />
+    <ClCompile Include="Page_ToolsCards_Build.cpp" />
+    <ClCompile Include="Page_ToolsWin11Prep.cpp" />
+    <ClCompile Include="IsoWriter.cpp" />
+    <ClCompile Include="AppxRuntimeBridge.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WofCompact.cpp" />
+    <ClCompile Include="..\..\DuiLib\Utils\unzip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings>4996;4267;4244;4091;4819;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="Page_Cleanup.cpp" />
+    <ClCompile Include="Page_CleanupExtend.cpp" />
+    <ClCompile Include="Page_CleanupOps.cpp" />
+    <ClCompile Include="Page_CleanupSelect.cpp" />
+    <ClCompile Include="Page_CleanupOc.cpp" />
+    <ClCompile Include="Page_CleanupTail.cpp" />
+    <ClCompile Include="Page_Optim.cpp" />
+    <ClCompile Include="Page_OptimOcm.cpp" />
+    <ClCompile Include="Page_OptimUndo.cpp" />
+    <ClCompile Include="Page_OptimSwitch.cpp" />
+    <ClCompile Include="Page_OptimExport.cpp" />
+    <ClCompile Include="Page_OptimExec.cpp" />
+    <ClCompile Include="Page_OptimBuild.cpp" />
+    <ClCompile Include="ExternalToolService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CleanJobService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Registry.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ControlService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="IntlService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AssocService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ProgramService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AppxCapUpdService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AppxCapUpdService_Install.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AppxDeployService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RegCleanEngine.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RegCleanJobService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CleanExtend.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Page_RegClean.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DriverService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="FeatureService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SeedStamp.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SeedCache.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StartupService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ProcessJob.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ProcessRunner.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ExternalCmdLedger.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Page_Control.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Page_Intl.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Page_Welcome.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WelcomeService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ScheduleTaskService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringManager.cpp" />
+    <ClCompile Include="SystemInfoService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="GeometryDump.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CommandLineService.cpp" />
+    <ClCompile Include="UpdPhaseRelay.cpp" />
+    <ClCompile Include="MountLedgerService.cpp" />
+    <ClCompile Include="Win32DialogService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DiagnosticsService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="LogService.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+        <ClCompile Include="WIMHelperBridge.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DismApiBridge.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WIMHelper.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EsdDecryptor.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+<ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SRelease|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolDialogPage.cpp" />
+    <ClCompile Include="ToolDlgBuild_Image.cpp" />
+    <ClCompile Include="ToolDlgBuild_ImageX.cpp" />
+    <ClCompile Include="ToolDlgBuild_Iso.cpp" />
+    <ClCompile Include="ToolDlgBuild_List.cpp" />
+    <ClCompile Include="ToolDlgBuild_Dlg.cpp" />
+    <ClCompile Include="ToolDlgBuild_Mount.cpp" />
+    <ClCompile Include="ToolDlgBuild_Jobs.cpp" />
+    <ClCompile Include="ToolService\ToolServiceFactory.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\LogDepGraphService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\ListService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\ConfirmService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\IsoMount.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\IsoImageService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\WizDiskPart.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolService\WizardService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Win8Metro.cpp" />
+    <ClCompile Include="CbsHostClient.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="NCleanerClient.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ActivationKitClient.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="OfflineCbsService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="OfflineCbsSessionService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WofUncompactJob.cpp" />
+    <ClCompile Include="UpdateMetaService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DependencyGraphService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VssNativeService.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+
+    <ClCompile Include="CleanNativePrimitives.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Win8Metro.rc" />
+  </ItemGroup>
+  <!-- 构建顺序引用：仅让 MSBuild 自动先构建 DuiLib 与卫星 DLL（NCleaner/CBSHost/ActivationKit），
+       不改变现有 lib/delay-load 链接方式；卫星 DLL 由客户端运行期 LoadLibrary 加载 -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\DuiLib\DuiLib.vcxproj">
+      <Project>{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NCleaner\NCleaner.vcxproj">
+      <Project>{C8D3E5F2-9A4B-5C7D-AE6F-3B2A8C9D4E05}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\CBSHost\CBSHost.vcxproj">
+      <Project>{B7C2D4E1-8F3A-4B6C-9D5E-2A1F7B8C3D04}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\ActivationKit\ActivationKit.vcxproj">
+      <Project>{B7E4D6A1-2C5F-48E9-9D3A-6F1B0C8E5A72}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- Rust dismcore (duilibcalc.dll) 部署：链接使用导入库，运行时 DLL 必须与 exe 同目录/在 bin64，
+       否则新增 FFI 导出会在启动时报“无法定位程序输入点”。每次构建后同步 release DLL。 -->
+  <Target Name="DeployDismCoreRuntime" AfterTargets="Build">
+    <PropertyGroup>
+      <DismCoreDllPath>$(ProjectDir)../../rust/dismcore/target/release/duilibcalc.dll</DismCoreDllPath>
+      <DismCoreDstDir>$(ProjectDir)../../bin64/amd64</DismCoreDstDir>
+    </PropertyGroup>
+    <Error Text="Rust runtime duilibcalc.dll 未找到，请先执行 cargo build --release" Condition="!Exists('$(DismCoreDllPath)')" />
+    <Copy SourceFiles="$(DismCoreDllPath)" DestinationFolder="$(DismCoreDstDir)" SkipUnchangedFiles="true" />
+  </Target>
+  <!-- [MIG] Deploy the framework runtime DLL that matches this configuration.
+       Win8Metro delay-loads DuiLib.dll / DuiLib_d.dll from <exe>\amd64\, and the
+       loader hook in Win8Metro.cpp only searches there and <exe>\. Without this copy
+       the Debug binary aborts before WinMain with "cannot find DuiLib_d.dll". -->
+  <Target Name="DeployFrameworkRuntime" AfterTargets="Build">
+    <PropertyGroup>
+      <FrameworkDllName Condition="'$(Configuration)'=='Debug'">DuiLib_d.dll</FrameworkDllName>
+      <FrameworkDllName Condition="'$(Configuration)'!='Debug'">DuiLib.dll</FrameworkDllName>
+      <FrameworkDllSrc>$(SolutionDir)Bin\$(Platform)\$(FrameworkDllName)</FrameworkDllSrc>
+      <FrameworkDllDst>$(ProjectDir)..\..\bin64\amd64</FrameworkDllDst>
+    </PropertyGroup>
+    <!-- [PORTABLE-FIX 2026-11-01] 解决方案的 SRelease/SDebug 配置把 DuiLib 编译为
+         静态库（ConfigurationType=StaticLibrary），此时 Bin\<Platform>\ 下根本不会
+         产生 DuiLib.dll，原先的 Error 会让便携版构建必然失败。
+         改为：DLL 存在才复制；不存在只告警——静态链接下运行时本就不需要它。
+         真正的 DLL 缺失（Release/Debug 配置忘了先编 DuiLib）仍由告警暴露。 -->
+    <Warning Text="[MIG] 框架运行时 $(FrameworkDllName) 未找到（$(Configuration)|$(Platform)）：若本次为 S* 静态配置则属正常，DuiLib 已静态链接；否则请先构建 DuiLib\DuiLib.vcxproj"
+             Condition="!Exists('$(FrameworkDllSrc)')" />
+    <Copy SourceFiles="$(FrameworkDllSrc)" DestinationFolder="$(FrameworkDllDst)" SkipUnchangedFiles="true"
+          Condition="Exists('$(FrameworkDllSrc)')" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

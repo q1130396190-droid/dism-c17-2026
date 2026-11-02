@@ -1,0 +1,98 @@
+err.s340ca71c	A rendszerösszetevők megsérültek. Futtassa először a „Rendszertisztítás" parancsot, majd próbálja újra.
+err.sffc664ba	Az aktuális összetevő-művelet befejeződött, nem kell újra végrehajtani.
+err.s59824f81	Az összetevőtároló inkonzisztens. Indítsa újra, majd próbálja újra.
+err.s5e8495f7	A összetevő-információk nem találhatók. Próbálja meg a „Rendszervisszaállítás" parancsot.
+err.s7ea654ef	A szolgáltatás nem indult el. Győződjön meg arról, hogy a Windows Update szolgáltatás engedélyezve van.
+err.s87aae048	A Windows Update szolgáltatás nem érhető el. Próbálja meg később.
+err.s90bd8562	Ütközés történt a frissítési munkamenetben. Zárja be a többi frissítő programot, majd próbálja újra.
+err.s91bd86f5	A frissítési munkamenet foglalt. Próbálja meg később.
+err.s3d9f3cff	A Windows Update összetevői hiányoznak. Engedélyezze a kapcsolódó funkciókat.
+err.sc27d201f	Egy másik Windows frissítési folyamat fut. Próbálja meg később.
+err.sa4db77af	A művelet sikeres, a rendszer újraindítása szükséges a módosítások befejezéséhez.
+err.s2147cf80	Az összetevők megsérültek, a javítás előkészítése folyamatban van. Kérjük, legyen türelmes.
+err.s2247d113	A rendszer újraindítása szükséges az összetevőjavítás alkalmazásához.
+err.s300ca0d0	Nem elegendő jogosultság. Kattintson jobb gombbal, és válassza a „Futtatás rendszergazdaként" lehetőséget.
+err.s85f04e50	A fájl foglalt. Zárja be a kapcsolódó programot, majd próbálja újra.
+err.s909267c0	Az illesztőprogram vagy a szolgáltatás nem töltődött be megfelelően.
+err.s7485f186	Az illesztőprogram-aláírás ellenőrzése sikertelen, az illesztőprogram kihagyásra került.
+err.se5561e45	Az illesztőprogram nem rendelkezik Windows minősítéssel, kihagyásra került.
+err.s19eb271e	Az elérési út meghaladja a maximális hosszt. Rövidítse le a célfájl nevét.
+err.s8ef29b12	Az elérési út nem található. Ellenőrizze, hogy a mappa létezik-e.
+err.s8ae14ba5	A mappa nem létezik. Ellenőrizze az elérési utat.
+err.s1ae8ea1a	A megadott eszköz nem létezik.
+err.s8be5ca66	A mappa bejegyzése nem helyezhető át, valószínűleg foglalt.
+err.s0cfe9a5f	Nincs elegendő lemezterület. Tisztítsa meg, majd próbálja újra.
+err.s7e2cbb3f	A Windows Installer nincs telepítve.
+err.s851ffa51	A fájl már létezik, nem hozható létre.
+err.sd12c606d	A frissítési összetevőtároló megsérült. Futtassa az sfc parancsot, majd próbálja újra.
+err.s13d5736f	A hálózati kérés sikertelen. Ellenőrizze a hálózatot, majd próbálja újra.
+err.s5c0c2074	A WUA általános hibát adott vissza. Tekintse meg a hibadetálokat.
+err.seb83b485	Az összetevőtároló inkonzisztens. Indítsa újra, majd futtassa az sfc /scannow parancsot.
+err.s8cec80ba	Az összetevőtároló inkonzisztens. Indítsa újra, majd próbálja újra.
+err.s8aeebc2b	A összetevő-információk nem találhatók.
+err.s11f1cf47	Nincs megfelelő összetevő, kihagyás.
+err.s3725e88e	Az összetevőtároló megsérült. Futtassa az sfc /scannow parancsot.
+err.s3525e568	Az összetevőtároló megsérült (verzió-eltérés).
+err.s3425e3d5	Az összetevőtároló újraépítése szükséges. Futtassa az sfc /scannow parancsot.
+err.s3325e242	Az összetevőtároló újraépítése szükséges. Futtassa az sfc /scannow parancsot.
+err.sb622dee4	Az összetevőtároló megsérült és inkonzisztens.
+err.sb722e077	Az összetevőtároló inkonzisztens (újraépítés szükséges).
+err.sb822e20a	Az összetevőtároló inkonzisztens (újraépítés szükséges).
+err.sb422dbbe	A Windows javítást igényel. Futtassa az sfc /scannow parancsot.
+err.sb522dd51	A Windows javítást igényel.
+err.sae22d24c	A Windows javítást igényel. Futtassa az sfc /scannow parancsot.
+err.saf22d3df	A Windows javítást igényel.
+err.s282a4e1f	A Windows javítást igényel.
+err.s272a4c8c	A Windows javítást igényel.
+err.s2a2a5145	A Windows javítást igényel.
+err.s292a4fb2	A Windows javítást igényel.
+err.s242a47d3	A Windows javítást igényel.
+err.s232a4640	A Windows javítást igényel.
+err.s262a4af9	A Windows javítást igényel.
+err.s252a4966	A Windows javítást igényel.
+err.s302a5ab7	A Windows javítást igényel.
+err.s2f2a5924	A Windows javítást igényel.
+err.s22280616	A Windows javítást igényel.
+err.s3a734fab	A pnputil nem ismeri fel az illesztőprogramcsomagot.
+err.s39734e18	A pnputil illesztőprogramcsomag megsérült.
+err.sc06bd3d8	A pnputil illesztőprogramcsomag használatban van. Próbálja meg később.
+err.sc16bd56b	A pnputil illesztőprogramcsomag nincs telepítve.
+err.s8a8de120	A szolgáltatás nem fut.
+err.s96927132	A szolgáltatás nem indult el. Indítsa el először a Windows Update szolgáltatást.
+err.s92926ae6	A szolgáltatás indítása időtúllépésbe ütközött.
+err.s1c9582bb	Az Appx-csomag nincs telepítve.
+err.s1b958128	Az Appx-csomag megsérült. Javasoljuk az újbóli regisztrációt.
+err.sc853be9b	Általános hiba. Tekintse meg a clean_errors.log részleteit.
+err.sc953c02e	A megadott fájl nem található.
+err.scc53c4e7	Az elérés megtagadva. Kattintson jobb gombbal, és válassza a „Futtatás rendszergazdaként" lehetőséget.
+err.sbf55ef07	A hálózati kérés sikertelen. Ellenőrizze a hálózatot, majd próbálja újra.
+err.sbe607ad0	Nincs elegendő rendszererőforrás.
+err.s9c64c278	A megadott modul nem tölthető be, az összetevő valószínűleg nincs telepítve.
+err.s5c4d8ea4	A művelet nem hajtható végre. Próbálja újra.
+misc.sb8594256	Célmeghajtó észlelve: 
+misc.s8478a7da	\r\nFolytatja?
+misc.s5d87ae03	Lemezkép alkalmazása - célmeghajtó csatlakoztatásának ellenőrzése
+misc.se4a927da	WIMBoot / WindowsToGo / Compact tömörítési mód van bejelölve.\r\n
+misc.s01a2ddb2	Ezekben a módokban az indítás utáni illesztőprogram-beszúrási lehetőség korlátozott. Javasoljuk, hogy itt adjon meg egy további illesztőprogram-mappát (.inf fájlokkal).\r\n\r\n
+misc.sa5fa8682	Szeretne további illesztőprogram-mappát beszúrni?\r\n
+misc.s7cd02573	Lemezkép alkalmazása - illesztőprogram-beszúrási javaslat
+misc.s3475cdac	Illesztőprogram-mappa kiválasztása (.inf fájlokkal)
+misc.se8b0a64d	Tömeges mód
+misc.s67572047	Bejelölés után az alábbi hivatkozások listaszerűen tömegesen futnak
+misc.s648e8fa2	Kiválasztott index:
+misc.sc66e5d00	Nem törölhető az összes lemezképindex (összesen %d index), legalább egyet meg kell tartani.
+misc.sa94eaf75	%d index tömeges törlése:\r\n
+misc.s46e3ae77	A következő indexek egyidejűleg indíthatóvá tétele: %s\r\n%s
+misc.s017f1701	A mappa/fájlnév túl hosszú (>31 karakter): 
+misc.sd82b6f0d	Nincs érvényes 8.3 rövid név (szóköz vagy kínai karakter): 
+misc.s95f4e82c	A forrásmappában \\efi alkönyvtár található, és a számítógépen egyidejűleg rendelkezésre áll az etfsboot.com és az efisys.bin.\r\n
+misc.s664bc807	Automatikusan generálva a [BIOS + UEFI duális rendszerindítás] paraméterek, a létrehozott ISO mindkét indítási módban használható.\r\n
+misc.s3c4e2da7	Ha nem igényel UEFI-t, kérjük, törölje a jelet.\r\n
+misc.sc33ebf22	ISO létrehozása - duális rendszerindítás ellenőrzése
+misc.s74b29a96	A forrás elérési útja %d karakter hosszú, meghaladja az ISO9660 rekordlimitot (65535)
+misc.s37bd0391	A következő mappák/fájlok valószínűleg sértik az ISO9660 elnevezési megkötéseket:\r\n\r\n
+misc.se841b7fd	... és további %d tétel\r\n
+misc.s50b9bd18	\r\nA létrehozott ISO egyes média- vagy eszközökön nem olvasható. Folytatja?
+misc.s5d3ee152	ISO9660 elnevezési megkötés figyelmeztetés
+misc.seb9a44d7	Hiba
+misc.s1adeb99e	A Data.xml fájlból hiányzik a SystemOptimization / CleanCollection4 csomópont, valószínűleg a felső szintű eredeti verzió, nem az e projekt testre szabott változata:

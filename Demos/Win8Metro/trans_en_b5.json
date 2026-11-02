@@ -1,0 +1,18 @@
+[
+{"key":"misc.s86d5c25a","t":"[appx] Resource pack split: main %d, language resource pack %d"},
+{"key":"misc.sb924cc56","t":"[update] Phase status: "},
+{"key":"misc.se7d3c6cf","t":"[update] UpdateInfo.zip already exists, skipping download"},
+{"key":"misc.s04a7b276","t":"[update] UpdateInfo.zip download finished"},
+{"key":"misc.s61c18bf7","t":"[update] UpdateInfo.zip downloaded successfully (%llu bytes)"},
+{"key":"misc.se371b848","t":"[update] UpdateInfo.zip too small, verification failed"},
+{"key":"misc.s3bd36694","t":"[update] UpdateInfo.zip download failed"},
+{"key":"misc.sb25b7011","t":"[update] Download UpdateInfo.zip first"},
+{"key":"misc.s816bfd5c","t":"[update] Invalid phase argument"},
+{"key":"misc.s61631283","t":"[update] Running command: "},
+{"key":"misc.sbfa2e877","t":"[update] Three-phase command sequence finished"},
+{"key":"misc.s683452aa","t":"[update] Three-phase command failed (exit=%lu)"},
+{"key":"misc.se7b24c11","t":"[unattend] Apply-Unattend triggered: %s"},
+{"key":"misc.sc43f80fd","t":"[sysprep] Started: /generalize /oobe /shutdown /quiet"},
+{"key":"misc.sba2797e3","t":"[sysprep] Start failed err=%lu"},
+{"key":"misc.s74621b94","t":"[clean] C:\\ before/after: %llu MB -> %llu MB (disk freed %llu MB, rules reported %llu MB)"}
+]

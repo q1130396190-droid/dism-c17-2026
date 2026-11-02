@@ -1,0 +1,986 @@
+[
+{
+"key": "misc.s794fda41",
+"t": "[clean] Nettoyage lancé : C:\\ %llu Mo restants"
+},
+{
+"key": "misc.sc9baee09",
+"t": " · Événement de démarrage précédent enregistré (6005/12)"
+},
+{
+"key": "misc.s5a23c608",
+"t": " · Estimation de l'heure de démarrage : aucune donnée (consultez les journaux System avec eventvwr.msc)"
+},
+{
+"key": "misc.s80af2be3",
+"t": "Fichiers exécutables (*.exe)\\0*.exe\\0Tous les fichiers (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.se93c7bec",
+"t": "Sélectionnez une page de fonction à gauche ; analysez avant de récupérer de l'espace ; confirmez chaque élément d'optimisation système."
+},
+{
+"key": "misc.s758ec357",
+"t": "── Propriétés de la règle ──\\r\\n"
+},
+{
+"key": "misc.s6000de8e",
+"t": "── Description ──\\r\\n"
+},
+{
+"key": "misc.sa8c26203",
+"t": "\\r\\n── Avertissement ──\\r\\n"
+},
+{
+"key": "misc.s9d4db836",
+"t": "La combinaison « connexion automatique + désactivation de l'UAC » laisse le compte Administrateur intégralement exposé à la connexion automatique, sans protection,\\r\\n"
+},
+{
+"key": "misc.sd09fb8d4",
+"t": "Toute personne ayant un accès physique à la machine peut entrer dans le système.\\r\\n\\r\\n"
+},
+{
+"key": "misc.s27fb951d",
+"t": "boot.wim / boot.esd introuvable dans le même dossier que l'ESD.\\r\\n\\r\\n"
+},
+{
+"key": "misc.sc5acb47d",
+"t": "L'ISO généré ne contiendra pas d'image de démarrage Windows PE :\\r\\n"
+},
+{
+"key": "misc.se604a9a8",
+"t": "  - L'installation montée (mode lecteur optique USB) reste utilisable\\r\\n"
+},
+{
+"key": "misc.s4a226f88",
+"t": "  - Impossible de démarrer/installer depuis USB / CD / lecteur optique\\r\\n\\r\\n"
+},
+{
+"key": "misc.s3902b468",
+"t": "Espace libre insuffisant sur le disque cible %s :\\r\\n"
+},
+{
+"key": "misc.s2404d4fa",
+"t": "  Estimation : environ %lld Mo\\r\\n"
+},
+{
+"key": "misc.s7056d3aa",
+"t": "  Espace actuellement disponible : %lld Mo\\r\\n"
+},
+{
+"key": "misc.s5f1d6a72",
+"t": "\\r\\nContinuer ? (peut échouer)"
+},
+{
+"key": "misc.s78c4c51d",
+"t": "Stratégie de compression (suite) :\\r\\n  « Oui » — Compress:fast (le plus rapide)\\r\\n  « Non » — choisissez none / WIMBoot dans le sous-menu"
+},
+{
+"key": "misc.s4bf7313c",
+"t": "WIMBoot ne s'applique qu'au sens ESD→WIM ; déjà rétabli en Compress:recovery."
+},
+{
+"key": "misc.se28109f4",
+"t": "Espace libre insuffisant sur le disque cible %s :\\r\\n  Estimation : environ %lld Mo\\r\\n  Espace actuellement disponible : %lld Mo\\r\\nContinuer ?"
+},
+{
+"key": "misc.s8028c1bb",
+"t": "msg.exe /W /Q /Y \\\"Conversion terminée, ouvrir le dossier cible ?\\\" N Ouvrir N Annuler O Fermer O\\r\\n"
+},
+{
+"key": "misc.sd7762eca",
+"t": "Éditeur hosts\\n\\n"
+},
+{
+"key": "misc.s41c54ee7",
+"t": "Oui : ouvrir l'éditeur hosts (Notepad, nécessite des droits administrateur)\\n"
+},
+{
+"key": "misc.s6b09afbd",
+"t": "Non : restaurer la dernière sauvegarde\\n"
+},
+{
+"key": "misc.s7a92cd0f",
+"t": "Annuler : vider le cache de résolution DNS (aucune modification)\\n"
+},
+{
+"key": "misc.s4a533876",
+"t": "Aucun fichier de sauvegarde trouvé :\\r\\n%s\\r\\n\\r\\nUne sauvegarde est créée automatiquement avant la modification des hosts."
+},
+{
+"key": "misc.sa412f09e",
+"t": "Restauration des hosts depuis la dernière sauvegarde :\\r\\n%s\\r\\n\\r\\nLes hosts actuels seront sauvegardés puis écrasés. Continuer ?"
+},
+{
+"key": "misc.s64513cc7",
+"t": "Sélectionnez d'abord les programmes à désinstaller en bloc."
+},
+{
+"key": "misc.se24b6a39",
+"t": "Désinstaller les %d programmes sélectionnés ?\\n\\nCette action lancera un à un le désinstallateur de chaque programme ; elle est irréversible."
+},
+{
+"key": "misc.s6e26250f",
+"t": "[désinstallation-en-bloc] Désinstallation lancée : %s"
+},
+{
+"key": "misc.sf4f17c78",
+"t": "[désinstallation-en-bloc] Échec du lancement : %s err=%lu"
+},
+{
+"key": "misc.s4a787ee6",
+"t": "[désinstallation-en-bloc] Terminé : %d réussi / %d échec / %d au total"
+},
+{
+"key": "misc.sbaa793d4",
+"t": "Désinstallation en bloc terminée : %d réussi, %d échec"
+},
+{
+"key": "misc.s6da661b2",
+"t": "Désinstallation en bloc des programmes installés"
+},
+{
+"key": "misc.s86d5c25a",
+"t": "[appx] Séparation des packages de ressources : package principal %d, package de ressources linguistiques %d"
+},
+{
+"key": "misc.sffdd7fa5",
+"t": "Type : Package de ressources linguistiques"
+},
+{
+"key": "misc.s647b719f",
+"t": "Type : Package principal"
+},
+{
+"key": "misc.s1207edb3",
+"t": "Packages Appx/MSIX (*.appx;*.msix;*.appxbundle;*.msixbundle)\\0*.appx;*.msix;*.appxbundle;*.msixbundle\\0Tous les fichiers\\0*.*\\0\\0"
+},
+{
+"key": "misc.sc8059969",
+"t": "Sélectionnez le package d'application à installer"
+},
+{
+"key": "misc.s22dfbca7",
+"t": "Installer le package d'application"
+},
+{
+"key": "misc.s587c8055",
+"t": "Spécifier un dossier de packages de dépendances (Dependencies) ?\\n\\nOui → choisir un dossier\\nNon → installer uniquement le package principal"
+},
+{
+"key": "misc.s8f3077b7",
+"t": "Packages de dépendances"
+},
+{
+"key": "misc.s5c45dab4",
+"t": "Sélectionner le dossier des packages de dépendances"
+},
+{
+"key": "misc.s277edf57",
+"t": "Installé %d/%d éléments · Dépendances : requises %d / facultatives %d"
+},
+{
+"key": "misc.sf0890286",
+"t": "Aucune donnée"
+},
+{
+"key": "misc.sf7055e44",
+"t": "⚠ Liste noire :"
+},
+{
+"key": "misc.s34be29d1",
+"t": "[upd][WSUS] Correspondance dans la liste noire %s (%s)"
+},
+{
+"key": "misc.se7ee5701",
+"t": "Inactif"
+},
+{
+"key": "misc.s4ed23304",
+"t": "Préparation"
+},
+{
+"key": "misc.scdfbdf63",
+"t": "Téléchargement"
+},
+{
+"key": "misc.s77ea511e",
+"t": "Vérification"
+},
+{
+"key": "misc.sf23d3062",
+"t": "Installation"
+},
+{
+"key": "misc.s8ab41417",
+"t": "Restauration arrière"
+},
+{
+"key": "misc.s35d25224",
+"t": "Terminé"
+},
+{
+"key": "misc.se1d65341",
+"t": "Verrou exclusif CBS"
+},
+{
+"key": "misc.sb924cc56",
+"t": "[mise à jour] État de la phase :"
+},
+{
+"key": "misc.se7d3c6cf",
+"t": "[mise à jour] UpdateInfo.zip existe déjà, téléchargement ignoré"
+},
+{
+"key": "misc.s04a7b276",
+"t": "[mise à jour] Téléchargement d'UpdateInfo.zip terminé"
+},
+{
+"key": "misc.s61c18bf7",
+"t": "[mise à jour] UpdateInfo.zip téléchargé avec succès (%llu octets)"
+},
+{
+"key": "misc.se371b848",
+"t": "[mise à jour] Fichier UpdateInfo.zip trop petit, échec de la vérification"
+},
+{
+"key": "misc.s3bd36694",
+"t": "[mise à jour] Échec du téléchargement d'UpdateInfo.zip"
+},
+{
+"key": "misc.sb25b7011",
+"t": "[mise à jour] Téléchargez d'abord UpdateInfo.zip"
+},
+{
+"key": "misc.s816bfd5c",
+"t": "[mise à jour] Argument de phase invalide"
+},
+{
+"key": "misc.s61631283",
+"t": "[mise à jour] Exécution de la commande :"
+},
+{
+"key": "misc.sbfa2e877",
+"t": "[mise à jour] Séquence de commandes en trois phases terminée"
+},
+{
+"key": "misc.s683452aa",
+"t": "[mise à jour] Échec de la séquence en trois phases (exit=%lu)"
+},
+{
+"key": "misc.sd6e4b309",
+"t": "Appliquer unattend.xml"
+},
+{
+"key": "misc.s97de183e",
+"t": "La configuration d'image sans réponse est vide ; ajoutez d'abord une commande ci-dessous."
+},
+{
+"key": "misc.se7b24c11",
+"t": "[unattend] Apply-Unattend déclenché : %s"
+},
+{
+"key": "misc.sdb6ef517",
+"t": "Exécuter Sysprep"
+},
+{
+"key": "misc.s7ec72977",
+"t": "Confirmation Sysprep"
+},
+{
+"key": "misc.sc43f80fd",
+"t": "[sysprep] Lancé : /generalize /oobe /shutdown /quiet"
+},
+{
+"key": "misc.sba2797e3",
+"t": "[sysprep] Échec du lancement err=%lu"
+},
+{
+"key": "misc.sc11f54c4",
+"t": "Échec de Sysprep"
+},
+{
+"key": "misc.s721dd997",
+"t": "[IBS] sysprep_ibs.xml généré : %d périphériques PnP, SourcePath=%s"
+},
+{
+"key": "misc.s948df983",
+"t": "Rapport IBS généré : %d périphériques → sysprep_ibs.xmlmisc.saa67eb74\tManquant"
+},
+{
+"key": "misc.saa67eb74",
+"t": "Manquant"
+},
+{
+"key": "misc.s864e94e6",
+"t": "Assistant PE"
+},
+{
+"key": "misc.sb269423c",
+"t": "Fichiers ISO (*.iso)\\0*.iso\\0Tous les fichiers (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sdc55fcab",
+"t": "Choisissez l'emplacement de sauvegarde de l'ISO PE de démarrage généré"
+},
+{
+"key": "misc.s4975ca67",
+"t": "Sélectionnez l'architecture PE :\\r\\n  « Oui » — amd64 (64 bits, par défaut)\\r\\n  « Non » — x86 (32 bits)"
+},
+{
+"key": "misc.s48522bd7",
+"t": "[Assistant PE] Lancé : %s (%s) → %s"
+},
+{
+"key": "misc.sa76ac2b9",
+"t": "Voir la clé d'activation ESD"
+},
+{
+"key": "misc.s8fe20989",
+"t": "Créer un instantané VSS"
+},
+{
+"key": "misc.sd9ef6a78",
+"t": "Réparation du démarrage (bootrec)"
+},
+{
+"key": "misc.s42d10a6f",
+"t": "Créer une image système (wbadmin)"
+},
+{
+"key": "misc.s95da1886",
+"t": "Réinitialisation du réseau (netsh)"
+},
+{
+"key": "misc.sb69356e3",
+"t": "Réinitialisation du pare-feu (netsh)"
+},
+{
+"key": "misc.s9e507f98",
+"t": "Afficher les variables d'environnement"
+},
+{
+"key": "misc.s8260b2ec",
+"t": "Nettoyage de disque (cleanmgr)"
+},
+{
+"key": "misc.s615e6edf",
+"t": "Informations système (msinfo32)"
+},
+{
+"key": "misc.s4f54bbf3",
+"t": "Configuration système (msconfig)"
+},
+{
+"key": "misc.s89140849",
+"t": "Panneau de configuration (control)"
+},
+{
+"key": "misc.s3e9d824f",
+"t": "Observateur d'événements (eventvwr)"
+},
+{
+"key": "misc.s7841112b",
+"t": "Invite de commandes (cmd)"
+},
+{
+"key": "misc.s11a6f7f3",
+"t": "Associer au menu contextuel (IContextMenu2)"
+},
+{
+"key": "misc.s3df9e657",
+"t": "\\r\\n\\r\\n[Erreur] Le dossier sélectionné ne contient pas de sous-dossier Windows."
+},
+{
+"key": "misc.sf722c034",
+"t": "[ESD] Aucune clé d'activation ESD chargée depuis Data.xml.\\r\\n"
+},
+{
+"key": "misc.s1b8b14cb",
+"t": "Vérifiez que DismData\\Data.xml contient un nœud <ESDKeys><Key Value=\\\"...\\\"/></ESDKeys>."
+},
+{
+"key": "misc.sf289d5d1",
+"t": "Clés ESD"
+},
+{
+"key": "misc.s6694abc2",
+"t": "[ESD] %d clés d'activation au total (issues de Data.xml)"
+},
+{
+"key": "misc.s899cebbe",
+"t": "Voici les clés d'activation Windows génériques configurées dans Data.xml :\\r\\n"
+},
+{
+"key": "misc.sd1da7e28",
+"t": "Appel de diskshadow.exe pour créer un instantané de copie de volume (VSS) Windows.\\r\\n"
+},
+{
+"key": "misc.s3e1f16a3",
+"t": "Cette opération nécessite des droits administrateur et consomme de l'espace disque.\\r\\n\\r\\n"
+},
+{
+"key": "misc.sebe7059e",
+"t": "Confirmer la poursuite ?"
+},
+{
+"key": "misc.s76a97de7",
+"t": "Instantané VSS créé avec succès.\\r\\n\\r\\nVoici la sortie de diskshadow.exe :\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────\\r\\nAstuce : utilisez vssadmin list shadows pour afficher les instantanés créés."
+},
+{
+"key": "misc.s9067f73b",
+"t": "Instantané VSS"
+},
+{
+"key": "misc.sf0d14979",
+"t": "Échec de la création de l'instantané VSS.\\r\\n\\r\\nCode de sortie de diskshadow.exe : %u\\r\\n\\r\\nCauses possibles :\\r\\n  1) Le programme n'a pas été exécuté en tant qu'administrateur\\r\\n  2) Le service VSS n'est pas démarré\\r\\n  3) Espace disque insuffisant\\r\\n  4) diskshadow.exe absent (intégré depuis Win 7+)"
+},
+{
+"key": "misc.sbf8401e8",
+"t": "Échec de l'instantané VSS"
+},
+{
+"key": "misc.se87a7e95",
+"t": "Appel de bootrec.exe pour exécuter la réparation du démarrage :\\r\\n"
+},
+{
+"key": "misc.sda2c32cc",
+"t": "  1) fixboot     —— répare le secteur de démarrage\\r\\n"
+},
+{
+"key": "misc.s7cb7710f",
+"t": "  2) rebuildbcd  —— reconstruit la configuration de démarrage BCD\\r\\n"
+},
+{
+"key": "misc.se0a01ea8",
+"t": "  3) repairboot  —— répare le secteur de démarrage (hérité de Win7)\\r\\n\\r\\n"
+},
+{
+"key": "misc.s339f32a1",
+"t": "Cette opération nécessite des droits administrateur et peut redémarrer le système.\\r\\n"
+},
+{
+"key": "misc.sd36944dd",
+"t": "Réparation du démarrage"
+},
+{
+"key": "misc.s71a453f9",
+"t": "Réparation du démarrage terminée.\\r\\n\\r\\nVoici la sortie de bootrec.exe :\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nAstuce : certaines étapes nécessitent un redémarrage pour être effectives."
+},
+{
+"key": "misc.s4507f7d9",
+"t": "Appel de wbadmin.exe pour créer une sauvegarde de l'état du système (SystemState).\\r\\n"
+},
+{
+"key": "misc.saf28a497",
+"t": "Cette opération nécessite :\\r\\n"
+},
+{
+"key": "misc.s9f69afe4",
+"t": "  1) Des droits administrateur\\r\\n"
+},
+{
+"key": "misc.s630178ca",
+"t": "  2) La fonctionnalité « Windows Server Backup » activée\\r\\n"
+},
+{
+"key": "misc.s1463a12b",
+"t": "  3) Un espace disque suffisant\\r"
+},
+{
+"key": "misc.s0b97d884",
+"t": "La sauvegarde sera enregistrée dans :\\r\\n"
+},
+{
+"key": "misc.sc9dfffe0",
+"t": "Créer une image système"
+},
+{
+"key": "misc.sebe1fc77",
+"t": "Image système créée avec succès.\\r\\n\\r\\nEmplacement de la sauvegarde : %s\\r\\n\\r\\nVoici la sortie de wbadmin.exe :\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.sbef84b80",
+"t": "Image système"
+},
+{
+"key": "misc.s1cf96794",
+"t": "Échec de la création de l'image système.\\r\\n\\r\\nCode de sortie de wbadmin.exe : %u\\r\\n\\r\\nCauses possibles :\\r\\n  1) La fonctionnalité Windows Server Backup n'est pas activée\\r\\n  2) Non exécuté en tant qu'administrateur\\r\\n  3) Espace disque insuffisant\\r\\n  4) Service VSS anormal\\r\\n\\r\\nVoici la sortie de wbadmin.exe :\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.scd025323",
+"t": "Échec de l'image système"
+},
+{
+"key": "misc.sdc8cc32f",
+"t": "Appel de netsh.exe pour exécuter la réinitialisation du réseau :\\r\\n"
+},
+{
+"key": "misc.s364f8c0c",
+"t": "  1) winsock reset    —— réinitialise le catalogue Winsock\\r\\n"
+},
+{
+"key": "misc.s468f4737",
+"t": "  2) interface reset  —— réinitialise toutes les cartes réseau\\r\\n"
+},
+{
+"key": "misc.sb1d989f0",
+"t": "  3) dns / clearcache —— vide le cache DNS\\r\\n\\r\\n"
+},
+{
+"key": "misc.s73cf5e83",
+"t": "Cette opération nécessite des droits administrateur et coupe/rétablit le réseau.\\r\\n"
+},
+{
+"key": "misc.s8c301507",
+"t": "Il est recommandé de redémarrer le système après cette opération.\\r\\n"
+},
+{
+"key": "misc.sca6aa1a5",
+"t": "Réinitialisation du réseau"
+},
+{
+"key": "misc.sedd34cd4",
+"t": "Réinitialisation du réseau terminée.\\r\\n\\r\\nVoici la sortie de netsh.exe :\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nAstuce : redémarrez le système pour que toutes les modifications prennent effet."
+},
+{
+"key": "misc.scae781fe",
+"t": "Appel de netsh.exe pour exécuter la réinitialisation du pare-feu :\\r\\n"
+},
+{
+"key": "misc.s19fe5320",
+"t": "  1) advfirewall reset            —— restaure le pare-feu à sa configuration par défaut\\r\\n"
+},
+{
+"key": "misc.s6a43a20f",
+"t": "  2) advfirewall show allprofiles —— affiche les états de tous les profils\\r\\n"
+},
+{
+"key": "misc.sf84f64cf",
+"t": "  3) advfirewall show currentprofile —— affiche le profil actuel\\r\\n\\r\\n"
+},
+{
+"key": "misc.s501aa5f5",
+"t": "⚠️ Cette opération efface toutes les modifications du pare-feu (les règles personnalisées sont conservées),\\r\\n"
+},
+{
+"key": "misc.s2df36949",
+"t": "Des droits administrateur sont requis. Sauvegardez la configuration du pare-feu avant l'opération.\\r\\n"
+},
+{
+"key": "misc.sc4e23990",
+"t": "Réinitialisation du pare-feu"
+},
+{
+"key": "misc.sd012499b",
+"t": "Réinitialisation du pare-feu terminée.\\r\\n\\r\\nVoici la sortie de netsh.exe (états avant/après réinitialisation) :\\r\\n─────────────────────────────\\r\\n%s─────────────────────────────\\r\\nAstuce : certains paramètres peuvent nécessiter un redémarrage pour être effectifs."
+},
+{
+"key": "misc.sb20b8d28",
+"t": "Échec de l'interrogation des variables d'environnement ; vérifiez que cmd.exe existe."
+},
+{
+"key": "misc.sf06d33a6",
+"t": "Variables d'environnement"
+},
+{
+"key": "misc.s8e606a84",
+"t": "Actuellement %d variables d'environnement.\\r\\n\\r\\nVoici la sortie de cmd.exe /c set :\\r\\n─────────────────────────────\\r\\n%s\\r\\n─────────────────────────────"
+},
+{
+"key": "misc.sbd62aa24",
+"t": "Lancement de l'outil de nettoyage de disque (cleanmgr.exe).\\r\\n"
+},
+{
+"key": "misc.scce31ab4",
+"t": "Cet outil analyse et nettoie :\\r\\n"
+},
+{
+"key": "misc.s3cc5690c",
+"t": "  • Fichiers temporaires\\r\\n"
+},
+{
+"key": "misc.s7810a508",
+"t": "  • Corbeille\\r\\n"
+},
+{
+"key": "misc.s1ae21860",
+"t": "  • Cache des miniatures\\r\\n"
+},
+{
+"key": "misc.sa126fab7",
+"t": "  • Cache de Windows Update\\r\\n"
+},
+{
+"key": "misc.s4a8790e3",
+"t": "  • Résidus de programmes désinstallés\\r"
+},
+{
+"key": "misc.s41c6fc58",
+"t": "cleanmgr nécessite une interaction avec l'interface graphique ; il ne peut pas être exécuté entièrement en mode silencieux.\\r\\n"
+},
+{
+"key": "misc.sdcfc7d04",
+"t": "Nettoyage de disque"
+},
+{
+"key": "misc.sa4433318",
+"t": "L'outil de nettoyage de disque a été lancé ; terminez le nettoyage dans la fenêtre qui s'ouvre."
+},
+{
+"key": "misc.s79e34dd1",
+"t": "Échec du lancement de l'outil de nettoyage de disque.\\r\\n"
+},
+{
+"key": "misc.s82e0fdc9",
+"t": "Causes possibles :\\r\\n"
+},
+{
+"key": "misc.sd002488c",
+"t": "  1) cleanmgr.exe n'existe pas\\r\\n"
+},
+{
+"key": "misc.sb71dbf65",
+"t": "  2) La fonctionnalité de nettoyage de disque est désactivée"
+},
+{
+"key": "misc.s4eda3e17",
+"t": "Échec du nettoyage de disque"
+},
+{
+"key": "misc.s32b3ceef",
+"t": "Lancement de l'outil d'informations système (msinfo32.exe).\\r\\n"
+},
+{
+"key": "misc.sa9119bf4",
+"t": "Cet outil affiche :\\r\\n"
+},
+{
+"key": "misc.sc2b4f413",
+"t": "  • Résumé du système\\r\\n"
+},
+{
+"key": "misc.s050f9897",
+"t": "  • Composants (environnement logiciel / ressources matérielles)\\r\\n"
+},
+{
+"key": "misc.s73212f28",
+"t": "  • Environnement logiciel du système\\r\\n"
+},
+{
+"key": "misc.s23755c21",
+"t": "  • Variables d'environnement du firmware système\\r"
+},
+{
+"key": "misc.sab2a116f",
+"t": "msinfo32 est un outil interactif ; parcourez les informations dans la fenêtre qui s'ouvre.\\r\\n"
+},
+{
+"key": "misc.s2d9ecb5d",
+"t": "Informations système"
+},
+{
+"key": "misc.s21017174",
+"t": "L'outil d'informations système a été lancé ; parcourez les détails dans la fenêtre qui s'ouvre."
+},
+{
+"key": "misc.s17e26b0a",
+"t": "Échec du lancement de l'outil d'informations système.\\r\\n"
+},
+{
+"key": "misc.sff181218",
+"t": "  1) msinfo32.exe n'existe pas\\r\\n"
+},
+{
+"key": "misc.s3554fd38",
+"t": "  2) La fonctionnalité d'informations système est désactivée"
+},
+{
+"key": "misc.se81ab452",
+"t": "Échec des informations système"
+},
+{
+"key": "misc.s3d1d9be5",
+"t": "Lancement de l'outil de configuration système (msconfig.exe).\\r\\n"
+},
+{
+"key": "misc.s334bc9c1",
+"t": "Cet outil gère :\\r\\n"
+},
+{
+"key": "misc.sf3797e3a",
+"t": "  • Options générales\\r\\n"
+},
+{
+"key": "misc.s832eeaf2",
+"t": "  • Démarrage (options de démarrage Windows)\\r\\n"
+},
+{
+"key": "misc.s58666aae",
+"t": "  • Réparation du démarrage\\r\\n"
+},
+{
+"key": "misc.s58b29f1a",
+"t": "  • Services système\\r\\n"
+},
+{
+"key": "misc.sc5006ee7",
+"t": "  • Outils\\r\\n"
+},
+{
+"key": "misc.s08d74744",
+"t": "  • Démarrage\\r"
+},
+{
+"key": "misc.sc54f723a",
+"t": "⚠️ La modification de certains paramètres nécessite un redémarrage du système pour être effective.\\r"
+},
+{
+"key": "misc.s4c4152fe",
+"t": "msconfig nécessite des droits administrateur pour accéder à certaines options.\\r\\n"
+},
+{
+"key": "misc.sff7ce546",
+"t": "Configuration système"
+},
+{
+"key": "misc.s77caa9a9",
+"t": "L'outil de configuration système a été lancé ; terminez la configuration dans la fenêtre qui s'ouvre."
+},
+{
+"key": "misc.scaf6cd5f",
+"t": "Échec du lancement de l'outil de configuration système.\\r\\n"
+},
+{
+"key": "misc.sbce34283",
+"t": "  1) msconfig.exe n'existe pas (absent sur Server Core)\\r\\n"
+},
+{
+"key": "misc.s50dd8a7f",
+"t": "  2) La fonctionnalité de configuration système est désactivée\\r\\n"
+},
+{
+"key": "misc.s2dd91833",
+"t": "  3) Non exécuté en tant qu'administrateur"
+},
+{
+"key": "misc.s9d8b10a1",
+"t": "Échec de la configuration systèmemisc.sef71e68a\tÉchec du lancement du Panneau de configuration.\\r"
+},
+{
+"key": "misc.sef71e68a",
+"t": "Échec du lancement du Panneau de configuration.\\r"
+},
+{
+"key": "misc.s2ef484ee",
+"t": "  1) control.exe n'existe pas\\r\\n"
+},
+{
+"key": "misc.sbefa5dfc",
+"t": "  2) La fonctionnalité du Panneau de configuration est désactivée"
+},
+{
+"key": "misc.s89bec4c6",
+"t": "Échec du Panneau de configuration"
+},
+{
+"key": "misc.s69031012",
+"t": "Lancement de l'Observateur d'événements (eventvwr.msc).\\r\\n"
+},
+{
+"key": "misc.s452145ae",
+"t": "Cet outil permet de parcourir :\\r\\n"
+},
+{
+"key": "misc.s887a9f52",
+"t": "  • Journaux d'applications et de services\\r\\n"
+},
+{
+"key": "misc.s2cc27df9",
+"t": "  • Journaux Windows (Application/Sécurité/Système)\\r\\n"
+},
+{
+"key": "misc.s251dfec1",
+"t": "  • Abonnements\\r\\n"
+},
+{
+"key": "misc.se4aae918",
+"t": "  • Vues personnalisées\\r\\n"
+},
+{
+"key": "misc.scce78d57",
+"t": "  • Filtrer le journal actuel\\r"
+},
+{
+"key": "misc.s373f0dda",
+"t": "L'Observateur d'événements est un outil en lecture seule pour diagnostiquer les problèmes système.\\r\\n"
+},
+{
+"key": "misc.s6a0b29f3",
+"t": "Observateur d'événements"
+},
+{
+"key": "misc.s5c551bba",
+"t": "Échec du lancement de l'Observateur d'événements.\\r\\n"
+},
+{
+"key": "misc.sfbb91b2b",
+"t": "  1) eventvwr.msc n'existe pas\\r\\n"
+},
+{
+"key": "misc.s2fab7d24",
+"t": "  2) La fonctionnalité de l'Observateur d'événements est désactivée"
+},
+{
+"key": "misc.sd70f8ad0",
+"t": "Échec de l'Observateur d'événements"
+},
+{
+"key": "misc.s70672a49",
+"t": "Lancement de l'invite de commandes (cmd.exe, en tant qu'administrateur).\\r\\n"
+},
+{
+"key": "misc.sd5cd6404",
+"t": "L'invite de commandes est l'outil en ligne de commande le plus courant de Windows ; il peut être utilisé pour :\\r"
+},
+{
+"key": "misc.sa74b5301",
+"t": "  • Exécuter des commandes d'administration système\\r"
+},
+{
+"key": "misc.s7cb19803",
+"t": "  • Exécuter des scripts\\r"
+},
+{
+"key": "misc.sb1dc2e13",
+"t": "  • Parcourir les répertoires\\r"
+},
+{
+"key": "misc.se5b003a8",
+"t": "  • Diagnostiquer le réseau\\r"
+},
+{
+"key": "misc.s01644c1a",
+"t": "  • Opérations sur les fichiers\\r\\n\\r"
+},
+{
+"key": "misc.sc0f80fe7",
+"t": "runas déclenche une élévation UAC et nécessite le mot de passe administrateur.\\r\\n"
+},
+{
+"key": "misc.sba424a20",
+"t": "Invite de commandes"
+},
+{
+"key": "misc.s1472e4df",
+"t": "Échec du lancement de l'invite de commandes.\\r\\n"
+},
+{
+"key": "misc.s80f8022f",
+"t": "  1) L'UAC a refusé les droits administrateur\\r\\n"
+},
+{
+"key": "misc.s7cd442f8",
+"t": "  2) cmd.exe n'existe pas\\r\\n"
+},
+{
+"key": "misc.s6a4b8f4e",
+"t": "  3) La fonctionnalité d'invite de commandes est désactivée"
+},
+{
+"key": "misc.s9beff4c3",
+"t": "Échec de l'invite de commandes"
+},
+{
+"key": "misc.s713bd2ab",
+"t": "La variable d'environnement USERPROFILE n'est pas définie."
+},
+{
+"key": "misc.s993eb7f7",
+"t": "Associer au menu contextuel"
+},
+{
+"key": "misc.sae48fa0b",
+"t": "ContextMenu Demo\\r\\nFichier de démonstration du menu contextuel\\r\\n"
+},
+{
+"key": "misc.s3d5a2ec8",
+"t": "Ouvrir"
+},
+{
+"key": "misc.s49512531",
+"t": "Modifier"
+},
+{
+"key": "misc.s461541d8",
+"t": "Copier"
+},
+{
+"key": "misc.s4bc4a59b",
+"t": "Couper"
+},
+{
+"key": "misc.s810d040a",
+"t": "Propriétés"
+},
+{
+"key": "misc.sb032ab04",
+"t": "Ouvrir dans l'Explorateur de fichiers"
+},
+{
+"key": "misc.sec7b94d6",
+"t": "Ouvrir l'emplacement du fichier"
+},
+{
+"key": "misc.s61a1b839",
+"t": "Confirmer la suppression de ce fichier ?"
+},
+{
+"key": "misc.s3b3fbc24",
+"t": "[Paramètres expert] Activer l'adaptateur de compression WofAdk (affecte la stratégie de compression des fichiers système) ?"
+},
+{
+"key": "misc.sc9f2dd1b",
+"t": "[Paramètres expert] Activer la prise en charge du démarrage RE (opérations liées à l'environnement de récupération) ?"
+},
+{
+"key": "misc.s5636a969",
+"t": "[Paramètres expert] Activer le transfert différentiel (conversion incrémentale WIM/ESD) ?"
+},
+{
+"key": "misc.s3a57bfda",
+"t": "%s\\r\\nÉtat actuel : %s"
+},
+{
+"key": "misc.s74621b94",
+"t": "[clean] C:\\ avant/après : %llu Mo → %llu Mo (%llu Mo libérés sur le disque, %llu Mo signalés par les règles)"
+},
+{
+"key": "misc.sbb374e50",
+"t": "Opération terminée : l'ordinateur sera redémarré conformément aux préréglages. Continuer ?"
+},
+{
+"key": "misc.s88518317",
+"t": "Opération terminée : l'ordinateur sera arrêté conformément aux préréglages. Continuer ?"
+},
+{
+"key": "misc.sd6608a8c",
+"t": "Fichiers d'image WIM/ESD (*.wim;*.esd;*.swm)\\0*.wim;*.esd;*.swm\\0Tous les fichiers (*.*)\\0*.*\\0"
+},
+{
+"key": "misc.sf7bbdc01",
+"t": "Sélectionner une image WIM hors ligne pour analyser les pilotes"
+},
+{
+"key": "misc.s47518538",
+"t": "Analyser les pilotes de l'image ?\\r\\n  « Oui » — index 1 (par défaut)\\r\\n  « Non » — analyser tous les index"
+},
+{
+"key": "misc.s4e1c9661",
+"t": "Analyse hors ligne des pilotes"
+},
+{
+"key": "misc.s2e011db7",
+"t": "[drv] Analyse hors ligne des pilotes lancée : %s"
+}
+]
