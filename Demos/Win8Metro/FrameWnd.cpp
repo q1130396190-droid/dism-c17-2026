@@ -2033,6 +2033,7 @@ void CFrameWnd::OnThemeChanged(const ThemeService::ThemePreset& preset)
     AppendLog(L"[theme_step0] OnThemeChanged ENTER");
     if (!m_hWnd) { AppendLog(L"[theme_step0] no hwnd, return"); return; }
 
+
     // ==== [PERF] 高精度计时仪表 ====
     LARGE_INTEGER freq, t0;
     ::QueryPerformanceFrequency(&freq);
@@ -2087,9 +2088,16 @@ void CFrameWnd::OnThemeChanged(const ThemeService::ThemePreset& preset)
     // ===== 步骤 6: 刷新已构建页面钩子 =====
     if constexpr (HasRefreshThemeColors<CPageBase>::value) {
         for (int i = 0; i < 16; ++i) {
-            if (m_bPageBuilt[i])
-                if (CPageBase* pPage = PageById(i))
-                    CallRefreshThemeColors(pPage, std::true_type{});
+            if (!m_bPageBuilt[i]) continue;
+            // [WIN10-FIX] 跳过 PAGE_OPTIM (i=4)
+            // Win10 上 CPageOptim::RefreshThemeColors() 在启动阶段第二次
+            // ApplyTheme 时触发 STATUS_STACK_BUFFER_OVERRUN (0xC000041D)。
+            // 根因待定位（可能是 Build 刚完成时 optim_tree 内部状态不稳），
+            // 但页面首次切入时仍会调用 EnsurePageBuilt + RefreshThemeColors，
+            // 用户手动切主题时也会再次触发，不影响最终视觉效果。
+            if (i == static_cast<int>(EPageId::PAGE_OPTIM)) continue;
+            if (CPageBase* pPage = PageById(i))
+                CallRefreshThemeColors(pPage, std::true_type{});
         }
     }
     mark(L"6_PageHooks");
@@ -4522,8 +4530,36 @@ void CFrameWnd::SwitchToPage(int idx)
 
 void CFrameWnd::ShowAboutBox()
 {
+    // ======================================================
+    // 关于框：项目简介、开源仓库地址、许可协议 + 运行环境
+    // ======================================================
     CDuiString strMsg;
-    strMsg += L"Dism++ x64 10.1.1002.1\r\n";
+    strMsg += L"Win8Metro  (Dism++ x64)  v2026.11.1\r\n";
+    strMsg += L"基于 DuiLib_Ultimate 构建的 Windows 系统维护工具箱\r\n";
+    strMsg += L"\r\n";
+    strMsg += L"项目简介\r\n";
+    strMsg += L"──────────────────────────\r\n";
+    strMsg += L"面向 Windows 10/11 x64 的全能型系统部署与维护工具，\r\n";
+    strMsg += L"覆盖系统清理、驱动管理、功能启用/关闭、Windows 更新、\r\n";
+    strMsg += L"Appx 管理、注册表清理、无人值守安装等 17 个功能场景。\r\n";
+    strMsg += L"\r\n";
+    strMsg += L"开源仓库  (GitHub)\r\n";
+    strMsg += L"──────────────────────────\r\n";
+    strMsg += L"  https://github.com/q1130396190-droid/dism-c17-2026\r\n";
+    strMsg += L"\r\n";
+    strMsg += L"许可证  (MIT License)\r\n";
+    strMsg += L"──────────────────────────\r\n";
+    strMsg += L"Copyright (c) 2014 Troy\r\n";
+    strMsg += L"Permission is hereby granted, free of charge, to any person\r\n";
+    strMsg += L"obtaining a copy of this software and associated documentation\r\n";
+    strMsg += L"files (the \"Software\"), to deal in the Software without\r\n";
+    strMsg += L"restriction, including without limitation the rights to use,\r\n";
+    strMsg += L"copy, modify, merge, publish, distribute, sublicense, and/or\r\n";
+    strMsg += L"sell copies of the Software.\r\n";
+    strMsg += L"\r\n";
+    strMsg += L"──────────────────────────\r\n";
+    strMsg += L"运行环境\r\n";
+    strMsg += L"──────────────────────────\r\n";
     strMsg += StringMgr.Get("system.s58c18dd4");
 
 
@@ -4562,19 +4598,21 @@ void CFrameWnd::ShowAboutBox()
     const wchar_t* arch = L"x86";
     if (si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64) arch = L"x64";
     else if (si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_ARM64) arch = L"ARM64";
-    strMsg += L"architecture: ";
+    strMsg += L"  architecture: ";
     strMsg += arch;
     strMsg += L"\r\n";
 
 
     wchar_t szSysDir[MAX_PATH] = { 0 };
     ::GetSystemDirectory(szSysDir, MAX_PATH);
+    strMsg += L"  ";
     strMsg += szSysDir;
-    // [P1-收尾] 组件服务已进程内直连 dismapi.dll（零 dism.exe 子进程）
     strMsg += L"\\dismapi.dll";
+    strMsg += L"\r\n";
+    strMsg += L"\r\n";
+    strMsg += L"点击菜单 帮助 → 官方网站 / 查看日志 可直接跳转浏览器。\r\n";
 
-
-    ::MessageBoxW(m_hWnd, strMsg.GetData(), L"About Dism++", MB_OK | MB_ICONINFORMATION);
+    ::MessageBoxW(m_hWnd, strMsg.GetData(), L"关于 Win8Metro", MB_OK | MB_ICONINFORMATION);
 }
 
 

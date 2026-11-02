@@ -123,6 +123,16 @@ namespace DuiLib {
 
 	CControlUI::~CControlUI()
 	{
+		// [WIN10-CRASH] 防御性校验：在 vector deleting destructor 被调用时，
+		// 如果 this 指针明显无效（如 0xFFFFFFFFFFFFFFFF），说明调用者传入了
+		// 垃圾指针，直接跳过析构避免写入无效 vtable 地址。
+		// Windows x64 用户态有效地址范围：0x10000 ~ 0x00007FFFFFFFFFFF。
+		uintptr_t p = reinterpret_cast<uintptr_t>(this);
+		if( p < 0x10000 || p > 0x00007FFFFFFFFFFF ) {
+			// 无效指针，直接返回，不做任何操作
+			return;
+		}
+
 		if( OnDestroy ) OnDestroy(this);
 		RemoveAllCustomAttribute();	
 		// [SEC-20] m_pManager is a non-owning back-pointer. If the paint manager

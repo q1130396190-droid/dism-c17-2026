@@ -109,6 +109,8 @@ namespace DuiLib {
 		int cyFixed = 0;
 		for( int it = 0; it < GetCount(); it++ ) {
 			CControlUI* pControl = static_cast<CControlUI*>(GetItemAt(it));
+			// [WIN10-FIX] GetItemAt 可能返回 nullptr。
+			if( pControl == nullptr ) continue;
 			if( !pControl->IsVisible() ) continue;
 			SIZE sz = pControl->EstimateSize(szAvailable);
 			cyFixed += sz.cy;
@@ -118,6 +120,7 @@ namespace DuiLib {
 
 		for (int it = 0; it < GetCount(); it++) {
 			CControlUI* pControl = static_cast<CControlUI*>(GetItemAt(it));
+			if( pControl == nullptr ) continue;
 			if (!pControl->IsVisible()) continue;
 
 			pControl->SetFixedWidth(MulDiv(cxFixed, 100, GetManager()->GetDPIObj()->GetScale()));

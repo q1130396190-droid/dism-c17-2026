@@ -249,10 +249,13 @@ namespace DuiLib
 			return nCmp >= 0;	// installed >= minimum
 		}
 
-		// 完整可用性判断：Windows 10 及以上系统 且 已安装满足最低版本的 WebView2 Runtime
+		// 完整可用性判断：
+		//   Windows 10 1703+ (Creators Update, Build 15063) —— WebView2 最低系统要求
+		//   且已安装满足最低版本的 WebView2 Runtime
+		// 旧版 Win10（含 1607 Anniversary）自动回退 IE 控件
 		inline bool IsWebView2Supported()
 		{
-			return IsWindows10OrGreater() && IsRuntimeVersionSupported();
+			return IsWindows10CreatorsOrGreater() && IsRuntimeVersionSupported();
 		}
 	}
 } // namespace DuiLib

@@ -506,13 +506,37 @@ namespace DuiLib {
 		DiscardTaskQueue(this);
 
 		// Delete the control-tree structures
-		for( int i = 0; i < m_aDelayedCleanup.GetSize(); i++ ) delete static_cast<CControlUI*>(m_aDelayedCleanup[i]);
+		// [WIN10-CRASH] 校验每个指针有效性，防止垃圾指针导致析构崩溃
+		for( int i = 0; i < m_aDelayedCleanup.GetSize(); i++ ) {
+			CControlUI* p = static_cast<CControlUI*>(m_aDelayedCleanup[i]);
+			if( p != nullptr ) {
+				uintptr_t addr = reinterpret_cast<uintptr_t>(p);
+				if( addr >= 0x10000 && addr <= 0x00007FFFFFFFFFFF ) {
+					delete p;
+				}
+			}
+		}
 		m_aDelayedCleanup.Resize(0);
-		for( int i = 0; i < m_aAsyncNotify.GetSize(); i++ ) delete static_cast<TNotifyUI*>(m_aAsyncNotify[i]);
+		for( int i = 0; i < m_aAsyncNotify.GetSize(); i++ ) {
+			TNotifyUI* p = static_cast<TNotifyUI*>(m_aAsyncNotify[i]);
+			if( p != nullptr ) {
+				uintptr_t addr = reinterpret_cast<uintptr_t>(p);
+				if( addr >= 0x10000 && addr <= 0x00007FFFFFFFFFFF ) {
+					delete p;
+				}
+			}
+		}
 		m_aAsyncNotify.Resize(0);
 
 		m_mNameHash.Resize(0);
-		if( m_pRoot != nullptr ) delete m_pRoot;
+		// [WIN10-CRASH] 校验 m_pRoot 指针有效性
+		if( m_pRoot != nullptr ) {
+			uintptr_t addr = reinterpret_cast<uintptr_t>(m_pRoot);
+			if( addr >= 0x10000 && addr <= 0x00007FFFFFFFFFFF ) {
+				delete m_pRoot;
+			}
+			m_pRoot = nullptr;
+		}
 
 		::DeleteObject(m_ResInfo.m_DefaultFontInfo.hFont);
 		RemoveAllFonts();
@@ -1300,8 +1324,16 @@ namespace
 			}
 		case WM_APP + 1:
 			{
-				for( int i = 0; i < m_aDelayedCleanup.GetSize(); i++ ) 
-					delete static_cast<CControlUI*>(m_aDelayedCleanup[i]);
+				// [WIN10-CRASH] 校验每个指针有效性
+				for( int i = 0; i < m_aDelayedCleanup.GetSize(); i++ ) {
+					CControlUI* p = static_cast<CControlUI*>(m_aDelayedCleanup[i]);
+					if( p != nullptr ) {
+						uintptr_t addr = reinterpret_cast<uintptr_t>(p);
+						if( addr >= 0x10000 && addr <= 0x00007FFFFFFFFFFF ) {
+							delete p;
+						}
+					}
+				}
 				m_aDelayedCleanup.Empty();
 				
 				m_bAsyncNotifyPosted = false;
@@ -3177,6 +3209,9 @@ namespace
 	void CPaintManagerUI::AddDelayedCleanup(CControlUI* pControl)
 	{
 		if (pControl == nullptr) return;
+		// [WIN10-CRASH] 防止无效指针进入延迟清理列表
+		uintptr_t addr = reinterpret_cast<uintptr_t>(pControl);
+		if( addr < 0x10000 || addr > 0x00007FFFFFFFFFFF ) return;
 		pControl->SetManager(this, nullptr, false);
 		m_aDelayedCleanup.Add(pControl);
 		PostAsyncNotify();

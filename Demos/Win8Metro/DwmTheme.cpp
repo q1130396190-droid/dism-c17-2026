@@ -201,8 +201,12 @@ unsigned int ApplyWindowTheme(HWND hWnd, bool bDarkCaption)
     const PFN_DwmSetWindowAttribute pfn = PfnSetAttr();
     if (!pfn) return nAbility;   // 无 dwmapi（极简 PE/Server Core）：整体跳过
 
+    // [WIN1607-FIX] 加版本门控：明确不支持的 OS Build 直接跳过，
+    // 避免 1607/1703 等老版本 Win10 上反复触发 E_INVALIDARG。
+
     // ---- 1) Win11 圆角 ----
-    //   Win10 上该属性号不被识别，返回 E_INVALIDARG；忽略即可。
+    //   仅 Win11 22000+ 支持。Win10 全系（含最新 22H2）不识别此属性号。
+    if (DuiLib::IsWindows11OrGreater())
     {
         const int nPref = kCornerRound;
         if (SUCCEEDED(pfn(hWnd, kDwmAttrCorner, &nPref, sizeof(nPref))))
@@ -227,13 +231,9 @@ unsigned int ApplyWindowTheme(HWND hWnd, bool bDarkCaption)
     }
 
     // ---- 3) 标题栏深色（跟随系统）----
-    //   19 与 20 两个属性号都试：20 是正式值，19 覆盖 1809 预览版。
-    // [R216] Write the attribute BOTH WAYS. The previous version only ever wrote TRUE,
-    //   so switching dark -> light skipped this block entirely and DWM kept the last
-    //   value: the caption stayed dark until the window was recreated. That is a
-    //   guaranteed, user-visible failure on every reverse switch, and it is why
-    //   "launched in light" looked right while "switched back to light" did not.
-    //   Writing FALSE explicitly costs one API call and removes the whole class.
+    //   19 与 20 两个属性号都试：20 是正式值（1803+），19 覆盖 1809 预览版。
+    //   1607/1703 上两个都没有，跳过避免无效调用。
+    if (DuiLib::IsWindows10DarkModeOrGreater() || DuiLib::IsWindows11OrGreater())
     {
         BOOL bDark = bDarkCaption ? TRUE : FALSE;
         const bool bOk20 = SUCCEEDED(pfn(hWnd, kDwmAttrDarkMode, &bDark, sizeof(bDark)));

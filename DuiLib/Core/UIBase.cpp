@@ -627,24 +627,29 @@ void CWindowWnd::OnFinalMessage(HWND /*hWnd*/)
 		PFN_DwmSetWindowAttribute pSet = ResolveDwmSetWindowAttribute();
 		if (pSet == nullptr) return uApplied;   // pre-Vista / no DWM
 
-		// 1) Rounded corners (Win11 22000+). Older builds reject the attribute.
+		// [WIN1607-FIX] 精准版本门控：只在明确支持的 Build 上尝试对应 DWM 属性。
+		// 比单纯 SUCCEEDED 早返回更干净 —— 避免启动期多次无效调用 + 减少日志噪声。
+
+		// 1) Rounded corners (Win11 22000+).
+		//    Win10 所有版本该属性号返回 E_INVALIDARG，直接跳过。
+		if (IsWindows11OrGreater())
 		{
 			DWORD dwPref = kCornerRound;
 			if (SUCCEEDED(pSet(m_hWnd, kDwmWindowCornerPreference, &dwPref, sizeof(dwPref))))
 				uApplied |= kWin11RoundedCorner;
 		}
 
-		// 2) Dark title bar (Win10 1903+ / Win11).
+		// 2) Dark title bar (Win10 1803+ / Win11). 1607~1709 无此正式属性号。
+		if (IsWindows10DarkModeOrGreater() || IsWindows11OrGreater())
 		{
 			BOOL bUseDark = bDark ? TRUE : FALSE;
 			if (SUCCEEDED(pSet(m_hWnd, kDwmUseImmersiveDarkMode, &bUseDark, sizeof(bUseDark))))
 				uApplied |= kWin11DarkTitleBar;
 		}
 
-		// 3) Mica / Acrylic backdrop (Win11 22621+). Requires the window to be
-		//    non-opaque for the material to show through; the caller keeps
-		//    responsibility for its own paint mode.
-		if (nBackdrop > 0)
+		// 3) Mica / Acrylic backdrop (Win11 22621+).
+		//    Win10 全系不支持系统材质背景。
+		if (nBackdrop > 0 && IsWindows11OrGreater())
 		{
 			int nType = (nBackdrop == 1) ? 2      // DWMSBT_MAINWINDOW  = Mica
 				: (nBackdrop == 2) ? 3            // DWMSBT_TRANSIENTWINDOW = Acrylic
@@ -653,8 +658,8 @@ void CWindowWnd::OnFinalMessage(HWND /*hWnd*/)
 				uApplied |= kWin11Backdrop;
 		}
 
-		// 4) Border colour following the theme (Win11 22000+). Passing
-		//    DWMWA_COLOR_DEFAULT restores the system value.
+		// 4) Border colour following the theme (Win11 22000+).
+		if (IsWindows11OrGreater())
 		{
 			DWORD dwBorder = 0xFFFFFFFF;   // DWMWA_COLOR_DEFAULT
 			if (bDark) dwBorder = 0xFF2B2B2B;

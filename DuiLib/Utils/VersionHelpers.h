@@ -216,6 +216,40 @@ typedef TOUCHINPUT const * PCTOUCHINPUT;
 		return (osvi.dwMajorVersion == 10 && osvi.dwBuildNumber >= 22000) || osvi.dwMajorVersion > 10;
 	}
 
+	// ==================== Win10 Build 精准版本判定 ====================
+	// 仅当 Major==10 时有效；用于区分 Win10 内部功能发布阈值。
+	// 各 Win10 Build 对应：
+	//   10240 = RTM (1507)
+	//   10586 = 1511
+	//   14393 = 1607 Anniversary Update    ← 本次降级目标
+	//   15063 = 1703 Creators Update        ← WebView2 / GetDpiForWindow / PerMonitorV2 需要此版本
+	//   16299 = 1709 Fall Creators
+	//   17134 = 1803 (DWMWA_USE_IMMERSIVE_DARK_MODE=20 正式版)
+	//   17763 = 1809
+	//   18362 = 1903
+	//   18363 = 1909
+	//   19041 = 2004
+	//   19042 = 20H2
+	//   19043 = 21H1
+	//   19044 = 21H2
+	//   19045 = 22H2  ← 当前开发平台
+	static BOOL IsWindows10BuildOrGreater(DWORD dwBuild)
+	{
+		DUILIB_RTL_OSVERSIONINFOW osvi;
+		if (!GetRealOSVersion(&osvi))
+			return FALSE;
+		if (osvi.dwMajorVersion != 10)
+			return osvi.dwMajorVersion > 10;   // Win11+ 视为满足所有 Win10 Build 阈值
+		return osvi.dwBuildNumber >= dwBuild;
+	}
+
+	// ---- 常用别名 ----
+	static BOOL IsWindows10AnniversaryOrGreater()   { return IsWindows10BuildOrGreater(14393); }
+	static BOOL IsWindows10CreatorsOrGreater()       { return IsWindows10BuildOrGreater(15063); }   // WebView2 / GetDpiForWindow
+	static BOOL IsWindows10FallCreatorsOrGreater()   { return IsWindows10BuildOrGreater(16299); }
+	static BOOL IsWindows10DarkModeOrGreater()       { return IsWindows10BuildOrGreater(17134); }   // DWMWA_USE_IMMERSIVE_DARK_MODE=20
+	static BOOL IsWindows10May2020OrGreater()        { return IsWindows10BuildOrGreater(19041); }
+
 	static BOOL IsWindowsServer()
 	{
 		OSVERSIONINFOEXW osvi = { sizeof(osvi), 0, 0, 0, 0, {0}, 0, 0, 0, VER_NT_WORKSTATION };

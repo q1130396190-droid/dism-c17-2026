@@ -16,6 +16,13 @@
   </compatibility>
   <application xmlns="urn:schemas-microsoft-com:asm.v3">
     <windowsSettings>
+      <!--
+        DPI 感知声明采用"分版本降级"策略：
+        - Win10 1607 (Anniversary Update, Build 14393):  仅支持 2005 namespace
+        - Win10 1703+ (Creators Update, Build 15063):     支持 SMI/2016 + PerMonitorV2
+        PerMonitorV2 的 SMI/2016 namespace 在 1607 上可能解析失败，
+        2005 namespace 的 true/pm 已经足够让 1607 识别为 Per-Monitor。
+      -->
       <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/pm</dpiAware>
       <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2,PerMonitor</dpiAwareness>
     </windowsSettings>

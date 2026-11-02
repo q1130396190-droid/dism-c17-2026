@@ -554,10 +554,10 @@ void CFrameWnd::MenuCmdLangByCmd(int iCmd)
 
 void CFrameWnd::MenuCmdHelpUrl(int iCmd)
 {
-    // [R-B88] 帮助/官网/反馈网址暂时全部留空，后期统一在此填入新地址。
-    static const wchar_t* kHelpUrlProduct  = L"";  // 软件主页
-    static const wchar_t* kHelpUrlWebsite  = L"";  // 官方网站
-    static const wchar_t* kHelpUrlFeedback = L"";  // 问题反馈
+    // 帮助菜单跳转：产品主页 / 官方发布 / 问题反馈（GitHub）
+    static const wchar_t* kHelpUrlProduct  = L"https://github.com/q1130396190-droid/dism-c17-2026";     // 开源仓库主页
+    static const wchar_t* kHelpUrlWebsite  = L"https://github.com/q1130396190-droid/dism-c17-2026/releases"; // Release 发布页
+    static const wchar_t* kHelpUrlFeedback = L"https://github.com/q1130396190-droid/dism-c17-2026/issues"; // Issues 反馈
     const wchar_t* pszUrl =
         (iCmd == static_cast<int>(EMenuCmd::MC_HELP_PRODUCT))  ? kHelpUrlProduct :
         (iCmd == static_cast<int>(EMenuCmd::MC_HELP_WEBSITE))  ? kHelpUrlWebsite :

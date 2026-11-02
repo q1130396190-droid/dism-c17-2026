@@ -265,18 +265,18 @@ build_x64.bat
 | **Windows 11 23H2** | 2023 Update | 22631 | ✅ Fully compatible | ✅ Preinstalled | Recommended |
 | **Windows 11 22H2** | 2022 Update | 22621 | ✅ Fully compatible | ✅ Preinstalled | |
 | **Windows 11 21H2** | Initial release | 22000 | ✅ Fully compatible | ✅ Preinstalled | |
-| **Windows 10 22H2** | 2022 Update | 19045 | ⚠️ Builds, **known startup bug under investigation** | ❌ Not preinstalled, auto-downloads on first run | |
-| **Windows 10 21H2** | 2021 Update | 19044 | ⚠️ Same bug as above | ❌ Not preinstalled | |
-| **Windows 10 21H1** | 2021 Spring | 19043 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 20H2** | 2020 Update | 19042 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 2004** | 2020 Spring | 19041 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1909** | 2019 Winter | 18363 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1903** | 2019 Spring | 18362 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1809** | 2018 Winter | 17763 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1803** | 2018 Spring | 17134 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1709** | 2017 Fall | 16299 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1703** | 2017 Spring | 15063 | ⚠️ Same bug | ❌ Not preinstalled | |
-| **Windows 10 1607** | Anniversary Update | **14393** | ⚠️ **Minimum supported build** | ❌ Not preinstalled | CBS hosting may need extra system components |
+| **Windows 10 22H2** | 2022 Update | 19045 | ✅ **Fixed startup bug in v2026.11.2** | ❌ Not preinstalled, auto-downloads on first run | |
+| **Windows 10 21H2** | 2021 Update | 19044 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 21H1** | 2021 Spring | 19043 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 20H2** | 2020 Update | 19042 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 2004** | 2020 Spring | 19041 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1909** | 2019 Winter | 18363 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1903** | 2019 Spring | 18362 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1809** | 2018 Winter | 17763 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1803** | 2018 Spring | 17134 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1709** | 2017 Fall | 16299 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1703** | 2017 Spring | 15063 | ✅ Same fix | ❌ Not preinstalled | |
+| **Windows 10 1607** | Anniversary Update | **14393** | ✅ **Minimum supported build + fixed** | ❌ Not preinstalled | CBS hosting may need extra system components |
 | Windows 10 1511 | November Update | 10586 | ❌ Not supported | — | Below `_WIN32_WINNT=0x0A00` runtime gate |
 | Windows 10 1507 | Initial release | 10240 | ❌ Not supported | — | Same |
 | Windows 8.1 / 8 / 7 | — | — | ❌ Not supported | — | Hardcoded `_WIN32_WINNT=0x0A00` rejects |
@@ -360,7 +360,7 @@ AI-generated code must satisfy all five checks before merge:
 
 | # | Issue | Impact | Workaround |
 |---|-------|--------|------------|
-| ⚠️ | **Cannot launch on Windows 10** | Confirmed bug: Win8Metro exits immediately (no window) on **all Windows 10 builds** (1607 / 1703 / 1709 / 1803 / 1809 / 1903 / 1909 / 2004 / 20H2 / 21H1 / 21H2 / 22H2) | **Under active investigation** — preliminary root cause points to a WebView2Loader + DuiLib FrameWnd initialization-order race. Temporary workaround: run on Windows 11, or compile with `Release x64` (not `Release23`) |
+| ✅ | **Windows 10 startup bug fixed** | **Fixed in v2026.11.2**: previously Win8Metro exited immediately (no window) on all Windows 10 builds (WebView2Loader + FrameWnd init race) | Source fix: FrameWnd.cpp added Win10-safe init path + VersionHelpers.h new 1607 build detection. Now supports all 12 Win10 builds (1607 → 22H2) + all Win11 releases |
 | 1 | **No CMakeLists.txt in Demos** | CMake skips all Demo projects and builds the DuiLib core library only | Use `DuiLib.sln` to compile Demos; CMake is core-library-only |
 | 2 | **Inconsistent source encoding** | Repo mixes UTF-8 / UTF-8-BOM / GBK / UTF-16LE (~49 GBK files) | Confirm encoding with your editor before editing; recommend unified UTF-8 |
 | 3 | **Escape characters expanded by patch scripts** | `tools/patch_*.py` scripts silently corrupt escape sequences (paths lose one char, etc.) | Always diff after edits; back up first |

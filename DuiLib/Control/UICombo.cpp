@@ -555,7 +555,8 @@ namespace DuiLib {
 				SelectItem(FindSelectable(0, false));
 				return;
 			case VK_END:
-				SelectItem(FindSelectable(GetCount() - 1, true));
+				// [WIN10-FIX] 空列表时 GetCount()-1 = -1，需兜底。
+				SelectItem(FindSelectable(GetCount() > 0 ? (GetCount() - 1) : 0, true));
 				return;
 			}
 		}

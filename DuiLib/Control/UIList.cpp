@@ -410,7 +410,9 @@ namespace DuiLib {
 					if (m_aSelItems.GetSize() > 0) {
 						int index = GetMaxSelItemIndex() + 1;
 						UnSelectAllItems();
-						index + 1 > m_pList->GetCount() ? SelectItem(GetCount() - 1, true) : SelectItem(index, true);
+						const int nMaxIndex = GetCount();
+						// [WIN10-FIX] 空列表时 GetCount()-1 = -1，需兜底。
+						index + 1 > nMaxIndex ? SelectItem(nMaxIndex > 0 ? (nMaxIndex - 1) : -1, true) : SelectItem(index, true);
 					}
 				}
 				return;
@@ -424,7 +426,8 @@ namespace DuiLib {
 				SelectItem(FindSelectable(0, false), true);
 				return;
 			case VK_END:
-				SelectItem(FindSelectable(GetCount() - 1, true), true);
+				// [WIN10-FIX] 空列表时 GetCount()-1 = -1，需传 -1 给 FindSelectable。
+				SelectItem(FindSelectable(GetCount() > 0 ? (GetCount() - 1) : 0, true), true);
 				return;
 			case VK_RETURN:
 				if (m_iCurSel != -1) GetItemAt(m_iCurSel)->Activate();

@@ -55,14 +55,16 @@ namespace DuiLib {
 		int iOldSel = m_iCurSel;
 		m_iCurSel = iIndex;
 		for( int it = 0; it < m_items.GetSize(); it++ ) {
+			CControlUI* pItem = GetItemAt(it);
+			if( pItem == nullptr ) continue;
 			if( it == iIndex ) {
-				GetItemAt(it)->SetVisible(true);
-				GetItemAt(it)->SetFocus();
+				pItem->SetVisible(true);
+				pItem->SetFocus();
 				m_bControlVisibleFlag = false;
 				m_pCurrentControl = static_cast<CControlUI*>(m_items[it]);
 				
 			}
-			else GetItemAt(it)->SetVisible(false);
+			else pItem->SetVisible(false);
 		}
 
 		NeedParentUpdate();

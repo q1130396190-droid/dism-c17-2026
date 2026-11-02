@@ -15,7 +15,10 @@ namespace DuiLib
 		m_iChildAlign(DT_LEFT),
 		m_iChildVAlign(DT_TOP),
 		m_bAutoDestroy(true),
-		m_bDelayedDestroy(true),
+		// [WIN10-FIX] 禁用延迟销毁：Win10 上 vector 重分配期间 AddDelayedCleanup
+		// 可能把已失效的指针放进延迟列表，WM_APP+1 消息到来时 delete 垃圾指针导致崩溃。
+		// 改为直接 delete（与 CPaintManagerUI::~CPaintManagerUI 的销毁顺序也更安全）。
+		m_bDelayedDestroy(false),
 		m_bMouseChildEnabled(true),
 		m_pVerticalScrollBar(nullptr),
 		m_pHorizontalScrollBar(nullptr),
@@ -118,6 +121,10 @@ namespace DuiLib
 		DUI_ASSERT_UI_THREAD_FOR(m_pManager);
 		if( pControl == nullptr) return false;
 
+		// [WIN10-CRASH] 指针有效性校验
+		uintptr_t paddr = reinterpret_cast<uintptr_t>(pControl);
+		if( paddr < 0x10000 || paddr > 0x00007FFFFFFFFFFF ) return false;
+
 		for( int it = 0; it < m_items.GetSize(); it++ ) {
 			if( static_cast<CControlUI*>(m_items[it]) == pControl ) {
 				NeedUpdate();
@@ -146,6 +153,11 @@ namespace DuiLib
 		DUI_ASSERT_UI_THREAD_FOR(m_pManager);
  		for( int it = 0; m_bAutoDestroy && it < m_items.GetSize(); it++ ) {
 			CControlUI* pItem = static_cast<CControlUI*>(m_items[it]);
+			// [WIN10-CRASH] 指针有效性校验
+			if( pItem != nullptr ) {
+				uintptr_t paddr = reinterpret_cast<uintptr_t>(pItem);
+				if( paddr < 0x10000 || paddr > 0x00007FFFFFFFFFFF ) continue;
+			}
 			if( m_bDelayedDestroy && m_pManager ) {
 				m_pManager->AddDelayedCleanup(pItem);             
 			}
@@ -642,21 +654,29 @@ namespace DuiLib
 	{
 		// NOTE: This is actually a helper-function for the list/combo/ect controls
 		//       that allow them to find the next enabled/available selectable item
-		if( GetCount() == 0 ) return -1;
-		iIndex = CLAMP(iIndex, 0, GetCount() - 1);
+		const int nCount = GetCount();
+		if( nCount == 0 ) return -1;
+		// [WIN10-FIX] CLAMP 安全边界：GetCount()-1 若为 -1（空容器），上限用 0 兜底。
+		const int nMaxIndex = (nCount > 0) ? (nCount - 1) : 0;
+		iIndex = CLAMP(iIndex, 0, nMaxIndex);
 		if( bForward ) {
-			for( int i = iIndex; i < GetCount(); i++ ) {
-				if( GetItemAt(i)->GetInterface(_T("ListItem")) != nullptr 
-					&& GetItemAt(i)->IsVisible()
-					&& GetItemAt(i)->IsEnabled() ) return i;
+			for( int i = iIndex; i < nCount; i++ ) {
+				CControlUI* pItem = GetItemAt(i);
+				// [WIN10-FIX] GetItemAt 可能返回 nullptr（越界/空容器），先检查再解引用。
+				if( pItem == nullptr ) continue;
+				if( pItem->GetInterface(_T("ListItem")) != nullptr 
+					&& pItem->IsVisible()
+					&& pItem->IsEnabled() ) return i;
 			}
 			return -1;
 		}
 		else {
 			for( int i = iIndex; i >= 0; --i ) {
-				if( GetItemAt(i)->GetInterface(_T("ListItem")) != nullptr 
-					&& GetItemAt(i)->IsVisible()
-					&& GetItemAt(i)->IsEnabled() ) return i;
+				CControlUI* pItem = GetItemAt(i);
+				if( pItem == nullptr ) continue;
+				if( pItem->GetInterface(_T("ListItem")) != nullptr 
+					&& pItem->IsVisible()
+					&& pItem->IsEnabled() ) return i;
 			}
 			return FindSelectable(0, true);
 		}
