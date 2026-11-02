@@ -141,7 +141,7 @@
 
 | 组件 | 最低版本 | 说明 |
 |------|----------|------|
-| **Windows** | Windows 10 22H2 / Windows 11 | x64 架构（拒绝 Win32 / ARM） |
+| **Windows** | Windows 10 **21H2 (19044)** / 22H2 (19045) / Windows 11 全版本 | x64 架构（拒绝 Win32 / ARM）；最低支持 Win10 21H2，但 WebView2 功能需 22H2+ |
 | **Visual Studio** | VS 2026（Preview 及以上） | 需安装「使用 C++ 的桌面开发」工作负载 |
 | **PlatformToolset** | v145（MSVC 14.51） | 项目已全部迁移到 v145 |
 | **Windows SDK** | 10.0.26100.0 或更新 | 编译脚本会自动探测 `10.0.28000.0` → `10.0.26100.0` |
@@ -250,7 +250,7 @@ build_x64.bat
 
 | 依赖 | 说明 |
 |------|------|
-| **操作系统** | Windows 10 22H2+ 或 Windows 11 全版本（x64） |
+| **操作系统** | **最低支持 Windows 10 21H2 (Build 19044)** — 推荐 22H2 (Build 19045) 或 Windows 11 全版本（x64 only） |
 | **VC++ 运行时** | Microsoft Visual C++ 2026 Redistributable (x64) — 安装 VS 或单独安装 |
 | **WebView2 Runtime** | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) — 安装 Win8Metro.exe 便携版时，`amd64/WebView2Loader.dll` 会按需加载 |
 | **WinPE**（可选） | Win8Metro 工具支持在 WinPE 中运行，需集成 `amd64/` 目录下的 DLL |
@@ -332,14 +332,14 @@ AI 生成的代码在合入前必须满足：
 
 | # | 问题 | 影响 | 解决 / 绕过 |
 |---|------|------|------------|
-| ⚠️ | **Windows 10 上无法启动** | 已知 Bug：Win8Metro 在 Windows 10（22H2 及所有此前版本）上双击启动后进程立即退出，无任何窗口 | **正在修复中** — 初步定位为 WebView2Loader + DuiLib FrameWnd 初始化顺序竞态。临时绕过：在 Win11 上运行，或使用 `Release x64`（非 Release23）编译 |
+| ⚠️ | **Windows 10 上无法启动** | 已知 Bug：Win8Metro 在 **所有 Windows 10 版本**（21H2 / 22H2 / 19044 / 19045）上双击启动后进程立即退出，无任何窗口 | **正在修复中** — 初步定位为 WebView2Loader + DuiLib FrameWnd 初始化顺序竞态。临时绕过：在 Win11 上运行，或使用 `Release x64`（非 Release23）编译 |
 | 1 | **Demos 无 CMakeLists.txt** | CMake 构建会跳过所有 Demo 项目，只产出 DuiLib 库 | Demo 必须用 `DuiLib.sln` 编译；CMake 仅适合构建核心库 |
 | 2 | **源码编码不统一** | 仓库同时存在 UTF-8 / UTF-8-BOM / GBK / UTF-16LE 四种编码（约 49 个 GBK 文件） | 修改前请先用编辑器确认编码；推荐统一转 UTF-8 |
 | 3 | **源码改写中转义字符被展开** | `tools/patch_*.py` 系列脚本会静默损坏源码中的转义字符（路径吃掉一个字符等） | 改代码后务必 diff 检查；建议先备份 |
 | 4 | **x64-only 强制** | 在 x86 / ARM / ARM64 机器上编译会被拒绝 | 必须 x64 CPU + x64 Windows |
 | 5 | **VS 生成器找不到** | `cmake -G "Visual Studio 18 2026"` 报 `could not find any instance of Visual Studio` | 改用 Ninja（先 `vcvars64.bat`），或在 VS Installer 里修复安装 |
 | 6 | **duilibcalc 链接** | 手动 link Win8Metro 时，如果 Rust 模块尚未编译，会报 `duilibcalc.dll.lib not found` | 先 `cargo build --release` 并把 `duilibcalc.dll.lib` 拷到 `bin64/amd64/` |
-| 7 | **Windows 7 / 8 不支持** | `_WIN32_WINNT=0x0A00` 硬编码 | 必须 Windows 10 或更新 |
+| 7 | **Windows 7 / 8 / 8.1 不支持** | `_WIN32_WINNT=0x0A00` 硬编码；**最低支持 Win10 21H2 (Build 19044)** | 必须 Windows 10 21H2 或更新；CBSHost / NCleaner 虽有 `_WIN32_WINNT=0x0601` 定义，但主程序不兼容 Win7 |
 | 8 | **便携版缺失运行时** | 目标机器没有 VC++ 运行时或 WebView2 Runtime 会报缺少 DLL | 安装 VC++ 2026 Redistributable 和 WebView2 Runtime |
 | 9 | **WebView2 Loader** | Win10 21H2 及更早版本未预装 WebView2 Runtime | 首次启动时 `WebView2Loader.dll` 会尝试自动下载，如失败请手动安装 |
 | 10 | **多语言缺失** | 未复制 `lang/` 目录时 UI 显示 `[zh-CN:xxx]` 占位符 | 部署时确保完整拷贝 `lang/` 目录 |
