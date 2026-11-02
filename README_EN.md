@@ -24,24 +24,97 @@ A lightweight, high-performance, extensible Windows desktop UI library and toolb
 
 ## Overview
 
-**DuiLib_Ultimate** is an open-source powerhouse for Windows UI development, built around three design pillars: **lightweight**, **performant**, and **extensible**. It is purpose-built for Windows desktop experiences.
+**DuiLib_Ultimate** is an open-source powerhouse for Windows UI development, built around three design pillars: **lightweight**, **performant**, and **extensible**. This repository ships both the UI framework and a complete desktop application built on top of it — **Win8Metro**.
 
-Key highlights of this repository:
+---
 
-- **x64-only**: all build configurations drop Win32 / ARM / ARM64 — one focused target platform
+### Win8Metro · Windows System Maintenance Toolkit
+
+**Win8Metro** is an all-in-one Windows 10/11 deployment and maintenance tool covering 17 operational scenarios — from system cleanup and driver management to unattended installation. It features a classic Metro-style interface, 11 localizations, and ships as a portable, extract-and-run release.
+
+#### 🧩 Feature Modules
+
+| Module | Description | Technical Highlights |
+|--------|-------------|---------------------|
+| **🧹 System Cleanup** | One-click cleanup of temp files, thumbnail cache, Windows Update residuals, Delivery Optimization cache, previous Windows versions | Multi-threaded scan, WIM-mounted cleanup |
+| **🚀 Startup Manager** | Boot-time autostart entries, scheduled tasks, drivers, services, Shell extensions | Registry + filesystem dual-engine scan |
+| **💾 Driver Management** | Scan installed drivers, backup, restore, uninstall | VSS snapshot protection, PNP device tree traversal |
+| **🟦 Features On/Off** | DISM component enable/disable (.NET Framework, Hyper-V, Sandbox, etc.) | CBS hosting + offline WIM support |
+| **🔄 Windows Update** | Online / offline cumulative update install, history, rollback | CBS sessions + SSU/LCU batch injection |
+| **🟪 Appx Management** | Batch install/uninstall/cleanup of Microsoft Store apps | AppxPackage API + offline package deployment |
+| **📋 Installed Programs** | 32/64-bit software inventory, batch uninstall, silent uninstall | Registry Uninstall keys + MSI parsing |
+| **🔗 File Associations** | View and modify default handlers for file extensions | ASSOC / FTYPE + IApplicationAssociationRegistration |
+| **🎛️ Control Panel** | One-click shortcuts to all system settings | Windows Shell command wrappers |
+| **🛠️ Toolset** | Disk partition manager, ISO mount, WIM image processing, system image backup, BCD editor, VSS shadows | Standalone Wizard + DISM API |
+| **🌐 Internationalization** | Switch system UI language, install language packs | 11 languages (zh-CN, en-US, ja-JP, ko-KR, ru, de, fr, it, hu, pl-PL, cs) |
+| **⚡ System Optimization** | Disable telemetry, turn off Defender, enable Ultimate Performance, font cleanup | Registry + Group Policy + Scheduled Tasks |
+| **🧽 Registry Cleanup** | Invalid registry scan, orphan references, uninstall residuals | Registry hash verification + safe whitelist |
+| **📅 Scheduled Tasks** | List/disable system and third-party scheduled tasks | ITaskScheduler interface |
+| **📦 Unattended Setup** | Generate Autounattend.xml, Sysprep packaging, ISO auto-install | Windows SIM config + BCD boot |
+
+#### 🏗️ Software Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     Win8Metro.exe                       │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │                 DuiLib UI Layer                   │  │
+│  │  FrameWnd / PageHost / ThemeService / StringMgr   │  │
+│  └──────────────────────────────────────────────────┘  │
+│  ┌─────────┬──────────┬──────────┬─────────────────┐  │
+│  │ Theme   │ Resource │  Intl    │   Config / Seed  │  │
+│  │ Manager │ Manager  │ Service  │                  │  │
+│  └─────────┴──────────┴──────────┴─────────────────┘  │
+│  ┌─────────┬──────────┬──────────┬─────────────────┐  │
+│  │  Clean  │ Driver   │ Feature  │  Update / Appx  │  │
+│  │ Engine  │ Service  │ Service  │   Service        │  │
+│  └─────────┴──────────┴──────────┴─────────────────┘  │
+│  ┌─────────┬──────────┬──────────┬─────────────────┐  │
+│  │ CBSHost │ NCleaner │  Activ.  │   duilibcalc    │  │
+│  └─────────┴──────────┴──────────┴─────────────────┘  │
+│  ┌──────────────┬────────────────────────────────────┐  │
+│  │ Rust FFI     │   Win32 / COM / DISM API           │  │
+│  │ (Hash/Crypto)│                                    │  │
+│  └──────────────┴────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
+```
+
+#### 🔐 Security & Permissions
+
+- **Admin required**: Features touching DISM, drivers, CBS require administrator elevation
+- **VSS snapshot protection**: System restore points are created automatically before cleanup
+- **Whitelist mechanism**: Both registry cleanup and driver operations ship with built-in safety whitelists
+
+---
+
+### DuiLib_Ultimate Core Library
+
+The UI foundation — DuiLib_Ultimate — powers Win8Metro and is available for any C++ desktop project:
+
+- **x64-only**: all build configurations drop Win32 / ARM / ARM64
 - **C++17 minimum**: supports a C++23 modern track (`DUI_TRACK=modern`)
-- **Windows 10+**: `_WIN32_WINNT=0x0A00`, no Win7/8 support
+- **Windows 10+**: `_WIN32_WINNT=0x0A00`
 - **WebView2 integration**: Edge WebView2 rendering control enabled by default on the modern track
 - **Rust submodule**: `dismcore` — a memory-safe calculation module written in Rust
-- **Win8Metro release**: a full Windows desktop deployment-maintenance toolkit is included as a prebuilt package
+- **API-compatible**: upstream DuiLib compatibility with built-in migration scripts
+- **Stylesheet (Style)**: centralized control properties, one-line skin switch
+- **Resource manager**: embedded Zip resource loading with automatic external-file fallback
+- **Localization framework**: runtime language-pack hot swap
+- **Per-Monitor V2 DPI awareness**
 
-Capabilities inherited from the upstream DuiLib project:
+---
 
-1. API-compatible with official DuiLib
-2. Built-in resource manager, stylesheet (Style), and localization framework
-3. High-DPI auto-adaptive
-4. Rich control extensions (DateTime, IPAddress, ColorPicker, List gridlines / multi-select, etc.)
-5. Multiple compile options: Debug / Release, static / dynamic library
+### Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| UI Framework | DuiLib_Ultimate (C++17) |
+| Build Toolchain | Visual Studio 2026 (MSVC 14.51) + CMake 3.20 |
+| System APIs | Win32 / COM / DISM / CBS / VSS / Appx |
+| Compute Module | Rust 1.74+ (duilibcalc FFI) |
+| Image Processing | CxImage |
+| Embedded Browser | Microsoft Edge WebView2 |
+| Skin Format | Custom XML + bundled image resources |
 
 ---
 
