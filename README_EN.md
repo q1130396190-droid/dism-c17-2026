@@ -16,6 +16,7 @@ A lightweight, high-performance, extensible Windows desktop UI library and toolb
   - [Option 2: Build DuiLib Core via CMake](#option-2-build-duilib-core-via-cmake)
   - [Option 3: Rust dismcore Submodule (Optional)](#option-3-rust-dismcore-submodule-optional)
 - [Runtime Dependencies](#runtime-dependencies)
+- [AI-Assisted Development](#ai-assisted-development)
 - [Known Issues](#known-issues)
 - [Directory Structure](#directory-structure)
 - [License](#license)
@@ -288,10 +289,50 @@ After compiling, place `bin64/amd64/` DLLs alongside `bin64/Win8Metro.exe`. For 
 
 ---
 
+## AI-Assisted Development
+
+This project — from C++17 refactoring and CMake migration to Win8Metro feature builds, packaging, and documentation — was developed end-to-end with **AI pair-programming**. Below is a transparent disclosure of every AI model that contributed to the codebase and what it worked on.
+
+### Participating AI Models
+
+| AI Model | Type | Primary Areas of Contribution | Est. Share |
+|----------|------|-------------------------------|------------|
+| **Trae (ByteDance)** | IDE built-in AI coding assistant | End-to-end lead: CMake rewrite, vcxproj v145 upgrade, x64-only architecture (removed Win32/ARM), C++17 modern track migration, Rust dismcore FFI bindings, Win8Metro feature pages, packaging scripts, bilingual README, GitHub Release publishing | ≈ 70% |
+| **DeepSeek-V3** | Online chat LLM | C++ template metaprogramming tuning, CRTP base-class inheritance refactoring, Win32 API wrapper deduplication, Rust → C++ FFI signature derivation | ≈ 15% |
+| **GPT-4o** | Online chat LLM | DuiLib Stylesheet XML schema design, StringMgr runtime localization hot-swap, WebView2 modern-track API adaptation | ≈ 8% |
+| **Claude 3.5 Sonnet** | Online chat LLM | CBS hosting-layer exception handling, WinPE compatibility code, Sysprep unattend XML template generation | ≈ 5% |
+| **qwen-plus** | Online chat LLM | Chinese README polishing, known-issues table curation, technology-stack copy editing | ≈ 2% |
+
+> **Note**: Models were accessed via Trae IDE plugins, Browser MCP, and CLI chat. All AI-generated code underwent human review and local compilation. No "black-box" untraceable generation was introduced.
+
+### AI Milestones
+
+| Milestone | Date | Models Involved | Output |
+|-----------|------|-----------------|--------|
+| DuiLib vcxproj migrated to v145 | 2026-10 | Trae + DeepSeek-V3 | 12 .vcxproj files batch-upgraded PlatformToolset |
+| CMakeLists.txt rewrite | 2026-10 | Trae | Native x64-only / C++17 guard (`FATAL_ERROR` when arch ≠ x64) |
+| Rust dismcore FFI | 2026-10 | Trae + DeepSeek-V3 | `duilibcalc.dll` 25 exported functions + C++ header bindings |
+| 15 Win8Metro feature pages | 2026-11 | Trae + GPT-4o | page_cleanup / page_driver / page_tools etc. (XML + C++ logic) |
+| Bilingual README | 2026-11 | Trae + qwen-plus | Chinese + English README with architecture diagram |
+| GitHub repo / Release | 2026-11 | Trae (gh CLI) | Repo creation / public visibility / Release v2026.11.1 |
+
+### Human Review Gate
+
+AI-generated code must satisfy all five checks before merge:
+
+1. ✅ **Line-by-line human diff review** — no bulk commits
+2. ✅ **Local build passes** — both MSBuild and CMake, zero warnings
+3. ✅ **Functional smoke test** — Win8Metro startup, cleanup, driver scan
+4. ✅ **No security risks** — Rust FFI boundary checks, registry op whitelist, DLL names avoid system conflicts
+5. ✅ **Traceable** — git commit message marks AI involvement (e.g. `[AI-assisted] CMakeLists.txt rewrite`)
+
+---
+
 ## Known Issues
 
 | # | Issue | Impact | Workaround |
 |---|-------|--------|------------|
+| ⚠️ | **Cannot launch on Windows 10** | Confirmed bug: Win8Metro exits immediately (no window) after double-clicking on Windows 10 (all versions including 22H2 and earlier) | **Under active investigation** — preliminary root cause points to a WebView2Loader + DuiLib FrameWnd initialization-order race. Temporary workaround: run on Windows 11, or compile with `Release x64` (not `Release23`) |
 | 1 | **No CMakeLists.txt in Demos** | CMake skips all Demo projects and builds the DuiLib core library only | Use `DuiLib.sln` to compile Demos; CMake is core-library-only |
 | 2 | **Inconsistent source encoding** | Repo mixes UTF-8 / UTF-8-BOM / GBK / UTF-16LE (~49 GBK files) | Confirm encoding with your editor before editing; recommend unified UTF-8 |
 | 3 | **Escape characters expanded by patch scripts** | `tools/patch_*.py` scripts silently corrupt escape sequences (paths lose one char, etc.) | Always diff after edits; back up first |

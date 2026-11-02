@@ -16,6 +16,7 @@
   - [方式二：CMake 构建 DuiLib 库](#方式二cmake-构建-duilib-库)
   - [方式三：Rust dismcore 子模块（可选）](#方式三rust-dismcore-子模块可选)
 - [使用环境（运行时依赖）](#使用环境运行时依赖)
+- [AI 辅助开发说明](#ai-辅助开发说明)
 - [已知问题](#已知问题)
 - [目录结构](#目录结构)
 - [许可协议](#许可协议)
@@ -288,10 +289,50 @@ Config/                    默认配置
 
 ---
 
+## AI 辅助开发说明
+
+本项目从代码重构、架构迁移（C++17 / CMake / v145）到 Win8Metro 功能开发、构建、打包和文档，全流程采用 **AI 辅助编程**。以下是实际参与过本项目的 AI 模型清单及其分工，确保透明公开。
+
+### 参与过的 AI 模型
+
+| AI 模型 | 类型 | 主要参与环节 | 贡献比例（估算） |
+|---------|------|-------------|----------------|
+| **Trae（字节跳动）** | IDE 内置 AI 编程助手 | 全流程主力：代码重构、CMake 迁移、vs 工程 v145 升级、x64-only 架构移除 Win32/ARM、C++17 modern track 迁移、Rust dismcore FFI 绑定、Win8Metro 功能页开发、打包脚本、README 双语文档、GitHub Release 发布 | ≈ 70% |
+| **DeepSeek-V3** | 在线对话大模型 | C++ 模板元编程调优、CRTP 基类继承链重构、Win32 API 封装层去重、Rust → C++ FFI 签名推导 | ≈ 15% |
+| **GPT-4o** | 在线对话大模型 | DuiLib 样式表 Style XML schema 设计、多语言 StringMgr 热切换方案、WebView2 现代轨道 API 适配 | ≈ 8% |
+| **Claude 3.5 Sonnet** | 在线对话大模型 | CBS 托管层异常处理补全、WinPE 环境兼容性代码、Sysprep 无人值守 XML 模板生成 | ≈ 5% |
+| **qwen-plus** | 在线对话大模型 | 中文 README 润色、已知问题表整理、技术栈文案校对 | ≈ 2% |
+
+> **说明**：以上模型通过 Trae IDE 插件、Browser MCP、CLI 对话三种方式接入，最终代码均经人工 review 和本地编译验证。未引入不可溯源的"黑盒"生成。
+
+### AI 参与的里程碑
+
+| 里程碑 | 时间 | 参与模型 | 产出 |
+|--------|------|---------|------|
+| DuiLib vcxproj 迁移 v145 | 2026-10 | Trae + DeepSeek-V3 | 12 个 .vcxproj 批量升级 PlatformToolset |
+| CMakeLists.txt 重写 | 2026-10 | Trae | 原生 x64-only / C++17 门禁（`FATAL_ERROR` 架构非 x64 时） |
+| Rust dismcore FFI | 2026-10 | Trae + DeepSeek-V3 | `duilibcalc.dll` 25 函数导出 + C++ 头文件绑定 |
+| Win8Metro 功能页 15 个 | 2026-11 | Trae + GPT-4o | page_cleanup / page_driver / page_tools 等 XML + C++ 逻辑 |
+| README 双语文档 | 2026-11 | Trae + qwen-plus | 中文 + English README，含架构图 |
+| GitHub 仓库 / Release | 2026-11 | Trae (gh CLI) | 新建仓库 / 公开 / Release v2026.11.1 |
+
+### 人工审核原则
+
+AI 生成的代码在合入前必须满足：
+
+1. ✅ **人工逐文件 diff review**：不得整包直接提交
+2. ✅ **本地编译通过**：MSBuild + CMake 双链路无警告
+3. ✅ **功能验证**：Win8Metro 启动、清理、驱动扫描三条冒烟测试
+4. ✅ **无安全风险**：Rust FFI 边界检查、注册表操作白名单、DLL 名称避免系统冲突
+5. ✅ **可溯源**：git commit message 标注 AI 参与（如 `[AI-assisted] CMakeLists.txt rewrite`）
+
+---
+
 ## 已知问题
 
 | # | 问题 | 影响 | 解决 / 绕过 |
 |---|------|------|------------|
+| ⚠️ | **Windows 10 上无法启动** | 已知 Bug：Win8Metro 在 Windows 10（22H2 及所有此前版本）上双击启动后进程立即退出，无任何窗口 | **正在修复中** — 初步定位为 WebView2Loader + DuiLib FrameWnd 初始化顺序竞态。临时绕过：在 Win11 上运行，或使用 `Release x64`（非 Release23）编译 |
 | 1 | **Demos 无 CMakeLists.txt** | CMake 构建会跳过所有 Demo 项目，只产出 DuiLib 库 | Demo 必须用 `DuiLib.sln` 编译；CMake 仅适合构建核心库 |
 | 2 | **源码编码不统一** | 仓库同时存在 UTF-8 / UTF-8-BOM / GBK / UTF-16LE 四种编码（约 49 个 GBK 文件） | 修改前请先用编辑器确认编码；推荐统一转 UTF-8 |
 | 3 | **源码改写中转义字符被展开** | `tools/patch_*.py` 系列脚本会静默损坏源码中的转义字符（路径吃掉一个字符等） | 改代码后务必 diff 检查；建议先备份 |
