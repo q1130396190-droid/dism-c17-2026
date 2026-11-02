@@ -141,7 +141,7 @@ The UI foundation — DuiLib_Ultimate — powers Win8Metro and is available for 
 
 | Component | Minimum Version | Notes |
 |-----------|-----------------|-------|
-| **Windows** | Windows 10 **21H2 (19044)** / 22H2 (19045) / all Windows 11 | x64 only (Win32 / ARM rejected); minimum Win10 21H2, WebView2 features require 22H2+ |
+| **Windows** | Windows 10 **1607 (14393)** and all later builds / all Windows 11 (x64) | x64 only (Win32 / ARM rejected); see full compatibility table below |
 | **Visual Studio** | VS 2026 (Preview or newer) | Install "Desktop development with C++" workload |
 | **PlatformToolset** | v145 (MSVC 14.51) | All vcxproj files migrated to v145 |
 | **Windows SDK** | 10.0.26100.0 or newer | Build scripts probe `10.0.28000.0` → `10.0.26100.0` |
@@ -250,10 +250,38 @@ build_x64.bat
 
 | Dependency | Notes |
 |------------|-------|
-| **OS** | **Minimum supported: Windows 10 21H2 (Build 19044)** — recommended 22H2 (Build 19045) or any Windows 11 release (x64 only) |
+| **OS** | **Minimum supported: Windows 10 1607 (Build 14393)** — recommended Win10 22H2 or any Windows 11 (x64 only). See full compatibility table below |
 | **VC++ Runtime** | Microsoft Visual C++ 2026 Redistributable (x64) — installed with VS or separately |
-| **WebView2 Runtime** | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) — the `amd64/WebView2Loader.dll` probes for this at runtime |
+| **WebView2 Runtime** | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) — probed by `amd64/WebView2Loader.dll` at runtime |
 | **WinPE** (optional) | Win8Metro can run inside WinPE — integrate the `amd64/` directory DLLs |
+
+### Full Compatibility Table
+
+> At compile time, `_WIN32_WINNT=0x0A00` is shared by all Windows 10+ releases — it does not distinguish internal builds. Runtime compatibility is as follows:
+
+| OS | Codename | Build | Status | WebView2 Runtime | Notes |
+|----|----------|-------|--------|-----------------|-------|
+| **Windows 11 24H2** | 2024 Update | 26100 | ✅ Fully compatible | ✅ Preinstalled | **Recommended** |
+| **Windows 11 23H2** | 2023 Update | 22631 | ✅ Fully compatible | ✅ Preinstalled | Recommended |
+| **Windows 11 22H2** | 2022 Update | 22621 | ✅ Fully compatible | ✅ Preinstalled | |
+| **Windows 11 21H2** | Initial release | 22000 | ✅ Fully compatible | ✅ Preinstalled | |
+| **Windows 10 22H2** | 2022 Update | 19045 | ⚠️ Builds, **known startup bug under investigation** | ❌ Not preinstalled, auto-downloads on first run | |
+| **Windows 10 21H2** | 2021 Update | 19044 | ⚠️ Same bug as above | ❌ Not preinstalled | |
+| **Windows 10 21H1** | 2021 Spring | 19043 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 20H2** | 2020 Update | 19042 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 2004** | 2020 Spring | 19041 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1909** | 2019 Winter | 18363 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1903** | 2019 Spring | 18362 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1809** | 2018 Winter | 17763 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1803** | 2018 Spring | 17134 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1709** | 2017 Fall | 16299 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1703** | 2017 Spring | 15063 | ⚠️ Same bug | ❌ Not preinstalled | |
+| **Windows 10 1607** | Anniversary Update | **14393** | ⚠️ **Minimum supported build** | ❌ Not preinstalled | CBS hosting may need extra system components |
+| Windows 10 1511 | November Update | 10586 | ❌ Not supported | — | Below `_WIN32_WINNT=0x0A00` runtime gate |
+| Windows 10 1507 | Initial release | 10240 | ❌ Not supported | — | Same |
+| Windows 8.1 / 8 / 7 | — | — | ❌ Not supported | — | Hardcoded `_WIN32_WINNT=0x0A00` rejects |
+
+> **WebView2 Runtime note**: Edge WebView2 Runtime officially supports Win10 1703 (Build 15063) minimum. It can be installed on 1607 but some browser-control features may be limited. On non-Win11 systems, `WebView2Loader.dll` attempts auto-download on first launch — install the **Evergreen Standalone Installer** manually if it fails.
 
 ### Portable Deployment
 
@@ -332,16 +360,16 @@ AI-generated code must satisfy all five checks before merge:
 
 | # | Issue | Impact | Workaround |
 |---|-------|--------|------------|
-| ⚠️ | **Cannot launch on Windows 10** | Confirmed bug: Win8Metro exits immediately (no window) on **all Windows 10 versions** (21H2 / 22H2 / 19044 / 19045) | **Under active investigation** — preliminary root cause points to a WebView2Loader + DuiLib FrameWnd initialization-order race. Temporary workaround: run on Windows 11, or compile with `Release x64` (not `Release23`) |
+| ⚠️ | **Cannot launch on Windows 10** | Confirmed bug: Win8Metro exits immediately (no window) on **all Windows 10 builds** (1607 / 1703 / 1709 / 1803 / 1809 / 1903 / 1909 / 2004 / 20H2 / 21H1 / 21H2 / 22H2) | **Under active investigation** — preliminary root cause points to a WebView2Loader + DuiLib FrameWnd initialization-order race. Temporary workaround: run on Windows 11, or compile with `Release x64` (not `Release23`) |
 | 1 | **No CMakeLists.txt in Demos** | CMake skips all Demo projects and builds the DuiLib core library only | Use `DuiLib.sln` to compile Demos; CMake is core-library-only |
 | 2 | **Inconsistent source encoding** | Repo mixes UTF-8 / UTF-8-BOM / GBK / UTF-16LE (~49 GBK files) | Confirm encoding with your editor before editing; recommend unified UTF-8 |
 | 3 | **Escape characters expanded by patch scripts** | `tools/patch_*.py` scripts silently corrupt escape sequences (paths lose one char, etc.) | Always diff after edits; back up first |
 | 4 | **x64-only enforcement** | Compilation on x86 / ARM / ARM64 is rejected | Must have x64 CPU + x64 Windows |
 | 5 | **VS generator not found** | `cmake -G "Visual Studio 18 2026"` fails with `could not find any instance of Visual Studio` | Use Ninja (source `vcvars64.bat` first), or repair VS via Installer |
 | 6 | **duilibcalc linking** | Manual Win8Metro links fail if the Rust module has not been compiled (`duilibcalc.dll.lib not found`) | Run `cargo build --release` first, copy `duilibcalc.dll.lib` to `bin64/amd64/` |
-| 7 | **Windows 7 / 8 / 8.1 not supported** | `_WIN32_WINNT=0x0A00` is hardcoded; **minimum Win10 21H2 (Build 19044)** | Windows 10 21H2 or newer required; CBSHost / NCleaner define `_WIN32_WINNT=0x0601` but the main app is Win7-incompatible |
+| 7 | **Windows 7 / 8 / 8.1 not supported** | `_WIN32_WINNT=0x0A00` is hardcoded; **minimum Win10 1607 (Build 14393)** | Win10 1507 / 1511 and earlier, plus Win7 / 8 / 8.1, all rejected. See full compatibility table above |
 | 8 | **Portable runtime missing** | Target machine without VC++ Runtime or WebView2 Runtime fails with missing-DLL errors | Install VC++ 2026 Redistributable and WebView2 Runtime |
-| 9 | **WebView2 Loader** | Win10 21H2 and older do not ship WebView2 Runtime preinstalled | `WebView2Loader.dll` attempts auto-download on first launch; install manually if it fails |
+| 9 | **WebView2 Runtime not preinstalled** | No non-Win11 system ships WebView2 Runtime preinstalled; Win10 1607 / 1703 have limited browser-control functionality after install | `WebView2Loader.dll` auto-downloads on first launch; install the **Evergreen Standalone Installer** manually if it fails |
 | 10 | **Missing language packs** | UI shows `[zh-CN:xxx]` placeholders if the `lang/` directory is absent | Always deploy with the full `lang/` directory |
 
 ---
